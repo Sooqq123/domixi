@@ -1,0 +1,32 @@
+VCD info: dumpfile waves.vcd opened for output.
+
+========================================================
+   STARTING UNIT TESTS FOR fw_data_path_mux
+========================================================
+
+[CASE 1] Test OWNER_NONE: Traffic must be blocked fail-closed
+
+[CASE 2] Test Gate G3: WVALID asserted before AW completes
+
+[CASE 3] Test Allowed Write & Response: wr_owner=ALLOW, wr_aw_done=1
+
+[CASE 4] Test Denied Write: wr_owner=DRAIN
+
+[CASE 5] Test Allowed Read: rd_owner=ALLOW
+
+[CASE 6] Test Denied Read: rd_owner=DRAIN
+
+[CASE 7] Test Simultaneous Operations: Write Denied & Read Allowed
+
+[CASE 8] Test Backpressure: Matrix stalls WREADY
+
+[CASE 9] Test Honeypot Write & Response
+
+[CASE 10] Test Honeypot Read
+
+========================================================
+   PASS: tb_fw_data_path_mux
+   All 10 test scenarios passed with 0 errors!
+========================================================
+
+D:\domixi\tb\tb_fw_data_path_mux.v:550: $finish called at 164000 (1ps)

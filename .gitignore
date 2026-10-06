@@ -1,0 +1,45 @@
+# Python & Pytest caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+**/.pytest_cache/
+
+# IDE & AI Assistant metadata
+.agents/
+.codegraph/
+.vscode/
+.idea/
+
+# EDA simulation and binary outputs
+*.vvp
+*.vcd
+*.fst
+a.out
+*.jou
+*.pb
+
+# Ephemeral output / probe runs (keep physical, evidence, coverage, pdf)
+output/*probe*.log
+output/verilator_help.txt
+output/verification_*.log
+output/verilator_post_fix_*/
+output/acceptance_*/
+output/audit_*/
+output/rtl_acceptance_*/
+output/sim_regression/
+output/sim_regression_closure/
+output/timing_fix_*/
+output/verification_*/
+output/waveform_review_*/
+output/ppa/
+output/synth_*.v
+output/formal/
+
+# Intermediate evidence probe runs (keep authoritative release bundles)
+output/evidence/*
+!output/evidence/release_signoff_bundle_20260919_02/
+!output/evidence/release_signoff_bundle_soc_20260919_01/
+output/physical/*/lvs_work/
+*.ext
+*.ext.view

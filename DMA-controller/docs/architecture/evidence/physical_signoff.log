@@ -1,0 +1,4 @@
+BLOCKED: physical sign-off bundle is unavailable in the current workspace
+BLOCKED_INPUT: no Sky130A PDK, corner Liberty, LEF/DEF, SPEF, OpenROAD/OpenSTA, DRC/LVS decks, or GDS/OASIS
+AVAILABLE_ONLY: current Firewall generic Yosys cell-mapped estimate under output/verification_ppa_current_20260918_01; historical SoC estimate remains under output/audit_20260917/final_soc_v2
+PASS: evidence package does not claim ASIC physical sign-off without those inputs

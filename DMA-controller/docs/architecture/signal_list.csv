@@ -1,0 +1,88 @@
+Signal Name,Module/Interface,Direction,Type,Width,Clock Domain,Reset Domain,Active Level,Valid Condition,Protocol/Timing,Source Module,Dest Module,Default Reset Value,Functional Description
+pipe_s1_awvalid,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,Stage 1 AW Latched,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Báo có giao dịch AW hợp lệ được chốt tại Stage 1
+pipe_s1_awready,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,Stage 2 slot available,Decoupled Ready,fw_acl_matcher,fw_axi_address_slice,0,Backpressure Stage 2 truyền về Stage 1 để không ghi đè AW snapshot
+pipe_s1_awaddr,STAGE1_TO_STAGE2,Internal,Input,32,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0x00000000,Địa chỉ bắt đầu ghi được chốt tại Stage 1
+pipe_s1_awend,STAGE1_TO_STAGE2,Internal,Input,32,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0x00000000,Địa chỉ byte cuối burst ghi theo công thức V2.4.1
+pipe_s1_awlen,STAGE1_TO_STAGE2,Internal,Input,8,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,8'h00,Độ dài burst ghi chốt tại Stage 1
+pipe_s1_awsize,STAGE1_TO_STAGE2,Internal,Input,3,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,3'b010,Kích thước beat ghi chốt tại Stage 1
+pipe_s1_awburst,STAGE1_TO_STAGE2,Internal,Input,2,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,2'b01,Kiểu burst AW; chỉ chấp nhận INCR
+pipe_s1_awprot,STAGE1_TO_STAGE2,Internal,Input,3,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,3'b001,Thuộc tính DMA Secure Privileged Data chốt tại Stage 1
+pipe_s1_awid,STAGE1_TO_STAGE2,Internal,Input,4,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,4'b0000,Master ID AW chốt tại Stage 1
+pipe_s1_aw_4kb_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ báo phát hiện burst ghi tràn ranh giới 4KB
+pipe_s1_aw_profile_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ AW vi phạm BURST SIZE address alignment hoặc LEN của constrained profile
+pipe_s1_aw_overflow_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_awvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ extended last byte của AW vượt không gian địa chỉ 32 bit
+pipe_s1_arvalid,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,Stage 1 AR Latched,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Báo có giao dịch AR hợp lệ được chốt tại Stage 1
+pipe_s1_arready,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,Stage 2 slot available,Decoupled Ready,fw_acl_matcher,fw_axi_address_slice,0,Backpressure Stage 2 truyền về Stage 1 để không ghi đè AR snapshot
+pipe_s1_araddr,STAGE1_TO_STAGE2,Internal,Input,32,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0x00000000,Địa chỉ bắt đầu đọc được chốt tại Stage 1
+pipe_s1_arend,STAGE1_TO_STAGE2,Internal,Input,32,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0x00000000,Địa chỉ byte cuối burst đọc theo công thức V2.4.1
+pipe_s1_arlen,STAGE1_TO_STAGE2,Internal,Input,8,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,8'h00,Độ dài burst đọc chốt tại Stage 1
+pipe_s1_arsize,STAGE1_TO_STAGE2,Internal,Input,3,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,3'b010,Kích thước beat đọc chốt tại Stage 1
+pipe_s1_arburst,STAGE1_TO_STAGE2,Internal,Input,2,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,2'b01,Kiểu burst AR; chỉ chấp nhận INCR
+pipe_s1_arprot,STAGE1_TO_STAGE2,Internal,Input,3,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,3'b001,Thuộc tính DMA Secure Privileged Data chốt tại Stage 1
+pipe_s1_arid,STAGE1_TO_STAGE2,Internal,Input,4,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,4'b0000,Master ID AR chốt tại Stage 1
+pipe_s1_ar_4kb_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ báo phát hiện burst đọc tràn ranh giới 4KB
+pipe_s1_ar_profile_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ AR vi phạm BURST SIZE address alignment hoặc LEN của constrained profile
+pipe_s1_ar_overflow_err,STAGE1_TO_STAGE2,Internal,Status,1,clk,rst_n,High,pipe_s1_arvalid,Internal Pipeline,fw_axi_address_slice,fw_acl_matcher,0,Cờ extended last byte của AR vượt không gian địa chỉ 32 bit
+acl_w_pass,MATCHER_DECISION,Internal,Status,1,clk,rst_n,High,AW evaluation pass,Combinational,fw_acl_matcher,fw_data_path_mux,0,Xác nhận giao dịch ghi hợp lệ được phép chuyển tiếp ra Matrix
+acl_w_fault,MATCHER_DECISION,Internal,Status,1,clk,rst_n,High,Denied AW snapshot accepted,1-Cycle Request,fw_acl_matcher,fw_drain_fsm,0,Xung cấp một denied write request đã chốt cho Write Drain FSM
+acl_r_pass,MATCHER_DECISION,Internal,Status,1,clk,rst_n,High,AR evaluation pass,Combinational,fw_acl_matcher,fw_data_path_mux,0,Xác nhận giao dịch đọc hợp lệ được phép chuyển tiếp ra Matrix
+acl_r_fault,MATCHER_DECISION,Internal,Status,1,clk,rst_n,High,Denied AR snapshot accepted,1-Cycle Request,fw_acl_matcher,fw_drain_fsm,0,Xung cấp một denied read request đã chốt cho Read Drain FSM
+w_fault_event_valid,FAULT_LOGGING,Internal,Status,1,clk,rst_n,High,Denied write or write framing fault,Independent Event,dma_bus_firewall,fw_apb_regs,0,Write fault record có thể đồng thời với read và context record
+w_fault_event_code,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,w_fault_event_valid,Independent Event,dma_bus_firewall,fw_apb_regs,4'b0000,Mã bitmask [0]RdErr [1]WrErr [2]ProtErr [3]BndErr
+w_fault_event_addr,FAULT_LOGGING,Internal,Input,32,clk,rst_n,High,w_fault_event_valid,Independent Event,dma_bus_firewall,fw_apb_regs,0x00000000,Địa chỉ bắt đầu của immutable write owner snapshot
+w_fault_event_id,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,w_fault_event_valid,Independent Event,dma_bus_firewall,fw_apb_regs,4'h0,AWID từ immutable write owner snapshot
+w_fault_event_len,FAULT_LOGGING,Internal,Input,8,clk,rst_n,High,w_fault_event_valid,Independent Event,dma_bus_firewall,fw_apb_regs,8'h00,AWLEN từ immutable write owner metadata
+w_fault_event_size,FAULT_LOGGING,Internal,Input,3,clk,rst_n,High,w_fault_event_valid,Independent Event,dma_bus_firewall,fw_apb_regs,3'b000,AWSIZE từ immutable write owner metadata
+r_fault_event_valid,FAULT_LOGGING,Internal,Status,1,clk,rst_n,High,Denied read,Independent Event,fw_acl_matcher,fw_apb_regs,0,Read fault record có thể đồng thời với write và context record
+r_fault_event_code,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,r_fault_event_valid,Independent Event,fw_acl_matcher,fw_apb_regs,4'b0000,Mã bitmask [0]RdErr [1]WrErr [2]ProtErr [3]BndErr
+r_fault_event_addr,FAULT_LOGGING,Internal,Input,32,clk,rst_n,High,r_fault_event_valid,Independent Event,fw_acl_matcher,fw_apb_regs,0x00000000,Địa chỉ bắt đầu của denied read snapshot
+r_fault_event_id,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,r_fault_event_valid,Independent Event,fw_acl_matcher,fw_apb_regs,4'h0,ID của denied read snapshot
+r_fault_event_len,FAULT_LOGGING,Internal,Input,8,clk,rst_n,High,r_fault_event_valid,Independent Event,fw_acl_matcher,fw_apb_regs,8'h00,ARLEN từ denied AR snapshot
+r_fault_event_size,FAULT_LOGGING,Internal,Input,3,clk,rst_n,High,r_fault_event_valid,Independent Event,fw_acl_matcher,fw_apb_regs,3'b000,ARSIZE từ denied AR snapshot
+ctx_fault_event_valid,FAULT_LOGGING,Internal,Status,1,clk,rst_n,High,Invalid dynamic context accepted,Independent Event,fw_context_tracker,fw_apb_regs,0,Context fault record ưu tiên metadata hơn write và read khi cùng chu kỳ
+ctx_fault_event_code,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,ctx_fault_event_valid,Independent Event,fw_context_tracker,fw_apb_regs,4'b1000,BOUND_ERR cho len zero hoặc overflow
+ctx_fault_event_addr,FAULT_LOGGING,Internal,Input,32,clk,rst_n,High,ctx_fault_event_valid,Independent Event,fw_context_tracker,fw_apb_regs,0x00000000,Địa chỉ src nếu src overflow nếu không thì dst nếu dst overflow hoặc src cho len zero
+ctx_fault_event_id,FAULT_LOGGING,Internal,Input,4,clk,rst_n,High,ctx_fault_event_valid,Independent Event,fw_context_tracker,fw_apb_regs,4'h0,DMA master ID cố định
+dyn_rgn4_base,DYN_CONTEXT,Internal,Input,32,clk,rst_n,High,dma_ctx_valid,Direct Wire,fw_context_tracker,fw_acl_matcher,0x00000000,Địa chỉ cơ sở động cho Region 4 (Read-Only)
+dyn_rgn4_limit,DYN_CONTEXT,Internal,Input,32,clk,rst_n,High,dma_ctx_valid,Direct Wire,fw_context_tracker,fw_acl_matcher,0x00000000,Địa chỉ giới hạn động cho Region 4
+dyn_rgn4_active,DYN_CONTEXT,Internal,Status,1,clk,rst_n,High,ctx_tracker_active,Synchronous,fw_context_tracker,fw_acl_matcher,0,Cờ kích hoạt Region 4 (xóa sau cạnh lấy mẫu dma_ctx_done)
+dyn_rgn5_base,DYN_CONTEXT,Internal,Input,32,clk,rst_n,High,dma_ctx_valid,Direct Wire,fw_context_tracker,fw_acl_matcher,0x00000000,Địa chỉ cơ sở động cho Region 5 (Write-Only)
+dyn_rgn5_limit,DYN_CONTEXT,Internal,Input,32,clk,rst_n,High,dma_ctx_valid,Direct Wire,fw_context_tracker,fw_acl_matcher,0x00000000,Địa chỉ giới hạn động cho Region 5
+dyn_rgn5_active,DYN_CONTEXT,Internal,Status,1,clk,rst_n,High,ctx_tracker_active,Synchronous,fw_context_tracker,fw_acl_matcher,0,Cờ kích hoạt Region 5 (xóa sau cạnh lấy mẫu dma_ctx_done)
+acl_w_id,DRAIN_INTERFACE,Internal,Input,4,clk,rst_n,High,acl_w_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,4'h0,AWID từ denied request snapshot
+acl_w_len,DRAIN_INTERFACE,Internal,Input,8,clk,rst_n,High,acl_w_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,8'h00,AWLEN từ denied request snapshot
+acl_w_err_mode,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,acl_w_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,1,ERR_MODE từ accepted request snapshot
+w_framing_fault_valid,DRAIN_INTERFACE,Internal,Status,1,clk,rst_n,High,WLAST mismatch handshake,1-Cycle Request,fw_drain_fsm,dma_bus_firewall,0,Xung báo early hoặc missing final WLAST
+w_framing_fault_code,DRAIN_INTERFACE,Internal,Input,4,clk,rst_n,High,w_framing_fault_valid,Stable Event Payload,fw_drain_fsm,dma_bus_firewall,4'b0110,Bitmask WRITE_ERR cộng PROT_ERR
+w_drain_wvalid,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,Denied write owner active,AXI Handshake,fw_data_path_mux,fw_drain_fsm,0,WVALID của denied write được route vào drain
+w_drain_wlast,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,w_drain_wvalid,AXI Handshake,fw_data_path_mux,fw_drain_fsm,0,WLAST dùng để kiểm framing so với latched AWLEN
+w_drain_bready,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,w_drain_bvalid,AXI Handshake,fw_data_path_mux,fw_drain_fsm,0,BREADY từ DMA được route vào drain
+w_drain_wready,DRAIN_INTERFACE,Internal,Output,1,clk,rst_n,High,w_drain_state == SINK,Combinational,fw_drain_fsm,fw_data_path_mux,0,Tín hiệu WREADY giả lập từ Write Drain FSM để nuốt WDATA
+w_drain_bvalid,DRAIN_INTERFACE,Internal,Output,1,clk,rst_n,High,w_drain_state == RESP,Combinational,fw_drain_fsm,fw_data_path_mux,0,Tín hiệu BVALID giả lập trả về phản hồi sau khi nuốt hết burst
+w_drain_bid,DRAIN_INTERFACE,Internal,Output,4,clk,rst_n,High,w_drain_bvalid,Stable Until Handshake,fw_drain_fsm,fw_data_path_mux,4'h0,BID được giữ từ denied AW snapshot
+w_drain_bresp,DRAIN_INTERFACE,Internal,Output,2,clk,rst_n,High,w_drain_bvalid,Combinational,fw_drain_fsm,fw_data_path_mux,2'b11,Mã phản hồi DECERR (2'b11) hoặc OKAY (2'b00 ở Honeypot Mode)
+acl_r_id,DRAIN_INTERFACE,Internal,Input,4,clk,rst_n,High,acl_r_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,4'h0,ARID từ denied request snapshot
+acl_r_len,DRAIN_INTERFACE,Internal,Input,8,clk,rst_n,High,acl_r_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,8'h00,ARLEN từ denied request snapshot
+acl_r_err_mode,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,acl_r_fault,Latched Request,fw_acl_matcher,fw_drain_fsm,1,ERR_MODE từ accepted request snapshot
+r_drain_rready,DRAIN_INTERFACE,Internal,Input,1,clk,rst_n,High,r_drain_rvalid,AXI Handshake,fw_data_path_mux,fw_drain_fsm,0,RREADY từ DMA được route vào drain
+r_drain_rvalid,DRAIN_INTERFACE,Internal,Output,1,clk,rst_n,High,r_drain_state == GEN,Combinational,fw_drain_fsm,fw_data_path_mux,0,Tín hiệu RVALID giả lập từ Read Drain FSM
+r_drain_rid,DRAIN_INTERFACE,Internal,Output,4,clk,rst_n,High,r_drain_rvalid,Stable Until Handshake,fw_drain_fsm,fw_data_path_mux,4'h0,RID được giữ từ denied AR snapshot
+r_drain_rdata,DRAIN_INTERFACE,Internal,Output,32,clk,rst_n,High,r_drain_rvalid,Combinational,fw_drain_fsm,fw_data_path_mux,0x00000000,Dữ liệu đọc ngụy trang 32-bit (0x00000000)
+r_drain_rresp,DRAIN_INTERFACE,Internal,Output,2,clk,rst_n,High,r_drain_rvalid,Combinational,fw_drain_fsm,fw_data_path_mux,2'b11,Phản hồi đọc DECERR (2'b11) hoặc OKAY (2'b00 ở Honeypot Mode)
+r_drain_rlast,DRAIN_INTERFACE,Internal,Output,1,clk,rst_n,High,r_drain_rvalid & last_beat,Combinational,fw_drain_fsm,fw_data_path_mux,0,Báo beat dữ liệu ngụy trang cuối cùng
+fifo_wdata,DMA_FIFO_IF,Internal,Input,32,clk,rst_n,High,fifo_push,Synchronous,dma_axi_master,dma_fifo_latch,0x00000000,Dữ liệu nạp vào FIFO từ kênh AXI Read Master
+fifo_push,DMA_FIFO_IF,Internal,Input,1,clk,rst_n,High,m_axi_rvalid & m_axi_rready & (m_axi_rresp == 2'b00) & (m_axi_rid == 0) & (m_axi_rlast == expected_last) & !r_error_latched & !abort_pending,Synchronous,dma_axi_master,dma_fifo_latch,0,Xung nạp dữ liệu hợp lệ vào FIFO; beat có response ownership hoặc RLAST framing mismatch và mọi beat sau lỗi không được push
+fifo_rdata,DMA_FIFO_IF,Internal,Output,32,clk,rst_n,High,!fifo_empty,Synchronous,dma_fifo_latch,dma_axi_master,0x00000000,Dữ liệu đọc ra từ FIFO cấp cho AXI Write Master
+fifo_pop,DMA_FIFO_IF,Internal,Input,1,clk,rst_n,High,w_state == DATA & aw_accepted & m_axi_wvalid & m_axi_wready,Synchronous,dma_axi_master,dma_fifo_latch,0,Xung lấy dữ liệu ra khỏi FIFO chỉ sau AW handshake và đúng khi W handshake
+fifo_full,DMA_FIFO_IF,Internal,Status,1,clk,rst_n,High,fifo_count >= 32,Combinational,dma_fifo_latch,dma_axi_master,0,Cờ báo FIFO đầy (ngăn chặn Read Master nạp thêm)
+fifo_empty,DMA_FIFO_IF,Internal,Status,1,clk,rst_n,High,fifo_count == 0,Combinational,dma_fifo_latch,dma_axi_master,1,Cờ báo FIFO rỗng (ngăn chặn Write Master xả dữ liệu)
+fifo_count,DMA_FIFO_IF,Internal,Status,6,clk,rst_n,High,Always,Combinational,dma_fifo_latch,dma_axi_master,6'b000000,Bộ đếm số lượng từ 32-bit hiện hữu trong FIFO (0-32)
+aw_accepted,DMA_ABORT_COORD,Internal,Status,1,clk,rst_n,High,AW handshake until B handshake,Synchronous,dma_axi_master,dma_axi_master,0,Chứng minh AW đã được chấp nhận trước khi WVALID/fifo_pop được phép
+read_expected_beats,DMA_ABORT_COORD,Internal,Status,5,clk,rst_n,High,AR handshake until read channel closes,Synchronous,dma_axi_master,dma_axi_master,5'b00000,Giá trị ARLEN+1 đã chốt cho burst đọc hiện hành (1-16)
+read_beat_count,DMA_ABORT_COORD,Internal,Status,5,clk,rst_n,High,R handshake,Synchronous,dma_axi_master,dma_axi_master,5'b00000,Đếm số beat R đã handshake để xác định expected final beat
+r_framing_error,DMA_ABORT_COORD,Internal,Status,1,clk,rst_n,High,RLAST != expected_last on R handshake,Synchronous,dma_axi_master,dma_axi_master,0,Lỗi protocol khi RLAST sớm hoặc thiếu/trễ tại beat ARLEN+1; chốt abort và không push beat mismatch
+abort_pending,DMA_ABORT_COORD,Internal,Status,1,clk,rst_n,High,RRESP/BRESP error response ID mismatch or RLAST framing error until terminal,Synchronous,dma_axi_master,dma_axi_master,0,Khóa lỗi transaction; chặn AR/AW mới và điều phối drain/flush
+read_quiescent,DMA_ABORT_COORD,Internal,Status,1,clk,rst_n,High,No accepted read burst outstanding,Combinational,dma_axi_master,dma_axi_master,1,Báo read engine không còn AR/R phải hoàn tất
+write_quiescent,DMA_ABORT_COORD,Internal,Status,1,clk,rst_n,High,No accepted write burst outstanding,Combinational,dma_axi_master,dma_axi_master,1,Báo write engine không còn AW/W/B phải hoàn tất
+done_set_event,DMA_STATUS_IF,Internal,Status,1,clk,rst_n,High,Successful terminal,1-Cycle Pulse,dma_axi_master,dma_apb_slave,0,Sự kiện set sticky DONE; loại trừ với error_set_event
+error_set_event,DMA_STATUS_IF,Internal,Status,1,clk,rst_n,High,Error terminal,1-Cycle Pulse,dma_axi_master,dma_apb_slave,0,Sự kiện set sticky ERROR; không tự xóa sticky DONE cũ

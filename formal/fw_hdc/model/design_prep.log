@@ -1,0 +1,116 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Found 0 SCCs in module fw_hdc_formal.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1842 ($adff): ARST=\resetn, D=$0\active_snapshot[63:0], Q=\active_snapshot
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1847 ($adff): ARST=\resetn, D=$0\active_snapshot_valid[0:0], Q=\active_snapshot_valid
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1852 ($adff): ARST=\resetn, D=$0\hdc_state[1:0], Q=\hdc_state
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1857 ($adff): ARST=\resetn, D=$0\proto_stage[1:0], Q=\proto_stage
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1862 ($adff): ARST=\resetn, D=$0\chunk_count[3:0], Q=\chunk_count
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1867 ($adff): ARST=\resetn, D=$0\acc_dist[10:0], Q=\acc_dist
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1872 ($adff): ARST=\resetn, D=$0\dist_probe[10:0], Q=\dist_probe
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1877 ($adff): ARST=\resetn, D=$0\dist_attack[10:0], Q=\dist_attack
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1882 ($adff): ARST=\resetn, D=$0\dist_breach[10:0], Q=\dist_breach
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1887 ($adff): ARST=\resetn, D=$0\hdc_threat_level[1:0], Q=\hdc_threat_level
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1892 ($adff): ARST=\resetn, D=$0\hdc_fingerprint[31:0], Q=\hdc_fingerprint
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1897 ($adff): ARST=\resetn, D=\w3, Q=\closed_loop_hash_stage0
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1902 ($adff): ARST=\resetn, D=\closed_loop_w7, Q=\closed_loop_hash_stage1
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1917 ($adff): ARST=\resetn, D=$0\telemetry_overrun[0:0], Q=\telemetry_overrun
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1922 ($adff): ARST=\resetn, D=$0\overrun_mid[3:0], Q=\overrun_mid
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1927 ($adff): ARST=\resetn, D=$0\q_wr_ptr[0:0], Q=\q_wr_ptr
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1932 ($adff): ARST=\resetn, D=$0\q_rd_ptr[0:0], Q=\q_rd_ptr
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1937 ($adff): ARST=\resetn, D=$0\q_count[1:0], Q=\q_count
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1942 ($adff): ARST=\resetn, D=$0\queue_mem[0][63:0], Q=\queue_mem[0]
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1947 ($adff): ARST=\resetn, D=$0\queue_mem[1][63:0], Q=\queue_mem[1]
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1992 ($adff): ARST=\resetn, D=$0\prev_addr[11:0], Q=\prev_addr
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$1997 ($adff): ARST=\resetn, D=$0\cycle_timer[7:0], Q=\cycle_timer
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$2002 ($adff): ARST=\resetn, D=$0\delta_t[7:0], Q=\delta_t
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$2007 ($adff): ARST=\resetn, D=$0\hammer_streak[3:0], Q=\hammer_streak
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$2012 ($adff): ARST=\resetn, D=$0\probe_streak[3:0], Q=\probe_streak
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$2017 ($adff): ARST=\resetn, D=$0\stall_streak[7:0], Q=\stall_streak
+Replacing $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procdff$2022 ($adff): ARST=\resetn, D=$0\last_hammer_row[3:0], Q=\last_hammer_row
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Finding unused cells or wires in module \fw_hdc_formal..
+Removed 31 unused cells and 31 unused wires.
+<suppressed ~33 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Finding unused cells or wires in module \fw_hdc_formal..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100...
+Checking module fw_hdc_formal...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+<suppressed ~1 debug messages>
+Optimizing module fw_hdc_formal.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 448 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 447 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 43 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Computing hashes of 39 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+<suppressed ~12 debug messages>
+Removed a total of 5 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Finding unused cells or wires in module \fw_hdc_formal..
+Removed 8 unused cells and 22 unused wires.
+<suppressed ~19 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Finding unused cells or wires in module \fw_hdc_formal..
+Removed 0 unused cells and 28 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 5bd2cf4808
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

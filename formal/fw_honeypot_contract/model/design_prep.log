@@ -1,0 +1,101 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module fw_honeypot_contract_formal.
+Found 0 SCCs in module fw_honeypot_sink.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing fw_honeypot_sink.$procdff$332 ($adff): ARST=\rst_n, D=$0\honey_trans_count[31:0], Q=\honey_trans_count
+Replacing fw_honeypot_sink.$procdff$337 ($adff): ARST=\rst_n, D=$0\hp_arready[0:0], Q=\hp_arready
+Replacing fw_honeypot_sink.$procdff$342 ($adff): ARST=\rst_n, D=$0\hp_rvalid[0:0], Q=\hp_rvalid
+Replacing fw_honeypot_sink.$procdff$347 ($adff): ARST=\rst_n, D=$0\hp_rid[3:0], Q=\hp_rid
+Replacing fw_honeypot_sink.$procdff$352 ($adff): ARST=\rst_n, D=$0\hp_rdata[31:0], Q=\hp_rdata
+Replacing fw_honeypot_sink.$procdff$357 ($adff): ARST=\rst_n, D=$0\hp_rlast[0:0], Q=\hp_rlast
+Replacing fw_honeypot_sink.$procdff$362 ($adff): ARST=\rst_n, D=$0\r_state[1:0], Q=\r_state
+Replacing fw_honeypot_sink.$procdff$367 ($adff): ARST=\rst_n, D=$0\latched_arid[3:0], Q=\latched_arid
+Replacing fw_honeypot_sink.$procdff$372 ($adff): ARST=\rst_n, D=$0\latched_araddr[31:0], Q=\latched_araddr
+Replacing fw_honeypot_sink.$procdff$377 ($adff): ARST=\rst_n, D=$0\latched_arlen[7:0], Q=\latched_arlen
+Replacing fw_honeypot_sink.$procdff$382 ($adff): ARST=\rst_n, D=$0\r_beat_count[7:0], Q=\r_beat_count
+Replacing fw_honeypot_sink.$procdff$387 ($adff): ARST=\rst_n, D=$0\hp_awready[0:0], Q=\hp_awready
+Replacing fw_honeypot_sink.$procdff$392 ($adff): ARST=\rst_n, D=$0\hp_wready[0:0], Q=\hp_wready
+Replacing fw_honeypot_sink.$procdff$397 ($adff): ARST=\rst_n, D=$0\hp_bvalid[0:0], Q=\hp_bvalid
+Replacing fw_honeypot_sink.$procdff$402 ($adff): ARST=\rst_n, D=$0\hp_bid[3:0], Q=\hp_bid
+Replacing fw_honeypot_sink.$procdff$407 ($adff): ARST=\rst_n, D=$0\wlast_err[0:0], Q=\wlast_err
+Replacing fw_honeypot_sink.$procdff$412 ($adff): ARST=\rst_n, D=$0\w_state[1:0], Q=\w_state
+Replacing fw_honeypot_sink.$procdff$417 ($adff): ARST=\rst_n, D=$0\latched_awid[3:0], Q=\latched_awid
+Replacing fw_honeypot_sink.$procdff$422 ($adff): ARST=\rst_n, D=$0\latched_awlen[7:0], Q=\latched_awlen
+Replacing fw_honeypot_sink.$procdff$427 ($adff): ARST=\rst_n, D=$0\w_beat_count[7:0], Q=\w_beat_count
+Replacing fw_honeypot_sink.$procdff$432 ($adff): ARST=\rst_n, D=$0\scrambler_state[15:0], Q=\scrambler_state
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_honeypot_contract_formal..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 20 unused cells and 20 unused wires.
+<suppressed ~21 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_honeypot_contract_formal..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module fw_honeypot_contract_formal...
+Checking module fw_honeypot_sink...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_honeypot_contract_formal.
+Optimizing module fw_honeypot_sink.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_honeypot_contract_formal'.
+Computing hashes of 49 cells of `\fw_honeypot_contract_formal'.
+Finding duplicate cells in `\fw_honeypot_contract_formal'.
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 160 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_honeypot_contract_formal..
+Finding unused cells or wires in module \fw_honeypot_sink..
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_honeypot_contract_formal..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 0 unused cells and 21 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 38d85404a9
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

@@ -1,0 +1,16 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal fw_write_drain.v fw_read_drain.v fw_drain_fsm.v fw_drain_contract_formal.v
+prep -top fw_drain_contract_formal
+
+[files]
+rtl/fw_write_drain.v
+rtl/fw_read_drain.v
+rtl/fw_drain_fsm.v
+formal/fw_drain_contract_formal.v

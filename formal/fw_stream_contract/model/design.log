@@ -1,0 +1,942 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_honeypot_sink.v
+Parsing formal Verilog input from `fw_honeypot_sink.v' to AST representation.
+Generating RTLIL representation for module `\fw_honeypot_sink'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_write_drain.v
+Parsing formal Verilog input from `fw_write_drain.v' to AST representation.
+Generating RTLIL representation for module `\fw_write_drain'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: fw_read_drain.v
+Parsing formal Verilog input from `fw_read_drain.v' to AST representation.
+Generating RTLIL representation for module `\fw_read_drain'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: fw_drain_fsm.v
+Parsing formal Verilog input from `fw_drain_fsm.v' to AST representation.
+Generating RTLIL representation for module `\fw_drain_fsm'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: fw_stream_contract_formal.v
+Parsing formal Verilog input from `fw_stream_contract_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_stream_contract_formal'.
+Successfully finished Verilog frontend.
+
+6. Executing PREP pass.
+
+6.1. Executing HIERARCHY pass (managing design hierarchy).
+
+6.1.1. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+
+6.1.2. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+Removed 0 unused modules.
+Module fw_stream_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6.2. Executing PROC pass (convert processes to netlists).
+
+6.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+6.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$fw_stream_contract_formal.v:307$142 in module fw_stream_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_stream_contract_formal.v:284$131 in module fw_stream_contract_formal.
+Marked 2 switch rules as full_case in process $proc$fw_stream_contract_formal.v:248$117 in module fw_stream_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_stream_contract_formal.v:225$105 in module fw_stream_contract_formal.
+Marked 2 switch rules as full_case in process $proc$fw_stream_contract_formal.v:193$87 in module fw_stream_contract_formal.
+Marked 2 switch rules as full_case in process $proc$fw_stream_contract_formal.v:153$74 in module fw_stream_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_stream_contract_formal.v:140$69 in module fw_stream_contract_formal.
+Removed 1 dead cases from process $proc$fw_read_drain.v:66$64 in module fw_read_drain.
+Marked 4 switch rules as full_case in process $proc$fw_read_drain.v:66$64 in module fw_read_drain.
+Marked 1 switch rules as full_case in process $proc$fw_read_drain.v:49$62 in module fw_read_drain.
+Marked 1 switch rules as full_case in process $proc$fw_write_drain.v:144$56 in module fw_write_drain.
+Marked 6 switch rules as full_case in process $proc$fw_write_drain.v:77$51 in module fw_write_drain.
+Marked 2 switch rules as full_case in process $proc$fw_write_drain.v:50$46 in module fw_write_drain.
+Marked 1 switch rules as full_case in process $proc$fw_honeypot_sink.v:270$34 in module fw_honeypot_sink.
+Marked 4 switch rules as full_case in process $proc$fw_honeypot_sink.v:202$23 in module fw_honeypot_sink.
+Marked 4 switch rules as full_case in process $proc$fw_honeypot_sink.v:121$14 in module fw_honeypot_sink.
+Marked 1 switch rules as full_case in process $proc$fw_honeypot_sink.v:98$10 in module fw_honeypot_sink.
+Removed a total of 1 dead cases.
+
+6.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 20 redundant assignments.
+Promoted 23 assignments to connections.
+
+6.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:134$166'.
+  Set init value: \reset_counter = 3'000
+
+6.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+Found async reset \rst_n in `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+Found async reset \rst_n in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:270$34'.
+Found async reset \rst_n in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+Found async reset \rst_n in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+Found async reset \rst_n in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:98$10'.
+
+6.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~60 debug messages>
+
+6.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:134$166'.
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:337$159'.
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+     1/7: $0\d_r_hold_q[0:0]
+     2/7: $assert$fw_stream_contract_formal.v:323$150_EN
+     3/7: $assert$fw_stream_contract_formal.v:316$144_EN
+     4/7: $0\d_r_bundle_q[39:0]
+     5/7: $0\d_r_count_q[7:0]
+     6/7: $0\d_r_len_q[7:0]
+     7/7: $0\d_r_active_q[0:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:303$139'.
+     1/1: $assume$fw_stream_contract_formal.v:305$140_EN
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:284$131'.
+     1/3: $0\d_b_hold_q[0:0]
+     2/3: $assert$fw_stream_contract_formal.v:290$133_EN
+     3/3: $0\d_b_bundle_q[5:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+     1/7: $assert$fw_stream_contract_formal.v:259$120_EN
+     2/7: $assert$fw_stream_contract_formal.v:257$119_EN
+     3/7: $0\d_wlast_expect_q[0:0]
+     4/7: $0\d_w_expect_b_q[0:0]
+     5/7: $0\d_w_count_q[7:0]
+     6/7: $0\d_w_len_q[7:0]
+     7/7: $0\d_w_active_q[0:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:244$113'.
+     1/1: $assume$fw_stream_contract_formal.v:246$115_EN
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:225$105'.
+     1/3: $0\hp_b_hold_q[0:0]
+     2/3: $assert$fw_stream_contract_formal.v:231$107_EN
+     3/3: $0\hp_b_bundle_q[5:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+     1/7: $0\hp_r_hold_q[0:0]
+     2/7: $assert$fw_stream_contract_formal.v:209$96_EN
+     3/7: $assert$fw_stream_contract_formal.v:202$89_EN
+     4/7: $0\hp_r_bundle_q[39:0]
+     5/7: $0\hp_r_count_q[7:0]
+     6/7: $0\hp_r_len_q[7:0]
+     7/7: $0\hp_r_active_q[0:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+     1/7: $assert$fw_stream_contract_formal.v:164$77_EN
+     2/7: $assert$fw_stream_contract_formal.v:162$76_EN
+     3/7: $0\hp_wlast_expect_q[0:0]
+     4/7: $0\hp_w_expect_b_q[0:0]
+     5/7: $0\hp_w_count_q[7:0]
+     6/7: $0\hp_w_len_q[7:0]
+     7/7: $0\hp_w_active_q[0:0]
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:140$69'.
+     1/2: $assume$fw_stream_contract_formal.v:144$73_EN
+     2/2: $assume$fw_stream_contract_formal.v:142$71_EN
+Creating decoders for process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:135$66'.
+     1/1: $0\reset_counter[2:0]
+Creating decoders for process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+     1/14: $4\state_next[0:0]
+     2/14: $4\count_next[7:0]
+     3/14: $3\count_next[7:0]
+     4/14: $3\state_next[0:0]
+     5/14: $2\count_next[7:0]
+     6/14: $2\mode_next[0:0]
+     7/14: $2\len_next[7:0]
+     8/14: $2\id_next[3:0]
+     9/14: $2\state_next[0:0]
+    10/14: $1\count_next[7:0]
+    11/14: $1\mode_next[0:0]
+    12/14: $1\len_next[7:0]
+    13/14: $1\id_next[3:0]
+    14/14: $1\state_next[0:0]
+Creating decoders for process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+     1/5: $0\count_q[7:0]
+     2/5: $0\mode_q[0:0]
+     3/5: $0\len_q[7:0]
+     4/5: $0\id_q[3:0]
+     5/5: $0\state_q[0:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+     1/8: $0\timeout_latched_q[0:0]
+     2/8: $0\timer_q[9:0]
+     3/8: $0\framing_fault_q[0:0]
+     4/8: $0\count_q[7:0]
+     5/8: $0\mode_q[0:0]
+     6/8: $0\len_q[7:0]
+     7/8: $0\id_q[3:0]
+     8/8: $0\state[1:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+     1/26: $4\timer_next[9:0]
+     2/26: $6\state_next[1:0]
+     3/26: $3\timer_next[9:0]
+     4/26: $5\state_next[1:0]
+     5/26: $3\timeout_latched_next[0:0]
+     6/26: $3\framing_fault_next[0:0]
+     7/26: $4\state_next[1:0]
+     8/26: $4\count_next[7:0]
+     9/26: $3\count_next[7:0]
+    10/26: $3\state_next[1:0]
+    11/26: $2\framing_fault_next[0:0]
+    12/26: $2\timer_next[9:0]
+    13/26: $2\timeout_latched_next[0:0]
+    14/26: $2\state_next[1:0]
+    15/26: $2\count_next[7:0]
+    16/26: $2\mode_next[0:0]
+    17/26: $2\len_next[7:0]
+    18/26: $2\id_next[3:0]
+    19/26: $1\count_next[7:0]
+    20/26: $1\mode_next[0:0]
+    21/26: $1\len_next[7:0]
+    22/26: $1\id_next[3:0]
+    23/26: $1\state_next[1:0]
+    24/26: $1\timeout_latched_next[0:0]
+    25/26: $1\timer_next[9:0]
+    26/26: $1\framing_fault_next[0:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+     1/12: $2\w_framing_fault_valid[0:0]
+     2/12: $2\w_drain_bresp[1:0]
+     3/12: $2\w_drain_bid[3:0]
+     4/12: $2\w_drain_bvalid[0:0]
+     5/12: $2\w_drain_wready[0:0]
+     6/12: $2\w_framing_fault_code[3:0]
+     7/12: $1\w_framing_fault_code[3:0]
+     8/12: $1\w_framing_fault_valid[0:0]
+     9/12: $1\w_drain_bresp[1:0]
+    10/12: $1\w_drain_bid[3:0]
+    11/12: $1\w_drain_bvalid[0:0]
+    12/12: $1\w_drain_wready[0:0]
+Creating decoders for process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:270$34'.
+     1/1: $0\honey_trans_count[31:0]
+Creating decoders for process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+     1/10: $0\r_beat_count[7:0]
+     2/10: $0\latched_arlen[7:0]
+     3/10: $0\latched_araddr[31:0]
+     4/10: $0\latched_arid[3:0]
+     5/10: $0\r_state[1:0]
+     6/10: $0\hp_rlast[0:0]
+     7/10: $0\hp_rdata[31:0]
+     8/10: $0\hp_rid[3:0]
+     9/10: $0\hp_rvalid[0:0]
+    10/10: $0\hp_arready[0:0]
+Creating decoders for process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+     1/9: $0\w_beat_count[7:0]
+     2/9: $0\latched_awlen[7:0]
+     3/9: $0\latched_awid[3:0]
+     4/9: $0\w_state[1:0]
+     5/9: $0\wlast_err[0:0]
+     6/9: $0\hp_bid[3:0]
+     7/9: $0\hp_bvalid[0:0]
+     8/9: $0\hp_wready[0:0]
+     9/9: $0\hp_awready[0:0]
+Creating decoders for process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:98$10'.
+     1/1: $0\scrambler_state[15:0]
+
+6.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fw_read_drain.\state_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+No latch inferred for signal `\fw_read_drain.\id_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+No latch inferred for signal `\fw_read_drain.\len_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+No latch inferred for signal `\fw_read_drain.\mode_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+No latch inferred for signal `\fw_read_drain.\count_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+No latch inferred for signal `\fw_write_drain.\state_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\id_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\len_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\mode_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\count_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\framing_fault_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\timer_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\timeout_latched_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+No latch inferred for signal `\fw_write_drain.\w_drain_wready' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bvalid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bresp' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+No latch inferred for signal `\fw_write_drain.\w_framing_fault_valid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+No latch inferred for signal `\fw_write_drain.\w_framing_fault_code' from process `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+
+6.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_stream_contract_formal.\d_r_active_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+  created $dff cell `$procdff$917' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_r_len_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+  created $dff cell `$procdff$918' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_r_count_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+  created $dff cell `$procdff$919' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_r_hold_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+  created $dff cell `$procdff$920' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_r_bundle_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+  created $dff cell `$procdff$921' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_b_hold_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:284$131'.
+  created $dff cell `$procdff$922' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_b_bundle_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:284$131'.
+  created $dff cell `$procdff$923' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_w_active_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+  created $dff cell `$procdff$924' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_w_len_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+  created $dff cell `$procdff$925' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_w_count_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+  created $dff cell `$procdff$926' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_w_expect_b_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+  created $dff cell `$procdff$927' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\d_wlast_expect_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+  created $dff cell `$procdff$928' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_b_hold_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:225$105'.
+  created $dff cell `$procdff$929' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_b_bundle_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:225$105'.
+  created $dff cell `$procdff$930' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_r_active_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+  created $dff cell `$procdff$931' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_r_len_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+  created $dff cell `$procdff$932' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_r_count_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+  created $dff cell `$procdff$933' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_r_hold_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+  created $dff cell `$procdff$934' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_r_bundle_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+  created $dff cell `$procdff$935' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_w_active_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+  created $dff cell `$procdff$936' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_w_len_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+  created $dff cell `$procdff$937' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_w_count_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+  created $dff cell `$procdff$938' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_w_expect_b_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+  created $dff cell `$procdff$939' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\hp_wlast_expect_q' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+  created $dff cell `$procdff$940' with positive edge clock.
+Creating register for signal `\fw_stream_contract_formal.\reset_counter' using process `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:135$66'.
+  created $dff cell `$procdff$941' with positive edge clock.
+Creating register for signal `\fw_read_drain.\id_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+  created $adff cell `$procdff$946' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\len_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+  created $adff cell `$procdff$951' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\mode_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+  created $adff cell `$procdff$956' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\count_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+  created $adff cell `$procdff$961' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\state_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$62'.
+  created $adff cell `$procdff$966' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\state' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$971' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\id_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$976' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\len_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$981' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\mode_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$986' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\count_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$991' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\framing_fault_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$996' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\timer_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$1001' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\timeout_latched_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$56'.
+  created $adff cell `$procdff$1006' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\honey_trans_count' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:270$34'.
+  created $adff cell `$procdff$1011' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_arready' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1016' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_rvalid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1021' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_rid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1026' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_rdata' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1031' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_rlast' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1036' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\r_state' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1041' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\latched_arid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1046' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\latched_araddr' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1051' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\latched_arlen' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1056' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\r_beat_count' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+  created $adff cell `$procdff$1061' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_awready' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1066' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_wready' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1071' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_bvalid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1076' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\hp_bid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1081' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\wlast_err' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1086' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\w_state' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1091' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\latched_awid' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1096' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\latched_awlen' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1101' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\w_beat_count' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+  created $adff cell `$procdff$1106' with positive edge clock and positive level reset.
+Creating register for signal `\fw_honeypot_sink.\scrambler_state' using process `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:98$10'.
+  created $adff cell `$procdff$1111' with positive edge clock and positive level reset.
+
+6.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+6.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:134$166'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:337$159'.
+Found and cleaned up 6 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:307$142'.
+Found and cleaned up 1 empty switch in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:303$139'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:303$139'.
+Found and cleaned up 3 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:284$131'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:284$131'.
+Found and cleaned up 7 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:248$117'.
+Found and cleaned up 1 empty switch in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:244$113'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:244$113'.
+Found and cleaned up 3 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:225$105'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:225$105'.
+Found and cleaned up 6 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:193$87'.
+Found and cleaned up 7 empty switches in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:153$74'.
+Found and cleaned up 1 empty switch in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:140$69'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:140$69'.
+Found and cleaned up 1 empty switch in `\fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:135$66'.
+Removing empty process `fw_stream_contract_formal.$proc$fw_stream_contract_formal.v:135$66'.
+Found and cleaned up 4 empty switches in `\fw_read_drain.$proc$fw_read_drain.v:66$64'.
+Removing empty process `fw_read_drain.$proc$fw_read_drain.v:66$64'.
+Removing empty process `fw_read_drain.$proc$fw_read_drain.v:49$62'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:144$56'.
+Found and cleaned up 6 empty switches in `\fw_write_drain.$proc$fw_write_drain.v:77$51'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:77$51'.
+Found and cleaned up 2 empty switches in `\fw_write_drain.$proc$fw_write_drain.v:50$46'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:50$46'.
+Found and cleaned up 1 empty switch in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:270$34'.
+Removing empty process `fw_honeypot_sink.$proc$fw_honeypot_sink.v:270$34'.
+Found and cleaned up 4 empty switches in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+Removing empty process `fw_honeypot_sink.$proc$fw_honeypot_sink.v:202$23'.
+Found and cleaned up 6 empty switches in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+Removing empty process `fw_honeypot_sink.$proc$fw_honeypot_sink.v:121$14'.
+Found and cleaned up 1 empty switch in `\fw_honeypot_sink.$proc$fw_honeypot_sink.v:98$10'.
+Removing empty process `fw_honeypot_sink.$proc$fw_honeypot_sink.v:98$10'.
+Cleaned up 60 empty switches.
+
+6.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+<suppressed ~37 debug messages>
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+<suppressed ~26 debug messages>
+Optimizing module fw_write_drain.
+<suppressed ~32 debug messages>
+Optimizing module fw_honeypot_sink.
+<suppressed ~62 debug messages>
+
+6.3. Executing FUTURE pass.
+
+6.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+Optimizing module fw_honeypot_sink.
+
+6.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_stream_contract_formal...
+Checking module fw_drain_fsm...
+Checking module fw_read_drain...
+Checking module fw_write_drain...
+Checking module fw_honeypot_sink...
+Found and reported 0 problems.
+
+6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 58 unused cells and 472 unused wires.
+<suppressed ~63 debug messages>
+
+6.7. Executing OPT pass (performing simple optimizations).
+
+6.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+Optimizing module fw_honeypot_sink.
+
+6.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_stream_contract_formal'.
+Computing hashes of 203 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Computing hashes of 197 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Computing hashes of 193 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+<suppressed ~30 debug messages>
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 39 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Computing hashes of 35 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 150 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 94 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 89 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+<suppressed ~183 debug messages>
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 148 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Computing hashes of 118 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+<suppressed ~90 debug messages>
+Removed a total of 105 cells.
+
+6.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_stream_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$348: \hp_wlast_expect_q -> 1'0
+      Replacing known input bits on port A of cell $procmux$235: \d_wlast_expect_q -> 1'0
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_drain_fsm..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fw_read_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$423: \state_q -> 1'1
+      Replacing known input bits on port A of cell $procmux$403: \state_q -> 1'1
+      Replacing known input bits on port A of cell $procmux$453: \state_q -> 1'0
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$455.
+    dead port 1/2 on $mux $procmux$449.
+    dead port 1/2 on $mux $procmux$443.
+    dead port 1/2 on $mux $procmux$437.
+    dead port 1/2 on $mux $procmux$431.
+    dead port 2/2 on $mux $procmux$425.
+    dead port 2/2 on $mux $procmux$420.
+    dead port 2/2 on $mux $procmux$415.
+    dead port 2/2 on $mux $procmux$413.
+    dead port 2/2 on $mux $procmux$407.
+    dead port 2/2 on $mux $procmux$405.
+Running muxtree optimizer on module \fw_write_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$678.
+    dead port 2/2 on $mux $procmux$684.
+    dead port 2/2 on $mux $procmux$672.
+    dead port 2/2 on $mux $procmux$617.
+    dead port 2/2 on $mux $procmux$609.
+    dead port 2/2 on $mux $procmux$601.
+    dead port 2/2 on $mux $procmux$666.
+    dead port 2/2 on $mux $procmux$593.
+    dead port 2/2 on $mux $procmux$585.
+    dead port 2/2 on $mux $procmux$577.
+    dead port 2/2 on $mux $procmux$570.
+    dead port 2/2 on $mux $procmux$563.
+    dead port 2/2 on $mux $procmux$556.
+    dead port 2/2 on $mux $procmux$660.
+    dead port 2/2 on $mux $procmux$549.
+    dead port 2/2 on $mux $procmux$542.
+    dead port 2/2 on $mux $procmux$540.
+    dead port 2/2 on $mux $procmux$532.
+    dead port 2/2 on $mux $procmux$530.
+    dead port 2/2 on $mux $procmux$522.
+    dead port 2/2 on $mux $procmux$690.
+    dead port 1/2 on $mux $procmux$520.
+    dead port 2/2 on $mux $procmux$512.
+    dead port 1/2 on $mux $procmux$510.
+    dead port 2/2 on $mux $procmux$502.
+    dead port 1/2 on $mux $procmux$500.
+    dead port 2/2 on $mux $procmux$492.
+    dead port 1/2 on $mux $procmux$490.
+    dead port 2/2 on $mux $procmux$482.
+    dead port 2/2 on $mux $procmux$476.
+Running muxtree optimizer on module \fw_honeypot_sink..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 41 multiplexer ports.
+<suppressed ~365 debug messages>
+
+6.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_stream_contract_formal.
+  Optimizing cells in module \fw_stream_contract_formal.
+  Optimizing cells in module \fw_drain_fsm.
+  Optimizing cells in module \fw_read_drain.
+  Optimizing cells in module \fw_write_drain.
+    New ctrl vector for $pmux cell $procmux$625: { $auto$opt_reduce.cc:137:opt_pmux$1113 $procmux$689_CMP [0] }
+    New ctrl vector for $pmux cell $procmux$635: { $auto$opt_reduce.cc:137:opt_pmux$1115 $procmux$689_CMP [0] }
+    New ctrl vector for $pmux cell $procmux$630: { $auto$opt_reduce.cc:137:opt_pmux$1117 $procmux$689_CMP [0] }
+  Optimizing cells in module \fw_write_drain.
+  Optimizing cells in module \fw_honeypot_sink.
+Performed a total of 5 changes.
+
+6.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_stream_contract_formal'.
+Computing hashes of 191 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 62 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 118 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Removed a total of 2 cells.
+
+6.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 0 unused cells and 138 unused wires.
+<suppressed ~4 debug messages>
+
+6.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+Optimizing module fw_honeypot_sink.
+
+6.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+6.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_stream_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_drain_fsm..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fw_read_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_write_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_honeypot_sink..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~316 debug messages>
+
+6.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_stream_contract_formal.
+  Optimizing cells in module \fw_drain_fsm.
+  Optimizing cells in module \fw_read_drain.
+  Optimizing cells in module \fw_write_drain.
+  Optimizing cells in module \fw_honeypot_sink.
+Performed a total of 0 changes.
+
+6.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_stream_contract_formal'.
+Computing hashes of 191 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 118 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Removed a total of 0 cells.
+
+6.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Finding unused cells or wires in module \fw_honeypot_sink..
+
+6.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+Optimizing module fw_honeypot_sink.
+
+6.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+6.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell fw_stream_contract_formal.$lt$fw_stream_contract_formal.v:136$67 ($lt).
+Removed top 1 bits (of 3) from port B of cell fw_stream_contract_formal.$lt$fw_stream_contract_formal.v:141$70 ($lt).
+Removed top 24 bits (of 32) from port B of cell fw_write_drain.$ge$fw_write_drain.v:48$45 ($ge).
+Removed top 1 bits (of 2) from port B of cell fw_write_drain.$procmux$689_CMP1 ($eq).
+Removed top 1 bits (of 4) from mux cell fw_write_drain.$procmux$688 ($mux).
+Removed top 1 bits (of 4) from mux cell fw_write_drain.$procmux$693 ($mux).
+Removed top 1 bits (of 4) from wire fw_write_drain.$2\w_framing_fault_code[3:0].
+Removed top 7 bits (of 8) from port B of cell fw_honeypot_sink.$add$fw_honeypot_sink.v:161$19 ($add).
+Removed top 7 bits (of 8) from port B of cell fw_honeypot_sink.$add$fw_honeypot_sink.v:251$31 ($add).
+Removed top 31 bits (of 32) from port B of cell fw_honeypot_sink.$add$fw_honeypot_sink.v:275$38 ($add).
+Removed top 1 bits (of 2) from port B of cell fw_honeypot_sink.$procmux$812_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell fw_honeypot_sink.$procmux$910_CMP0 ($eq).
+
+6.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+6.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.11. Executing OPT pass (performing simple optimizations).
+
+6.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+Optimizing module fw_honeypot_sink.
+
+6.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_stream_contract_formal'.
+Computing hashes of 191 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 118 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Removed a total of 0 cells.
+
+6.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Finding unused cells or wires in module \fw_honeypot_sink..
+
+6.11.4. Finished fast OPT passes.
+
+6.12. Executing SORT pass.
+
+6.13. Printing statistics.
+
+=== fw_drain_fsm ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       25 wires
+       87 wire bits
+       25 public wires
+       87 public wire bits
+       25 ports
+       87 port bits
+        2 submodules
+        1   fw_read_drain
+        1   fw_write_drain
+
+=== fw_honeypot_sink ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      142 wires
+      941 wire bits
+       52 public wires
+      387 public wire bits
+       35 ports
+      242 port bits
+      118 cells
+        3   $add
+       21   $adff
+        6   $eq
+        6   $logic_and
+        3   $logic_not
+        3   $logic_or
+       55   $mux
+       12   $pmux
+        2   $reduce_bool
+        7   $xor
+
+=== fw_read_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       35 wires
+      152 wire bits
+       24 public wires
+      103 public wire bits
+       12 ports
+       57 port bits
+       24 cells
+        1   $add
+        5   $adff
+        1   $eq
+        1   $logic_and
+       10   $mux
+        1   $not
+        5   $pmux
+
+=== fw_stream_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      234 wires
+     1113 wire bits
+       87 public wires
+      590 public wire bits
+       32 ports
+      174 port bits
+      189 cells
+        5   $add
+       17   $check
+       25   $dff
+       10   $eq
+       21   $logic_and
+       17   $logic_not
+        1   $logic_or
+        2   $lt
+       91   $mux
+        2 submodules
+        1   fw_drain_fsm
+        1   fw_honeypot_sink
+
+=== fw_write_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       69 wires
+      226 wire bits
+       35 public wires
+      106 public wire bits
+       15 ports
+       32 port bits
+       60 cells
+        2   $add
+        8   $adff
+        3   $eq
+        1   $ge
+        2   $logic_and
+        1   $logic_not
+        1   $logic_or
+       32   $mux
+        1   $ne
+        7   $pmux
+        2   $reduce_or
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      391 fw_stream_contract_formal
+       24   fw_read_drain
+       60   fw_write_drain
+      118 fw_honeypot_sink
+
+        +----------Count including submodules.
+        | 
+      505 wires
+     2519 wire bits
+      223 public wires
+     1273 public wire bits
+      119 ports
+      592 port bits
+        - memories
+        - memory bits
+        - processes
+      391 cells
+       11   $add
+       34   $adff
+       17   $check
+       25   $dff
+       20   $eq
+        1   $ge
+       30   $logic_and
+       21   $logic_not
+        5   $logic_or
+        2   $lt
+      188   $mux
+        1   $ne
+        1   $not
+       24   $pmux
+        2   $reduce_bool
+        2   $reduce_or
+        7   $xor
+        2 submodules
+        1   fw_drain_fsm
+        1   fw_honeypot_sink
+
+6.14. Executing CHECK pass (checking for obvious problems).
+Checking module fw_drain_fsm...
+Checking module fw_honeypot_sink...
+Checking module fw_read_drain...
+Checking module fw_stream_contract_formal...
+Checking module fw_write_drain...
+Found and reported 0 problems.
+
+7. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_stream_contract_formal'. Setting top module to fw_stream_contract_formal.
+
+7.1. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+
+7.2. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+Removed 0 unused modules.
+Module fw_stream_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+8. Executing jny backend.
+
+9. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 010cab866c
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x read_verilog (0 sec), 3% 6x opt_expr (0 sec), ...

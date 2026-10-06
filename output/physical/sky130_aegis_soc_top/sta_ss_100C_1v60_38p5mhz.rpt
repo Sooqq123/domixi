@@ -1,0 +1,259 @@
+OpenROAD 26Q1-715-g9df70ee8ab 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+
+========================================================
+>>> SETUP REPORT FOR SS_100C_1v60_at_38.5MHz (aegis_soc_top)
+========================================================
+Startpoint: u_firewall/_1231_ (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_firewall/u_address_slice/_2007_
+          (recovery check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            1.560    1.560   clock network delay (propagated)
+                   0.091    0.000    1.560 ^ u_firewall/_1231_/CLK (sky130_fd_sc_hd__dfrtp_1)
+     3    0.077    1.037    1.347    2.907 ^ u_firewall/_1231_/Q (sky130_fd_sc_hd__dfrtp_1)
+                   1.037    0.018    2.925 ^ clone1/A0 (sky130_fd_sc_hd__mux2_4)
+  1294    5.464   23.815   15.855   18.780 ^ clone1/X (sky130_fd_sc_hd__mux2_4)
+                  24.505    3.219   21.999 ^ u_firewall/u_address_slice/_2007_/RESET_B (sky130_fd_sc_hd__dfrtp_2)
+                                    21.999   data arrival time
+
+                           25.974   25.974   clock clk (rise edge)
+                            1.560   27.534   clock network delay (propagated)
+                           -0.100   27.434   clock uncertainty
+                            0.000   27.434   clock reconvergence pessimism
+                                    27.434 ^ u_firewall/u_address_slice/_2007_/CLK (sky130_fd_sc_hd__dfrtp_2)
+                          -10.642   16.793   library recovery time
+                                    16.793   data required time
+---------------------------------------------------------------------------------
+                                    16.793   data required time
+                                   -21.999   data arrival time
+---------------------------------------------------------------------------------
+                                    -5.206   slack (VIOLATED)
+
+
+Startpoint: u_firewall/u_address_slice/_2007_
+            (rising edge-triggered flip-flop clocked by clk)
+Endpoint: u_firewall/u_acl_matcher/_5807_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: max
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            1.560    1.560   clock network delay (propagated)
+                   0.093    0.000    1.560 ^ u_firewall/u_address_slice/_2007_/CLK (sky130_fd_sc_hd__dfrtp_2)
+    36    0.261    1.918    2.002    3.562 ^ u_firewall/u_address_slice/_2007_/Q (sky130_fd_sc_hd__dfrtp_2)
+                   1.924    0.092    3.654 ^ u_firewall/u_hdc_sense/_3941_/S (sky130_fd_sc_hd__mux2_1)
+     9    0.026    0.307    1.296    4.950 v u_firewall/u_hdc_sense/_3941_/X (sky130_fd_sc_hd__mux2_1)
+                   0.307    0.002    4.952 v u_firewall/u_hdc_sense/_3949_/B (sky130_fd_sc_hd__nor2_1)
+     8    0.026    0.767    0.710    5.661 ^ u_firewall/u_hdc_sense/_3949_/Y (sky130_fd_sc_hd__nor2_1)
+                   0.767    0.001    5.662 ^ u_firewall/u_hdc_sense/_3996_/A2 (sky130_fd_sc_hd__a22o_1)
+     2    0.010    0.178    0.580    6.242 ^ u_firewall/u_hdc_sense/_3996_/X (sky130_fd_sc_hd__a22o_1)
+                   0.178    0.000    6.243 ^ u_firewall/u_hdc_sense/_4000_/B (sky130_fd_sc_hd__maj3_1)
+     2    0.007    0.145    0.367    6.610 ^ u_firewall/u_hdc_sense/_4000_/X (sky130_fd_sc_hd__maj3_1)
+                   0.145    0.000    6.610 ^ u_firewall/u_hdc_sense/_4002_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.163    0.386    6.996 ^ u_firewall/u_hdc_sense/_4002_/X (sky130_fd_sc_hd__maj3_1)
+                   0.163    0.000    6.996 ^ u_firewall/u_hdc_sense/_4003_/A2 (sky130_fd_sc_hd__o21ai_0)
+     2    0.009    0.271    0.281    7.277 v u_firewall/u_hdc_sense/_4003_/Y (sky130_fd_sc_hd__o21ai_0)
+                   0.271    0.000    7.277 v u_firewall/u_hdc_sense/_4004_/A2 (sky130_fd_sc_hd__o21a_1)
+     2    0.008    0.110    0.439    7.716 v u_firewall/u_hdc_sense/_4004_/X (sky130_fd_sc_hd__o21a_1)
+                   0.110    0.000    7.716 v u_firewall/u_hdc_sense/_4005_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.197    0.853    8.569 v u_firewall/u_hdc_sense/_4005_/X (sky130_fd_sc_hd__maj3_1)
+                   0.197    0.000    8.569 v u_firewall/u_hdc_sense/_4006_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.198    0.884    9.453 v u_firewall/u_hdc_sense/_4006_/X (sky130_fd_sc_hd__maj3_1)
+                   0.198    0.000    9.453 v u_firewall/u_hdc_sense/_4007_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.197    0.883   10.336 v u_firewall/u_hdc_sense/_4007_/X (sky130_fd_sc_hd__maj3_1)
+                   0.197    0.000   10.336 v u_firewall/u_hdc_sense/_4008_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.184    0.868   11.204 v u_firewall/u_hdc_sense/_4008_/X (sky130_fd_sc_hd__maj3_1)
+                   0.184    0.000   11.204 v u_firewall/u_hdc_sense/_4009_/A2 (sky130_fd_sc_hd__o21ai_0)
+     2    0.009    0.558    0.548   11.752 ^ u_firewall/u_hdc_sense/_4009_/Y (sky130_fd_sc_hd__o21ai_0)
+                   0.558    0.000   11.752 ^ u_firewall/u_hdc_sense/_4017_/A (sky130_fd_sc_hd__xnor2_1)
+     3    0.011    0.437    0.442   12.194 ^ u_firewall/u_hdc_sense/_4017_/Y (sky130_fd_sc_hd__xnor2_1)
+                   0.437    0.000   12.194 ^ u_firewall/u_hdc_sense/_4059_/A (sky130_fd_sc_hd__xnor2_1)
+     1    0.003    0.336    0.319   12.513 ^ u_firewall/u_hdc_sense/_4059_/Y (sky130_fd_sc_hd__xnor2_1)
+                   0.336    0.000   12.513 ^ u_firewall/u_hdc_sense/_4060_/D (sky130_fd_sc_hd__nand4_1)
+     6    0.019    0.639    0.662   13.175 v u_firewall/u_hdc_sense/_4060_/Y (sky130_fd_sc_hd__nand4_1)
+                   0.639    0.001   13.176 v u_firewall/u_hdc_sense/_4079_/A2 (sky130_fd_sc_hd__a31o_1)
+     3    0.023    0.232    0.760   13.935 v u_firewall/u_hdc_sense/_4079_/X (sky130_fd_sc_hd__a31o_1)
+                   0.232    0.003   13.939 v u_firewall/u_hdc_sense/_4081_/D (sky130_fd_sc_hd__nor4_1)
+     2    0.005    0.590    0.444   14.382 ^ u_firewall/u_hdc_sense/_4081_/Y (sky130_fd_sc_hd__nor4_1)
+                   0.590    0.000   14.383 ^ u_firewall/u_hdc_sense/_4770_/A2 (sky130_fd_sc_hd__o21ai_0)
+     3    0.061    1.628    1.404   15.787 v u_firewall/u_hdc_sense/_4770_/Y (sky130_fd_sc_hd__o21ai_0)
+                   1.628    0.002   15.788 v u_firewall/u_hdc_sense/_4774_/A2 (sky130_fd_sc_hd__a21boi_0)
+     6    0.133    7.093    5.913   21.701 ^ u_firewall/u_hdc_sense/_4774_/Y (sky130_fd_sc_hd__a21boi_0)
+                   7.093    0.017   21.718 ^ u_firewall/u_mtd_engine/_049_/A (sky130_fd_sc_hd__nand2_1)
+     2    0.005    0.936    1.137   22.855 v u_firewall/u_mtd_engine/_049_/Y (sky130_fd_sc_hd__nand2_1)
+                   0.936    0.000   22.855 v u_firewall/u_mtd_engine/_051_/C (sky130_fd_sc_hd__nor3_1)
+     1    0.003    0.430    0.514   23.368 ^ u_firewall/u_mtd_engine/_051_/Y (sky130_fd_sc_hd__nor3_1)
+                   0.430    0.000   23.369 ^ u_firewall/_0450_/B (sky130_fd_sc_hd__nor2_1)
+     3    0.048    0.423    0.515   23.884 v u_firewall/_0450_/Y (sky130_fd_sc_hd__nor2_1)
+                   0.423    0.003   23.887 v u_firewall/_0455_/B (sky130_fd_sc_hd__nand3_1)
+     5    0.040    0.672    0.711   24.598 ^ u_firewall/_0455_/Y (sky130_fd_sc_hd__nand3_1)
+                   0.672    0.002   24.600 ^ u_firewall/_0456_/A2 (sky130_fd_sc_hd__o21a_4)
+    62    0.284    1.319    1.308   25.908 ^ u_firewall/_0456_/X (sky130_fd_sc_hd__o21a_4)
+                   1.319    0.019   25.928 ^ u_firewall/_0528_/A2 (sky130_fd_sc_hd__a22o_1)
+     7    0.071    1.070    1.355   27.283 ^ u_firewall/_0528_/X (sky130_fd_sc_hd__a22o_1)
+                   1.071    0.023   27.305 ^ u_firewall/u_acl_matcher/_2936_/A (sky130_fd_sc_hd__clkinv_1)
+    29    0.116    1.704    1.757   29.062 v u_firewall/u_acl_matcher/_2936_/Y (sky130_fd_sc_hd__clkinv_1)
+                   1.704    0.026   29.088 v u_firewall/u_acl_matcher/_3119_/A (sky130_fd_sc_hd__xnor2_1)
+     2    0.008    0.258    0.840   29.929 v u_firewall/u_acl_matcher/_3119_/Y (sky130_fd_sc_hd__xnor2_1)
+                   0.258    0.000   29.929 v u_firewall/u_acl_matcher/_3124_/B (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.187    0.873   30.802 v u_firewall/u_acl_matcher/_3124_/X (sky130_fd_sc_hd__maj3_1)
+                   0.187    0.000   30.802 v u_firewall/u_acl_matcher/_3125_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.184    0.865   31.667 v u_firewall/u_acl_matcher/_3125_/X (sky130_fd_sc_hd__maj3_1)
+                   0.184    0.000   31.667 v u_firewall/u_acl_matcher/_3126_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.189    0.870   32.537 v u_firewall/u_acl_matcher/_3126_/X (sky130_fd_sc_hd__maj3_1)
+                   0.189    0.000   32.538 v u_firewall/u_acl_matcher/_3127_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.194    0.878   33.415 v u_firewall/u_acl_matcher/_3127_/X (sky130_fd_sc_hd__maj3_1)
+                   0.194    0.000   33.415 v u_firewall/u_acl_matcher/_3128_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.008    0.193    0.878   34.293 v u_firewall/u_acl_matcher/_3128_/X (sky130_fd_sc_hd__maj3_1)
+                   0.193    0.000   34.293 v u_firewall/u_acl_matcher/_3129_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.196    0.881   35.174 v u_firewall/u_acl_matcher/_3129_/X (sky130_fd_sc_hd__maj3_1)
+                   0.196    0.000   35.174 v u_firewall/u_acl_matcher/_3130_/C (sky130_fd_sc_hd__maj3_1)
+     2    0.009    0.204    0.890   36.064 v u_firewall/u_acl_matcher/_3130_/X (sky130_fd_sc_hd__maj3_1)
+                   0.204    0.000   36.064 v u_firewall/u_acl_matcher/_3132_/C (sky130_fd_sc_hd__maj3_1)
+     3    0.013    0.232    0.930   36.995 v u_firewall/u_acl_matcher/_3132_/X (sky130_fd_sc_hd__maj3_1)
+                   0.232    0.000   36.995 v u_firewall/u_acl_matcher/_3134_/A2 (sky130_fd_sc_hd__a211oi_1)
+     3    0.014    0.802    0.843   37.838 ^ u_firewall/u_acl_matcher/_3134_/Y (sky130_fd_sc_hd__a211oi_1)
+                   0.802    0.001   37.839 ^ u_firewall/u_acl_matcher/_3138_/A3 (sky130_fd_sc_hd__o311ai_0)
+     3    0.012    0.541    0.694   38.533 v u_firewall/u_acl_matcher/_3138_/Y (sky130_fd_sc_hd__o311ai_0)
+                   0.541    0.001   38.533 v u_firewall/u_acl_matcher/_3141_/A4 (sky130_fd_sc_hd__a41oi_1)
+     3    0.014    0.597    0.816   39.349 ^ u_firewall/u_acl_matcher/_3141_/Y (sky130_fd_sc_hd__a41oi_1)
+                   0.597    0.001   39.349 ^ u_firewall/u_acl_matcher/_3144_/A2 (sky130_fd_sc_hd__o211ai_1)
+     5    0.022    0.570    0.655   40.004 v u_firewall/u_acl_matcher/_3144_/Y (sky130_fd_sc_hd__o211ai_1)
+                   0.570    0.002   40.007 v u_firewall/u_acl_matcher/_3149_/A3 (sky130_fd_sc_hd__a311oi_1)
+     4    0.015    0.916    1.064   41.070 ^ u_firewall/u_acl_matcher/_3149_/Y (sky130_fd_sc_hd__a311oi_1)
+                   0.916    0.001   41.071 ^ u_firewall/u_acl_matcher/_3153_/A3 (sky130_fd_sc_hd__o311ai_0)
+     3    0.009    0.439    0.639   41.710 v u_firewall/u_acl_matcher/_3153_/Y (sky130_fd_sc_hd__o311ai_0)
+                   0.439    0.000   41.711 v u_firewall/u_acl_matcher/_3171_/A3 (sky130_fd_sc_hd__a32oi_1)
+     4    0.031    1.175    1.114   42.824 ^ u_firewall/u_acl_matcher/_3171_/Y (sky130_fd_sc_hd__a32oi_1)
+                   1.175    0.001   42.826 ^ u_firewall/u_acl_matcher/_3172_/B (sky130_fd_sc_hd__xor2_4)
+    35    0.155    1.639    1.539   44.365 ^ u_firewall/u_acl_matcher/_3172_/X (sky130_fd_sc_hd__xor2_4)
+                   1.639    0.011   44.376 ^ u_firewall/u_acl_matcher/_3545_/A2 (sky130_fd_sc_hd__o211ai_1)
+     2    0.005    0.299    0.600   44.975 v u_firewall/u_acl_matcher/_3545_/Y (sky130_fd_sc_hd__o211ai_1)
+                   0.299    0.000   44.975 v u_firewall/u_acl_matcher/_3548_/C1 (sky130_fd_sc_hd__a2111oi_0)
+     3    0.011    1.562    1.460   46.435 ^ u_firewall/u_acl_matcher/_3548_/Y (sky130_fd_sc_hd__a2111oi_0)
+                   1.562    0.001   46.436 ^ u_firewall/u_acl_matcher/_3604_/B1 (sky130_fd_sc_hd__o21ai_0)
+     1    0.002    0.306    0.540   46.976 v u_firewall/u_acl_matcher/_3604_/Y (sky130_fd_sc_hd__o21ai_0)
+                   0.306    0.000   46.976 v u_firewall/u_acl_matcher/_3607_/B (sky130_fd_sc_hd__and3_1)
+     1    0.009    0.122    0.505   47.481 v u_firewall/u_acl_matcher/_3607_/X (sky130_fd_sc_hd__and3_1)
+                   0.122    0.001   47.482 v u_firewall/u_acl_matcher/_3619_/A1 (sky130_fd_sc_hd__o311ai_0)
+     1    0.004    0.603    0.670   48.151 ^ u_firewall/u_acl_matcher/_3619_/Y (sky130_fd_sc_hd__o311ai_0)
+                   0.603    0.000   48.151 ^ u_firewall/u_acl_matcher/_3624_/A1 (sky130_fd_sc_hd__a21oi_1)
+     1    0.007    0.205    0.368   48.519 v u_firewall/u_acl_matcher/_3624_/Y (sky130_fd_sc_hd__a21oi_1)
+                   0.205    0.000   48.520 v u_firewall/u_acl_matcher/_3625_/B2 (sky130_fd_sc_hd__o22ai_1)
+     1    0.003    0.435    0.232   48.751 ^ u_firewall/u_acl_matcher/_3625_/Y (sky130_fd_sc_hd__o22ai_1)
+                   0.435    0.000   48.751 ^ u_firewall/u_acl_matcher/_3699_/A1 (sky130_fd_sc_hd__a21o_1)
+     3    0.033    0.447    0.618   49.369 ^ u_firewall/u_acl_matcher/_3699_/X (sky130_fd_sc_hd__a21o_1)
+                   0.447    0.005   49.374 ^ u_firewall/u_acl_matcher/_4607_/A1 (sky130_fd_sc_hd__o221ai_1)
+     1    0.003    0.222    0.408   49.782 v u_firewall/u_acl_matcher/_4607_/Y (sky130_fd_sc_hd__o221ai_1)
+                   0.222    0.000   49.782 v u_firewall/u_acl_matcher/_4609_/A2 (sky130_fd_sc_hd__o31ai_1)
+     3    0.037    2.008    1.732   51.514 ^ u_firewall/u_acl_matcher/_4609_/Y (sky130_fd_sc_hd__o31ai_1)
+                   2.008    0.006   51.520 ^ u_firewall/u_acl_matcher/_4610_/B1 (sky130_fd_sc_hd__o211ai_1)
+     1    0.002    0.346    0.638   52.157 v u_firewall/u_acl_matcher/_4610_/Y (sky130_fd_sc_hd__o211ai_1)
+                   0.346    0.000   52.157 v u_firewall/u_acl_matcher/_5807_/D (sky130_fd_sc_hd__dfrtp_1)
+                                    52.157   data arrival time
+
+                           25.974   25.974   clock clk (rise edge)
+                            1.564   27.538   clock network delay (propagated)
+                           -0.100   27.438   clock uncertainty
+                            0.000   27.438   clock reconvergence pessimism
+                                    27.438 ^ u_firewall/u_acl_matcher/_5807_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                           -0.386   27.052   library setup time
+                                    27.052   data required time
+---------------------------------------------------------------------------------
+                                    27.052   data required time
+                                   -52.157   data arrival time
+---------------------------------------------------------------------------------
+                                   -25.105   slack (VIOLATED)
+
+
+
+========================================================
+>>> HOLD REPORT FOR SS_100C_1v60_at_38.5MHz (aegis_soc_top)
+========================================================
+Startpoint: test_mode (input port clocked by clk)
+Endpoint: u_firewall/u_apb_regs/_4317_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 ^ input external delay
+     4    0.099    0.000    0.000    0.200 ^ test_mode (in)
+                   0.006    0.003    0.203 ^ u_firewall/_0459_/S (sky130_fd_sc_hd__mux2_8)
+   649    2.754    6.831    2.991    3.194 ^ u_firewall/_0459_/X (sky130_fd_sc_hd__mux2_8)
+                   7.647    1.831    5.024 ^ u_firewall/u_apb_regs/_4317_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                     5.024   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            1.570    1.570   clock network delay (propagated)
+                            0.050    1.620   clock uncertainty
+                            0.000    1.620   clock reconvergence pessimism
+                                     1.620 ^ u_firewall/u_apb_regs/_4317_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                            2.641    4.261   library removal time
+                                     4.261   data required time
+---------------------------------------------------------------------------------
+                                     4.261   data required time
+                                    -5.024   data arrival time
+---------------------------------------------------------------------------------
+                                     0.764   slack (MET)
+
+
+Startpoint: m_axi_bresp[1] (input port clocked by clk)
+Endpoint: u_dma/u_master/_3250_ (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 ^ input external delay
+     1    0.008    0.000    0.000    0.200 ^ m_axi_bresp[1] (in)
+                   0.001    0.000    0.200 ^ u_firewall/u_data_path_mux/_394_/A (sky130_fd_sc_hd__nand2_1)
+     1    0.002    0.063    0.066    0.266 v u_firewall/u_data_path_mux/_394_/Y (sky130_fd_sc_hd__nand2_1)
+                   0.063    0.000    0.266 v u_firewall/u_data_path_mux/_396_/A (sky130_fd_sc_hd__nand2_1)
+     1    0.003    0.064    0.089    0.355 ^ u_firewall/u_data_path_mux/_396_/Y (sky130_fd_sc_hd__nand2_1)
+                   0.064    0.000    0.355 ^ u_dma/u_master/_1537_/A (sky130_fd_sc_hd__nor4_1)
+     1    0.006    0.065    0.102    0.457 v u_dma/u_master/_1537_/Y (sky130_fd_sc_hd__nor4_1)
+                   0.065    0.000    0.458 v u_dma/u_master/_1542_/A2 (sky130_fd_sc_hd__a21oi_1)
+     2    0.016    0.546    0.525    0.982 ^ u_dma/u_master/_1542_/Y (sky130_fd_sc_hd__a21oi_1)
+                   0.546    0.001    0.983 ^ u_dma/u_master/_1546_/C (sky130_fd_sc_hd__nor4_1)
+     6    0.027    0.260    0.439    1.422 v u_dma/u_master/_1546_/Y (sky130_fd_sc_hd__nor4_1)
+                   0.260    0.001    1.423 v u_dma/u_master/_1550_/B (sky130_fd_sc_hd__nor2_1)
+     1    0.002    0.133    0.201    1.624 ^ u_dma/u_master/_1550_/Y (sky130_fd_sc_hd__nor2_1)
+                   0.133    0.000    1.624 ^ u_dma/u_master/_3250_/D (sky130_fd_sc_hd__dfrtp_1)
+                                     1.624   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            1.566    1.566   clock network delay (propagated)
+                            0.050    1.616   clock uncertainty
+                            0.000    1.616   clock reconvergence pessimism
+                                     1.616 ^ u_dma/u_master/_3250_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                           -0.087    1.529   library hold time
+                                     1.529   data required time
+---------------------------------------------------------------------------------
+                                     1.529   data required time
+                                    -1.624   data arrival time
+---------------------------------------------------------------------------------
+                                     0.094   slack (MET)
+
+
+
+>>> WORST SLACK SUMMARY:
+worst slack max -25.10
+tns max -19977.87
+worst slack min 0.09
+tns min 0.00
+Setup WNS: Setup TNS: Hold WNS: Hold TNS: 

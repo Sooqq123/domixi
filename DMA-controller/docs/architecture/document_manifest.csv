@@ -1,0 +1,23 @@
+Document ID,Path,Classification,Version,Authority,Status,Validation
+DOC_CANON_001,docs/architecture/architecture_overview.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and manual cross-review
+DOC_CANON_002,docs/architecture/detailed_block_diagram.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and Mermaid source review
+DOC_CANON_003,docs/architecture/fsm_specification.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and FSM cross-review
+DOC_CANON_004,docs/architecture/assumptions_and_tbd.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and reference review
+DOC_CANON_005,docs/architecture/verification_test_plan.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and unique-test-ID review
+DOC_CANON_006,docs/architecture/firewall_rtl_integration_contract.md,Canonical,V2.4.1,SSOT,ACTIVE,spec_lint and dependency review
+DOC_CANON_007,docs/architecture/pinout.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and semantic lint
+DOC_CANON_008,docs/architecture/signal_list.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and semantic lint
+DOC_CANON_009,docs/architecture/memory_map.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and full-space overlap lint
+DOC_CANON_010,docs/architecture/register_map.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and field-overlap lint
+DOC_CANON_011,docs/architecture/requirements_traceability.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and requirement/test cross-reference lint
+DOC_CANON_012,docs/architecture/document_manifest.csv,Canonical,V2.4.1,SSOT,ACTIVE,strict CSV and path existence lint
+DOC_CANON_013,docs/architecture/verification_evidence_manifest.csv,Canonical evidence index,V2.4.1,SSOT evidence,ACTIVE,strict CSV and PASS-artifact existence lint
+DOC_STATUS_001,docs/architecture/implementation_conformance_status.md,Canonical status snapshot,V2.4.1,SSOT status,ACTIVE,evidence-manifest reconciliation
+DOC_STATUS_002,docs/architecture/changelog.md,Canonical history,V2.4.1,SSOT history,ACTIVE,version sequence review
+DOC_TOOL_001,docs/architecture/tools/spec_lint.py,Canonical validation tool,V2.4.1,SSOT tool,ACTIVE,self-test and clean run
+DOC_SUPPORT_001,docs/system_model_spec.md,Supporting historical,V2.1,Non-normative,SUPERSEDED,obsolete-banner and claim review
+DOC_SUPPORT_002,../docs/superpowers/specs/2026-08-19-fifo-depth-32-canonicalization-design.md,Supporting decision record,V2.4.1 inherited,Non-normative,SUPERSEDED_BY_SSOT,status-banner review
+DOC_SUPPORT_003,../docs/superpowers/plans/2026-08-19-fifo-depth-32-canonicalization.md,Supporting execution history,V2.4.1 inherited,Non-normative,HISTORICAL,status-banner review
+DOC_SUPPORT_004,../docs/superpowers/plans/2026-08-20-interface-contract-v2-2.md,Supporting execution history,V2.2,Non-normative,SUPERSEDED_BY_V2.4.1,status-banner review
+DOC_SUPPORT_005,../docs/superpowers/plans/2026-08-23-v2-4-1-architecture-closure.md,Supporting execution plan,V2.4.1,Non-normative,ACTIVE,manual review
+DOC_OBS_001,../docs/superpowers/specs/2026-08-13-dma-controller-design.md,Obsolete design proposal,Pre-V2.4,No authority,OBSOLETE,visible obsolete banner

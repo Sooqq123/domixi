@@ -1,0 +1,52 @@
+================================================================================
+          STARTING AEGIS-RISC: tb_fw_hdc_sense REGRESSION SUITE                
+================================================================================
+VCD info: dumpfile waves.vcd opened for output.
+
+--- [TEST CASE 1] Normal DMA Transfers (Zero False-Positive Verification) ---
+[TC1_PASS] 200 normal DMA transactions verified with ZERO False Positives (0.00% FP)!
+
+--- [TEST CASE 2] Timing Side-Channel Probe Burst Verification ---
+[TC2_PASS] Side-Channel Probe detected: level=2'b01, alert=0, fingerprint=0xa90fa8d0
+
+--- [TEST CASE 3] Row-Thrashing Attack Burst Verification ---
+[TC3_PASS] Row-thrashing attack successfully detected: level=2'b10, alert=1, fingerprint=0x961d48f6
+
+--- [TEST CASE 4] CPU Trap & Trojan Activation Fast Path ---
+[TC4_PASS] CPU Trap triggered Level 3 Breach combinatorially in 0 cycles!
+
+--- [TEST CASE 5] Reset, Idle Cooldown & State Recovery ---
+[TC5_PASS] Reset and idle cooldown recovery verified cleanly!
+
+--- [TEST CASE 6] Dynamic Multi-Tier Escalation Stress Test ---
+[TC6_PASS] Multi-tier escalation transitions verified seamlessly!
+
+--- [TEST CASE 7] Boundary & Robustness Corner Cases ---
+[TC7_PASS] All boundary and robustness corner cases passed!
+
+--- [TEST CASE 8] HDC Golden Model Bit-for-Bit & Distance Verification ---
+[GOLDEN_CHECK] Vector 0: Snapshot=0x1000000001074301 | Distances (Probe=502, Attack=490, Breach=517)
+[GOLDEN_CHECK] Vector 1: Snapshot=0x1000020006004402 | Distances (Probe=527, Attack=503, Breach=502)
+[GOLDEN_CHECK] Vector 2: Snapshot=0x1000100002004784 | Distances (Probe=525, Attack=517, Breach=518)
+[GOLDEN_CHECK] Vector 3: Snapshot=0x8000000000004030 | Distances (Probe=505, Attack=503, Breach=500)
+[TC8_PASS] All golden vector chunks and distances match reference model bit-for-bit!
+
+--- [TEST CASE 9] Telemetry Queue Depth 2, Overflow Attribution & Clear ---
+[QUEUE_CHECK] Queue entry 1 accepted without overflow
+[QUEUE_CHECK] Queue entry 2 accepted, queue full, no overflow yet
+[OVERRUN_PASS] Telemetry overrun asserted with offending MID = 7!
+[CLEAR_PASS] clear_overflow_pulse successfully cleared telemetry_overrun flag!
+[TC9_PASS] Telemetry queue overflow containment & software clear verified!
+
+================================================================================
+          AEGIS-RISC: FW_HDC_SENSE UNIT TESTBENCH SCORECARD (M1)                
+================================================================================
+Total Assertions Executed : 356
+Passed Checks             : 356
+Failed Checks             : 0
+False Positives Detected  : 0 (Target: 0)
+Latency Violations        : 0 (Target: 0)
+--------------------------------------------------------------------------------
+FINAL RESULT: [PASS] tb_fw_hdc_sense completed with zero check failures!
+ALL 9 TEST SUITES PASSED RIGOROUSLY WITH 0 ERRORS AND 0 FALSE POSITIVES.
+================================================================================

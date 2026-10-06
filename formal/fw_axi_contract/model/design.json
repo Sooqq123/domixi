@@ -1,0 +1,4041 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "fw_axi_address_slice",
+        "cell_sorts": [
+          {
+            "type": "$sub",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [33, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [34, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$sub$fw_axi_address_slice.v:109$10",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:109.33-109.87"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000100010"
+                  }
+                },
+                {
+                  "name": "$sub$fw_axi_address_slice.v:173$26",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:173.33-173.87"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000100010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$reduce_or$fw_axi_address_slice.v:112$11",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:112.29-112.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$reduce_or$fw_axi_address_slice.v:175$27",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:175.29-175.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$526",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$531",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$536",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$541",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$546",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$551",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$556",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$561",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$566",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$571",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$576",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:179.5-207.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$581",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$586",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$591",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$596",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$601",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$606",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procdff$611",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$616",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$621",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$626",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$631",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:116.5-146.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$442",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$445",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$448",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$450",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:204.22-204.37|fw_axi_address_slice.v:204.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$453",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$456",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$459",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$462",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$465",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$468",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$471",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$474",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:192.22-192.32|fw_axi_address_slice.v:192.18-206.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$477",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$480",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$483",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$485",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:142.22-142.37|fw_axi_address_slice.v:142.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$488",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$491",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$494",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$497",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$500",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$503",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$506",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$509",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_address_slice.v:129.22-129.32|fw_axi_address_slice.v:129.18-145.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_axi_address_slice.v:114$17",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.88-114.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:177$33",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.88-177.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:113$13",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:113.29-113.92"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:114$16",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.29-114.83"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:114$18",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.29-114.115"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:114$20",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.29-114.143"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:176$29",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:176.29-176.92"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:177$32",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.29-177.83"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:177$34",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.29-177.115"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:177$36",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.29-177.143"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:90$2",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:90.21-90.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_axi_address_slice.v:91$4",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:91.21-91.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_not$fw_axi_address_slice.v:90$1",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:90.21-90.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_address_slice.v:91$3",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:91.21-91.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$shl",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [9, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [16, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$shl$fw_axi_address_slice.v:107$8",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:107.34-107.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$shl$fw_axi_address_slice.v:172$24",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:172.34-172.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_axi_address_slice.v:95$5",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:95.23-95.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_axi_address_slice.v:96$6",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:96.23-96.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ne",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [20, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_axi_address_slice.v:113$12",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:113.50-113.91"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:114$14",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.30-114.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:114$15",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.59-114.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:176$28",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:176.50-176.91"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010100",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:177$30",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.30-177.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_address_slice.v:177$31",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.59-177.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$gt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$gt$fw_axi_address_slice.v:114$19",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:114.120-114.142"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$gt$fw_axi_address_slice.v:177$35",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:177.120-177.142"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000100",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [9, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_axi_address_slice.v:106$7",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:106.33-106.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001001"
+                  }
+                },
+                {
+                  "name": "$add$fw_axi_address_slice.v:109$9",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:109.33-109.79"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100001"
+                  }
+                },
+                {
+                  "name": "$add$fw_axi_address_slice.v:171$23",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:171.33-171.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001001"
+                  }
+                },
+                {
+                  "name": "$add$fw_axi_address_slice.v:173$25",
+                  "attributes": {
+                    "src": "fw_axi_address_slice.v:173.33-173.79"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000100001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "fw_axi_address_slice.v:22.1-208.10"
+        }
+      },
+      {
+        "name": "fw_axi_contract_formal",
+        "cell_sorts": [
+          {
+            "type": "fw_axi_address_slice",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_ar_4kb_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_ar_overflow_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_ar_profile_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_araddr",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "pipe_s1_arburst",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "pipe_s1_arend",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "pipe_s1_arid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "pipe_s1_arlen",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "pipe_s1_arprot",
+                  "direction": "",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "pipe_s1_arready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_arsize",
+                  "direction": "",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "pipe_s1_arvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_aw_4kb_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_aw_overflow_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_aw_profile_err",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_awaddr",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "pipe_s1_awburst",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "pipe_s1_awend",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "pipe_s1_awid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "pipe_s1_awlen",
+                  "direction": "",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "pipe_s1_awprot",
+                  "direction": "",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "pipe_s1_awready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "pipe_s1_awsize",
+                  "direction": "",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "pipe_s1_awvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_araddr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "s_axi_arburst",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "s_axi_arid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "s_axi_arlen",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "s_axi_arprot",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "s_axi_arready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_arsize",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "s_axi_arvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_awaddr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "s_axi_awburst",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "s_axi_awid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "s_axi_awlen",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "s_axi_awprot",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "s_axi_awready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_awsize",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "s_axi_awvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_slice",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:90.26-133.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "fw_data_path_mux",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_bid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_bready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_bresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_bvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_rid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_rlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_rvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_wlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wstrb",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_wvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_bid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "m_axi_bready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_bresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "m_axi_bvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_axi_rid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "m_axi_rlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_rready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_rresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "m_axi_rvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_wdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "m_axi_wlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_wready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "m_axi_wstrb",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "m_axi_wvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "r_drain_rid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "r_drain_rlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "r_drain_rvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rd_owner",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_bid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "s_axi_bready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_bresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "s_axi_bvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "s_axi_rid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "s_axi_rlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_rready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_rresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "s_axi_rvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_wdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "s_axi_wlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_wready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "s_axi_wstrb",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "s_axi_wvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "w_drain_bready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bresp",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "w_drain_bvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "wr_aw_done",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "wr_owner",
+                  "direction": "io",
+                  "range": [2, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_mux",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:161.22-225.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [2, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$119",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$122",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$125",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$128",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$135",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:330.67-330.67|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$137",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:326.17-326.25|fw_axi_contract_formal.v:326.13-335.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$140",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$143",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:329.67-329.67|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$145",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:326.17-326.25|fw_axi_contract_formal.v:326.13-335.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$148",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$152",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:328.33-328.33|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$154",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:326.17-326.25|fw_axi_contract_formal.v:326.13-335.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$157",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$159",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:326.17-326.25|fw_axi_contract_formal.v:326.13-335.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$162",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$169",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:320.67-320.67|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$171",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:316.17-316.25|fw_axi_contract_formal.v:316.13-325.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$174",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$177",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:319.67-319.67|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$179",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:316.17-316.25|fw_axi_contract_formal.v:316.13-325.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$182",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$186",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:318.33-318.33|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$188",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:316.17-316.25|fw_axi_contract_formal.v:316.13-325.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$193",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:316.17-316.25|fw_axi_contract_formal.v:316.13-325.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$203",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:349.17-349.46|fw_axi_contract_formal.v:349.13-356.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000110"
+                  }
+                },
+                {
+                  "name": "$procmux$206",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001000110"
+                  }
+                },
+                {
+                  "name": "$procmux$213",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:341.17-341.46|fw_axi_contract_formal.v:341.13-348.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100110"
+                  }
+                },
+                {
+                  "name": "$procmux$216",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:308.13-308.19|fw_axi_contract_formal.v:308.9-357.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100110"
+                  }
+                },
+                {
+                  "name": "$procmux$218",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:287.13-287.35|fw_axi_contract_formal.v:287.9-288.35"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$220",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:285.13-285.35|fw_axi_contract_formal.v:285.9-286.52"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$222",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:283.13-283.36|fw_axi_contract_formal.v:283.9-284.35"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$224",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:281.13-281.36|fw_axi_contract_formal.v:281.9-282.35"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$226",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:279.13-279.53|fw_axi_contract_formal.v:279.9-280.35"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$229",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$232",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$234",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:265.17-265.26|fw_axi_contract_formal.v:265.13-266.50"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$237",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$239",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:263.17-263.26|fw_axi_contract_formal.v:263.13-264.50"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$242",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$244",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:272.17-272.52|fw_axi_contract_formal.v:272.13-273.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procmux$247",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procmux$249",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:270.17-270.52|fw_axi_contract_formal.v:270.13-271.42"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procmux$252",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:257.13-257.19|fw_axi_contract_formal.v:257.9-274.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procmux$255",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:235.13-235.33|fw_axi_contract_formal.v:235.9-238.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$258",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:235.13-235.33|fw_axi_contract_formal.v:235.9-238.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$260",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:230.13-230.33|fw_axi_contract_formal.v:230.9-231.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ne",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_axi_contract_formal.v:281$73",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:281.13-281.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_axi_contract_formal.v:283$76",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:283.13-283.36"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$511",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$512",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$513",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100110"
+                  }
+                },
+                {
+                  "name": "$procdff$514",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$515",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$516",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:307.5-358.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001000110"
+                  }
+                },
+                {
+                  "name": "$procdff$517",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:256.5-275.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$518",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:256.5-275.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procdff$519",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:256.5-275.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$520",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:256.5-275.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000001011000"
+                  }
+                },
+                {
+                  "name": "$procdff$521",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:229.5-232.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$fw_axi_contract_formal.v:230$46",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:230.13-230.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$lt$fw_axi_contract_formal.v:235$49",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:235.13-235.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$fw_axi_contract_formal.v:279$70",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:279.13-279.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_264_55",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_264_55",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:264.17-264.49"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_266_57",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_266_57",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:266.17-266.49"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_280_71",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_280_71",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:280.13-280.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_282_74",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_282_74",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:282.13-282.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_284_77",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_284_77",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:284.13-284.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111101",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_286_80",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_286_80",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:286.13-286.51"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111100",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_288_85",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_288_85",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:288.13-288.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111011",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_324_97",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_324_97",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:324.17-324.49"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111011",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_axi_contract_formal_v_334_107",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_axi_contract_formal_v_334_107",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:334.17-334.49"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111110110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_236_50",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_236_50",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:236.13-236.27"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_238_52",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_238_52",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:238.13-238.26"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_317_89",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_317_89",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:317.17-317.46"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_319_91",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_319_91",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:319.34-319.66"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_320_93",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_320_93",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:320.34-320.66"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111101",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_321_95",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_321_95",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:321.37-321.69"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111100",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_327_99",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_327_99",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:327.17-327.46"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111010",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_329_101",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_329_101",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:329.34-329.66"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111001",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_330_103",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_330_103",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:330.34-330.66"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111000",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_axi_contract_formal_v_331_105",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_axi_contract_formal_v_331_105",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:331.37-331.69"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111110111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_axi_contract_formal.v:270$64",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:270.17-270.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_axi_contract_formal.v:272$66",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:272.17-272.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_axi_contract_formal.v:286$83",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:286.20-286.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_axi_contract_formal.v:341$114",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:341.17-341.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_axi_contract_formal.v:349$116",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:349.17-349.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:285$79",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:285.13-285.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:287$84",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:287.13-287.35"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:236$51",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:236.20-236.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:270$63",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:270.36-270.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:272$65",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:272.36-272.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:279$69",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:279.42-279.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:280$72",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:280.20-280.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:282$75",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:282.20-282.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:284$78",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:284.20-284.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:286$81",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:286.20-286.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:286$82",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:286.37-286.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:288$86",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:288.20-288.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:341$113",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:341.33-341.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_axi_contract_formal.v:349$115",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:349.33-349.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [88, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [88, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:264$56",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:264.24-264.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000001011000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001011000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:266$58",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:266.24-266.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000001011000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001011000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:317$90",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:317.24-317.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:319$92",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:319.41-319.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:320$94",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:320.41-320.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:321$96",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:321.44-321.68"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:324$98",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:324.24-324.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000111",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:327$100",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:327.24-327.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:329$102",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:329.41-329.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:330$104",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:330.41-330.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:331$106",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:331.44-331.68"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_axi_contract_formal.v:334$108",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:334.24-334.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000001000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$136_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:330.67-330.67|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$144_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:329.67-329.67|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$153_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:328.33-328.33|fw_axi_contract_formal.v:328.17-333.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$170_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:320.67-320.67|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$178_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:319.67-319.67|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$187_CMP0",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:318.33-318.33|fw_axi_contract_formal.v:318.17-323.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$200_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:352.59-352.59|fw_axi_contract_formal.v:350.17-355.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$201_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:351.59-351.59|fw_axi_contract_formal.v:350.17-355.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$202_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:350.32-350.32|fw_axi_contract_formal.v:350.17-355.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$210_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:344.59-344.59|fw_axi_contract_formal.v:342.17-347.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$211_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:343.59-343.59|fw_axi_contract_formal.v:342.17-347.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$212_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:342.32-342.32|fw_axi_contract_formal.v:342.17-347.24"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [40, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [120, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [40, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:352.59-352.59|fw_axi_contract_formal.v:350.17-355.24"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procmux$209",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_axi_contract_formal.v:344.59-344.59|fw_axi_contract_formal.v:342.17-347.24"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000111"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_axi_contract_formal.v:231$47",
+                  "attributes": {
+                    "src": "fw_axi_contract_formal.v:231.30-231.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "fw_axi_contract_formal.v:1.1-360.10"
+        }
+      },
+      {
+        "name": "fw_data_path_mux",
+        "cell_sorts": [
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$291_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:205.24-205.24|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$294_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$298_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:213.16-213.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$420_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:126.24-126.24|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$432_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$436_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:136.16-136.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$290",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:205.24-205.24|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$293",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$297",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:213.16-213.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$317",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:169.24-169.24|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$320",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:181.16-181.16|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$324",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:175.16-175.16|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$328",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:142.33-142.48|fw_data_path_mux.v:142.29-152.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$340",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:142.33-142.48|fw_data_path_mux.v:142.29-152.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$360",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:127.30-127.45|fw_data_path_mux.v:127.26-136.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$368",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:127.30-127.45|fw_data_path_mux.v:127.26-136.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$384",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:127.30-127.45|fw_data_path_mux.v:127.26-136.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$392",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:127.30-127.45|fw_data_path_mux.v:127.26-136.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$399",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:126.24-126.24|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$404",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:126.24-126.24|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$409",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:126.24-126.24|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$414",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:126.24-126.24|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$422",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$425",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$428",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$431",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$435",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:136.16-136.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$439",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:136.16-136.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$263",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$268",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$273",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$278",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$283",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:221.16-221.16|fw_data_path_mux.v:205.9-233.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$300",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:181.16-181.16|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$305",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:181.16-181.16|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$310",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:181.16-181.16|fw_data_path_mux.v:169.9-191.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$417",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_data_path_mux.v:141.16-141.16|fw_data_path_mux.v:126.9-157.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "dynports": "00000000000000000000000000000001",
+            "src": "fw_data_path_mux.v:5.1-235.10"
+        }
+      }
+  ]
+}

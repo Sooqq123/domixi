@@ -1,0 +1,333 @@
+{
+  "timescale": "1ps",
+  "start": 0,
+  "end": 21000,
+  "truncated": false,
+  "signals": [
+    {
+      "name": "tb_aegis_soc_reset.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_cpu_bridge.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_dma.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_firewall.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_cpu_bridge.u_picorv32.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_dma.u_fifo.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_dma.u_master.aclk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_dma.u_slave.pclk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_firewall.u_acl_matcher.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_firewall.u_address_slice.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    },
+    {
+      "name": "tb_aegis_soc_reset.dut.u_firewall.u_apb_regs.clk",
+      "width": 1,
+      "code": "K",
+      "events": [
+        [
+          0,
+          "0"
+        ],
+        [
+          5000,
+          "1"
+        ],
+        [
+          10000,
+          "0"
+        ],
+        [
+          15000,
+          "1"
+        ],
+        [
+          20000,
+          "0"
+        ]
+      ]
+    }
+  ],
+  "declared_signals": 1816
+}

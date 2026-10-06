@@ -1,0 +1,164 @@
+MUTANT: MUT-01-ACL-BYPASS
+TARGET FILE: D:\domixi\rtl\fw_acl_matcher.v
+MUTATION: wire acl_allowed         = any_cover && all_cover_allow; -> wire acl_allowed         = 1'b1; // MUTANT: ACL bypass
+SIMULATION RETURN CODE: 0
+--------------------------------------------------
+========================================
+STARTING TESTBENCH: tb_fw_acl_matcher
+========================================
+[ERROR] Test 2 at 65000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 2 at 65000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 4 at 105000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 4 at 105000: Fault code mismatch! DUT=0000, Exp=0011
+Running 500 Random Tests...
+[ERROR] Test 18 at 385000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 18 at 385000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 20 at 425000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 20 at 425000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 24 at 505000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 24 at 505000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 34 at 705000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 34 at 705000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 36 at 745000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 36 at 745000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 38 at 785000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 38 at 785000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 65 at 1325000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 65 at 1325000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 67 at 1365000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 67 at 1365000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 72 at 1465000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 72 at 1465000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 76 at 1545000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 76 at 1545000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 80 at 1625000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 80 at 1625000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 88 at 1785000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 88 at 1785000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 95 at 1925000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 95 at 1925000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 100 at 2025000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 100 at 2025000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 101 at 2045000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 101 at 2045000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 112 at 2265000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 112 at 2265000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 121 at 2445000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 121 at 2445000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 125 at 2525000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 125 at 2525000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 136 at 2745000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 136 at 2745000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 137 at 2765000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 137 at 2765000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 162 at 3265000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 162 at 3265000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 170 at 3425000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 170 at 3425000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 173 at 3485000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 173 at 3485000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 203 at 4085000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 203 at 4085000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 208 at 4185000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 208 at 4185000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 215 at 4325000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 215 at 4325000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 217 at 4365000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 217 at 4365000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 226 at 4545000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 226 at 4545000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 243 at 4885000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 243 at 4885000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 244 at 4905000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 244 at 4905000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 273 at 5485000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 273 at 5485000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 274 at 5505000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 274 at 5505000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 277 at 5565000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 277 at 5565000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 280 at 5625000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 280 at 5625000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 285 at 5725000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 285 at 5725000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 288 at 5785000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 288 at 5785000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 291 at 5845000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 291 at 5845000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 297 at 5965000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 297 at 5965000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 302 at 6065000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 302 at 6065000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 307 at 6165000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 307 at 6165000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 311 at 6245000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 311 at 6245000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 316 at 6345000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 316 at 6345000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 323 at 6485000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 323 at 6485000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 331 at 6645000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 331 at 6645000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 339 at 6805000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 339 at 6805000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 342 at 6865000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 342 at 6865000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 343 at 6885000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 343 at 6885000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 350 at 7025000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 350 at 7025000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 357 at 7165000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 357 at 7165000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 358 at 7185000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 358 at 7185000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 361 at 7245000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 361 at 7245000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 368 at 7385000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 368 at 7385000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 375 at 7525000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 375 at 7525000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 380 at 7625000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 380 at 7625000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 400 at 8025000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 400 at 8025000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 408 at 8185000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 408 at 8185000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 431 at 8645000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 431 at 8645000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 436 at 8745000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 436 at 8745000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 440 at 8825000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 440 at 8825000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 446 at 8945000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 446 at 8945000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 451 at 9045000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 451 at 9045000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 457 at 9165000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 457 at 9165000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 462 at 9265000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 462 at 9265000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 469 at 9405000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 469 at 9405000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 471 at 9445000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 471 at 9445000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 474 at 9505000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 474 at 9505000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 475 at 9525000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 475 at 9525000: Fault code mismatch! DUT=0000, Exp=0011
+[ERROR] Test 476 at 9545000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 476 at 9545000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 483 at 9685000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 483 at 9685000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 488 at 9785000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 488 at 9785000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 491 at 9845000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 491 at 9845000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 492 at 9865000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 492 at 9865000: Fault code mismatch! DUT=0000, Exp=0001
+[ERROR] Test 498 at 9985000: Allow mismatch! DUT=1010, Exp=0101
+[ERROR] Test 498 at 9985000: Fault code mismatch! DUT=0000, Exp=0011
+Checking Multi-bit Safe Hamming distance & Fault-injection robustness...
+========================================
+FAIL: tb_fw_acl_matcher (150 errors detected)
+========================================
+D:\domixi\tb\tb_fw_acl_matcher.v:426: $finish called at 10216000 (1ps)

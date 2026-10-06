@@ -1,0 +1,8 @@
+# running in D:\domixi\formal\fw_closed/src/
+read_verilog -formal -D FORMAL fw_closed_loop_ctrl.v fw_closed_formal.v
+prep -top fw_closed_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

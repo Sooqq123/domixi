@@ -1,0 +1,2030 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-09-18T17:30:23.914240+00:00",
+  "status": "EVIDENCE_COMPLETE_REVIEW_REQUIRED",
+  "tests": [
+    {
+      "id": "dma_fifo",
+      "scope": "DMA_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\tb\\tb_dma_fifo_latch.v",
+          "sha256": "3d9e17e12429500f6101730edac05a733287ba2718d0b232244b0716577f3f9a"
+        }
+      ],
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_dma_fifo_latch",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-uqspxoxj\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\tb\\tb_dma_fifo_latch.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.064
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-uqspxoxj\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.031
+      },
+      "pass_pattern": "\\[PASS\\] tb_dma_fifo_latch completed with no check failures",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_fifo/fifo_wave.vcd",
+      "preview": "simulation/dma_fifo/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "dma_apb",
+      "scope": "DMA_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\tb\\tb_dma_apb_slave.v",
+          "sha256": "26258df5f1b08d0c33c91d57b7e9bf1a363c773215619e333acd9b0ed5e443ee"
+        }
+      ],
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_dma_apb_slave",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ok3pjrp3\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\tb\\tb_dma_apb_slave.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.088
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ok3pjrp3\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.044
+      },
+      "pass_pattern": "\\[PASS\\] tb_dma_apb_slave completed with no check failures",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_apb/apb_slave_wave.vcd",
+      "preview": "simulation/dma_apb/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "dma_axi",
+      "scope": "DMA_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\tb\\tb_dma_axi_master.v",
+          "sha256": "f637d6a1cf600c984a614c4bd358ebfa4e2229156ec6afa78418d75ae6489320"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_dma_axi_master",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-v_b2kab5\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\tb\\tb_dma_axi_master.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-v_b2kab5\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.102
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-v_b2kab5\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.041
+      },
+      "pass_pattern": "\\[PASS\\] tb_dma_axi_master V2.4.1 negative regression",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_axi/waves.vcd",
+      "preview": "simulation/dma_axi/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "dma_controller",
+      "scope": "DMA_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_controller.v",
+          "sha256": "cff5b90c61b23e47191ac4c55f95358586fcad9f7b5a3e9191e531444ef91701"
+        },
+        {
+          "path": "DMA-controller\\tb\\tb_dma_controller.v",
+          "sha256": "9c2b9f2ad3c802249488da7caf50e339641bc4c6ee692a4ecb0cad27ef032c1c"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_dma_controller",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ug5xpg4v\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_controller.v",
+          "D:\\domixi\\DMA-controller\\tb\\tb_dma_controller.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ug5xpg4v\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.08
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ug5xpg4v\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.043
+      },
+      "pass_pattern": "\\[PASS\\] dma_controller regression:",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_controller/waves.vcd",
+      "preview": "simulation/dma_controller/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "picorv32_smoke",
+      "scope": "CPU_SMOKE",
+      "status": "PASS",
+      "note": "Upstream increment-loop smoke: observes write of 5 to 0x3fc. Not ISA compliance or CPU-SoC integration verification.",
+      "sources": [
+        {
+          "path": "picorv32-main\\picorv32-main\\picorv32.v",
+          "sha256": "6871796338e9efd12c9c9df48aeb1965295b81c2c4a8df280e7f2bb4b0622bcc"
+        },
+        {
+          "path": "picorv32-main\\picorv32-main\\testbench_ez.v",
+          "sha256": "b7fd579c4a212c915a5abb1dda19732497449c0dcf2847949f78017c8f049b66"
+        }
+      ],
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "testbench",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-vsn4nzr8\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-Wno-sensitivity-entire-array",
+          "D:\\domixi\\picorv32-main\\picorv32-main\\picorv32.v",
+          "D:\\domixi\\picorv32-main\\picorv32-main\\testbench_ez.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.084
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-vsn4nzr8\\simulation.vvp",
+          "+vcd"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.081
+      },
+      "pass_pattern": "write  0x000003fc: 0x00000005 \\(wstrb=1111\\)",
+      "plusargs": [
+        "+vcd"
+      ],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/picorv32_smoke/testbench.vcd",
+      "preview": "simulation/picorv32_smoke/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "drain_wrapper_mock",
+      "scope": "MOCK_INTEGRATION",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\mocks\\fw_write_drain_mock.v",
+          "sha256": "81d449841d389a6d24909444f08592434988ff8d01f162bfa99874f255784a31"
+        },
+        {
+          "path": "rtl\\mocks\\fw_read_drain_mock.v",
+          "sha256": "e9abd53d2c0a79575fd936a1454aa472ca67f72806751408b445cd3c7ea606fe"
+        },
+        {
+          "path": "tb\\tb_fw_drain_fsm.v",
+          "sha256": "122d9271bb7c015523703dbb7004643a5e3749a0ab903e86b98b5f4ea35f9985"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_drain_fsm",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-zp12j0yk\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\mocks\\fw_write_drain_mock.v",
+          "D:\\domixi\\rtl\\mocks\\fw_read_drain_mock.v",
+          "D:\\domixi\\tb\\tb_fw_drain_fsm.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-zp12j0yk\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.074
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-zp12j0yk\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.04
+      },
+      "pass_pattern": "PASS: tb_fw_drain_fsm",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/drain_wrapper_mock/waves.vcd",
+      "preview": "simulation/drain_wrapper_mock/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "dma_firewall_boundary_mock",
+      "scope": "MOCK_INTEGRATION",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_controller.v",
+          "sha256": "cff5b90c61b23e47191ac4c55f95358586fcad9f7b5a3e9191e531444ef91701"
+        },
+        {
+          "path": "DMA-controller\\tb\\integration\\mocks\\dma_bus_firewall_stub.v",
+          "sha256": "a5656a73a86e49afe3246d0a9f8f6ee642a9627ac0bd6aa9f3584fc2f336e24b"
+        },
+        {
+          "path": "DMA-controller\\tb\\integration\\tb_soc_dma_firewall_contract.v",
+          "sha256": "f108909fdf025cac688a0c80107cb3f6de50352ab90cac7cd276588dc8abc44f"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_soc_dma_firewall_contract",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ev_8ljzz\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_controller.v",
+          "D:\\domixi\\DMA-controller\\tb\\integration\\mocks\\dma_bus_firewall_stub.v",
+          "D:\\domixi\\DMA-controller\\tb\\integration\\tb_soc_dma_firewall_contract.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ev_8ljzz\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.096
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ev_8ljzz\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.051
+      },
+      "pass_pattern": "PASS: tb_soc_dma_firewall_contract \\(SIMULATION-ONLY FIREWALL STUB\\)",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_firewall_boundary_mock/waves.vcd",
+      "preview": "simulation/dma_firewall_boundary_mock/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "address_slice_observation",
+      "scope": "FIREWALL_UNIT",
+      "status": "PASS",
+      "note": "Self-checking assertions for Stage 1 AW/AR latching, 4KB boundary, overflow, profile error and stall stability.",
+      "sources": [
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "tb\\tb_fw_axi_address_slice.v",
+          "sha256": "807fe2f8c67af4c773462e223f8560064afc2328dd8c82cf56715ced71dc81bd"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_axi_address_slice",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ruj2a9p1\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\tb\\tb_fw_axi_address_slice.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ruj2a9p1\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.084
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ruj2a9p1\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.036
+      },
+      "pass_pattern": "PASS: tb_fw_axi_address_slice",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/address_slice_observation/waves.vcd",
+      "preview": "simulation/address_slice_observation/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_apb_regs",
+      "scope": "STUDENT_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "tb\\tb_fw_apb_regs.v",
+          "sha256": "65bdd71301d391f73d033b5c4d607a759f1ae0314b2afd936e9db9ae999157b2"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_apb_regs",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6s182wnj\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\tb\\tb_fw_apb_regs.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6s182wnj\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.093
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6s182wnj\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.035
+      },
+      "pass_pattern": "PASS: tb_fw_apb_regs",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_apb_regs/waves.vcd",
+      "preview": "simulation/fw_apb_regs/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_acl_matcher",
+      "scope": "STUDENT_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "tb\\tb_fw_acl_matcher.v",
+          "sha256": "694c700b53765671a78d8e4550d40e3ab4e84c343989722892bb5196adb8ec7d"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_acl_matcher",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-o3o1et49\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\tb\\tb_fw_acl_matcher.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-o3o1et49\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.091
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-o3o1et49\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.064
+      },
+      "pass_pattern": "PASS: tb_fw_acl_matcher",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_acl_matcher/waves.vcd",
+      "preview": "simulation/fw_acl_matcher/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "fw_write_drain",
+      "scope": "STUDENT_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "tb\\tb_fw_write_drain.v",
+          "sha256": "1a7925cae750acc3f9cfedbb6e97bf7776410cea286b34bc291a13142061a893"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_write_drain",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6uk92fm1\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\tb\\tb_fw_write_drain.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6uk92fm1\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.098
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6uk92fm1\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.045
+      },
+      "pass_pattern": "PASS: tb_fw_write_drain",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_write_drain/waves.vcd",
+      "preview": "simulation/fw_write_drain/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_read_drain",
+      "scope": "STUDENT_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "tb\\tb_fw_read_drain.v",
+          "sha256": "add1564b3cff9513e2284d354cdbb6696ed575be4ac87a49a8beba55264a9e8e"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_read_drain",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-jn28s4e4\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\tb\\tb_fw_read_drain.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-jn28s4e4\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.13
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-jn28s4e4\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.262
+      },
+      "pass_pattern": "PASS: tb_fw_read_drain",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_read_drain/waves.vcd",
+      "preview": "simulation/fw_read_drain/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "fw_context_tracker",
+      "scope": "FIREWALL_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "tb\\tb_fw_context_tracker.v",
+          "sha256": "e0b95bd4fd9111c8830874d794893eb439d22e36a7043371a930f6335b05a5d0"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_context_tracker",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-f2pm2k7t\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\tb\\tb_fw_context_tracker.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-f2pm2k7t\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.091
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-f2pm2k7t\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.037
+      },
+      "pass_pattern": "PASS: tb_fw_context_tracker",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_context_tracker/waves.vcd",
+      "preview": "simulation/fw_context_tracker/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_data_path_mux",
+      "scope": "FIREWALL_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "tb\\tb_fw_data_path_mux.v",
+          "sha256": "fc6d870e68db2242df01a05f0e44accbce42ded57f54b066b63654635d62de0d"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_data_path_mux",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tvxkc3dd\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\tb\\tb_fw_data_path_mux.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tvxkc3dd\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.08
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tvxkc3dd\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.033
+      },
+      "pass_pattern": "PASS: tb_fw_data_path_mux",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_data_path_mux/waves.vcd",
+      "preview": "simulation/fw_data_path_mux/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_drain_fsm",
+      "scope": "FIREWALL_UNIT",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "tb\\tb_fw_drain_fsm.v",
+          "sha256": "122d9271bb7c015523703dbb7004643a5e3749a0ab903e86b98b5f4ea35f9985"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_drain_fsm",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mil7c0s4\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\tb\\tb_fw_drain_fsm.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mil7c0s4\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.086
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mil7c0s4\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.036
+      },
+      "pass_pattern": "PASS: tb_fw_drain_fsm",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_drain_fsm/waves.vcd",
+      "preview": "simulation/fw_drain_fsm/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "dma_bus_firewall",
+      "scope": "FIREWALL_TOP",
+      "status": "PASS",
+      "note": "",
+      "sources": [
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "rtl\\fw_mtd_engine.v",
+          "sha256": "1b533b4902a690dfeb5f9ba8797b8032912cd549b2c9c9dbfbff439b9e05660b"
+        },
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "rtl\\dma_bus_firewall.v",
+          "sha256": "eae23ddde9353b3d8bb654e48d3690e49679b09f92d8e3320f077cea0e9c640f"
+        },
+        {
+          "path": "tb\\tb_dma_bus_firewall.v",
+          "sha256": "81ec62248cd9fcd35409af51765ed7d58f59530787acb9a41ccecbc25cfb7406"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_dma_bus_firewall",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-z83q0lt3\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\rtl\\fw_mtd_engine.v",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\rtl\\dma_bus_firewall.v",
+          "D:\\domixi\\tb\\tb_dma_bus_firewall.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-z83q0lt3\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.134
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-z83q0lt3\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.262
+      },
+      "pass_pattern": "ALL TESTS PASSED SUCCESSFULLY! \\(0 failures\\)",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/dma_bus_firewall/waves.vcd",
+      "preview": "simulation/dma_bus_firewall/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "soc_real_integration",
+      "scope": "SOC_REAL",
+      "status": "PASS",
+      "note": "Real PicoRV32 CPU + APB bridge + DMA controller + real firewall + AXI memory model. CPU firmware configures both APB targets, starts DMA, and raises a real trap for the AEGIS NMI path.",
+      "sources": [
+        {
+          "path": "picorv32-main\\picorv32-main\\picorv32.v",
+          "sha256": "6871796338e9efd12c9c9df48aeb1965295b81c2c4a8df280e7f2bb4b0622bcc"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_controller.v",
+          "sha256": "cff5b90c61b23e47191ac4c55f95358586fcad9f7b5a3e9191e531444ef91701"
+        },
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "rtl\\fw_mtd_engine.v",
+          "sha256": "1b533b4902a690dfeb5f9ba8797b8032912cd549b2c9c9dbfbff439b9e05660b"
+        },
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "rtl\\dma_bus_firewall.v",
+          "sha256": "eae23ddde9353b3d8bb654e48d3690e49679b09f92d8e3320f077cea0e9c640f"
+        },
+        {
+          "path": "rtl\\aegis_picorv32_apb_bridge.v",
+          "sha256": "b5d14ecea311ddec0ab8cd4e733d7b5fb210df7b67132922fb613add690d6c6e"
+        },
+        {
+          "path": "tb\\tb_aegis_picorv32_soc.v",
+          "sha256": "abc973b364e4277164226d6e043785f6273a28d5853505f576bef649614bf205"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_aegis_picorv32_soc",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wta0cux7\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-Wno-sensitivity-entire-array",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\picorv32-main\\picorv32-main\\picorv32.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_controller.v",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\rtl\\fw_mtd_engine.v",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\rtl\\dma_bus_firewall.v",
+          "D:\\domixi\\rtl\\aegis_picorv32_apb_bridge.v",
+          "D:\\domixi\\tb\\tb_aegis_picorv32_soc.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wta0cux7\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.179
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wta0cux7\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.268
+      },
+      "pass_pattern": "\\[PASS\\] tb_aegis_picorv32_soc",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/soc_real_integration/waves.vcd",
+      "preview": "simulation/soc_real_integration/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "soc_reset_contract",
+      "scope": "SOC_REAL",
+      "status": "PASS",
+      "note": "Production AEGIS SoC top reset contract: asynchronous assertion, two-edge functional deassertion and explicit test_mode bypass alignment.",
+      "sources": [
+        {
+          "path": "picorv32-main\\picorv32-main\\picorv32.v",
+          "sha256": "6871796338e9efd12c9c9df48aeb1965295b81c2c4a8df280e7f2bb4b0622bcc"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_controller.v",
+          "sha256": "cff5b90c61b23e47191ac4c55f95358586fcad9f7b5a3e9191e531444ef91701"
+        },
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "rtl\\fw_mtd_engine.v",
+          "sha256": "1b533b4902a690dfeb5f9ba8797b8032912cd549b2c9c9dbfbff439b9e05660b"
+        },
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "rtl\\dma_bus_firewall.v",
+          "sha256": "eae23ddde9353b3d8bb654e48d3690e49679b09f92d8e3320f077cea0e9c640f"
+        },
+        {
+          "path": "rtl\\aegis_picorv32_apb_bridge.v",
+          "sha256": "b5d14ecea311ddec0ab8cd4e733d7b5fb210df7b67132922fb613add690d6c6e"
+        },
+        {
+          "path": "rtl\\aegis_soc_top.v",
+          "sha256": "f9f95a3fbc073a3b4ff5e80b78195dbabe9e211413c81a7d348882cc8e2d8d08"
+        },
+        {
+          "path": "tb\\tb_aegis_soc_reset.v",
+          "sha256": "fccc9b1ac8b2afb7cb3ace1dde9d30aef9cee183daf5069b0637e8cdfddffa97"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_aegis_soc_reset",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wj6dk9ns\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-Wno-sensitivity-entire-array",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\picorv32-main\\picorv32-main\\picorv32.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_controller.v",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\rtl\\fw_mtd_engine.v",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\rtl\\dma_bus_firewall.v",
+          "D:\\domixi\\rtl\\aegis_picorv32_apb_bridge.v",
+          "D:\\domixi\\rtl\\aegis_soc_top.v",
+          "D:\\domixi\\tb\\tb_aegis_soc_reset.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wj6dk9ns\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.163
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-wj6dk9ns\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.082
+      },
+      "pass_pattern": "\\[PASS\\] tb_aegis_soc_reset reset contract",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/soc_reset_contract/waves.vcd",
+      "preview": "simulation/soc_reset_contract/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "aegis_rowhammer_5000",
+      "scope": "AEGIS_E2E",
+      "status": "PASS",
+      "note": "AEGIS end-to-end directed test with 5,000 alternating Rowhammer bursts, timing probe, normal DMA and CPU NMI scenarios.",
+      "sources": [
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "rtl\\fw_mtd_engine.v",
+          "sha256": "1b533b4902a690dfeb5f9ba8797b8032912cd549b2c9c9dbfbff439b9e05660b"
+        },
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "rtl\\dma_bus_firewall.v",
+          "sha256": "eae23ddde9353b3d8bb654e48d3690e49679b09f92d8e3320f077cea0e9c640f"
+        },
+        {
+          "path": "tb\\tb_aegis_soc.v",
+          "sha256": "b653e29dcf5d0687f778bd7bd5ae0edb4e9a3e01bc5b7f1c5c99231fae504f52"
+        }
+      ],
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_aegis_soc",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-nqlbrn8w\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\rtl\\fw_mtd_engine.v",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\rtl\\dma_bus_firewall.v",
+          "D:\\domixi\\tb\\tb_aegis_soc.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.126
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-nqlbrn8w\\simulation.vvp",
+          "+dump_wave"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 9.897
+      },
+      "pass_pattern": "AEGIS-RISC VERIFICATION SUMMARY: [0-9]+ PASSED, 0 FAILED",
+      "plusargs": [
+        "+dump_wave"
+      ],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/aegis_rowhammer_5000/tb_aegis_soc.vcd",
+      "preview": "simulation/aegis_rowhammer_5000/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "fw_hdc_sense",
+      "scope": "AEGIS_HDC",
+      "status": "PASS",
+      "note": "AEGIS HDC 1024-bit hyperdimensional computing sensing engine: single-cycle classifier, telemetry tap, distance comparison, and fingerprinting.",
+      "sources": [
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "tb\\tb_fw_hdc_sense.v",
+          "sha256": "3d4070bb87b3e3eebd9479b59e2c5d1404011c45c9b1e9b87d7934beaa09e5a5"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_hdc_sense",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ic4lkcpj\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\tb\\tb_fw_hdc_sense.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ic4lkcpj\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.103
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ic4lkcpj\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.232
+      },
+      "pass_pattern": "\\[PASS\\] tb_fw_hdc_sense completed with zero check failures!",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_hdc_sense/waves.vcd",
+      "preview": "simulation/fw_hdc_sense/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "fw_closed_loop_ctrl",
+      "scope": "AEGIS_REFLEX",
+      "status": "PASS",
+      "note": "AEGIS closed-loop reflex controller: 1-cycle NMI irq[3] dispatch, per-MID score tracker, decay epoch, forensic FIFO, and status registers.",
+      "sources": [
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "tb\\tb_fw_closed_loop_ctrl.v",
+          "sha256": "d53b46c83851248f3acb936e4a2733ba38453f52fdf85e87f38989d81c33165a"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_closed_loop_ctrl",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6d1ikhpm\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\tb\\tb_fw_closed_loop_ctrl.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6d1ikhpm\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.086
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-6d1ikhpm\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.042
+      },
+      "pass_pattern": "\\[ALL TESTS PASSED\\] fw_closed_loop_ctrl verified successfully!",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_closed_loop_ctrl/waves.vcd",
+      "preview": "simulation/fw_closed_loop_ctrl/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_honeypot_sink",
+      "scope": "AEGIS_MTD",
+      "status": "PASS",
+      "note": "AEGIS MTD Honey-Pot sink: absorbs malicious Rowhammer write bursts and returns dummy read data transparently with AXI OKAY.",
+      "sources": [
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "tb\\tb_fw_honeypot_sink.v",
+          "sha256": "db89bdd2fa999d779db6962ffe08f0bfb4046c91e00dc8973f282fd8a175e160"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_honeypot_sink",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tsm5a3xm\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\tb\\tb_fw_honeypot_sink.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tsm5a3xm\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.078
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-tsm5a3xm\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.031
+      },
+      "pass_pattern": "\\[ALL TESTS PASSED\\] fw_honeypot_sink verified successfully!",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_honeypot_sink/waves.vcd",
+      "preview": "simulation/fw_honeypot_sink/waveform.svg",
+      "preview_truncated": false
+    },
+    {
+      "id": "fw_hdc_sense_challenger2",
+      "scope": "AEGIS_CHALLENGER",
+      "status": "PASS",
+      "note": "Challenger 2 empirical verification: latency invariants, 0-cycle trap preemption, single-cycle evaluation, and avalanche distribution.",
+      "sources": [
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "tb\\tb_fw_hdc_sense_challenger2.v",
+          "sha256": "abc2811fedfc196ae88acd5b35f6b8121976e281a474db61aa1913a0667634f4"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_fw_hdc_sense_challenger2",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mlwnwzqt\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\tb\\tb_fw_hdc_sense_challenger2.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mlwnwzqt\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.096
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-mlwnwzqt\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.387
+      },
+      "pass_pattern": "CHALLENGER 2 VERDICT: \\[PASS\\]",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/fw_hdc_sense_challenger2/waves.vcd",
+      "preview": "simulation/fw_hdc_sense_challenger2/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "adversarial_m1",
+      "scope": "AEGIS_STRESS",
+      "status": "PASS",
+      "note": "Adversarial stress suite: 5,000 random benign DMA bursts (0% FP), 4KB row boundary traversal, and evasion probe checks.",
+      "sources": [
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "tb\\tb_adversarial_m1.v",
+          "sha256": "d87664de684a1552acc353a18164965b36ce4b3eb0586f181d4118a993b71ae2"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_adversarial_m1",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-te452zsp\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\tb\\tb_adversarial_m1.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-te452zsp\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.107
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-te452zsp\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 2.461
+      },
+      "pass_pattern": "=== ADVERSARIAL STRESS TESTS COMPLETE ===",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/adversarial_m1/waves.vcd",
+      "preview": "simulation/adversarial_m1/waveform.svg",
+      "preview_truncated": true
+    },
+    {
+      "id": "soc_dma_firewall_contract",
+      "scope": "SOC_CONTRACT",
+      "status": "PASS",
+      "note": "Full DMA Controller + Production DMA Bus Firewall end-to-end contract testbench.",
+      "sources": [
+        {
+          "path": "DMA-controller\\rtl\\dma_apb_slave.v",
+          "sha256": "a814bf2b99c10420445aa8cee4d9dffa31ee66e7d88302dc5f4af15bdc02f5cb"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_axi_master.v",
+          "sha256": "a41eff2338e467c9dda9bb39a7c0199947ad0a0e0befa26d52ef55e8c343cec4"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_fifo_latch.v",
+          "sha256": "9c274e7c71bd81fd7163bf7ab18226307df8c9d0a7749c166613b02d0724abad"
+        },
+        {
+          "path": "DMA-controller\\rtl\\dma_controller.v",
+          "sha256": "cff5b90c61b23e47191ac4c55f95358586fcad9f7b5a3e9191e531444ef91701"
+        },
+        {
+          "path": "rtl\\fw_axi_address_slice.v",
+          "sha256": "72ade7fed07a73837ed792b717cfc93fbb83897c1f89f76dca0ae84ef391493c"
+        },
+        {
+          "path": "rtl\\fw_context_tracker.v",
+          "sha256": "03b5c6fed267ac92559132f698a01f69fd2d00a692cb39e33b3d68cdf9ae65d1"
+        },
+        {
+          "path": "rtl\\fw_apb_regs.v",
+          "sha256": "80d125f99de195454a81dd2ddd77e6f3e93c04d9851d0c59f516a6154c168b70"
+        },
+        {
+          "path": "rtl\\fw_acl_matcher.v",
+          "sha256": "2eaae86da67f5f6a0e44ef91b3e3565e6972afd71b0eef79302f20c4b12e7b47"
+        },
+        {
+          "path": "rtl\\fw_drain_fsm.v",
+          "sha256": "584abf87edf141c822e05020d795d593e3f1f0a93463cd7a2a5d479e46c9cf87"
+        },
+        {
+          "path": "rtl\\fw_write_drain.v",
+          "sha256": "afd1d57f308a633b67d1773b1f61bfd4f3772b6f4ba7132d1f9ae40d25182f65"
+        },
+        {
+          "path": "rtl\\fw_read_drain.v",
+          "sha256": "50031b31ce0e695b77100ff0bf854a95230b7cbc071ac23d68507bdbf6ea8ec3"
+        },
+        {
+          "path": "rtl\\fw_data_path_mux.v",
+          "sha256": "ead569627ee90c0917fda8f3c7ad70ef0c374d2377ead94db7a259eaf664e4de"
+        },
+        {
+          "path": "rtl\\fw_hdc_sense.v",
+          "sha256": "e552591765519049ee6f41087d676b92317fed3dc67c55b04e7e2514eb4db72d"
+        },
+        {
+          "path": "rtl\\fw_mtd_engine.v",
+          "sha256": "1b533b4902a690dfeb5f9ba8797b8032912cd549b2c9c9dbfbff439b9e05660b"
+        },
+        {
+          "path": "rtl\\fw_honeypot_sink.v",
+          "sha256": "2b5afc7976cfa0f0c31ef7b3b68482ef89670de908613c1d67642319f8bb28b7"
+        },
+        {
+          "path": "rtl\\fw_closed_loop_ctrl.v",
+          "sha256": "5115d8d3456883d0eabefd09b343522f839fdc4c9fd5df065fe1e6ce4b115038"
+        },
+        {
+          "path": "rtl\\dma_bus_firewall.v",
+          "sha256": "eae23ddde9353b3d8bb654e48d3690e49679b09f92d8e3320f077cea0e9c640f"
+        },
+        {
+          "path": "tb\\tb_soc_dma_firewall_contract.v",
+          "sha256": "2e2c71021e8de265ddb599f40a642ab356b9f550b050cc1b69f0d2562444d6f2"
+        }
+      ],
+      "dump_injection": "Observation-only extra simulation root; no RTL edits",
+      "compile": {
+        "argv": [
+          "iverilog",
+          "-g2012",
+          "-Wall",
+          "-Wimplicit",
+          "-Wno-timescale",
+          "-s",
+          "tb_soc_dma_firewall_contract",
+          "-o",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ne7sib7i\\simulation.vvp",
+          "-I",
+          "D:\\domixi\\rtl",
+          "-s",
+          "evidence_dump",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_apb_slave.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_axi_master.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_fifo_latch.v",
+          "D:\\domixi\\DMA-controller\\rtl\\dma_controller.v",
+          "D:\\domixi\\rtl\\fw_axi_address_slice.v",
+          "D:\\domixi\\rtl\\fw_context_tracker.v",
+          "D:\\domixi\\rtl\\fw_apb_regs.v",
+          "D:\\domixi\\rtl\\fw_acl_matcher.v",
+          "D:\\domixi\\rtl\\fw_drain_fsm.v",
+          "D:\\domixi\\rtl\\fw_write_drain.v",
+          "D:\\domixi\\rtl\\fw_read_drain.v",
+          "D:\\domixi\\rtl\\fw_data_path_mux.v",
+          "D:\\domixi\\rtl\\fw_hdc_sense.v",
+          "D:\\domixi\\rtl\\fw_mtd_engine.v",
+          "D:\\domixi\\rtl\\fw_honeypot_sink.v",
+          "D:\\domixi\\rtl\\fw_closed_loop_ctrl.v",
+          "D:\\domixi\\rtl\\dma_bus_firewall.v",
+          "D:\\domixi\\tb\\tb_soc_dma_firewall_contract.v",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ne7sib7i\\evidence_dump.v"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.218
+      },
+      "compile_warnings": 0,
+      "simulation": {
+        "argv": [
+          "vvp",
+          "C:\\Users\\HIWIND~1\\AppData\\Local\\Temp\\domixi-evidence-ne7sib7i\\simulation.vvp"
+        ],
+        "exit_code": 0,
+        "timeout": false,
+        "seconds": 0.089
+      },
+      "pass_pattern": "PASS: tb_soc_dma_firewall_contract \\(PRODUCTION FIREWALL IP\\)",
+      "plusargs": [],
+      "seed_note": "No seed inferred. Existing default tests are directed; record owner-supplied random seed in plusargs when supported.",
+      "waveform": "simulation/soc_dma_firewall_contract/waves.vcd",
+      "preview": "simulation/soc_dma_firewall_contract/waveform.svg",
+      "preview_truncated": false
+    }
+  ],
+  "counts": {
+    "PASS": 25
+  },
+  "physical": {
+    "status": "REPORTED_PASS",
+    "issues": [],
+    "checks": [
+      {
+        "id": "drc",
+        "status": "REPORTED_PASS",
+        "value": 0,
+        "tool": "KLayout v0.28.16 (Independent Golden Foundry Deck)",
+        "version": "sky130A_mr.drc 2024.2.11_01.09",
+        "command": "klayout -b -rd input=aegis_soc_top.gds -rd top_cell=aegis_soc_top -rd report=klayout_drc.rpt -rd beol=true -r sky130A_mr.drc",
+        "exit_code": 0
+      },
+      {
+        "id": "lvs",
+        "status": "REPORTED_PASS",
+        "value": true,
+        "tool": "Netgen 1.5.255 & Magic 8.3 VLSI (Independent Golden LVS)",
+        "version": "Netgen 1.5.255 / Magic 8.3.416",
+        "command": "netgen -batch lvs aegis_soc_top_layout.spice aegis_soc_top.pnl.v netgen_setup_robust.tcl netgen_lvs.log -json",
+        "exit_code": 0
+      },
+      {
+        "corner": "typical",
+        "mode": "functional",
+        "stage": "post_route",
+        "check": "setup",
+        "unit": "ns",
+        "tool": "OpenSTA",
+        "version": "2.6.0",
+        "command": "report_checks -path_delay max",
+        "exit_code": 0,
+        "report": "sta_tt_025C_1v80_38mhz.rpt",
+        "wns": 0.89,
+        "tns": 0.0,
+        "unconstrained_endpoints": 0,
+        "id": "typical/functional/setup",
+        "status": "REPORTED_PASS"
+      },
+      {
+        "corner": "typical",
+        "mode": "functional",
+        "stage": "post_route",
+        "check": "hold",
+        "unit": "ns",
+        "tool": "OpenSTA",
+        "version": "2.6.0",
+        "command": "report_checks -path_delay min",
+        "exit_code": 0,
+        "report": "sta_tt_025C_1v80_38mhz.rpt",
+        "wns": 0.041,
+        "tns": 0.0,
+        "unconstrained_endpoints": 0,
+        "id": "typical/functional/hold",
+        "status": "REPORTED_PASS"
+      }
+    ],
+    "artifacts": [
+      {
+        "kind": "gds",
+        "path": "physical/gds.gds",
+        "sha256": "0644fb1b28193d3065bb5b495e1080d3c2f7624da2d30494490cd0ab8a6e513e",
+        "bytes": 52507258,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\aegis_soc_top.gds"
+      },
+      {
+        "kind": "layout_image",
+        "path": "physical/layout_image.png",
+        "sha256": "57633d3a778416f0e39d3d79c96e5485a17ae3567dd9741608e6f27e10a4f1a9",
+        "bytes": 23763,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\layout.png"
+      },
+      {
+        "kind": "netlist",
+        "path": "physical/netlist.v",
+        "sha256": "d5d9a13acd538e9294784a544cfc79285247df260a5964c1584e9e6e3492e029",
+        "bytes": 3749023,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\mapped_netlist.v"
+      },
+      {
+        "kind": "sdc",
+        "path": "physical/sdc.sdc",
+        "sha256": "4ff9799f82f72461b9d7b9d131277f27daf3e90c6dc1223dcbb27c4d40fd98bc",
+        "bytes": 2160,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\aegis_soc_top.sdc"
+      },
+      {
+        "kind": "spef",
+        "path": "physical/spef.spef",
+        "sha256": "d33ffcb9278a1dce1f2a987e8ec89b27fe5f79d367b1b9f530c79b921bd29c60",
+        "bytes": 34009316,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\aegis_soc_top.spef"
+      },
+      {
+        "kind": "sdf",
+        "path": "physical/sdf.sdf",
+        "sha256": "f9ea5c9e7fafb042660d3a4bf4703ea225bc1634dbfadc10979498d6dae09508",
+        "bytes": 20083060,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\aegis_soc_top.sdf"
+      },
+      {
+        "kind": "liberty",
+        "path": "physical/liberty.lib",
+        "sha256": "8e78e14442062dba34d414fca6490b2f6b96038d4510d1438ca44fee31487135",
+        "bytes": 12841637,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\sky130_fd_sc_hd__tt_025C_1v80.lib"
+      },
+      {
+        "kind": "drc_deck",
+        "path": "physical/drc_deck.drc",
+        "sha256": "6cbb73fc445eae75e7827a7eaa94d79dd107205dbef28b01c9a15685746919e2",
+        "bytes": 41916,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\drc_deck.drc"
+      },
+      {
+        "kind": "lvs_deck",
+        "path": "physical/lvs_deck.tcl",
+        "sha256": "447865a68283a0b21ed3ed48162a273f60703bb11851cc9f59e393bf0120bfa2",
+        "bytes": 99666,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\lvs_deck.tcl"
+      },
+      {
+        "kind": "drc_report",
+        "path": "physical/drc_report.rpt",
+        "sha256": "4a81947f411d5f5a72b4a264fb7655963a4abdd7fa0a70350376870081db1f50",
+        "bytes": 12594,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\klayout_drc.rpt"
+      },
+      {
+        "kind": "lvs_report",
+        "path": "physical/lvs_report.rpt",
+        "sha256": "2047e9d801868e458cbf97209a60ccb96608c1bb5535fc34e23b402be1ff08ad",
+        "bytes": 827,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\lvs.rpt"
+      },
+      {
+        "kind": "timing_0_report",
+        "path": "physical/timing_0_report.rpt",
+        "sha256": "e2feafa799554ba3710d98308d28a22feaa723f58c0438b41da1d75d3b1a6363",
+        "bytes": 19084,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\sta_tt_025C_1v80_38mhz.rpt"
+      },
+      {
+        "kind": "timing_1_report",
+        "path": "physical/timing_1_report.rpt",
+        "sha256": "e2feafa799554ba3710d98308d28a22feaa723f58c0438b41da1d75d3b1a6363",
+        "bytes": 19084,
+        "source": "D:\\domixi\\output\\physical\\sky130_aegis_soc_top\\sta_tt_025C_1v80_38mhz.rpt"
+      }
+    ],
+    "metadata": {
+      "top": "aegis_soc_top",
+      "source_revision": "36c4281bb87e67ee18d2462c784bc5d4a3e63a98",
+      "pdk": "sky130A",
+      "pdk_version": "0fe599b2afb6708d281543108caf8310912f54af",
+      "gds_sha256": "0644fb1b28193d3065bb5b495e1080d3c2f7624da2d30494490cd0ab8a6e513e"
+    },
+    "manifest_sha256": "6ac278b86738b533ab1f0d965942b5dec6bdce793c6be1e45f0eec305771732a",
+    "limitation": "Physical sign-off review baseline: Source code revision 36c4281bb87e67ee18d2462c784bc5d4a3e63a98 (tag v2.5.2-tapeout-signoff), incorporating frozen RTL ba7a753 and ratified 38.00 MHz SDC constraints (WAV-STA-003). Layout verified with KLayout DRC (0 violations) and Netgen/Magic LVS (MATCHED). Timing closed at typical corner (38.00 MHz, WAV-STA-003: Setup +0.89 ns, Hold +0.041 ns)."
+  },
+  "environment": {
+    "executables_on_current_path": {
+      "iverilog": "D:\\tools\\oss-cad-suite\\bin\\iverilog.EXE",
+      "vvp": "D:\\tools\\oss-cad-suite\\bin\\vvp.EXE",
+      "gtkwave": "D:\\tools\\oss-cad-suite\\bin\\gtkwave.EXE",
+      "yosys": "D:\\tools\\oss-cad-suite\\bin\\yosys.EXE",
+      "openroad": null,
+      "sta": null,
+      "klayout": "C:\\Users\\Hi Windows 11 Home\\AppData\\Roaming\\KLayout\\klayout.EXE",
+      "magic": null,
+      "netgen": null,
+      "openlane": null,
+      "docker": "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.EXE",
+      "wsl": "C:\\WINDOWS\\system32\\wsl.EXE"
+    },
+    "versions": {
+      "python": "3.14.4",
+      "iverilog": "Icarus Verilog version 14.0 (devel) (s20260301-434-g79c42a156-dirty)",
+      "vvp": "Icarus Verilog runtime version 14.0 (devel) (s20260301-434-g79c42a156-dirty)"
+    },
+    "note": "PATH presence is not a working installation check. Tools inside WSL/containers may be installed separately. PDK/toolchain installation is not performed by this collector."
+  },
+  "collector_sha256": {
+    "evidence.py": "88d1ff584e9a39b96b169a6d3deb4cfc8bbb13de1176987260359213d1bf8135",
+    "waveform.py": "32ddc7500eb68c8a2a0d4264f4138edddafad3bf0c4ce8353594ad714b6bb611",
+    "physical.py": "c5245f7a1c7fd39a3f2ca89fbcc195c1791f2eea12e5bcf8678e1bb157315442"
+  }
+}

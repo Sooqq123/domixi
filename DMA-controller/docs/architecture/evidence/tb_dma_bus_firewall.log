@@ -1,0 +1,172 @@
+﻿=== IVERILOG COMPILATION ===
+
+=== VVP SIMULATION ===
+========================================================
+STARTING FULL UNIT TESTBENCH: tb_dma_bus_firewall
+========================================================
+
+--- TEST 1: Check Reset Defaults & Enable IRQ ---
+[PASS] APB Read Accepted
+[PASS] FW_CONTROL reset value is 0x0000_000D
+[PASS] sec_irq is deasserted at reset
+[PASS] s_axi_awready is high and ready for new AW
+[PASS] s_axi_arready is high and ready for new AR
+[PASS] APB Write Accepted
+[PASS] APB Read Accepted
+[PASS] FW_CONTROL updated to 0x0000_000F (IRQ enabled)
+
+--- TEST 2: Configure Static Region 0 ---
+[PASS] APB Write Accepted
+[PASS] APB Write Accepted
+[PASS] APB Write Accepted
+[PASS] APB Write Accepted
+[PASS] APB Read Accepted
+[PASS] RGN0_BASE readback matches
+[PASS] APB Read Accepted
+[PASS] RGN0 is active
+
+--- TEST 3: Allowed Write to Region 0 ---
+[PASS] Allowed Write returns OKAY
+[PASS] Allowed Write returns matching BID 4'h0
+[PASS] No IRQ on allowed write
+
+--- TEST 4: Allowed Read from Region 0 ---
+[PASS] Allowed Read returns OKAY
+[PASS] Allowed Read returns matching RID 4'h0
+[PASS] Allowed Read data received from Matrix
+[PASS] Allowed Read RLAST received
+[PASS] No IRQ on allowed read
+
+--- TEST 5: Denied Write (Default Deny) ---
+[PASS] Denied Write returns DECERR
+[PASS] Denied Write echoes BID 4'h5
+[PASS] Security IRQ asserted on Denied Write
+[PASS] APB Read Accepted
+[PASS] FAULT_STATUS bit 1 (WR_FAULT) is set
+[PASS] FAULT_STATUS bit 31 (IRQ_PENDING) is set
+[PASS] APB Read Accepted
+[PASS] FAULT_ADDR captures 0x8000_0000
+[PASS] APB Write Accepted
+[PASS] Security IRQ deasserts after FAULT_STATUS W1C
+
+--- TEST 6: Denied Read (Default Deny) ---
+[PASS] Denied Read returns DECERR
+[PASS] Denied Read echoes RID 4'h6
+[PASS] Denied Read synthetic RLAST
+[PASS] Security IRQ asserted on Denied Read
+[PASS] APB Read Accepted
+[PASS] FAULT_STATUS bit 0 (RD_FAULT) is set
+[PASS] FAULT_STATUS bit 31 (IRQ_PENDING) is set
+[PASS] APB Read Accepted
+[PASS] FAULT_ADDR captures 0x9000_0000
+[PASS] APB Write Accepted
+[PASS] Security IRQ deasserts after FAULT_STATUS W1C
+
+--- TEST 7: Dynamic DMA Context Sideband ---
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 Base = 0x2000_0000
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 Limit = 0x2000_003F
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 is active
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 Base = 0x2000_1000
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 Limit = 0x2000_103F
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 is active
+[PASS] Dynamic Region 4 Read is ALLOWED (OKAY)
+[PASS] Dynamic Region 5 Write is ALLOWED (OKAY)
+[PASS] Write to Region 4 (RO) is DENIED with DECERR
+[PASS] APB Write Accepted
+
+--- Revoking Dynamic Context ---
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 revoked (Active=0)
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 revoked (Active=0)
+[PASS] Access to revoked dynamic region is DENIED with DECERR
+[PASS] APB Write Accepted
+
+--- TEST 8: Gate G3 Early WVALID Isolation ---
+[PASS] Gate G3 blocks s_axi_wready when no AW is active
+[PASS] Gate G3 isolates m_axi_wvalid from early WVALID
+[PASS] Gate G3 unblocks m_axi_wvalid after AW resolution
+[PASS] Early WVALID transaction completes cleanly with OKAY
+
+--- TEST 9: Laser Glitch / Fault Injection Attack (CWE-1338) ---
+[PASS] Firewall traps write glitch and forces OWNER_DRAIN
+[PASS] Glitch attack on Write is safely terminated with DECERR
+[PASS] Glitch write echoes BID 4'h7
+[PASS] Glitch attack never penetrates to downstream AXI matrix
+[PASS] Security IRQ asserted on Write Glitch attack
+[PASS] APB Read Accepted
+[PASS] FAULT_STATUS bit 1 (WR_FAULT) is set on glitch
+[PASS] FAULT_STATUS bit 31 (IRQ_PENDING) is set
+[PASS] APB Read Accepted
+[PASS] FAULT_SOURCE captures GLITCH_FAULT_WR (0xE)
+[PASS] APB Read Accepted
+[PASS] FAULT_ADDR captures glitch attack address 0x8888_0000
+[PASS] APB Write Accepted
+[PASS] Security IRQ deasserts after Glitch FAULT_STATUS W1C
+[PASS] Firewall traps read glitch and forces OWNER_DRAIN
+[PASS] Glitch attack on Read is safely terminated with DECERR
+[PASS] Glitch read echoes RID 4'h8
+[PASS] Glitch read data zeroized to prevent information leakage
+[PASS] Glitch read never penetrates to downstream AXI matrix
+[PASS] Security IRQ asserted on Read Glitch attack
+[PASS] APB Read Accepted
+[PASS] FAULT_STATUS bit 0 (RD_FAULT) is set on read glitch
+[PASS] FAULT_STATUS bit 31 (IRQ_PENDING) is set
+[PASS] APB Read Accepted
+[PASS] FAULT_SOURCE captures GLITCH_FAULT_RD (0xF)
+[PASS] APB Write Accepted
+[PASS] Security IRQ deasserts after Read Glitch FAULT_STATUS W1C
+
+--- TEST 10: Starvation / DoS Drain Timeout Verification ---
+[PASS] Firewall Drain correctly waits for W channel before timeout
+[PASS] Firewall holds OWNER_DRAIN while waiting
+[INFO] Waiting for Drain Watchdog Timer (256 cycles) to trip...
+[PASS] Watchdog expired after 256 cycles and asserted BVALID
+[PASS] Watchdog force-terminates write burst with DECERR
+[PASS] Watchdog echoes AWID 4'h9 in B response
+[PASS] Write channel completely freed (wr_owner = OWNER_NONE)
+[PASS] APB Write Accepted
+[PASS] Subsequent legitimate write completes OKAY - Bus unblocked without reset
+
+--- TEST 11: TOCTOU Dynamic Window Revocation & Context Watchdog ---
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 is active for DMA transfer
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 is active for DMA transfer
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 instantly revoked (Active=0)
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 instantly revoked (Active=0)
+[PASS] Late TOCTOU write to revoked dynamic region is DENIED (DECERR)
+[PASS] APB Write Accepted
+
+[INFO] Activating dynamic context and testing Hardware Watchdog Auto-Revocation...
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 active prior to watchdog timeout
+[INFO] Advancing 4110 clock cycles for Context Watchdog Expiry (CTX_TIMEOUT_CYCLES = 4096)...
+[PASS] Security IRQ asserted upon Context Watchdog timeout
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 4 auto-revoked by Hardware Watchdog (Active=0)
+[PASS] APB Read Accepted
+[PASS] Dynamic Region 5 auto-revoked by Hardware Watchdog (Active=0)
+[PASS] APB Read Accepted
+[PASS] FAULT_STATUS bit 3 (BOUND_ERR) set by Context Watchdog
+[PASS] FAULT_STATUS bit 31 (IRQ_PENDING) set
+[PASS] APB Read Accepted
+[PASS] FAULT_ADDR captures expired dynamic window source address
+[PASS] APB Read Accepted
+[PASS] FAULT_SOURCE captures Context Tracker as fault source (2'b10)
+[PASS] Access after Context Watchdog timeout is DENIED (DECERR)
+[PASS] APB Write Accepted
+[PASS] Security IRQ deasserts after cleanup
+
+========================================================
+ALL TESTS PASSED SUCCESSFULLY! (0 failures)
+========================================================
+tb/tb_dma_bus_firewall.v:989: $finish called at 46485000 (1ps)

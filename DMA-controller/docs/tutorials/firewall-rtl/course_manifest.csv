@@ -1,0 +1,13 @@
+Lesson,Title,Prerequisites,CanonicalSources,PrimaryArtifact,VerificationEvidence,Gate
+00,SSOT và baseline,None,"firewall_rtl_integration_contract.md;pinout.csv;signal_list.csv;requirements_traceability.csv","baseline-report.md","spec_lint log",G0
+01,AXI address slice,00,"firewall_rtl_integration_contract.md;pinout.csv;signal_list.csv","rtl/fw_axi_address_slice.v","tb_fw_axi_address_slice PASS",G1-G2
+02,Context tracker,01,"firewall_rtl_integration_contract.md;pinout.csv;fsm_specification.md","rtl/fw_context_tracker.v","tb_fw_context_tracker PASS",G1-G2
+03,APB registers và fault logger,01,"register_map.csv;pinout.csv;verification_test_plan.md","rtl/fw_apb_regs.v","tb_fw_apb_regs PASS",G1-G2
+04,ACL matcher,"01;02;03","firewall_rtl_integration_contract.md;signal_list.csv;register_map.csv","rtl/fw_acl_matcher.v","tb_fw_acl_matcher PASS",G1-G2
+05,Write drain,04,"fsm_specification.md;signal_list.csv;verification_test_plan.md","rtl/fw_drain_fsm.v","write-drain unit PASS",G1-G2
+06,Read drain,05,"fsm_specification.md;signal_list.csv;verification_test_plan.md","rtl/fw_drain_fsm.v","read-drain unit PASS",G1-G2
+07,Data-path mux,"04;05;06","firewall_rtl_integration_contract.md;pinout.csv;signal_list.csv","rtl/fw_data_path_mux.v","tb_fw_data_path_mux PASS",G1-G2
+08,Firewall top integration,"02;03;04;05;06;07","pinout.csv;detailed_block_diagram.md;fsm_specification.md","rtl/dma_bus_firewall.v","tb_dma_bus_firewall PASS",G3
+09,DMA-Firewall subsystem,08,"architecture_overview.md;verification_test_plan.md;requirements_traceability.csv","tb/tb_soc_dma_firewall_top.v","regression PASS + seed list",G3
+10,SVA và formal,09,"verification_test_plan.md;requirements_traceability.csv","formal/firewall properties","formal/assertion reports",G4
+11,Coverage và sign-off,"09;10","verification_evidence_manifest.csv;assumptions_and_tbd.md","release evidence package","coverage+synth+STA+SoC reports",G5-G7

@@ -1,0 +1,8 @@
+# running in D:\domixi\formal\fw_honeypot_contract/src/
+read_verilog -formal fw_honeypot_sink.v fw_honeypot_contract_formal.v
+prep -top fw_honeypot_contract_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

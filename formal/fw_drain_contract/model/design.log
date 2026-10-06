@@ -1,0 +1,725 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_write_drain.v
+Parsing formal Verilog input from `fw_write_drain.v' to AST representation.
+Generating RTLIL representation for module `\fw_write_drain'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_read_drain.v
+Parsing formal Verilog input from `fw_read_drain.v' to AST representation.
+Generating RTLIL representation for module `\fw_read_drain'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: fw_drain_fsm.v
+Parsing formal Verilog input from `fw_drain_fsm.v' to AST representation.
+Generating RTLIL representation for module `\fw_drain_fsm'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: fw_drain_contract_formal.v
+Parsing formal Verilog input from `fw_drain_contract_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_drain_contract_formal'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.1.1. Analyzing design hierarchy..
+Top module:  \fw_drain_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+
+5.1.2. Analyzing design hierarchy..
+Top module:  \fw_drain_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Removed 0 unused modules.
+Module fw_drain_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.2. Executing PROC pass (convert processes to netlists).
+
+5.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$fw_drain_contract_formal.v:138$62 in module fw_drain_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_drain_contract_formal.v:115$51 in module fw_drain_contract_formal.
+Marked 2 switch rules as full_case in process $proc$fw_drain_contract_formal.v:79$37 in module fw_drain_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_drain_contract_formal.v:63$28 in module fw_drain_contract_formal.
+Removed 1 dead cases from process $proc$fw_read_drain.v:66$23 in module fw_read_drain.
+Marked 4 switch rules as full_case in process $proc$fw_read_drain.v:66$23 in module fw_read_drain.
+Marked 1 switch rules as full_case in process $proc$fw_read_drain.v:49$21 in module fw_read_drain.
+Marked 1 switch rules as full_case in process $proc$fw_write_drain.v:144$15 in module fw_write_drain.
+Marked 6 switch rules as full_case in process $proc$fw_write_drain.v:77$10 in module fw_write_drain.
+Marked 2 switch rules as full_case in process $proc$fw_write_drain.v:50$5 in module fw_write_drain.
+Removed a total of 1 dead cases.
+
+5.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 16 redundant assignments.
+Promoted 21 assignments to connections.
+
+5.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:58$82'.
+  Set init value: \reset_counter = 3'000
+
+5.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+Found async reset \rst_n in `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+
+5.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~32 debug messages>
+
+5.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:58$82'.
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:166$79'.
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+     1/7: $0\r_hold_q[0:0]
+     2/7: $assert$fw_drain_contract_formal.v:154$70_EN
+     3/7: $assert$fw_drain_contract_formal.v:147$64_EN
+     4/7: $0\r_bundle_q[39:0]
+     5/7: $0\r_count_q[7:0]
+     6/7: $0\r_len_q[7:0]
+     7/7: $0\r_active_q[0:0]
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:134$59'.
+     1/1: $assume$fw_drain_contract_formal.v:136$60_EN
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:115$51'.
+     1/3: $0\b_hold_q[0:0]
+     2/3: $assert$fw_drain_contract_formal.v:121$53_EN
+     3/3: $0\b_bundle_q[5:0]
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+     1/7: $assert$fw_drain_contract_formal.v:90$40_EN
+     2/7: $assert$fw_drain_contract_formal.v:88$39_EN
+     3/7: $0\wlast_expect_q[0:0]
+     4/7: $0\w_expect_b_q[0:0]
+     5/7: $0\w_count_q[7:0]
+     6/7: $0\w_len_q[7:0]
+     7/7: $0\w_active_q[0:0]
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:75$33'.
+     1/1: $assume$fw_drain_contract_formal.v:77$35_EN
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:63$28'.
+     1/2: $assume$fw_drain_contract_formal.v:67$32_EN
+     2/2: $assume$fw_drain_contract_formal.v:65$30_EN
+Creating decoders for process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:59$25'.
+     1/1: $0\reset_counter[2:0]
+Creating decoders for process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+     1/14: $4\state_next[0:0]
+     2/14: $4\count_next[7:0]
+     3/14: $3\count_next[7:0]
+     4/14: $3\state_next[0:0]
+     5/14: $2\count_next[7:0]
+     6/14: $2\mode_next[0:0]
+     7/14: $2\len_next[7:0]
+     8/14: $2\id_next[3:0]
+     9/14: $2\state_next[0:0]
+    10/14: $1\count_next[7:0]
+    11/14: $1\mode_next[0:0]
+    12/14: $1\len_next[7:0]
+    13/14: $1\id_next[3:0]
+    14/14: $1\state_next[0:0]
+Creating decoders for process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+     1/5: $0\count_q[7:0]
+     2/5: $0\mode_q[0:0]
+     3/5: $0\len_q[7:0]
+     4/5: $0\id_q[3:0]
+     5/5: $0\state_q[0:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+     1/8: $0\timeout_latched_q[0:0]
+     2/8: $0\timer_q[9:0]
+     3/8: $0\framing_fault_q[0:0]
+     4/8: $0\count_q[7:0]
+     5/8: $0\mode_q[0:0]
+     6/8: $0\len_q[7:0]
+     7/8: $0\id_q[3:0]
+     8/8: $0\state[1:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+     1/26: $4\timer_next[9:0]
+     2/26: $6\state_next[1:0]
+     3/26: $3\timer_next[9:0]
+     4/26: $5\state_next[1:0]
+     5/26: $3\timeout_latched_next[0:0]
+     6/26: $3\framing_fault_next[0:0]
+     7/26: $4\state_next[1:0]
+     8/26: $4\count_next[7:0]
+     9/26: $3\count_next[7:0]
+    10/26: $3\state_next[1:0]
+    11/26: $2\framing_fault_next[0:0]
+    12/26: $2\timer_next[9:0]
+    13/26: $2\timeout_latched_next[0:0]
+    14/26: $2\state_next[1:0]
+    15/26: $2\count_next[7:0]
+    16/26: $2\mode_next[0:0]
+    17/26: $2\len_next[7:0]
+    18/26: $2\id_next[3:0]
+    19/26: $1\count_next[7:0]
+    20/26: $1\mode_next[0:0]
+    21/26: $1\len_next[7:0]
+    22/26: $1\id_next[3:0]
+    23/26: $1\state_next[1:0]
+    24/26: $1\timeout_latched_next[0:0]
+    25/26: $1\timer_next[9:0]
+    26/26: $1\framing_fault_next[0:0]
+Creating decoders for process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+     1/12: $2\w_framing_fault_valid[0:0]
+     2/12: $2\w_drain_bresp[1:0]
+     3/12: $2\w_drain_bid[3:0]
+     4/12: $2\w_drain_bvalid[0:0]
+     5/12: $2\w_drain_wready[0:0]
+     6/12: $2\w_framing_fault_code[3:0]
+     7/12: $1\w_framing_fault_code[3:0]
+     8/12: $1\w_framing_fault_valid[0:0]
+     9/12: $1\w_drain_bresp[1:0]
+    10/12: $1\w_drain_bid[3:0]
+    11/12: $1\w_drain_bvalid[0:0]
+    12/12: $1\w_drain_wready[0:0]
+
+5.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fw_read_drain.\state_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+No latch inferred for signal `\fw_read_drain.\id_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+No latch inferred for signal `\fw_read_drain.\len_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+No latch inferred for signal `\fw_read_drain.\mode_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+No latch inferred for signal `\fw_read_drain.\count_next' from process `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+No latch inferred for signal `\fw_write_drain.\state_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\id_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\len_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\mode_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\count_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\framing_fault_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\timer_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\timeout_latched_next' from process `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+No latch inferred for signal `\fw_write_drain.\w_drain_wready' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bvalid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+No latch inferred for signal `\fw_write_drain.\w_drain_bresp' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+No latch inferred for signal `\fw_write_drain.\w_framing_fault_valid' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+No latch inferred for signal `\fw_write_drain.\w_framing_fault_code' from process `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+
+5.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_drain_contract_formal.\r_active_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\r_len_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\r_count_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\r_hold_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\r_bundle_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\b_hold_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:115$51'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\b_bundle_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:115$51'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\w_active_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+  created $dff cell `$procdff$522' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\w_len_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+  created $dff cell `$procdff$523' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\w_count_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+  created $dff cell `$procdff$524' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\w_expect_b_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+  created $dff cell `$procdff$525' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\wlast_expect_q' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+  created $dff cell `$procdff$526' with positive edge clock.
+Creating register for signal `\fw_drain_contract_formal.\reset_counter' using process `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:59$25'.
+  created $dff cell `$procdff$527' with positive edge clock.
+Creating register for signal `\fw_read_drain.\id_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+  created $adff cell `$procdff$532' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\len_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+  created $adff cell `$procdff$537' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\mode_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+  created $adff cell `$procdff$542' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\count_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+  created $adff cell `$procdff$547' with positive edge clock and positive level reset.
+Creating register for signal `\fw_read_drain.\state_q' using process `\fw_read_drain.$proc$fw_read_drain.v:49$21'.
+  created $adff cell `$procdff$552' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\state' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$557' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\id_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$562' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\len_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$567' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\mode_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$572' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\count_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$577' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\framing_fault_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$582' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\timer_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$587' with positive edge clock and positive level reset.
+Creating register for signal `\fw_write_drain.\timeout_latched_q' using process `\fw_write_drain.$proc$fw_write_drain.v:144$15'.
+  created $adff cell `$procdff$592' with positive edge clock and positive level reset.
+
+5.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:58$82'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:166$79'.
+Found and cleaned up 6 empty switches in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:138$62'.
+Found and cleaned up 1 empty switch in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:134$59'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:134$59'.
+Found and cleaned up 3 empty switches in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:115$51'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:115$51'.
+Found and cleaned up 7 empty switches in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:79$37'.
+Found and cleaned up 1 empty switch in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:75$33'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:75$33'.
+Found and cleaned up 1 empty switch in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:63$28'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:63$28'.
+Found and cleaned up 1 empty switch in `\fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:59$25'.
+Removing empty process `fw_drain_contract_formal.$proc$fw_drain_contract_formal.v:59$25'.
+Found and cleaned up 4 empty switches in `\fw_read_drain.$proc$fw_read_drain.v:66$23'.
+Removing empty process `fw_read_drain.$proc$fw_read_drain.v:66$23'.
+Removing empty process `fw_read_drain.$proc$fw_read_drain.v:49$21'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:144$15'.
+Found and cleaned up 6 empty switches in `\fw_write_drain.$proc$fw_write_drain.v:77$10'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:77$10'.
+Found and cleaned up 2 empty switches in `\fw_write_drain.$proc$fw_write_drain.v:50$5'.
+Removing empty process `fw_write_drain.$proc$fw_write_drain.v:50$5'.
+Cleaned up 32 empty switches.
+
+5.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+<suppressed ~18 debug messages>
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+<suppressed ~26 debug messages>
+Optimizing module fw_write_drain.
+<suppressed ~32 debug messages>
+
+5.3. Executing FUTURE pass.
+
+5.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+
+5.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_drain_contract_formal...
+Checking module fw_drain_fsm...
+Checking module fw_read_drain...
+Checking module fw_write_drain...
+Found and reported 0 problems.
+
+5.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 23 unused cells and 276 unused wires.
+<suppressed ~26 debug messages>
+
+5.7. Executing OPT pass (performing simple optimizations).
+
+5.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+
+5.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_drain_contract_formal'.
+Computing hashes of 109 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+Computing hashes of 106 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+Computing hashes of 104 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 39 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Computing hashes of 35 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 150 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 94 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 89 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+<suppressed ~183 debug messages>
+Removed a total of 70 cells.
+
+5.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_drain_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$151: \wlast_expect_q -> 1'0
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_drain_fsm..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fw_read_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$228: \state_q -> 1'1
+      Replacing known input bits on port A of cell $procmux$208: \state_q -> 1'1
+      Replacing known input bits on port A of cell $procmux$258: \state_q -> 1'0
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$260.
+    dead port 1/2 on $mux $procmux$254.
+    dead port 1/2 on $mux $procmux$248.
+    dead port 1/2 on $mux $procmux$242.
+    dead port 1/2 on $mux $procmux$236.
+    dead port 2/2 on $mux $procmux$230.
+    dead port 2/2 on $mux $procmux$225.
+    dead port 2/2 on $mux $procmux$220.
+    dead port 2/2 on $mux $procmux$218.
+    dead port 2/2 on $mux $procmux$212.
+    dead port 2/2 on $mux $procmux$210.
+Running muxtree optimizer on module \fw_write_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$483.
+    dead port 2/2 on $mux $procmux$489.
+    dead port 2/2 on $mux $procmux$477.
+    dead port 2/2 on $mux $procmux$422.
+    dead port 2/2 on $mux $procmux$414.
+    dead port 2/2 on $mux $procmux$406.
+    dead port 2/2 on $mux $procmux$471.
+    dead port 2/2 on $mux $procmux$398.
+    dead port 2/2 on $mux $procmux$390.
+    dead port 2/2 on $mux $procmux$382.
+    dead port 2/2 on $mux $procmux$375.
+    dead port 2/2 on $mux $procmux$368.
+    dead port 2/2 on $mux $procmux$361.
+    dead port 2/2 on $mux $procmux$465.
+    dead port 2/2 on $mux $procmux$354.
+    dead port 2/2 on $mux $procmux$347.
+    dead port 2/2 on $mux $procmux$345.
+    dead port 2/2 on $mux $procmux$337.
+    dead port 2/2 on $mux $procmux$335.
+    dead port 2/2 on $mux $procmux$327.
+    dead port 2/2 on $mux $procmux$495.
+    dead port 1/2 on $mux $procmux$325.
+    dead port 2/2 on $mux $procmux$317.
+    dead port 1/2 on $mux $procmux$315.
+    dead port 2/2 on $mux $procmux$307.
+    dead port 1/2 on $mux $procmux$305.
+    dead port 2/2 on $mux $procmux$297.
+    dead port 1/2 on $mux $procmux$295.
+    dead port 2/2 on $mux $procmux$287.
+    dead port 2/2 on $mux $procmux$281.
+Removed 41 multiplexer ports.
+<suppressed ~201 debug messages>
+
+5.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_drain_contract_formal.
+  Optimizing cells in module \fw_drain_contract_formal.
+  Optimizing cells in module \fw_drain_fsm.
+  Optimizing cells in module \fw_read_drain.
+  Optimizing cells in module \fw_write_drain.
+    New ctrl vector for $pmux cell $procmux$430: { $auto$opt_reduce.cc:137:opt_pmux$594 $procmux$494_CMP [0] }
+    New ctrl vector for $pmux cell $procmux$440: { $auto$opt_reduce.cc:137:opt_pmux$596 $procmux$494_CMP [0] }
+    New ctrl vector for $pmux cell $procmux$435: { $auto$opt_reduce.cc:137:opt_pmux$598 $procmux$494_CMP [0] }
+  Optimizing cells in module \fw_write_drain.
+Performed a total of 4 changes.
+
+5.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_drain_contract_formal'.
+Computing hashes of 103 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 62 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+5.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 0 unused cells and 102 unused wires.
+<suppressed ~3 debug messages>
+
+5.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+
+5.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_drain_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_drain_fsm..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \fw_read_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_write_drain..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~156 debug messages>
+
+5.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_drain_contract_formal.
+  Optimizing cells in module \fw_drain_fsm.
+  Optimizing cells in module \fw_read_drain.
+  Optimizing cells in module \fw_write_drain.
+Performed a total of 0 changes.
+
+5.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_drain_contract_formal'.
+Computing hashes of 103 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Removed a total of 0 cells.
+
+5.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+
+5.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+
+5.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+5.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell fw_drain_contract_formal.$lt$fw_drain_contract_formal.v:60$26 ($lt).
+Removed top 1 bits (of 3) from port B of cell fw_drain_contract_formal.$lt$fw_drain_contract_formal.v:64$29 ($lt).
+Removed top 24 bits (of 32) from port B of cell fw_write_drain.$ge$fw_write_drain.v:48$4 ($ge).
+Removed top 1 bits (of 2) from port B of cell fw_write_drain.$procmux$494_CMP1 ($eq).
+Removed top 1 bits (of 4) from mux cell fw_write_drain.$procmux$493 ($mux).
+Removed top 1 bits (of 4) from mux cell fw_write_drain.$procmux$498 ($mux).
+Removed top 1 bits (of 4) from wire fw_write_drain.$2\w_framing_fault_code[3:0].
+
+5.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+5.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.11. Executing OPT pass (performing simple optimizations).
+
+5.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_contract_formal.
+Optimizing module fw_drain_fsm.
+Optimizing module fw_read_drain.
+Optimizing module fw_write_drain.
+
+5.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_drain_contract_formal'.
+Computing hashes of 103 cells of `\fw_drain_contract_formal'.
+Finding duplicate cells in `\fw_drain_contract_formal'.
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 24 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 60 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Removed a total of 0 cells.
+
+5.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_contract_formal..
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_write_drain..
+
+5.11.4. Finished fast OPT passes.
+
+5.12. Executing SORT pass.
+
+5.13. Printing statistics.
+
+=== fw_drain_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      119 wires
+      489 wire bits
+       40 public wires
+      220 public wire bits
+       14 ports
+       34 port bits
+      102 cells
+        3   $add
+       10   $check
+       13   $dff
+        5   $eq
+       10   $logic_and
+       10   $logic_not
+        1   $logic_or
+        2   $lt
+       48   $mux
+        1 submodules
+        1   fw_drain_fsm
+
+=== fw_drain_fsm ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       25 wires
+       87 wire bits
+       25 public wires
+       87 public wire bits
+       25 ports
+       87 port bits
+        2 submodules
+        1   fw_read_drain
+        1   fw_write_drain
+
+=== fw_read_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       35 wires
+      152 wire bits
+       24 public wires
+      103 public wire bits
+       12 ports
+       57 port bits
+       24 cells
+        1   $add
+        5   $adff
+        1   $eq
+        1   $logic_and
+       10   $mux
+        1   $not
+        5   $pmux
+
+=== fw_write_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       69 wires
+      226 wire bits
+       35 public wires
+      106 public wire bits
+       15 ports
+       32 port bits
+       60 cells
+        2   $add
+        8   $adff
+        3   $eq
+        1   $ge
+        2   $logic_and
+        1   $logic_not
+        1   $logic_or
+       32   $mux
+        1   $ne
+        7   $pmux
+        2   $reduce_or
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      186 fw_drain_contract_formal
+       24   fw_read_drain
+       60   fw_write_drain
+
+        +----------Count including submodules.
+        | 
+      248 wires
+      954 wire bits
+      124 public wires
+      516 public wire bits
+       66 ports
+      210 port bits
+        - memories
+        - memory bits
+        - processes
+      186 cells
+        6   $add
+       13   $adff
+       10   $check
+       13   $dff
+        9   $eq
+        1   $ge
+       13   $logic_and
+       11   $logic_not
+        2   $logic_or
+        2   $lt
+       90   $mux
+        1   $ne
+        1   $not
+       12   $pmux
+        2   $reduce_or
+        1 submodules
+        1   fw_drain_fsm
+
+5.14. Executing CHECK pass (checking for obvious problems).
+Checking module fw_drain_contract_formal...
+Checking module fw_drain_fsm...
+Checking module fw_read_drain...
+Checking module fw_write_drain...
+Found and reported 0 problems.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_drain_contract_formal'. Setting top module to fw_drain_contract_formal.
+
+6.1. Analyzing design hierarchy..
+Top module:  \fw_drain_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+
+6.2. Analyzing design hierarchy..
+Top module:  \fw_drain_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Removed 0 unused modules.
+Module fw_drain_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7. Executing jny backend.
+
+8. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 6c69b92d19
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x read_verilog (0 sec), ...

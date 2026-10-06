@@ -1,0 +1,8 @@
+# running in D:\domixi\formal\fw_hdc_cover/src/
+read_verilog -formal -D FORMAL -I. fw_hdc_sense.v fw_hdc_cover.v
+prep -top fw_hdc_cover
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,36 @@
+VCD info: dumpfile waves.vcd opened for output.
+[INFO] cpu_fw_writes=4 cpu_dma_writes=4 downstream_reads=1 downstream_writes=1
+[PASS] PicoRV32 performed complete firewall region configuration
+[PASS] PicoRV32 performed complete DMA descriptor/START sequence
+[PASS] CPU-to-APB bridge obeyed setup/access phase ordering
+[PASS] Real DMA controller raised context-valid into real firewall
+[PASS] Real DMA read traffic crossed real firewall to memory
+[PASS] Real DMA write traffic crossed real firewall to memory
+[PASS] Real DMA completed and released context
+[PASS] DMA completion IRQ/status reached integrated controller output
+[PASS] PicoRV32 produced the telemetry trap from firmware
+[PASS] AEGIS level-3 reflex generated an NMI pulse
+[PASS] AEGIS NMI remained visible on the compatibility cpu_irq3 output
+[PASS] PicoRV32 serviced the dedicated AEGIS NMI
+[PASS] Dedicated AEGIS NMI bypassed the ordinary IRQ mask
+[PASS] HDC classified the real PicoRV32 trap as level 3
+[PASS] Integrated AEGIS anomaly alert asserted on CPU trap
+[PASS] Legitimate integrated DMA did not hit honey-pot
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] Integrated DMA preserved source data at destination
+[PASS] tb_aegis_picorv32_soc
+D:\domixi\tb\tb_aegis_picorv32_soc.v:584: $finish called at 25045000 (1ps)

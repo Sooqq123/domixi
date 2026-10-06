@@ -1,0 +1,144 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_mtd_formal'. Setting top module to fw_mtd_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+Removed 0 unused modules.
+Module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_mtd_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       91 wires
+      387 wire bits
+       38 public wires
+      249 public wire bits
+       19 ports
+      126 port bits
+       80 cells
+        3   $add
+        7   $anyinit
+        2   $anyseq
+        3   $assert
+        1   $assume
+        7   $eq
+        4   $ff
+        2   $gt
+        3   $le
+        9   $logic_and
+        1   $logic_not
+        2   $lt
+       25   $mux
+        1   $ne
+        1   $not
+        2   $pmux
+        1   $reduce_or
+        2   $sub
+        4   $xor
+
+=== fw_mtd_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       57 wires
+      161 wire bits
+       18 public wires
+      119 public wire bits
+        8 ports
+       50 port bits
+       54 cells
+        1   $add
+        3   $anyinit
+        6   $assert
+        4   $assume
+        9   $eq
+       12   $ff
+        1   $logic_and
+        3   $logic_not
+        1   $logic_or
+        1   $lt
+       11   $mux
+        1   $not
+        1   $xor
+        1 submodules
+        1   $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      134 fw_mtd_formal
+       80 $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+        +----------Count including submodules.
+        | 
+      148 wires
+      548 wire bits
+       56 public wires
+      368 public wire bits
+       27 ports
+      176 port bits
+        - memories
+        - memory bits
+        - processes
+      134 cells
+        4   $add
+       10   $anyinit
+        2   $anyseq
+        9   $assert
+        5   $assume
+       16   $eq
+       16   $ff
+        2   $gt
+        3   $le
+       10   $logic_and
+        4   $logic_not
+        1   $logic_or
+        3   $lt
+       36   $mux
+        1   $ne
+        2   $not
+        2   $pmux
+        1   $reduce_or
+        2   $sub
+        5   $xor
+        1 submodules
+        1   $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Creating SMT-LIBv2 representation of module fw_mtd_formal.
+
+End of script. Logfile hash: 1422675bb2
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...

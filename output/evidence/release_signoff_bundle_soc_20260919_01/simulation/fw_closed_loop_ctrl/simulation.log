@@ -1,0 +1,14 @@
+VCD info: dumpfile waves.vcd opened for output.
+[PASS] reg_aegis_caps verified: 020102a6
+[TEST] Per-MID Scoring on MID 2
+[PASS] MID 2 quarantined after 10th attack; MID 3 unquarantined.
+[TEST] Level 3 Immediate Quarantine on MID 7
+[PASS] Level 3 immediate quarantine verified for MID 7.
+[TEST] 1-Cycle NMI pulse & Anti-Storm
+[PASS] 1-cycle NMI pulse verified.
+[TEST] Forensic FIFO Depth 4 & Overflow
+[PASS] FIFO overflow and containment verified.
+[TEST] Telemetry Overrun & Attribution
+[PASS] Telemetry overrun recorded with MID 9 and overflow reason.
+[PASS] Telemetry overrun cleared successfully.
+[ALL TESTS PASSED] fw_closed_loop_ctrl verified successfully!

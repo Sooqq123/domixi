@@ -1,0 +1,12 @@
+VCD info: dumpfile fifo_wave.vcd opened for output.
+=== [TEST] Starting FIFO Test ===
+[PASS] Reset state OK
+=== [TEST] Writing Data until FULL ===
+[PASS] FIFO is FULL at depth 32
+=== [TEST] Reading Data until EMPTY ===
+[PASS] FIFO ordered scoreboard and EMPTY state
+=== [TEST] Concurrent Read/Write ===
+[PASS] Simultaneous read/write ordering and occupancy
+[PASS] FIFO abort flush clears occupancy
+[PASS] tb_dma_fifo_latch completed with no check failures
+D:\domixi\DMA-controller\tb\tb_dma_fifo_latch.v:188: $finish called at 776000 (1ps)

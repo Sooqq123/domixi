@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bài 1 — AXI Address Slice của Firewall</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f8fb;
+      --card: #ffffff;
+      --ink: #18202b;
+      --muted: #5b6675;
+      --accent: #006d77;
+      --border: #d8dee8;
+      --code: #10151d;
+      --code-ink: #eaf2ff;
+      --warn: #8a4b00;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #10141b;
+        --card: #171d26;
+        --ink: #edf2f8;
+        --muted: #abb6c5;
+        --accent: #62d9c8;
+        --border: #303a48;
+        --warn: #ffc36d;
+      }
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 17px/1.65 system-ui, -apple-system, "Segoe UI", sans-serif;
+    }
+    main { max-width: 920px; margin: 0 auto; padding: 36px 22px 80px; }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 8px; }
+    h2 { margin-top: 42px; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
+    .lead { color: var(--muted); font-size: 1.15rem; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 18px 0;
+    }
+    .accent { border-left: 5px solid var(--accent); }
+    .warning { border-left: 5px solid var(--warn); }
+    code { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+    pre {
+      overflow-x: auto;
+      background: var(--code);
+      color: var(--code-ink);
+      border-radius: 10px;
+      padding: 16px;
+      line-height: 1.45;
+    }
+    table { width: 100%; border-collapse: collapse; margin: 18px 0; }
+    th, td { border: 1px solid var(--border); padding: 10px; text-align: left; }
+    th { background: color-mix(in srgb, var(--accent) 12%, var(--card)); }
+    .tag { color: var(--accent); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    li { margin: 7px 0; }
+  </style>
+</head>
+<body>
+<main>
+  <div class="tag">Firewall RTL · Bài 1</div>
+  <h1>Thiết kế <code>fw_axi_address_slice</code></h1>
+  <p class="lead">Mục tiêu của bài này là biến một handshake AXI AW/AR thành một bản ghi giao dịch bất biến, đồng thời phát hiện lỗi profile, overflow và vượt ranh giới 4 KiB trước khi ACL ra quyết định.</p>
+
+  <section class="card accent">
+    <strong>Kết quả cần đạt:</strong> Bạn có thể tự giải thích công thức địa chỉ byte cuối, tự viết testbench failing trước RTL, và mô tả chính xác vì sao payload không được thay đổi khi <code>VALID=1</code> nhưng <code>READY=0</code>.
+  </section>
+
+  <section class="card">
+    <strong>Đọc bắt buộc:</strong>
+    <ul>
+      <li><code>firewall_rtl_integration_contract.md</code>: trách nhiệm Stage 1 và invariant 4, 8, 9.</li>
+      <li><code>pinout.csv</code>: các trường AW/AR và reset value.</li>
+      <li><code>signal_list.csv</code>: giao diện Stage 1 sang matcher.</li>
+      <li><code>verification_test_plan.md</code>: profile, 4 KiB, snapshot stall và backpressure tests.</li>
+    </ul>
+  </section>
+
+  <h2>1. Address slice làm gì?</h2>
+  <p>AXI dùng handshake hai phía. Một địa chỉ chỉ được chấp nhận tại cạnh clock có đồng thời <code>VALID && READY</code>. Address slice là bộ đệm một entry nằm giữa DMA và ACL matcher:</p>
+  <pre><code>DMA AW/AR  --handshake--&gt;  [ address slice ]  --handshake--&gt;  ACL matcher
+                              1 entry/kênh
+                              AW và AR độc lập</code></pre>
+  <p>Tại handshake đầu vào, slice chốt toàn bộ descriptor: địa chỉ, ID, LEN, SIZE, BURST, PROT, địa chỉ cuối và các cờ lỗi. Nếu matcher chưa sẵn sàng, descriptor phải giữ nguyên.</p>
+
+  <h3>Nhầm lẫn thường gặp</h3>
+  <ul>
+    <li><code>VALID</code> không có nghĩa là giao dịch đã được nhận; phải có cả <code>READY</code>.</li>
+    <li>Không được đổi payload trong lúc <code>VALID=1 && READY=0</code>.</li>
+    <li>AW và W là hai kênh độc lập. Bài này chỉ xử lý AW/AR, không xử lý WDATA.</li>
+    <li><code>AxLEN</code> là số beat trừ một: <code>0</code> nghĩa là một beat, <code>15</code> nghĩa là 16 beat.</li>
+  </ul>
+
+  <h2>2. Quy tắc elastic buffer một entry</h2>
+  <p>Gọi <code>valid_q</code> là trạng thái entry đang chứa dữ liệu, <code>s_*</code> là phía DMA và <code>m_*</code> là phía matcher:</p>
+  <pre><code>s_ready = reset_released &amp;&amp; (!valid_q || m_ready)
+m_valid = valid_q</code></pre>
+
+  <table>
+    <thead><tr><th><code>valid_q</code></th><th><code>m_ready</code></th><th><code>s_ready</code></th><th>Ý nghĩa</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>0/1</td><td>1</td><td>Entry trống, có thể nhận mới.</td></tr>
+      <tr><td>1</td><td>0</td><td>0</td><td>Đầu ra bị stall; phải giữ nguyên.</td></tr>
+      <tr><td>1</td><td>1</td><td>1</td><td>Entry cũ được lấy; có thể thay bằng entry mới cùng cạnh.</td></tr>
+    </tbody>
+  </table>
+
+  <p>Mẫu sequential tối thiểu cho mỗi kênh:</p>
+  <pre><code>if (!rst_n) begin
+    valid_q &lt;= 1'b0;
+    // reset payload về giá trị xác định
+end else if (s_ready) begin
+    valid_q &lt;= s_valid;
+    if (s_valid) begin
+        // chốt toàn bộ payload và cờ lỗi
+    end
+end</code></pre>
+  <p>Khi đang stall, <code>s_ready=0</code>; block trên không chạy nên payload tự giữ ổn định.</p>
+
+  <h2>3. Tính byte cuối của burst</h2>
+  <pre><code>beats          = AxLEN + 1
+bytes_per_beat = 2^AxSIZE
+span_bytes     = beats × bytes_per_beat
+last_byte      = AxADDR + span_bytes - 1</code></pre>
+
+  <p>Phải tính trên 33 bit để thấy carry vượt khỏi không gian địa chỉ 32 bit. Đồng thời, <code>span_bytes</code> cần 16 bit vì input malformed có thể mang <code>AxLEN=255</code> và <code>AxSIZE=7</code>, tạo span tối đa 32768 byte.</p>
+
+  <pre><code>wire [8:0]  beats          = {1'b0, s_axlen} + 9'd1;
+wire [15:0] span_bytes     = {7'd0, beats} &lt;&lt; s_axsize;
+wire [32:0] last_byte_ext  = {1'b0, s_axaddr}
+                           + {17'd0, span_bytes}
+                           - 33'd1;
+
+wire overflow_err = last_byte_ext[32];
+wire boundary_err = overflow_err ||
+                    (s_axaddr[31:12] != last_byte_ext[31:12]);</code></pre>
+
+  <section class="card warning">
+    <strong>Không dùng phép tính 32 bit.</strong> Với <code>ADDR=0xFFFF_FFFC</code>, <code>LEN=1</code>, <code>SIZE=2</code>, byte cuối toán học là <code>0x1_0000_0003</code>. Nếu cắt còn 32 bit quá sớm, kết quả thành <code>0x0000_0003</code> và che mất overflow.
+  </section>
+
+  <h2>4. Profile cố định của DMA</h2>
+  <p>V2.4.1 chỉ chấp nhận:</p>
+  <pre><code>AxID    = 4'd0
+AxPROT  = 3'b001
+AxSIZE  = 3'b010       // 4 byte/beat
+AxBURST = 2'b01        // INCR
+AxLEN   &lt;= 8'd15       // 1..16 beat
+AxADDR[1:0] = 2'b00    // word aligned</code></pre>
+
+  <pre><code>wire profile_err = (s_axid    != 4'd0)   ||
+                   (s_axprot  != 3'b001) ||
+                   (s_axsize  != 3'b010) ||
+                   (s_axburst != 2'b01)  ||
+                   (s_axlen   &gt;  8'd15)  ||
+                   (s_axaddr[1:0] != 2'b00);</code></pre>
+  <p>Address slice chỉ phát hiện và chốt cờ. Nó chưa quyết định allow/deny; trách nhiệm đó thuộc <code>fw_acl_matcher</code>.</p>
+
+  <h2>5. Viết test trước RTL</h2>
+  <p>Tạo <code>tb/tb_fw_axi_address_slice.v</code> trước. Testbench nhỏ này không cần UVM; chỉ cần clock/reset, task drive, checker và timeout.</p>
+
+  <h3>Nhóm test bắt buộc</h3>
+  <ol>
+    <li>Reset: output valid bằng 0; input ready chỉ lên sau synchronous release.</li>
+    <li>AW legal và AR legal.</li>
+    <li>Từng lỗi profile được kích hoạt độc lập.</li>
+    <li>Bốn vector biên của 4 KiB/overflow.</li>
+    <li>Stall: giữ matcher ready bằng 0 trong nhiều chu kỳ và kiểm tra toàn payload không đổi.</li>
+    <li>Replacement: matcher lấy entry cũ cùng cạnh DMA đưa entry mới.</li>
+    <li>AW và AR đồng thời để chứng minh hai kênh độc lập.</li>
+    <li>Timeout để lỗi deadlock không treo simulation.</li>
+  </ol>
+
+  <table>
+    <thead><tr><th>ADDR</th><th>LEN</th><th>SIZE</th><th>Byte cuối</th><th>Kết quả</th></tr></thead>
+    <tbody>
+      <tr><td><code>0000_0FFC</code></td><td>0</td><td>2</td><td><code>0000_0FFF</code></td><td>Không crossing</td></tr>
+      <tr><td><code>0000_0FFC</code></td><td>1</td><td>2</td><td><code>0000_1003</code></td><td>Crossing 4 KiB</td></tr>
+      <tr><td><code>FFFF_FFFC</code></td><td>0</td><td>2</td><td><code>FFFF_FFFF</code></td><td>Không overflow</td></tr>
+      <tr><td><code>FFFF_FFFC</code></td><td>1</td><td>2</td><td><code>1_0000_0003</code></td><td>Overflow</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Mẫu checker</h3>
+  <pre><code>task check_bit;
+    input actual;
+    input expected;
+    input [8*80-1:0] message;
+    begin
+        if (actual !== expected) begin
+            $display("FAIL: %0s actual=%b expected=%b", message,
+                     actual, expected);
+            $fatal(1);
+        end
+    end
+endtask</code></pre>
+
+  <p>Drive input ở cạnh âm, quan sát handshake và output ở cạnh dương để tránh race giữa testbench và DUT.</p>
+
+  <h2>6. Trình tự thực hành</h2>
+  <ol>
+    <li>Khai báo port AW trước; chưa nhân đôi AR.</li>
+    <li>Viết reset test và legal single-beat test.</li>
+    <li>Trong một worktree thực hành trắng, chạy compile để tạo bước RED trước khi viết DUT; production baseline hiện tại đã có DUT và phải compile PASS.</li>
+    <li>Viết elastic register AW tối thiểu để hai test đầu PASS.</li>
+    <li>Thêm kiểm tra profile và burst arithmetic.</li>
+    <li>Thêm stall/replacement tests.</li>
+    <li>Sau khi AW sạch, nhân cấu trúc sang AR và thêm test đồng thời.</li>
+    <li>Chạy toàn bộ test, sau đó mới nối sang matcher.</li>
+  </ol>
+
+  <h3>Lệnh chạy dự kiến</h3>
+  <pre><code>Set-Location D:\domixi\DMA-controller
+New-Item -ItemType Directory -Force build | Out-Null
+iverilog -g2012 -Wall -s tb_fw_axi_address_slice `
+  -o build\tb_fw_axi_address_slice.vvp `
+  rtl\fw_axi_address_slice.v `
+  tb\tb_fw_axi_address_slice.v
+vvp build\tb_fw_axi_address_slice.vvp</code></pre>
+
+  <h2>7. Exit gate hoàn thành Bài 1</h2>
+  <ul>
+    <li>Testbench tự báo <code>PASS: tb_fw_axi_address_slice</code>.</li>
+    <li>Không có warning truncation/width.</li>
+    <li>AW và AR chịu backpressure độc lập.</li>
+    <li>Mọi output payload ổn định khi valid bị stall.</li>
+    <li>Bốn vector biên cho kết quả chính xác.</li>
+    <li>Các lỗi profile được chốt cùng transaction.</li>
+    <li>Không có ACL, WDATA, drain hoặc APB logic trong module này.</li>
+  </ul>
+
+  <h2>8. Tự kiểm tra trước khi sang bước code</h2>
+  <ol>
+    <li>Vì sao <code>AxLEN=15</code> tương ứng 16 beat?</li>
+    <li>Vì sao <code>s_ready = !valid_q</code> là chưa tối ưu so với <code>!valid_q || m_ready</code>?</li>
+    <li>Điều gì sai nếu matcher đang stall mà slice vẫn cho DMA handshake?</li>
+    <li>Vì sao burst arithmetic phải xử lý cả input profile sai?</li>
+    <li>Trong ví dụ <code>0x0FFC, LEN=1, SIZE=2</code>, hãy tự tính từng bước đến <code>0x1003</code>.</li>
+  </ol>
+
+  <section class="card accent">
+    <strong>Bài tập ngay bây giờ:</strong> Hãy trả lời năm câu tự kiểm tra bằng lời của bạn. Sau đó chúng ta viết phần khai báo port và hai test đầu tiên của testbench, chưa viết RTL.
+  </section>
+</main>
+</body>
+</html>

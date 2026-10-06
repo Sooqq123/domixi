@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "project": "PicoRV32 CPU + DMA + Bus Firewall",
+  "tests": [
+    {
+      "id": "dma_fifo", "scope": "DMA_UNIT", "top": "tb_dma_fifo_latch",
+      "sources": ["DMA-controller/rtl/dma_fifo_latch.v", "DMA-controller/tb/tb_dma_fifo_latch.v"],
+      "pass_pattern": "\\[PASS\\] tb_dma_fifo_latch completed with no check failures",
+      "waveform": "fifo_wave.vcd", "signals": ["*clk", "*rst_n", "*push", "*pop", "*full", "*empty", "*count", "*wdata", "*rdata"]
+    },
+    {
+      "id": "dma_apb", "scope": "DMA_UNIT", "top": "tb_dma_apb_slave",
+      "sources": ["DMA-controller/rtl/dma_apb_slave.v", "DMA-controller/tb/tb_dma_apb_slave.v"],
+      "pass_pattern": "\\[PASS\\] tb_dma_apb_slave completed with no check failures",
+      "waveform": "apb_slave_wave.vcd", "signals": ["*clk", "*rst_n", "*psel", "*penable", "*pwrite", "*paddr", "*pready", "*pslverr", "*cfg_start"]
+    },
+    {
+      "id": "dma_axi", "scope": "DMA_UNIT", "top": "tb_dma_axi_master",
+      "sources": ["DMA-controller/rtl/dma_axi_master.v", "DMA-controller/tb/tb_dma_axi_master.v"],
+      "pass_pattern": "\\[PASS\\] tb_dma_axi_master V2.4.1 negative regression",
+      "signals": ["*clk", "*rst_n", "*awvalid", "*awready", "*wvalid", "*wready", "*wlast", "*bvalid", "*bresp", "*arvalid", "*rvalid", "*rlast"]
+    },
+    {
+      "id": "dma_controller", "scope": "DMA_UNIT", "top": "tb_dma_controller",
+      "sources": ["DMA-controller/rtl/dma_apb_slave.v", "DMA-controller/rtl/dma_axi_master.v", "DMA-controller/rtl/dma_fifo_latch.v", "DMA-controller/rtl/dma_controller.v", "DMA-controller/tb/tb_dma_controller.v"],
+      "pass_pattern": "\\[PASS\\] dma_controller regression:",
+      "signals": ["*clk", "*rst_n", "*dma_ctx_valid", "*dma_ctx_done", "*dma_irq", "*awvalid", "*wvalid", "*bresp", "*arvalid", "*rvalid"]
+    },
+    {
+      "id": "picorv32_smoke", "scope": "CPU_SMOKE", "top": "testbench",
+      "sources": ["picorv32-main/picorv32-main/picorv32.v", "picorv32-main/picorv32-main/testbench_ez.v"],
+      "pass_pattern": "write  0x000003fc: 0x00000005 \\(wstrb=1111\\)",
+      "waveform": "testbench.vcd", "plusargs": ["+vcd"],
+      "iverilog_flags": ["-Wno-sensitivity-entire-array"],
+      "note": "Upstream increment-loop smoke: observes write of 5 to 0x3fc. Not ISA compliance or CPU-SoC integration verification.",
+      "signals": ["*clk", "*resetn", "*trap", "*mem_valid", "*mem_ready", "*mem_instr", "*mem_addr", "*mem_wdata", "*mem_rdata"]
+    },
+    {
+      "id": "drain_wrapper_mock", "scope": "MOCK_INTEGRATION", "top": "tb_fw_drain_fsm",
+      "sources": ["rtl/fw_drain_fsm.v", "rtl/mocks/fw_write_drain_mock.v", "rtl/mocks/fw_read_drain_mock.v", "tb/tb_fw_drain_fsm.v"],
+      "pass_pattern": "PASS: tb_fw_drain_fsm",
+      "signals": ["*clk", "*rst_n", "*acl_w_fault", "*w_drain_wvalid", "*w_drain_wready", "*w_drain_bvalid", "*acl_r_fault", "*r_drain_rvalid", "*r_drain_rready", "*r_drain_rlast"]
+    },
+    {
+      "id": "dma_firewall_boundary_mock", "scope": "MOCK_INTEGRATION", "top": "tb_soc_dma_firewall_contract",
+      "sources": ["DMA-controller/rtl/dma_apb_slave.v", "DMA-controller/rtl/dma_axi_master.v", "DMA-controller/rtl/dma_fifo_latch.v", "DMA-controller/rtl/dma_controller.v", "DMA-controller/tb/integration/mocks/dma_bus_firewall_stub.v", "DMA-controller/tb/integration/tb_soc_dma_firewall_contract.v"],
+      "pass_pattern": "PASS: tb_soc_dma_firewall_contract \\(SIMULATION-ONLY FIREWALL STUB\\)",
+      "signals": ["*clk", "*rst_n", "*dma_ctx_valid", "*dma_ctx_done", "*dma_irq", "*arvalid", "*arready", "*rvalid", "*rresp", "*matrix_request_count"]
+    },
+    {
+      "id": "address_slice_observation", "scope": "FIREWALL_UNIT", "top": "tb_fw_axi_address_slice",
+      "sources": ["rtl/fw_axi_address_slice.v", "tb/tb_fw_axi_address_slice.v"],
+      "pass_pattern": "PASS: tb_fw_axi_address_slice",
+      "note": "Self-checking assertions for Stage 1 AW/AR latching, 4KB boundary, overflow, profile error and stall stability.",
+      "signals": ["*clk", "*rst_n", "*s_axi_awvalid", "*s_axi_awready", "*pipe_s1_awaddr", "*pipe_s1_aw_4kb_err", "*pipe_s1_aw_overflow_err"]
+    },
+    {"id": "fw_apb_regs", "scope": "STUDENT_UNIT", "top": "tb_fw_apb_regs", "sources": ["rtl/fw_apb_regs.v", "tb/tb_fw_apb_regs.v"], "pass_pattern": "PASS: tb_fw_apb_regs"},
+    {"id": "fw_acl_matcher", "scope": "STUDENT_UNIT", "top": "tb_fw_acl_matcher", "sources": ["rtl/fw_acl_matcher.v", "tb/tb_fw_acl_matcher.v"], "pass_pattern": "PASS: tb_fw_acl_matcher"},
+    {"id": "fw_write_drain", "scope": "STUDENT_UNIT", "top": "tb_fw_write_drain", "sources": ["rtl/fw_write_drain.v", "tb/tb_fw_write_drain.v"], "pass_pattern": "PASS: tb_fw_write_drain"},
+    {"id": "fw_read_drain", "scope": "STUDENT_UNIT", "top": "tb_fw_read_drain", "sources": ["rtl/fw_read_drain.v", "tb/tb_fw_read_drain.v"], "pass_pattern": "PASS: tb_fw_read_drain"},
+    {"id": "fw_context_tracker", "scope": "FIREWALL_UNIT", "top": "tb_fw_context_tracker", "sources": ["rtl/fw_context_tracker.v", "tb/tb_fw_context_tracker.v"], "pass_pattern": "PASS: tb_fw_context_tracker"},
+    {"id": "fw_data_path_mux", "scope": "FIREWALL_UNIT", "top": "tb_fw_data_path_mux", "sources": ["rtl/fw_data_path_mux.v", "tb/tb_fw_data_path_mux.v"], "pass_pattern": "PASS: tb_fw_data_path_mux"},
+    {"id": "fw_drain_fsm", "scope": "FIREWALL_UNIT", "top": "tb_fw_drain_fsm", "sources": ["rtl/fw_write_drain.v", "rtl/fw_read_drain.v", "rtl/fw_drain_fsm.v", "tb/tb_fw_drain_fsm.v"], "pass_pattern": "PASS: tb_fw_drain_fsm"},
+    {
+      "id": "dma_bus_firewall",
+      "scope": "FIREWALL_TOP",
+      "top": "tb_dma_bus_firewall",
+      "sources": [
+        "rtl/fw_axi_address_slice.v",
+        "rtl/fw_context_tracker.v",
+        "rtl/fw_apb_regs.v",
+        "rtl/fw_acl_matcher.v",
+        "rtl/fw_drain_fsm.v",
+        "rtl/fw_write_drain.v",
+        "rtl/fw_read_drain.v",
+        "rtl/fw_data_path_mux.v",
+        "rtl/fw_hdc_sense.v",
+        "rtl/fw_mtd_engine.v",
+        "rtl/fw_honeypot_sink.v",
+        "rtl/fw_closed_loop_ctrl.v",
+        "rtl/dma_bus_firewall.v",
+        "tb/tb_dma_bus_firewall.v"
+      ],
+      "pass_pattern": "ALL TESTS PASSED SUCCESSFULLY! \\(0 failures\\)",
+      "signals": ["*clk", "*rst_n", "*s_apb_psel", "*sec_irq", "*dma_ctx_valid", "*dma_ctx_done", "*s_axi_awvalid", "*s_axi_awready", "*m_axi_awvalid", "*m_axi_awready"]
+    },
+    {
+      "id": "soc_real_integration",
+      "scope": "SOC_REAL",
+      "top": "tb_aegis_picorv32_soc",
+      "sources": [
+        "picorv32-main/picorv32-main/picorv32.v",
+        "DMA-controller/rtl/dma_apb_slave.v",
+        "DMA-controller/rtl/dma_axi_master.v",
+        "DMA-controller/rtl/dma_fifo_latch.v",
+        "DMA-controller/rtl/dma_controller.v",
+        "rtl/fw_axi_address_slice.v",
+        "rtl/fw_context_tracker.v",
+        "rtl/fw_apb_regs.v",
+        "rtl/fw_acl_matcher.v",
+        "rtl/fw_drain_fsm.v",
+        "rtl/fw_write_drain.v",
+        "rtl/fw_read_drain.v",
+        "rtl/fw_data_path_mux.v",
+        "rtl/fw_hdc_sense.v",
+        "rtl/fw_mtd_engine.v",
+        "rtl/fw_honeypot_sink.v",
+        "rtl/fw_closed_loop_ctrl.v",
+        "rtl/dma_bus_firewall.v",
+        "rtl/aegis_picorv32_apb_bridge.v",
+        "tb/tb_aegis_picorv32_soc.v"
+      ],
+      "pass_pattern": "\\[PASS\\] tb_aegis_picorv32_soc",
+      "iverilog_flags": ["-Wno-sensitivity-entire-array"],
+      "note": "Real PicoRV32 CPU + APB bridge + DMA controller + real firewall + AXI memory model. CPU firmware configures both APB targets, starts DMA, and raises a real trap for the AEGIS NMI path."
+    },
+    {
+      "id": "soc_reset_contract",
+      "scope": "SOC_REAL",
+      "top": "tb_aegis_soc_reset",
+      "sources": [
+        "picorv32-main/picorv32-main/picorv32.v",
+        "DMA-controller/rtl/dma_apb_slave.v",
+        "DMA-controller/rtl/dma_axi_master.v",
+        "DMA-controller/rtl/dma_fifo_latch.v",
+        "DMA-controller/rtl/dma_controller.v",
+        "rtl/fw_axi_address_slice.v",
+        "rtl/fw_context_tracker.v",
+        "rtl/fw_apb_regs.v",
+        "rtl/fw_acl_matcher.v",
+        "rtl/fw_drain_fsm.v",
+        "rtl/fw_write_drain.v",
+        "rtl/fw_read_drain.v",
+        "rtl/fw_data_path_mux.v",
+        "rtl/fw_hdc_sense.v",
+        "rtl/fw_mtd_engine.v",
+        "rtl/fw_honeypot_sink.v",
+        "rtl/fw_closed_loop_ctrl.v",
+        "rtl/dma_bus_firewall.v",
+        "rtl/aegis_picorv32_apb_bridge.v",
+        "rtl/aegis_soc_top.v",
+        "tb/tb_aegis_soc_reset.v"
+      ],
+      "pass_pattern": "\\[PASS\\] tb_aegis_soc_reset reset contract",
+      "iverilog_flags": ["-Wno-sensitivity-entire-array"],
+      "note": "Production AEGIS SoC top reset contract: asynchronous assertion, two-edge functional deassertion and explicit test_mode bypass alignment."
+    },
+    {
+      "id": "aegis_rowhammer_5000",
+      "scope": "AEGIS_E2E",
+      "top": "tb_aegis_soc",
+      "sources": [
+        "rtl/fw_axi_address_slice.v",
+        "rtl/fw_context_tracker.v",
+        "rtl/fw_apb_regs.v",
+        "rtl/fw_acl_matcher.v",
+        "rtl/fw_drain_fsm.v",
+        "rtl/fw_write_drain.v",
+        "rtl/fw_read_drain.v",
+        "rtl/fw_data_path_mux.v",
+        "rtl/fw_hdc_sense.v",
+        "rtl/fw_mtd_engine.v",
+        "rtl/fw_honeypot_sink.v",
+        "rtl/fw_closed_loop_ctrl.v",
+        "rtl/dma_bus_firewall.v",
+        "tb/tb_aegis_soc.v"
+      ],
+      "pass_pattern": "AEGIS-RISC VERIFICATION SUMMARY: [0-9]+ PASSED, 0 FAILED",
+      "waveform": "tb_aegis_soc.vcd",
+      "plusargs": ["+dump_wave"],
+      "note": "AEGIS end-to-end directed test with 5,000 alternating Rowhammer bursts, timing probe, normal DMA and CPU NMI scenarios.",
+      "signals": ["*clk", "*rst_n", "*s_axi_awvalid", "*s_axi_awready", "*m_axi_awvalid", "*m_axi_awready", "*aegis_threat_level", "*aegis_nmi_irq", "*aegis_honey_hit"]
+    },
+    {
+      "id": "fw_hdc_sense",
+      "scope": "AEGIS_HDC",
+      "top": "tb_fw_hdc_sense",
+      "sources": [
+        "rtl/fw_hdc_sense.v",
+        "tb/tb_fw_hdc_sense.v"
+      ],
+      "pass_pattern": "\\[PASS\\] tb_fw_hdc_sense completed with zero check failures!",
+      "note": "AEGIS HDC 1024-bit hyperdimensional computing sensing engine: single-cycle classifier, telemetry tap, distance comparison, and fingerprinting.",
+      "signals": ["*clk", "*resetn", "*s1_awvalid", "*s1_arvalid", "*threat_level", "*hdc_anomaly_alert", "*attack_fingerprint", "*telemetry_overrun"]
+    },
+    {
+      "id": "fw_closed_loop_ctrl",
+      "scope": "AEGIS_REFLEX",
+      "top": "tb_fw_closed_loop_ctrl",
+      "sources": [
+        "rtl/fw_closed_loop_ctrl.v",
+        "tb/tb_fw_closed_loop_ctrl.v"
+      ],
+      "pass_pattern": "\\[ALL TESTS PASSED\\] fw_closed_loop_ctrl verified successfully!",
+      "note": "AEGIS closed-loop reflex controller: 1-cycle NMI irq[3] dispatch, per-MID score tracker, decay epoch, forensic FIFO, and status registers.",
+      "signals": ["*clk", "*resetn", "*threat_level", "*hdc_anomaly_alert", "*force_drain_req", "*aegis_nmi_irq", "*reg_aegis_status", "*reg_aegis_honey_count"]
+    },
+    {
+      "id": "fw_honeypot_sink",
+      "scope": "AEGIS_MTD",
+      "top": "tb_fw_honeypot_sink",
+      "sources": [
+        "rtl/fw_honeypot_sink.v",
+        "tb/tb_fw_honeypot_sink.v"
+      ],
+      "pass_pattern": "\\[ALL TESTS PASSED\\] fw_honeypot_sink verified successfully!",
+      "note": "AEGIS MTD Honey-Pot sink: absorbs malicious Rowhammer write bursts and returns dummy read data transparently with AXI OKAY.",
+      "signals": ["*clk", "*rst_n", "*hp_awvalid", "*hp_awready", "*hp_wvalid", "*hp_wready", "*hp_bvalid", "*honey_trans_count"]
+    },
+    {
+      "id": "fw_hdc_sense_challenger2",
+      "scope": "AEGIS_CHALLENGER",
+      "top": "tb_fw_hdc_sense_challenger2",
+      "sources": [
+        "rtl/fw_hdc_sense.v",
+        "tb/tb_fw_hdc_sense_challenger2.v"
+      ],
+      "pass_pattern": "CHALLENGER 2 VERDICT: \\[PASS\\]",
+      "note": "Challenger 2 empirical verification: latency invariants, 0-cycle trap preemption, single-cycle evaluation, and avalanche distribution.",
+      "signals": ["*clk", "*resetn", "*threat_level", "*hdc_anomaly_alert", "*attack_fingerprint"]
+    },
+    {
+      "id": "adversarial_m1",
+      "scope": "AEGIS_STRESS",
+      "top": "tb_adversarial_m1",
+      "sources": [
+        "rtl/fw_hdc_sense.v",
+        "tb/tb_adversarial_m1.v"
+      ],
+      "pass_pattern": "=== ADVERSARIAL STRESS TESTS COMPLETE ===",
+      "note": "Adversarial stress suite: 5,000 random benign DMA bursts (0% FP), 4KB row boundary traversal, and evasion probe checks.",
+      "signals": ["*clk", "*resetn", "*s1_awvalid", "*s1_awaddr", "*threat_level", "*hdc_anomaly_alert"]
+    },
+    {
+      "id": "soc_dma_firewall_contract",
+      "scope": "SOC_CONTRACT",
+      "top": "tb_soc_dma_firewall_contract",
+      "sources": [
+        "DMA-controller/rtl/dma_apb_slave.v",
+        "DMA-controller/rtl/dma_axi_master.v",
+        "DMA-controller/rtl/dma_fifo_latch.v",
+        "DMA-controller/rtl/dma_controller.v",
+        "rtl/fw_axi_address_slice.v",
+        "rtl/fw_context_tracker.v",
+        "rtl/fw_apb_regs.v",
+        "rtl/fw_acl_matcher.v",
+        "rtl/fw_drain_fsm.v",
+        "rtl/fw_write_drain.v",
+        "rtl/fw_read_drain.v",
+        "rtl/fw_data_path_mux.v",
+        "rtl/fw_hdc_sense.v",
+        "rtl/fw_mtd_engine.v",
+        "rtl/fw_honeypot_sink.v",
+        "rtl/fw_closed_loop_ctrl.v",
+        "rtl/dma_bus_firewall.v",
+        "tb/tb_soc_dma_firewall_contract.v"
+      ],
+      "pass_pattern": "PASS: tb_soc_dma_firewall_contract \\(PRODUCTION FIREWALL IP\\)",
+      "note": "Full DMA Controller + Production DMA Bus Firewall end-to-end contract testbench.",
+      "signals": ["*clk", "*rst_n", "*dma_ctx_valid", "*dma_ctx_done", "*dma_irq", "*apb_psel", "*apb_penable"]
+    }
+  ]
+}

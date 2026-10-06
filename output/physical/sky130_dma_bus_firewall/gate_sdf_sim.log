@@ -1,0 +1,15 @@
+----------------------------------------------------------------
+[SDF] Annotating dma_bus_firewall_cells.sdf onto u_dut...
+[SDF] Annotation complete.
+----------------------------------------------------------------
+VCD info: dumpfile output/physical/sky130_dma_bus_firewall/gate_sdf_firewall.vcd opened for output.
+[PASS] CHECK 1: Reset deasserted cleanly with propagated clock at time 250000 ps
+[PASS] CHECK 2: APB Write to Control Reg acknowledged with pready=1 at time 300000 ps
+[PASS] CHECK 3: APB Read from Status Reg completed under annotated gate delay at time 664000 ps
+[PASS] CHECK 4: Upstream s_axi_awready resolved cleanly without X-propagation at time 714000 ps
+[PASS] CHECK 5: Downstream m_axi_bready asserted under post-route timing at time 814000 ps
+[PASS] CHECK 6: Threat level is 2'b00 (SAFE) under normal traffic at time 925000 ps
+================================================================
+>>> GATE-LEVEL SDF SIMULATION PASSED: 6/6 checks verified, 0 timing violations <<<
+================================================================
+tb/tb_gate_sdf_firewall.v:358:  called at 1125000 (1ps)

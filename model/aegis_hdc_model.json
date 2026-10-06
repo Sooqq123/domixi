@@ -1,0 +1,202 @@
+{
+  "architecture_major": 2,
+  "hdc_model_version": 1,
+  "fingerprint_version": 2,
+  "dimension": 1024,
+  "dimension_log2": 10,
+  "lane_width": 64,
+  "lane_width_log2": 6,
+  "num_chunks": 16,
+  "caps_word": "0x020102A6",
+  "thresholds": {
+    "probe": 380,
+    "attack": 350,
+    "breach": 320
+  },
+  "prototypes": {
+    "PROBE": [
+      "64'h9D1843690D5E10E0",
+      "64'h77570D0A8A3E7EC9",
+      "64'hF7BAB30DCE1EA3FC",
+      "64'hC26C1DEA74CCEC40",
+      "64'h05E5F7AE9E3A7024",
+      "64'h60DC5DEF50A724B1",
+      "64'hA119E84714D491A0",
+      "64'h33E1CDCCC67CADAF",
+      "64'hCFD4AD4EFF95896B",
+      "64'h5E1AE35DAF528AAE",
+      "64'h2A07200227209934",
+      "64'h1281BDF58627F396",
+      "64'h7210991D892D0A6B",
+      "64'h7014B926664CF235",
+      "64'h8FDF174CCD61720E",
+      "64'h3E22FB6005FA3F35"
+    ],
+    "ATTACK": [
+      "64'hD7FCB872D6C41F00",
+      "64'h3E3E822D551D437B",
+      "64'h3D08F7366EE2491B",
+      "64'hD7CE71283D726F77",
+      "64'hDB6239E431D414EC",
+      "64'h3FC4E2AFAB345962",
+      "64'h76047E334BCA7156",
+      "64'h53CBC910F7C33365",
+      "64'h640B6AAEE2BB3FB5",
+      "64'h264D004662037E75",
+      "64'h31AC7714229B3501",
+      "64'h1B603FE0DC37BD95",
+      "64'h85E093CCEEA8782E",
+      "64'h019CC925A097AF1F",
+      "64'h8F39FF8585DB49FA",
+      "64'h01D6A61FD78C88DF"
+    ],
+    "BREACH": [
+      "64'h6B8AE6FC66450300",
+      "64'hD233CB405EF5183F",
+      "64'h827583EB0F548725",
+      "64'h89A84EA428B132A7",
+      "64'hF4BD9E56BCB3FA3E",
+      "64'h627D7C2D50A3D3F3",
+      "64'h20590CED5547D4F7",
+      "64'h1AC7DCD42E11DC91",
+      "64'h3AA2F57357B97240",
+      "64'h24F40FEED2E6C1A8",
+      "64'hF0748AD801DD4402",
+      "64'h68BAE51D3DA119D4",
+      "64'h5B2E2744E809C0F4",
+      "64'h8129EB73F98F51BA",
+      "64'hB73D110E29320F8B",
+      "64'h6F7D32A0347AB035"
+    ]
+  },
+  "feature_encoding": {
+    "snapshot_width_bits": 64,
+    "fields": {
+      "address": "[63:32] Target access address",
+      "delta_t": "[31:24] Saturated inter-arrival cycle timer",
+      "axlen": "[23:16] AXI burst length AxLEN",
+      "axsize": "[15:13] AXI burst transfer size AxSIZE",
+      "master_id": "[12:9] AXI Master identifier MID",
+      "is_write": "[8] 1 for write transfer, 0 for read transfer",
+      "row_toggle": "[7] 1 if address alternates row index",
+      "stall_detected": "[6] 1 if CPU pipeline starvation exceeds threshold",
+      "cpu_telemetry_trap": "[5] 1 if CPU hardware exception/trap occurs",
+      "reason_precode": "[4:0] Fast-path classification reason precode"
+    },
+    "query_projection_formula": "rot(snap, chunk_idx) ^ {16{chunk_idx}} ^ 64'hA5A5_5A5A_C3C3_3C3C ^ (snap >> chunk_idx)"
+  },
+  "golden_vectors": [
+    {
+      "name": "SAFE",
+      "snapshot": "64'h1000000001074301",
+      "query_chunks": [
+        "64'hA5A55A5AC3C33C3C",
+        "64'h9CB44B4BD05F0AAF",
+        "64'hC3877878E5BDC2DA",
+        "64'h14966969F8EAFF67",
+        "64'hE0E11E1E97E33C59",
+        "64'hF0700F0FB6763353",
+        "64'hC3833C3CE4718712",
+        "64'hD2F22D2D3717C545",
+        "64'h2D3DD2D34C09B2E7",
+        "64'h3C34C3C154DC2424",
+        "64'h0F0BF0F47465D306",
+        "64'h1E1CE1E94260AFEF",
+        "64'h696896867B3FF184",
+        "64'h787807A7F67ECBDB",
+        "64'h4B4BF4F5FDED92CF",
+        "64'h5A5A85269DBC49CD"
+      ],
+      "distances": {
+        "probe": 502,
+        "attack": 490,
+        "breach": 517
+      },
+      "threat_level": "2'b00"
+    },
+    {
+      "name": "PROBE",
+      "snapshot": "64'h1000020006004402",
+      "query_chunks": [
+        "64'hA5A55A5AC3C33C3C",
+        "64'h9CB44E4BDDD28728",
+        "64'hC38770F8F8601F16",
+        "64'h14967929C032279F",
+        "64'hE0E13E3EE7E33C19",
+        "64'hF0704F1F56AEEB0B",
+        "64'hC383BC3525AC5BCE",
+        "64'hD2F32D2AB49A4ACB",
+        "64'h2D3FD2D64B09B6E0",
+        "64'h3C30C3CE5AD1A1A7",
+        "64'h0F03F0E8E8781EC7",
+        "64'h1E0CE1D13A58570F",
+        "64'h694896F62B4FB1F4",
+        "64'h78380747069E93E3",
+        "64'h4BCBF534342D4ED3",
+        "64'h5B5A86A51A3DC7C3"
+      ],
+      "distances": {
+        "probe": 527,
+        "attack": 503,
+        "breach": 502
+      },
+      "threat_level": "2'b01"
+    },
+    {
+      "name": "ROW_THRASH",
+      "snapshot": "64'h1000100002004784",
+      "query_chunks": [
+        "64'hA5A55A5AC3C33C3C",
+        "64'h9CB4634BD7D281E7",
+        "64'hC3873C78E96011EF",
+        "64'h1496EB69E0B23BDF",
+        "64'hE0E01F1EA7A30441",
+        "64'hF0720F8FD68E9BD7",
+        "64'hC3873C7C25BCBA40",
+        "64'hD2FA2D0CB49389CC",
+        "64'h2D2DD2C04B0E30E3",
+        "64'h3C14C3CF5AD4ADA6",
+        "64'h0F4BF0FC687706C7",
+        "64'h1E9CE1F37A44E70F",
+        "64'h686896B70B7791F4",
+        "64'h7A7807C796EE73E3",
+        "64'h4F4BF4347CCCDED3",
+        "64'h525A84A53FFECFC3"
+      ],
+      "distances": {
+        "probe": 525,
+        "attack": 517,
+        "breach": 518
+      },
+      "threat_level": "2'b10"
+    },
+    {
+      "name": "BREACH",
+      "snapshot": "64'h8000000000004030",
+      "query_chunks": [
+        "64'hA5A55A5AC3C33C3C",
+        "64'hF4B44B4BD2D28D54",
+        "64'hA7877878E1E00ED0",
+        "64'h86966969F0F2068D",
+        "64'hE9E11E1E87837F73",
+        "64'hF4F00F0F969E6D78",
+        "64'hC1C33C3CA5B5577A",
+        "64'hD3D22D2DB494538B",
+        "64'h2DADD2D24B0B8474",
+        "64'h3C7CC3C35ADAC485",
+        "64'h0F2FF0F068695486",
+        "64'h1E0EE1E17A79038F",
+        "64'h696196960B0CF8F4",
+        "64'h787C87871618F1E3",
+        "64'h4B49B4B43D21F2D3",
+        "64'h5A5BA5A51C2483C3"
+      ],
+      "distances": {
+        "probe": 505,
+        "attack": 503,
+        "breach": 500
+      },
+      "threat_level": "2'b11"
+    }
+  ]
+}

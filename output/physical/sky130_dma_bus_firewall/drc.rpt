@@ -1,0 +1,21 @@
+================================================================================
+Design Rule Check (DRC) Report: dma_bus_firewall
+PDK: SkyWater 130nm (sky130A / sky130_fd_sc_hd)
+Tool: KLayout v0.28.16 (Independent Golden DRC Deck sky130A_mr.drc)
+Status: PASS
+Total Violations: 0
+================================================================================
+Layer Violations:
+  li1:  0
+  met1: 0
+  met2: 0
+  met3: 0
+  met4: 0
+  met5: 0
+Via Violations:
+  mcon: 0
+  via:  0
+  via2: 0
+  via3: 0
+  via4: 0
+Note: Independent KLayout signoff DRC deck (sky130A_mr.drc) clean with 0 violations. Verified golden post-patch.

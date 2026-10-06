@@ -1,0 +1,18 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:00:11 (11)
+Elapsed process time unvailable on Windows
+engine_0 (smtbmc z3) returned pass
+cover trace: engine_0\trace0.vcd
+cover trace: engine_0\trace0.yw
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_62_570 at fw_hdc_cover.v:62.9-62.47 step 3
+cover trace: engine_0\trace1.vcd
+cover trace: engine_0\trace1.yw
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_65_579 at fw_hdc_cover.v:65.9-65.47 step 3
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_66_582 at fw_hdc_cover.v:66.9-66.43 step 3
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_67_584 at fw_hdc_cover.v:67.9-67.69 step 3
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_68_588 at fw_hdc_cover.v:68.9-68.70 step 3
+cover trace: engine_0\trace2.vcd
+cover trace: engine_0\trace2.yw
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_64_576 at fw_hdc_cover.v:64.9-64.47 step 8
+cover trace: engine_0\trace3.vcd
+cover trace: engine_0\trace3.yw
+  reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_63_573 at fw_hdc_cover.v:63.9-63.47 step 13

@@ -1,0 +1,3032 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "fw_drain_contract_formal",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$101",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:148.17-148.43|fw_drain_contract_formal.v:148.13-152.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$104",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:155.21-155.41|fw_drain_contract_formal.v:155.17-158.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$106",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:153.17-153.63|fw_drain_contract_formal.v:153.13-159.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$109",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$111",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:148.17-148.43|fw_drain_contract_formal.v:148.13-152.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$114",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$116",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:148.17-148.43|fw_drain_contract_formal.v:148.13-152.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$119",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:155.21-155.41|fw_drain_contract_formal.v:155.17-158.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$121",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:153.17-153.63|fw_drain_contract_formal.v:153.13-159.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$124",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$126",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:135.13-135.23|fw_drain_contract_formal.v:135.9-136.34"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$129",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:116.13-116.19|fw_drain_contract_formal.v:116.9-125.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$131",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:120.17-120.25|fw_drain_contract_formal.v:120.13-121.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$134",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:116.13-116.19|fw_drain_contract_formal.v:116.9-125.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$136",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:123.17-123.50|fw_drain_contract_formal.v:123.13-124.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$139",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:116.13-116.19|fw_drain_contract_formal.v:116.9-125.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$141",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:89.17-89.31|fw_drain_contract_formal.v:89.13-92.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$144",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$146",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:87.17-87.29|fw_drain_contract_formal.v:87.13-88.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$149",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$154",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:99.21-99.41|fw_drain_contract_formal.v:99.17-105.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$156",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.63|fw_drain_contract_formal.v:98.13-106.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$159",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$162",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:99.21-99.41|fw_drain_contract_formal.v:99.17-105.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$164",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.63|fw_drain_contract_formal.v:98.13-106.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$166",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:107.17-107.49|fw_drain_contract_formal.v:107.13-108.38"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$169",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$171",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.60|fw_drain_contract_formal.v:93.13-97.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$174",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:99.21-99.41|fw_drain_contract_formal.v:99.17-105.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$176",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.63|fw_drain_contract_formal.v:98.13-106.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$179",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$181",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.60|fw_drain_contract_formal.v:93.13-97.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$184",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$186",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.60|fw_drain_contract_formal.v:93.13-97.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$189",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:99.21-99.41|fw_drain_contract_formal.v:99.17-105.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.63|fw_drain_contract_formal.v:98.13-106.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$194",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:80.13-80.19|fw_drain_contract_formal.v:80.9-109.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:76.13-76.39|fw_drain_contract_formal.v:76.9-77.34"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$199",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:64.13-64.33|fw_drain_contract_formal.v:64.9-67.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$202",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:64.13-64.33|fw_drain_contract_formal.v:64.9-67.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$204",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:60.13-60.33|fw_drain_contract_formal.v:60.9-61.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$84",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$86",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:153.17-153.63|fw_drain_contract_formal.v:153.13-159.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$89",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$91",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:146.17-146.25|fw_drain_contract_formal.v:146.13-147.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$94",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$96",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:161.17-161.50|fw_drain_contract_formal.v:161.13-162.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procmux$99",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:139.13-139.19|fw_drain_contract_formal.v:139.9-163.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$515",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:138.5-164.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$516",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:138.5-164.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$517",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:138.5-164.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$518",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:138.5-164.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$519",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:138.5-164.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procdff$520",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:115.5-126.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$521",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:115.5-126.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$522",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:79.5-110.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$523",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:79.5-110.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$524",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:79.5-110.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$525",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:79.5-110.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$526",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:79.5-110.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$527",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:59.5-62.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$fw_drain_contract_formal.v:60$26",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:60.13-60.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$lt$fw_drain_contract_formal.v:64$29",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:64.13-64.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$fw_drain_contract_formal.v:76$34",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:76.13-76.39"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_121_53",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_121_53",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:121.17-121.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_147_64",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_147_64",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:147.17-147.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_154_70",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_154_70",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:154.17-154.64"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_167_80",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_167_80",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:167.9-167.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_88_39",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_88_39",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:88.17-88.39"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_drain_contract_formal_v_90_40",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_drain_contract_formal_v_90_40",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:90.17-90.46"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_drain_contract_formal_v_136_60",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_drain_contract_formal_v_136_60",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:136.13-136.33"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_drain_contract_formal_v_65_30",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_drain_contract_formal_v_65_30",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:65.13-65.27"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_drain_contract_formal_v_67_32",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_drain_contract_formal_v_67_32",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:67.13-67.26"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_drain_contract_formal_v_77_35",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_drain_contract_formal_v_77_35",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:77.13-77.33"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:107$50",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:107.17-107.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:123$58",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:123.17-123.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:148$67",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:148.17-148.43"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:153$68",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:153.17-153.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:153$69",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:153.17-153.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:161$78",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:161.17-161.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:93$43",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:93$44",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:98$45",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_drain_contract_formal.v:98$46",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:98.17-98.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:167$81",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:167.16-167.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:102$48",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:102.39-102.53"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:123$57",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:123.35-123.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:136$61",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:136.20-136.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:148$66",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:148.17-148.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:161$77",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:161.35-161.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:65$31",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:65.20-65.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:77$36",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:77.20-77.32"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:93$41",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.17-93.28"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_drain_contract_formal.v:93$42",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:93.32-93.45"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "fw_drain_fsm",
+            "ports": [
+                {
+                  "name": "acl_r_err_mode",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_r_fault",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_r_id",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "acl_r_len",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "acl_w_err_mode",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_w_fault",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_w_id",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "acl_w_len",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "r_drain_rid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "r_drain_rlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "r_drain_rvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "w_drain_bready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "w_drain_bvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_framing_fault_code",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "w_framing_fault_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_drain_contract_formal.v:30.18-56.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:121$54",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:121.24-121.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:147$65",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:147.24-147.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000101000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:154$72",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:154.24-154.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:155$73",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:155.21-155.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_drain_contract_formal.v:99$47",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:99.21-99.41"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_drain_contract_formal.v:104$49",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:104.34-104.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$add$fw_drain_contract_formal.v:158$74",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:158.34-158.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$add$fw_drain_contract_formal.v:61$27",
+                  "attributes": {
+                    "src": "fw_drain_contract_formal.v:61.30-61.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "fw_drain_contract_formal.v:1.1-170.10"
+        }
+      },
+      {
+        "name": "fw_drain_fsm",
+        "cell_sorts": [
+          {
+            "type": "fw_write_drain",
+            "ports": [
+                {
+                  "name": "acl_w_err_mode",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_w_fault",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_w_id",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "acl_w_len",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "w_drain_bready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_bresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "w_drain_bvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_drain_wvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "w_framing_fault_code",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "w_framing_fault_valid",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_write_drain",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_drain_fsm.v:35.20-51.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "fw_read_drain",
+            "ports": [
+                {
+                  "name": "acl_r_err_mode",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_r_fault",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "acl_r_id",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "acl_r_len",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "r_drain_rid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "r_drain_rlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "r_drain_rresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "r_drain_rvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_read_drain",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_drain_fsm.v:53.19-66.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "fw_drain_fsm.v:5.1-68.10"
+        }
+      },
+      {
+        "name": "fw_read_drain",
+        "cell_sorts": [
+          {
+            "type": "$not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$273_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:74.23-74.23|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$208",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:89.25-89.35|fw_read_drain.v:89.21-95.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$216",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:89.25-89.35|fw_read_drain.v:89.21-95.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$223",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:88.21-88.32|fw_read_drain.v:88.17-102.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$228",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:88.21-88.32|fw_read_drain.v:88.17-102.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$234",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:77.21-77.32|fw_read_drain.v:77.17-83.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$240",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:77.21-77.32|fw_read_drain.v:77.17-83.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$246",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:77.21-77.32|fw_read_drain.v:77.17-83.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$252",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:77.21-77.32|fw_read_drain.v:77.17-83.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$258",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:77.21-77.32|fw_read_drain.v:77.17-83.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$fw_read_drain.v:45$20",
+                  "attributes": {
+                    "src": "fw_read_drain.v:45.29-45.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [4, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$532",
+                  "attributes": {
+                    "src": "fw_read_drain.v:49.5-63.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$537",
+                  "attributes": {
+                    "src": "fw_read_drain.v:49.5-63.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$542",
+                  "attributes": {
+                    "src": "fw_read_drain.v:49.5-63.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$547",
+                  "attributes": {
+                    "src": "fw_read_drain.v:49.5-63.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$552",
+                  "attributes": {
+                    "src": "fw_read_drain.v:49.5-63.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_read_drain.v:38$17",
+                  "attributes": {
+                    "src": "fw_read_drain.v:38.30-38.62"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_read_drain.v:39$18",
+                  "attributes": {
+                    "src": "fw_read_drain.v:39.31-39.47"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$262",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:84.16-84.16|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$265",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:84.16-84.16|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$268",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:84.16-84.16|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$271",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:84.16-84.16|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$274",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_read_drain.v:84.16-84.16|fw_read_drain.v:74.9-109.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_read_drain.v:94$24",
+                  "attributes": {
+                    "src": "fw_read_drain.v:94.38-94.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "fw_read_drain.v:7.1-111.10"
+        }
+      },
+      {
+        "name": "fw_write_drain",
+        "cell_sorts": [
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$494_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [10, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [10, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [10, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$279",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:117.21-117.32|fw_write_drain.v:117.17-127.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001010"
+                  }
+                },
+                {
+                  "name": "$procmux$285",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:117.21-117.32|fw_write_drain.v:117.17-127.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$292",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:107.30-107.45|fw_write_drain.v:107.26-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001010"
+                  }
+                },
+                {
+                  "name": "$procmux$302",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:107.30-107.45|fw_write_drain.v:107.26-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$312",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:107.30-107.45|fw_write_drain.v:107.26-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$322",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:107.30-107.45|fw_write_drain.v:107.26-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$333",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:103.25-103.39|fw_write_drain.v:103.21-106.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$343",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:103.25-103.39|fw_write_drain.v:103.21-106.53"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$352",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:100.21-100.32|fw_write_drain.v:100.17-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$359",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:100.21-100.32|fw_write_drain.v:100.17-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$366",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:100.21-100.32|fw_write_drain.v:100.17-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$373",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:100.21-100.32|fw_write_drain.v:100.17-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001010"
+                  }
+                },
+                {
+                  "name": "$procmux$380",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:100.21-100.32|fw_write_drain.v:100.17-114.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$388",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:91.21-91.32|fw_write_drain.v:91.17-97.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$396",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:91.21-91.32|fw_write_drain.v:91.17-97.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$404",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:91.21-91.32|fw_write_drain.v:91.17-97.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$412",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:91.21-91.32|fw_write_drain.v:91.17-97.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$420",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:91.21-91.32|fw_write_drain.v:91.17-97.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$459",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:98.16-98.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$463",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$469",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$475",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$481",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$487",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$493",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$498",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$501",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$504",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$507",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$510",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$513",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:58.13-58.18|fw_write_drain.v:58.9-74.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ternary$fw_write_drain.v:64$9",
+                  "attributes": {
+                    "src": "fw_write_drain.v:64.37-64.90"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ne",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_write_drain.v:102$11",
+                  "attributes": {
+                    "src": "fw_write_drain.v:102.43-102.74"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$fw_write_drain.v:64$8",
+                  "attributes": {
+                    "src": "fw_write_drain.v:64.38-64.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_write_drain.v:44$1",
+                  "attributes": {
+                    "src": "fw_write_drain.v:44.24-44.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_write_drain.v:45$2",
+                  "attributes": {
+                    "src": "fw_write_drain.v:45.24-45.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [2, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$557",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$562",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$567",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$572",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "1",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$577",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$582",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$587",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001010"
+                  }
+                },
+                {
+                  "name": "$procdff$592",
+                  "attributes": {
+                    "src": "fw_write_drain.v:144.5-164.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$ge",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [10, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ge$fw_write_drain.v:48$4",
+                  "attributes": {
+                    "src": "fw_write_drain.v:48.29-48.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_write_drain.v:47$3",
+                  "attributes": {
+                    "src": "fw_write_drain.v:47.28-47.44"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$494_CMP1",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$494_CMP2",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$auto$opt_reduce.cc:131:opt_pmux$597",
+                  "attributes": {
+
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$488_ANY",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:59.25-59.25|fw_write_drain.v:59.13-73.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [24, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$425",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$430",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$435",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$440",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$445",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$450",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$454",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_write_drain.v:115.16-115.16|fw_write_drain.v:87.9-139.16"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001010"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_write_drain.v:106$12",
+                  "attributes": {
+                    "src": "fw_write_drain.v:106.38-106.52"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$add$fw_write_drain.v:126$14",
+                  "attributes": {
+                    "src": "fw_write_drain.v:126.34-126.48"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001010"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "fw_write_drain.v:5.1-165.10"
+        }
+      }
+  ]
+}

@@ -1,0 +1,15 @@
+----------------------------------------------------------------
+[SDF] Annotating aegis_soc_top_cells.sdf onto u_dut...
+[SDF] Annotation complete.
+----------------------------------------------------------------
+VCD info: dumpfile output/physical/sky130_aegis_soc_top/gate_sdf_soc.vcd opened for output.
+[PASS] CHECK 1: SoC Reset asserted cleanly under annotated gate delay at time 150000 ps
+[PASS] CHECK 2: SoC Synchronizer deassertion completed after propagated clock cycles at time 250000 ps
+[PASS] CHECK 3: CPU active and trap is not asserted at time 488000 ps
+[PASS] CHECK 4: External memory response acknowledged without timing faults at time 514000 ps
+[PASS] CHECK 5: Security and Telemetry IRQs deasserted in initial safe state at time 625000 ps
+[PASS] CHECK 6: Threat level is 2'b00 (SAFE) under normal SoC operation at time 725000 ps
+================================================================
+>>> SOC GATE-LEVEL SDF SIMULATION PASSED: 6/6 checks verified, 0 timing violations <<<
+================================================================
+tb/tb_gate_sdf_soc.v:221:  called at 925000 (1ps)

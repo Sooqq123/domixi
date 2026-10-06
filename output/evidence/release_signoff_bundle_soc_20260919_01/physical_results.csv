@@ -1,0 +1,5 @@
+﻿id,status,value,corner,mode,check,stage,unit,wns,tns,unconstrained_endpoints,tool,version
+drc,REPORTED_PASS,0,,,,,,,,,KLayout v0.28.16 (Independent Golden Foundry Deck),sky130A_mr.drc 2024.2.11_01.09
+lvs,REPORTED_PASS,True,,,,,,,,,Netgen 1.5.255 & Magic 8.3 VLSI (Independent Golden LVS),Netgen 1.5.255 / Magic 8.3.416
+typical/functional/setup,REPORTED_PASS,,typical,functional,setup,post_route,ns,0.89,0.0,0,OpenSTA,2.6.0
+typical/functional/hold,REPORTED_PASS,,typical,functional,hold,post_route,ns,0.041,0.0,0,OpenSTA,2.6.0

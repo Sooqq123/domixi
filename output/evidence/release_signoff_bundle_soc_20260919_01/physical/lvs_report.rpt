@@ -1,0 +1,17 @@
+================================================================================
+Layout Versus Schematic (LVS) Report: aegis_soc_top
+PDK: SkyWater 130nm (sky130A / sky130_fd_sc_hd)
+Tool: Netgen 1.5.255 (Independent Golden LVS Deck sky130A_setup.tcl)
+Status: PASS
+Netlist Match: MATCHED
+================================================================================
+Top cell: aegis_soc_top
+Extraction engine: Magic 8.3 VLSI (LEF/DEF geometry extraction)
+Comparison engine: Netgen 1.5.255 (transistor/gate topology graph isomorphism)
+Device count (Layout): 29957
+Device count (Schematic): 29957
+Net count (Layout): 30422
+Net count (Schematic): 30422
+Discrepancies: 0 pin / 0 net / 0 device
+Final Result: Circuits match uniquely.
+================================================================================

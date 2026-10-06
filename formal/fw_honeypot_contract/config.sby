@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal fw_honeypot_sink.v fw_honeypot_contract_formal.v
+prep -top fw_honeypot_contract_formal
+
+[files]
+rtl/fw_honeypot_sink.v
+formal/fw_honeypot_contract_formal.v

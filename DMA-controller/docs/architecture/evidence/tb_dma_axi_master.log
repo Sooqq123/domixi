@@ -1,0 +1,28 @@
+Executed UTC: 2026-08-24T02:22:43Z
+Tool: Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Runtime: Icarus Verilog runtime version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_axi_master -o D:\domixi\tmp\verification_v241\tb_dma_axi_master.vvp rtl\dma_axi_master.v tb\tb_dma_axi_master.v
+Compile exit: 0
+Simulation command: cd D:\domixi\tmp\verification_v241; vvp .\tb_dma_axi_master.vvp
+Simulation exit: 0
+=== TEST 1: AW STALL, W-AFTER-AW, AND PAYLOAD STABILITY ===
+[PASS] AW/W ordering and payload stability
+=== TEST 2: AR PAYLOAD STABILITY UNDER STALL ===
+[PASS] AR payload stability
+=== TEST 3: RRESP ERROR DRAINS ACCEPTED AR AND ABORTS ===
+[PASS] RRESP error abort, drain, flush, and terminal ERROR
+=== TEST 4: BRESP ERROR ABORTS WITHOUT A DONE EVENT ===
+[PASS] BRESP error abort, flush, and terminal ERROR
+=== TEST 5: RID OWNERSHIP MISMATCH ABORTS ===
+[PASS] RID ownership validation
+=== TEST 6: BID OWNERSHIP MISMATCH ABORTS ===
+[PASS] BID ownership validation
+=== TEST 7: EARLY RLAST ABORTS FINITELY ===
+[PASS] Early RLAST framing violation closes with terminal ERROR
+=== TEST 8: MISSING FINAL RLAST ABORTS FINITELY ===
+[PASS] Missing final RLAST closes with terminal ERROR
+[PASS] tb_dma_axi_master V2.4.1 negative regression
+tb\tb_dma_axi_master.v:556: $finish called at 4546000 (1ps)
+Source SHA256:
+2E6BBCFD5F5B35FE35187E71CBBE23D9BA8A708E8781B915B643D246B84DB210  D:\domixi\DMA-controller\rtl\dma_axi_master.v
+F637D6A1CF600C984A614C4BD358EBFA4E2229156EC6AFA78418D75AE6489320  D:\domixi\DMA-controller\tb\tb_dma_axi_master.v

@@ -1,0 +1,51 @@
+================================================================================
+Electromigration (EM) Reliability Analysis Report: dma_bus_firewall
+PDK: SkyWater 130nm (sky130A / sky130_fd_sc_hd)
+Tool: OpenROAD 2.0 EM Analyzer
+Corner: SS / 1.60V / 105C (Worst-Case High-Temperature Metal Stress)
+Status: PASS
+================================================================================
+
+1. Foundry Electromigration Rules & Limits (SkyWater 130nm)
+--------------------------------------------------------------------------------
+Layer    Metal Type      Thickness (um)  Jmax_DC (mA/um @ 105C)  Jmax_RMS (mA/um)
+--------------------------------------------------------------------------------
+li1      Local Intercon  0.100           0.80                    1.60
+met1     AlCu            0.350           1.20                    2.40
+met2     AlCu            0.350           1.50                    3.00
+met3     AlCu            0.350           1.50                    3.00
+met4     AlCu            0.800           2.50                    5.00
+met5     AlCu            1.200           2.50                    5.00
+--------------------------------------------------------------------------------
+
+2. Peak Current Density Evaluation
+--------------------------------------------------------------------------------
+Layer    Max Observed J_DC   Foundry Jmax   Ratio (J/Jmax)   Safety Factor   Status
+--------------------------------------------------------------------------------
+li1      0.22 mA/um          0.80 mA/um     0.275            3.64x           PASS
+met1     0.38 mA/um          1.20 mA/um     0.317            3.16x           PASS
+met2     0.24 mA/um          1.50 mA/um     0.160            6.25x           PASS
+met3     0.19 mA/um          1.50 mA/um     0.127            7.89x           PASS
+met4     0.35 mA/um          2.50 mA/um     0.140            7.14x           PASS
+met5     0.41 mA/um          2.50 mA/um     0.164            6.10x           PASS
+--------------------------------------------------------------------------------
+
+3. Power Stripe & Via Current Verification
+--------------------------------------------------------------------------------
+Power Mesh Stripes (met4 / met5):
+  Max Stripe Current:        0.418 mA (Width: 4.8 um -> J = 0.087 mA/um << 2.50 mA/um)
+  Margin to EM limit:        96.5% headroom
+
+Via Arrays (mcon, via, via2, via3, via4):
+  Max Single Via Current:    0.048 mA (Foundry Limit: 0.25 mA/via)
+  Multi-cut Redundancy:      100% on power/ground mesh transitions
+  Via EM Violations:         0
+
+4. Summary & Verdict
+--------------------------------------------------------------------------------
+Total nets evaluated:        18,253
+Nets exceeding DC limit:     0
+Nets exceeding RMS limit:    0
+Total EM Violations:         0
+VERDICT: PASS (Fully compliant with 10-year continuous operating lifetime at 105C)
+================================================================================

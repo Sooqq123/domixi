@@ -1,0 +1,26 @@
+VCD info: dumpfile apb_slave_wave.vcd opened for output.
+
+=== TEST 1: GHI/ĐỌC CÁC THANH GHI CẤU HÌNH ===
+[PASS]     Read Source Addr - Val: aaaa0000
+[PASS]     Read Dest Addr   - Val: bbbb0000
+[PASS]     Read Byte Length - Val: 00000100
+
+=== TEST 2: ĐỌC THANH GHI TRẠNG THÁI (STATUS) ===
+[PASS] atus: Busy=1, Done=0 - Val: 00000001
+[PASS] atus: Busy=0, Done=1 - Val: 00000002
+[PASS] tus: Done=1, Error=1 - Val: 00000006
+[PASS]     Status: Done W1C - Val: 00000004
+[PASS]    Status: Error W1C - Val: 00000000
+
+=== TEST 3: START-WHILE-BUSY, STICKY STATUS, AND IRQ_EN ===
+[PASS] ART preserves sticky - Val: 00000007
+[PASS] START pulse and IRQ_EN generated correctly
+[PASS] START pulse auto-cleared
+[PASS] ART preserves sticky - Val: 00000006
+[PASS] re set wins over W1C - Val: 00000006
+
+=== TEST 4: APB 32-BIT ADDRESS WINDOW ===
+[PASS] ong APB base address
+[PASS] re invalid APB write
+[PASS] tb_dma_apb_slave completed with no check failures
+D:\domixi\DMA-controller\tb\tb_dma_apb_slave.v:268: $finish called at 755000 (1ps)

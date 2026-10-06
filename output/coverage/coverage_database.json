@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "project": "AEGIS-RISC SkyWater 130nm System-on-Chip",
+  "generated_utc": "2026-09-19T00:28:00Z",
+  "specification": {
+    "document": "docs/AEGIS_RISC_ARCHITECTURE_SPECIFICATION.md",
+    "version": "v2.0.0",
+    "baseline_spec_revision": "8bedf91",
+    "release_freeze_revision": "ba7a75343457deaa7d1a86310bb1be81a4a4420f"
+  },
+  "overall_verdict": "PASS",
+  "metrics": {
+    "simulation_testbenches": {
+      "total": 19,
+      "passed": 19,
+      "failed": 0,
+      "coverage_pct": 100.0
+    },
+    "mutation_testing": {
+      "total_mutants": 4,
+      "killed": 4,
+      "survived": 0,
+      "kill_rate_pct": 100.0
+    },
+    "formal_properties": {
+      "total_suites": 9,
+      "passed": 9,
+      "failed": 0,
+      "bmc_suites": 7,
+      "bmc_depth": 20,
+      "k_induction_suites": 1,
+      "k_induction_depth": 30,
+      "k_induction_proven": true,
+      "cover_suites": 1,
+      "cover_depth": 24,
+      "cover_targets_reached": 7,
+      "cover_traces_generated": 4,
+      "coverage_pct": 100.0
+    },
+    "lint_and_elaboration": {
+      "verilator_lint_errors": 0,
+      "verilator_lint_warnings": 0,
+      "syncasyncnet_violations": 0,
+      "yosys_latches": 0,
+      "yosys_conflicts": 0,
+      "status": "PASS"
+    },
+    "timing_and_physical": {
+      "sta_tool": "OpenSTA 2.6.0 (Post-Route Propagated Clock Delay)",
+      "operating_corner": "Typical-Typical (1.80V, 25C)",
+      "clock_frequency_mhz": 38.00,
+      "clock_period_ns": 26.315,
+      "setup_waiver": "WAV-STA-003",
+      "firewall_setup_slack_ns": 0.810,
+      "firewall_internal_hold_slack_ns": 0.294,
+      "firewall_raw_boundary_hold_slack_ns": -0.017,
+      "firewall_raw_boundary_hold_wns_ns": -0.02,
+      "firewall_raw_boundary_hold_tns_ns": -0.07,
+      "firewall_boundary_hold_waiver": "WAV-STA-004",
+      "soc_setup_slack_ns": 0.890,
+      "soc_hold_slack_ns": 0.041,
+      "soc_hold_tns_ns": 0.00,
+      "drc_violations": 0,
+      "lvs_mismatches": 0,
+      "cdc_violations": 0,
+      "status": "PASS"
+    }
+  },
+  "testbenches": [
+    {"name": "tb_adversarial_m1", "scope": "ADVERSARIAL_STRESS", "status": "PASS", "assertions_checked": 5000, "assertions_failed": 0},
+    {"name": "tb_aegis_picorv32_soc", "scope": "CPU_INTEGRATION", "status": "PASS", "assertions_checked": 42, "assertions_failed": 0},
+    {"name": "tb_aegis_soc", "scope": "SOC_INTEGRATION", "status": "PASS", "assertions_checked": 16, "assertions_failed": 0},
+    {"name": "tb_aegis_soc_reset", "scope": "RESET_CONTRACT", "status": "PASS", "assertions_checked": 12, "assertions_failed": 0},
+    {"name": "tb_dma_bus_firewall", "scope": "FIREWALL_INTEGRATION", "status": "PASS", "assertions_checked": 28, "assertions_failed": 0},
+    {"name": "tb_fw_acl_matcher", "scope": "ACL_SUBSYSTEM", "status": "PASS", "assertions_checked": 64, "assertions_failed": 0},
+    {"name": "tb_fw_apb_regs", "scope": "CONTROL_REGS", "status": "PASS", "assertions_checked": 32, "assertions_failed": 0},
+    {"name": "tb_fw_axi_address_slice", "scope": "AXI_PROTOCOL", "status": "PASS", "assertions_checked": 24, "assertions_failed": 0},
+    {"name": "tb_fw_closed_loop_ctrl", "scope": "CLOSED_LOOP_DEFENSE", "status": "PASS", "assertions_checked": 55, "assertions_failed": 0},
+    {"name": "tb_fw_context_tracker", "scope": "CONTEXT_TRACKING", "status": "PASS", "assertions_checked": 18, "assertions_failed": 0},
+    {"name": "tb_fw_data_path_mux", "scope": "DATAPATH", "status": "PASS", "assertions_checked": 12, "assertions_failed": 0},
+    {"name": "tb_fw_drain_fsm", "scope": "PROTOCOL_DRAIN", "status": "PASS", "assertions_checked": 20, "assertions_failed": 0},
+    {"name": "tb_fw_hdc_sense", "scope": "HDC_COGNITIVE", "status": "PASS", "assertions_checked": 30, "assertions_failed": 0},
+    {"name": "tb_fw_hdc_sense_challenger2", "scope": "HDC_LATENCY_STRESS", "status": "PASS", "assertions_checked": 37, "assertions_failed": 0},
+    {"name": "tb_fw_honeypot_sink", "scope": "HONEYPOT_SINK", "status": "PASS", "assertions_checked": 15, "assertions_failed": 0},
+    {"name": "tb_fw_read_drain", "scope": "READ_DRAIN", "status": "PASS", "assertions_checked": 14, "assertions_failed": 0},
+    {"name": "tb_fw_write_drain", "scope": "WRITE_DRAIN", "status": "PASS", "assertions_checked": 14, "assertions_failed": 0},
+    {"name": "tb_fw_abnormal_stress", "scope": "ABNORMAL_STRESS_PROTOCOL", "status": "PASS", "assertions_checked": 24, "assertions_failed": 0},
+    {"name": "tb_soc_dma_firewall_contract", "scope": "CONTRACT_VERIFICATION", "status": "PASS", "assertions_checked": 25, "assertions_failed": 0}
+  ],
+  "formal_suites": [
+    {"suite": "formal/fw_hdc.sby", "engine": "smtbmc (z3)", "type": "BMC", "depth": 55, "status": "PASS"},
+    {"suite": "formal/fw_mtd.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"},
+    {"suite": "formal/fw_mtd_prove.sby", "engine": "smtbmc (boolector/yices)", "type": "k-induction", "depth": 30, "status": "PASS"},
+    {"suite": "formal/fw_closed.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"},
+    {"suite": "formal/fw_hdc_cover.sby", "engine": "smtbmc (z3)", "type": "COVER", "depth": 24, "status": "PASS", "targets_reached": 7, "traces_found": 4},
+    {"suite": "formal/fw_axi_contract.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"},
+    {"suite": "formal/fw_honeypot_contract.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"},
+    {"suite": "formal/fw_drain_contract.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"},
+    {"suite": "formal/fw_stream_contract.sby", "engine": "smtbmc (boolector/yices)", "type": "BMC", "depth": 20, "status": "PASS"}
+  ]
+}

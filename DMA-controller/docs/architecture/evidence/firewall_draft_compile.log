@@ -1,0 +1,2 @@
+..\rtl\fw_axi_address_slice.v:108: warning: implicit definition of wire 'aw_4kb_err'.
+..\rtl\fw_axi_address_slice.v:109: warning: implicit definition of wire 'ar_4kb_err'.

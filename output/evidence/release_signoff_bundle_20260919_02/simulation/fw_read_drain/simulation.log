@@ -1,0 +1,20 @@
+========================================
+FW READ DRAIN TESTBENCH
+========================================
+VCD info: dumpfile waves.vcd opened for output.
+RUN RD-LEN-00
+RUN RD-LEN-03
+RUN RD-LEN-15
+RUN RD-STL-01
+RUN RD-STL-02
+RUN RD-TMO-01
+RUN RD-MOD-01
+RUN RD-MOD-02 & RD-SNP-01
+RUN RD-OWN-01
+RUN RD-RST-01
+RUN RD-RND-01 (1000 Random Bursts)
+========================================
+PASS: tb_fw_read_drain
+Total completed bursts: 1009
+========================================
+D:\domixi\tb\tb_fw_read_drain.v:458: $finish called at 188110000 (1ps)

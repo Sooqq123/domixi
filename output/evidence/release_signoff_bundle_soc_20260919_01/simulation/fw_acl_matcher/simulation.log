@@ -1,0 +1,10 @@
+========================================
+STARTING TESTBENCH: tb_fw_acl_matcher
+========================================
+VCD info: dumpfile waves.vcd opened for output.
+Running 500 Random Tests...
+Checking Multi-bit Safe Hamming distance & Fault-injection robustness...
+========================================
+PASS: tb_fw_acl_matcher (500 Random Tests + Multi-bit Fault-Injection Safety Verified)
+========================================
+D:\domixi\tb\tb_fw_acl_matcher.v:426: $finish called at 10216000 (1ps)

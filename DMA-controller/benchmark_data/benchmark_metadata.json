@@ -1,0 +1,25 @@
+{
+  "all_data_integrity_pass": true,
+  "generated_utc": "2026-09-18T13:48:41.394065+00:00",
+  "generator": "model/run_benchmark.py",
+  "output_sha256": {
+    "benchmark_results.csv": "d337bde21ec5db5c98b584193f82624ed33a30c6575d97d36887739382a0676c",
+    "benchmark_results.json": "f0e1fb86c653664944884b2f19b0e2376534e15a28f375cb5a1f25dbb976471f"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python_implementation": "CPython",
+  "python_version": "3.14.4",
+  "record_count": 37,
+  "reproduction_command": "python -B model/run_benchmark.py",
+  "schema_version": 1,
+  "source_sha256": {
+    "config.py": "46fbf320d9adc0b0e82667592cbc97a5befeb6b6bbce12d8a8b1167a8164fa4e",
+    "firewall_model.py": "09e40673ec4594d47b610305bfcaf6a5ce5cbb1767012fc92643a8e924503e08",
+    "golden_ref.py": "40edaa5907b1977265144268b9d71cf5a235242030770da3486148cd62bec273",
+    "run_benchmark.py": "a98fa230e348acb466de6da620718251cc5a17d4c13d5cb790271ef687272dc1",
+    "soc_components.py": "15e7248427bc01e5d5b9beed3851df905cac5a224a9f15a4c42d23c0e58798f8",
+    "soc_system_sim.py": "d6051adfc8ec76221e84bbf283448da6f605c39069e8a824601786d184cc432f",
+    "test_integration.py": "9d17153b70a3aef0d0a12a8104e5dc975f79df3884caa513e528816b6d6169e9",
+    "test_unit.py": "8ed2dcef97f79980f4d8b9681e726c65d5da9929861bf861c5805b860fca45e3"
+  }
+}

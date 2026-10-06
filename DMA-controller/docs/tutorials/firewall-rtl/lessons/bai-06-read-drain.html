@@ -1,0 +1,15 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bài 06 — Read drain</title><style>body{max-width:900px;margin:auto;padding:32px;font:17px/1.6 system-ui;background:#f7f9fb;color:#17202a}h1,h2{line-height:1.25}section{background:#fff;border:1px solid #dce3ea;border-radius:12px;padding:18px 22px;margin:18px 0}pre{background:#111923;color:#ecf5ff;padding:15px;border-radius:9px;overflow:auto}.gate{border-left:5px solid #087f8c}.warn{border-left:5px solid #c76b00}code{font-family:Consolas,monospace}</style></head><body>
+<h1>Bài 06 — Denied-read generation</h1><p><strong>Mục tiêu:</strong> tự sinh đúng <code>ARLEN+1</code> R beat cho request bị deny, với RID/RRESP/RLAST ổn định và không phát AR ra matrix.</p>
+<section><h2>Đọc bắt buộc</h2><ul><li><code>fsm_specification.md</code>: <code>R_DRAIN_IDLE/GEN</code>.</li><li><code>signal_list.csv</code>: <code>acl_r_*</code>, <code>r_drain_*</code>.</li><li><code>verification_test_plan.md</code>: exact read beats và backpressure.</li></ul></section>
+<section><h2>FSM</h2><pre><code>IDLE --acl_r_fault--&gt; GEN
+GEN --mỗi RVALID &amp;&amp; RREADY--&gt; tăng beat_count
+GEN --final handshake--&gt; IDLE</code></pre><p>Tại request fault, chốt ARID, ARLEN và ERR_MODE. GEN giữ RVALID cho tới handshake; counter không đổi khi RREADY thấp.</p></section>
+<section><h2>Payload local response</h2><pre><code>RID   = accepted ARID snapshot
+RDATA = 32'h0000_0000
+RRESP = ERR_MODE ? DECERR : OKAY
+RLAST = (beat_count == ARLEN)</code></pre><p><code>ARLEN</code> đã là beats-minus-one nên final index bằng ARLEN. Không cộng/trừ lại trong so sánh RLAST.</p></section>
+<section class="warn"><h2>Stable under stall</h2><p>Nếu RVALID=1 và RREADY=0, RID/RDATA/RRESP/RLAST phải giữ nguyên. Tính RLAST từ counter chỉ an toàn khi counter chỉ tăng trên handshake.</p></section>
+<section><h2>Lab</h2><ol><li>Test LEN=0 tạo đúng một beat với RLAST=1.</li><li>Test LEN=15 tạo đúng 16 handshake.</li><li>Randomize RREADY và dùng scoreboard đếm accepted beat.</li><li>Stall đúng final beat; RLAST và payload phải giữ ổn định.</li><li>Test DECERR và honeypot OKAY mode.</li><li>Kiểm ARVALID downstream luôn 0 cho denied owner.</li></ol></section>
+<section class="gate"><h2>Exit gate</h2><ul><li>Read-drain unit tests PASS.</li><li>Số handshake chính xác cho LEN 0/15.</li><li>RLAST chỉ ở final beat.</li><li>RID/RRESP/RLAST stable dưới backpressure.</li></ul></section>
+<section><h2>Câu hỏi kiểm tra</h2><ol><li>Với ARLEN=15, final beat index là bao nhiêu?</li><li>RREADY thấp có làm counter tăng không?</li><li>Honeypot mode thay đổi response nhưng có được bỏ fault logging không?</li></ol></section>
+</body></html>

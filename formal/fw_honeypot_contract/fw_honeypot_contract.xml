@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-06T18:34:23" hostname="DESKTOP-6GBA1KF" package="fw_honeypot_contract" id="0" name="default" tests="7" errors="0" failures="0" time="0" skipped="0">
+<properties>
+<property name="os" value="Windows"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:100.17-100.47" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:100.17-100.47" id="_witness_.check_assert_fw_honeypot_contract_formal_v_100_52">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:116.17-116.47" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:116.17-116.47" id="_witness_.check_assert_fw_honeypot_contract_formal_v_116_60">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:124.9-124.34" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:124.9-124.34" id="_witness_.check_assert_fw_honeypot_contract_formal_v_124_67">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:125.9-125.34" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:125.9-125.34" id="_witness_.check_assert_fw_honeypot_contract_formal_v_125_69">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:126.9-126.47" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:126.9-126.47" id="_witness_.check_assert_fw_honeypot_contract_formal_v_126_71">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:128.13-128.31" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:128.13-128.31" id="_witness_.check_assert_fw_honeypot_contract_formal_v_128_73">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_honeypot_contract_formal at fw_honeypot_contract_formal.v:130.13-130.32" time="0" type="ASSERT" location="fw_honeypot_contract_formal.v:130.13-130.32" id="_witness_.check_assert_fw_honeypot_contract_formal_v_130_75">
+</testcase>
+<system-out>SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] Removing directory 'D:\domixi\formal\fw_honeypot_contract'.
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] Copy 'D:\domixi\rtl\fw_honeypot_sink.v' to 'D:\domixi\formal\fw_honeypot_contract\src\fw_honeypot_sink.v'.
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] Copy 'D:\domixi\formal\fw_honeypot_contract_formal.v' to 'D:\domixi\formal\fw_honeypot_contract\src\fw_honeypot_contract_formal.v'.
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] engine_0: smtbmc z3
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] base: starting process &quot;cd D:\domixi\formal\fw_honeypot_contract/src&amp; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] base: finished (returncode=0)
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] prep: starting process &quot;cd D:\domixi\formal\fw_honeypot_contract/model&amp; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] prep: finished (returncode=0)
+SBY 18:34:18 [D:\domixi\formal\fw_honeypot_contract] smt2: starting process &quot;cd D:\domixi\formal\fw_honeypot_contract/model&amp; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] smt2: finished (returncode=0)
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: starting process &quot;cd D:\domixi\formal\fw_honeypot_contract&amp; yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Solver: z3
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 6..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 6..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 7..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 7..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 8..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 8..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 9..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 9..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 10..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 10..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 11..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 11..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 12..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 12..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 13..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assertions in step 13..
+SBY 18:34:19 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:00  Checking assumptions in step 14..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assertions in step 14..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assumptions in step 15..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assertions in step 15..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assumptions in step 16..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assertions in step 16..
+SBY 18:34:20 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assumptions in step 17..
+SBY 18:34:21 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:01  Checking assertions in step 17..
+SBY 18:34:21 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:02  Checking assumptions in step 18..
+SBY 18:34:21 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:02  Checking assertions in step 18..
+SBY 18:34:21 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:02  Checking assumptions in step 19..
+SBY 18:34:22 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:03  Checking assertions in step 19..
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] engine_0: ##   0:00:04  Status: passed
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] engine_0: finished (returncode=0)
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] engine_0: Status returned by engine: pass
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:04 (4)
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] summary: Elapsed process time unvailable on Windows
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] summary: engine_0 (smtbmc z3) returned pass
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] summary: engine_0 did not produce any traces
+SBY 18:34:23 [D:\domixi\formal\fw_honeypot_contract] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

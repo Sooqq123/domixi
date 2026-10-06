@@ -1,0 +1,920 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_closed_loop_ctrl.v
+Parsing formal Verilog input from `fw_closed_loop_ctrl.v' to AST representation.
+Generating RTLIL representation for module `\fw_closed_loop_ctrl'.
+Warning: Replacing memory \fifo_time with list of registers. See fw_closed_loop_ctrl.v:262
+Warning: Replacing memory \fifo_addr with list of registers. See fw_closed_loop_ctrl.v:261
+Warning: Replacing memory \fifo_meta with list of registers. See fw_closed_loop_ctrl.v:260
+Warning: Replacing memory \mid_score with list of registers. See fw_closed_loop_ctrl.v:119
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_closed_formal.v
+Parsing formal Verilog input from `fw_closed_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_closed_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+Removed 0 unused modules.
+Module fw_closed_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_closed_loop_ctrl directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$fw_closed_formal.v:96$460 in module fw_closed_formal.
+Marked 4 switch rules as full_case in process $proc$fw_closed_formal.v:75$457 in module fw_closed_formal.
+Marked 1 switch rules as full_case in process $proc$fw_closed_formal.v:63$450 in module fw_closed_formal.
+Removed 1 dead cases from process $proc$fw_closed_loop_ctrl.v:325$444 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:325$444 in module fw_closed_loop_ctrl.
+Removed 1 dead cases from process $proc$fw_closed_loop_ctrl.v:324$441 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:324$441 in module fw_closed_loop_ctrl.
+Removed 1 dead cases from process $proc$fw_closed_loop_ctrl.v:323$438 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:323$438 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:382$428 in module fw_closed_loop_ctrl.
+Removed 1 dead cases from process $proc$fw_closed_loop_ctrl.v:374$412 in module fw_closed_loop_ctrl.
+Marked 2 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:374$412 in module fw_closed_loop_ctrl.
+Removed 1 dead cases from process $proc$fw_closed_loop_ctrl.v:349$390 in module fw_closed_loop_ctrl.
+Marked 2 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:349$390 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:339$355 in module fw_closed_loop_ctrl.
+Marked 11 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:248$277 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:210$266 in module fw_closed_loop_ctrl.
+Marked 4 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:174$262 in module fw_closed_loop_ctrl.
+Removed 3 dead cases from process $proc$fw_closed_loop_ctrl.v:113$36 in module fw_closed_loop_ctrl.
+Marked 13 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:113$36 in module fw_closed_loop_ctrl.
+Marked 1 switch rules as full_case in process $proc$fw_closed_loop_ctrl.v:78$25 in module fw_closed_loop_ctrl.
+Removed a total of 8 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 13 redundant assignments.
+Promoted 43 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_closed_formal.$proc$fw_closed_formal.v:57$480'.
+  Set init value: \reset_counter = 2'00
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \resetn in `\fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+Found async reset \resetn in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+Found async reset \resetn in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:210$266'.
+Found async reset \resetn in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+Found async reset \resetn in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+Found async reset \resetn in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:78$25'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~82 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_closed_formal.$proc$fw_closed_formal.v:57$480'.
+Creating decoders for process `\fw_closed_formal.$proc$fw_closed_formal.v:96$460'.
+     1/6: $assert$fw_closed_formal.v:107$474_EN
+     2/6: $assert$fw_closed_formal.v:104$470_EN
+     3/6: $assert$fw_closed_formal.v:101$468_EN
+     4/6: $assert$fw_closed_formal.v:100$466_EN
+     5/6: $assert$fw_closed_formal.v:99$464_EN
+     6/6: $assert$fw_closed_formal.v:98$462_EN
+Creating decoders for process `\fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+     1/2: $0\exp_nmi[0:0]
+     2/2: $0\exp_pending[0:0]
+Creating decoders for process `\fw_closed_formal.$proc$fw_closed_formal.v:63$450'.
+     1/2: $assume$fw_closed_formal.v:67$454_EN
+     2/2: $assume$fw_closed_formal.v:65$452_EN
+Creating decoders for process `\fw_closed_formal.$proc$fw_closed_formal.v:58$447'.
+     1/1: $0\reset_counter[1:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:325$444'.
+     1/1: $1$mem2reg_rd$\fifo_time$fw_closed_loop_ctrl.v:325$22_DATA[31:0]$446
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:324$441'.
+     1/1: $1$mem2reg_rd$\fifo_addr$fw_closed_loop_ctrl.v:324$21_DATA[31:0]$443
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:323$438'.
+     1/1: $1$mem2reg_rd$\fifo_meta$fw_closed_loop_ctrl.v:323$20_DATA[31:0]$440
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:382$428'.
+     1/3: $0\formal_fifo_full_hold[0:0]
+     2/3: $assert$fw_closed_loop_ctrl.v:388$430_EN
+     3/3: $0\formal_fifo_head_prev[95:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:374$412'.
+     1/4: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:378$24_DATA[3:0]$425
+     2/4: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:378$24_DATA[3:0]$424
+     3/4: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:378$24_ADDR[3:0]$423
+     4/4: $assert$fw_closed_loop_ctrl.v:378$426_EN
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+     1/10: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:365$23_DATA[3:0]$405
+     2/10: $0\formal_sat_mid_prev[3:0]
+     3/10: $0\formal_sat_event_prev[0:0]
+     4/10: $0\formal_event_mid_prev[3:0]
+     5/10: $0\formal_event_prev[0:0]
+     6/10: $0\formal_quarantine_prev[15:0]
+     7/10: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:365$23_DATA[3:0]$395
+     8/10: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:365$23_ADDR[3:0]$394
+     9/10: $assert$fw_closed_loop_ctrl.v:359$400_EN
+    10/10: $assert$fw_closed_loop_ctrl.v:358$399_EN
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:339$355'.
+     1/18: $1\formal_mid[31:0]
+     2/18: $assert$fw_closed_loop_ctrl.v:343$388_EN
+     3/18: $assert$fw_closed_loop_ctrl.v:343$386_EN
+     4/18: $assert$fw_closed_loop_ctrl.v:343$384_EN
+     5/18: $assert$fw_closed_loop_ctrl.v:343$382_EN
+     6/18: $assert$fw_closed_loop_ctrl.v:343$380_EN
+     7/18: $assert$fw_closed_loop_ctrl.v:343$378_EN
+     8/18: $assert$fw_closed_loop_ctrl.v:343$376_EN
+     9/18: $assert$fw_closed_loop_ctrl.v:343$374_EN
+    10/18: $assert$fw_closed_loop_ctrl.v:343$372_EN
+    11/18: $assert$fw_closed_loop_ctrl.v:343$370_EN
+    12/18: $assert$fw_closed_loop_ctrl.v:343$368_EN
+    13/18: $assert$fw_closed_loop_ctrl.v:343$366_EN
+    14/18: $assert$fw_closed_loop_ctrl.v:343$364_EN
+    15/18: $assert$fw_closed_loop_ctrl.v:343$362_EN
+    16/18: $assert$fw_closed_loop_ctrl.v:343$360_EN
+    17/18: $assert$fw_closed_loop_ctrl.v:343$358_EN
+    18/18: $assert$fw_closed_loop_ctrl.v:341$356_EN
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+     1/64: $4$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_ADDR[1:0]$342
+     2/64: $4$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_DATA[31:0]$343
+     3/64: $4$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_ADDR[1:0]$340
+     4/64: $4$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_DATA[31:0]$341
+     5/64: $4$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_ADDR[1:0]$338
+     6/64: $4$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_DATA[31:0]$339
+     7/64: $3$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_DATA[31:0]$333
+     8/64: $3$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_ADDR[1:0]$332
+     9/64: $3$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_DATA[31:0]$331
+    10/64: $3$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_ADDR[1:0]$330
+    11/64: $3$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_DATA[31:0]$329
+    12/64: $3$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_ADDR[1:0]$328
+    13/64: $3$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_ADDR[1:0]$322
+    14/64: $3$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_DATA[31:0]$323
+    15/64: $3$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_ADDR[1:0]$320
+    16/64: $3$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_DATA[31:0]$321
+    17/64: $3$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_ADDR[1:0]$318
+    18/64: $3$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_DATA[31:0]$319
+    19/64: $2$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_DATA[31:0]$310
+    20/64: $2$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_ADDR[1:0]$309
+    21/64: $2$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_DATA[31:0]$308
+    22/64: $2$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_ADDR[1:0]$307
+    23/64: $2$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_DATA[31:0]$306
+    24/64: $2$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_ADDR[1:0]$305
+    25/64: $2$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_DATA[31:0]$316
+    26/64: $2$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_ADDR[1:0]$315
+    27/64: $2$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_DATA[31:0]$314
+    28/64: $2$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_ADDR[1:0]$313
+    29/64: $2$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_DATA[31:0]$312
+    30/64: $2$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_ADDR[1:0]$311
+    31/64: $1$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_DATA[31:0]$302
+    32/64: $1$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_ADDR[1:0]$301
+    33/64: $1$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_DATA[31:0]$300
+    34/64: $1$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_ADDR[1:0]$299
+    35/64: $1$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_DATA[31:0]$298
+    36/64: $1$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_ADDR[1:0]$297
+    37/64: $1$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_DATA[31:0]$296
+    38/64: $1$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_ADDR[1:0]$295
+    39/64: $1$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_DATA[31:0]$294
+    40/64: $1$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_ADDR[1:0]$293
+    41/64: $1$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_DATA[31:0]$292
+    42/64: $1$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_ADDR[1:0]$291
+    43/64: $1\f[31:0]
+    44/64: $0\fifo_time[3][31:0]
+    45/64: $0\fifo_time[2][31:0]
+    46/64: $0\fifo_time[1][31:0]
+    47/64: $0\fifo_time[0][31:0]
+    48/64: $0\fifo_addr[3][31:0]
+    49/64: $0\fifo_addr[2][31:0]
+    50/64: $0\fifo_addr[1][31:0]
+    51/64: $0\fifo_addr[0][31:0]
+    52/64: $0\fifo_meta[3][31:0]
+    53/64: $0\fifo_meta[2][31:0]
+    54/64: $0\fifo_meta[1][31:0]
+    55/64: $0\fifo_meta[0][31:0]
+    56/64: $0\fifo_overflow[0:0]
+    57/64: $0\fifo_count[2:0]
+    58/64: $0\fifo_rd_ptr[1:0]
+    59/64: $0\fifo_wr_ptr[1:0]
+    60/64: $0\last_attacking_mid[3:0]
+    61/64: $0\max_threat_latched[1:0]
+    62/64: $0\attack_event_count[7:0]
+    63/64: $0\reg_aegis_honey_count[31:0]
+    64/64: $0\reg_aegis_fingerprint[31:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:210$266'.
+     1/1: $0\telemetry_overrun_d[0:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+     1/2: $0\aegis_nmi_irq[0:0]
+     2/2: $0\interrupt_pending[0:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+     1/83: $2$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_ADDR[3:0]$252
+     2/83: $2$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_DATA[3:0]$253
+     3/83: $6$lookahead\quarantine_mask$35[15:0]$254
+     4/83: $2$bitselwrite$pos$fw_closed_loop_ctrl.v:161$8[3:0]$251
+     5/83: $5$lookahead\quarantine_mask$35[15:0]$243
+     6/83: $5$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7[3:0]$242
+     7/83: $5$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA[3:0]$240
+     8/83: $6$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$238
+     9/83: $5$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR[3:0]$234
+    10/83: $5$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA[3:0]$235
+    11/83: $5$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$237
+    12/83: $5$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR[3:0]$236
+    13/83: $5$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA[3:0]$232
+    14/83: $4$lookahead\quarantine_mask$35[15:0]$231
+    15/83: $4$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7[3:0]$222
+    16/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA[3:0]$230
+    17/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_ADDR[3:0]$229
+    18/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$228
+    19/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR[3:0]$227
+    20/83: $4$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA[3:0]$226
+    21/83: $4$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR[3:0]$225
+    22/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA[3:0]$224
+    23/83: $4$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_ADDR[3:0]$223
+    24/83: $3$lookahead\quarantine_mask$35[15:0]$214
+    25/83: $3$bitselwrite$pos$fw_closed_loop_ctrl.v:146$6[3:0]$204
+    26/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA[3:0]$213
+    27/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_ADDR[3:0]$212
+    28/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$211
+    29/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR[3:0]$210
+    30/83: $3$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA[3:0]$209
+    31/83: $3$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR[3:0]$208
+    32/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA[3:0]$207
+    33/83: $3$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_ADDR[3:0]$206
+    34/83: $3$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7[3:0]$205
+    35/83: $2$lookahead\quarantine_mask$35[15:0]$196
+    36/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA[3:0]$194
+    37/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_ADDR[3:0]$193
+    38/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$192
+    39/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR[3:0]$191
+    40/83: $2$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA[3:0]$190
+    41/83: $2$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR[3:0]$189
+    42/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA[3:0]$188
+    43/83: $2$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_ADDR[3:0]$187
+    44/83: $2$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7[3:0]$186
+    45/83: $2$bitselwrite$pos$fw_closed_loop_ctrl.v:146$6[3:0]$185
+    46/83: $3$lookahead\mid_active_epoch$34[15:0]$195
+    47/83: $2$bitselwrite$pos$fw_closed_loop_ctrl.v:142$5[3:0]$184
+    48/83: $2\m[31:0]
+    49/83: $2$lookahead\mid_active_epoch$34[15:0]$70
+    50/83: $0\epoch_counter[31:0]
+    51/83: $1$lookahead\quarantine_mask$35[15:0]$69
+    52/83: $1$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_DATA[3:0]$67
+    53/83: $1$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_ADDR[3:0]$66
+    54/83: $1$bitselwrite$pos$fw_closed_loop_ctrl.v:161$8[3:0]$57
+    55/83: $1$lookahead\mid_active_epoch$34[15:0]$68
+    56/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA[3:0]$65
+    57/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_ADDR[3:0]$64
+    58/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA[3:0]$63
+    59/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR[3:0]$62
+    60/83: $1$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA[3:0]$61
+    61/83: $1$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR[3:0]$60
+    62/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA[3:0]$59
+    63/83: $1$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_ADDR[3:0]$58
+    64/83: $1$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7[3:0]$56
+    65/83: $1$bitselwrite$pos$fw_closed_loop_ctrl.v:146$6[3:0]$55
+    66/83: $1$bitselwrite$pos$fw_closed_loop_ctrl.v:142$5[3:0]$54
+    67/83: $1\m[31:0]
+    68/83: $0\mid_score[15][3:0]
+    69/83: $0\mid_score[14][3:0]
+    70/83: $0\mid_score[13][3:0]
+    71/83: $0\mid_score[12][3:0]
+    72/83: $0\mid_score[11][3:0]
+    73/83: $0\mid_score[10][3:0]
+    74/83: $0\mid_score[9][3:0]
+    75/83: $0\mid_score[8][3:0]
+    76/83: $0\mid_score[7][3:0]
+    77/83: $0\mid_score[6][3:0]
+    78/83: $0\mid_score[5][3:0]
+    79/83: $0\mid_score[4][3:0]
+    80/83: $0\mid_score[3][3:0]
+    81/83: $0\mid_score[2][3:0]
+    82/83: $0\mid_score[1][3:0]
+    83/83: $0\mid_score[0][3:0]
+Creating decoders for process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:78$25'.
+     1/1: $0\cycle_timestamp[31:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\fifo_time$fw_closed_loop_ctrl.v:325$22_DATA' from process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:325$444'.
+No latch inferred for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\fifo_addr$fw_closed_loop_ctrl.v:324$21_DATA' from process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:324$441'.
+No latch inferred for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\fifo_meta$fw_closed_loop_ctrl.v:323$20_DATA' from process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:323$438'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_closed_formal.\exp_pending' using process `\fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+  created $adff cell `$procdff$2213' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_formal.\exp_nmi' using process `\fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+  created $adff cell `$procdff$2218' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_formal.\reset_counter' using process `\fw_closed_formal.$proc$fw_closed_formal.v:58$447'.
+  created $dff cell `$procdff$2219' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_fifo_full_hold' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:382$428'.
+  created $dff cell `$procdff$2220' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_fifo_head_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:382$428'.
+  created $dff cell `$procdff$2221' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:378$24_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:374$412'.
+  created $dff cell `$procdff$2222' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:378$24_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:374$412'.
+  created $dff cell `$procdff$2223' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_quarantine_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2224' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_event_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2225' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_event_mid_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2226' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_sat_event_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2227' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_sat_mid_prev' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2228' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:365$23_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2229' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:365$23_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+  created $dff cell `$procdff$2230' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\formal_mid' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:339$355'.
+  created $dff cell `$procdff$2231' with positive edge clock.
+Creating register for signal `\fw_closed_loop_ctrl.\reg_aegis_fingerprint' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2236' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\reg_aegis_honey_count' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2241' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\attack_event_count' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2246' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\max_threat_latched' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2251' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\last_attacking_mid' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2256' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\f' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2261' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_wr_ptr' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2266' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_rd_ptr' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2271' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_count' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2276' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_overflow' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2281' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_meta[0]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2286' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_meta[1]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2291' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_meta[2]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2296' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_meta[3]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2301' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_addr[0]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2306' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_addr[1]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2311' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_addr[2]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2316' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_addr[3]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2321' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_time[0]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2326' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_time[1]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2331' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_time[2]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2336' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\fifo_time[3]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2341' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2346' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:285$14_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2351' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2356' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:286$15_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2361' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2366' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:287$16_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2371' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2376' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_meta$fw_closed_loop_ctrl.v:306$17_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2381' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2386' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_addr$fw_closed_loop_ctrl.v:307$18_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2391' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2396' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\fifo_time$fw_closed_loop_ctrl.v:308$19_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+  created $adff cell `$procdff$2401' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\telemetry_overrun_d' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:210$266'.
+  created $adff cell `$procdff$2406' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\aegis_nmi_irq' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+  created $adff cell `$procdff$2411' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\interrupt_pending' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+  created $adff cell `$procdff$2416' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\quarantine_mask' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2421' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_active_epoch' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2426' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\epoch_counter' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2431' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\m' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2436' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$bitselwrite$pos$fw_closed_loop_ctrl.v:142$5' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2441' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$bitselwrite$pos$fw_closed_loop_ctrl.v:146$6' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2446' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$bitselwrite$pos$fw_closed_loop_ctrl.v:154$7' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2451' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$bitselwrite$pos$fw_closed_loop_ctrl.v:161$8' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2456' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[0]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2461' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[1]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2466' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[2]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2471' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[3]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2476' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[4]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2481' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[5]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2486' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[6]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2491' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[7]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2496' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[8]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2501' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[9]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2506' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[10]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2511' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[11]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2516' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[12]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2521' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[13]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2526' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[14]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2531' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\mid_score[15]' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2536' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2541' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:149$9_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2546' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2551' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:150$10_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2556' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2561' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:150$11_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2566' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2571' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_rd$\mid_score$fw_closed_loop_ctrl.v:153$12_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2576' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_ADDR' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2581' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$mem2reg_wr$\mid_score$fw_closed_loop_ctrl.v:162$13_DATA' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2586' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$lookahead\mid_active_epoch$34' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2591' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.$lookahead\quarantine_mask$35' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+  created $adff cell `$procdff$2596' with positive edge clock and positive level reset.
+Creating register for signal `\fw_closed_loop_ctrl.\cycle_timestamp' using process `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:78$25'.
+  created $adff cell `$procdff$2601' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_closed_formal.$proc$fw_closed_formal.v:57$480'.
+Found and cleaned up 2 empty switches in `\fw_closed_formal.$proc$fw_closed_formal.v:96$460'.
+Removing empty process `fw_closed_formal.$proc$fw_closed_formal.v:96$460'.
+Found and cleaned up 3 empty switches in `\fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+Removing empty process `fw_closed_formal.$proc$fw_closed_formal.v:75$457'.
+Found and cleaned up 1 empty switch in `\fw_closed_formal.$proc$fw_closed_formal.v:63$450'.
+Removing empty process `fw_closed_formal.$proc$fw_closed_formal.v:63$450'.
+Found and cleaned up 1 empty switch in `\fw_closed_formal.$proc$fw_closed_formal.v:58$447'.
+Removing empty process `fw_closed_formal.$proc$fw_closed_formal.v:58$447'.
+Found and cleaned up 1 empty switch in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:325$444'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:325$444'.
+Found and cleaned up 1 empty switch in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:324$441'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:324$441'.
+Found and cleaned up 1 empty switch in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:323$438'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:323$438'.
+Found and cleaned up 3 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:382$428'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:382$428'.
+Found and cleaned up 2 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:374$412'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:374$412'.
+Found and cleaned up 3 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:349$390'.
+Found and cleaned up 1 empty switch in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:339$355'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:339$355'.
+Found and cleaned up 16 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:248$277'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:210$266'.
+Found and cleaned up 3 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:174$262'.
+Found and cleaned up 44 empty switches in `\fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:113$36'.
+Removing empty process `fw_closed_loop_ctrl.$proc$fw_closed_loop_ctrl.v:78$25'.
+Cleaned up 82 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+<suppressed ~17 debug messages>
+Optimizing module fw_closed_loop_ctrl.
+<suppressed ~196 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_closed_formal...
+Checking module fw_closed_loop_ctrl...
+Found and reported 0 problems.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 279 unused cells and 1050 unused wires.
+<suppressed ~284 debug messages>
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_closed_formal'.
+Computing hashes of 46 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+Computing hashes of 44 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\fw_closed_loop_ctrl'.
+Computing hashes of 769 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 644 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 637 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 635 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 634 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 633 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+<suppressed ~408 debug messages>
+Removed a total of 138 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_closed_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$512: \exp_pending -> 1'1
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_closed_loop_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$1177: \interrupt_pending -> 1'1
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1356.
+    dead port 1/2 on $mux $procmux$1354.
+    dead port 2/2 on $mux $procmux$1206.
+    dead port 1/2 on $mux $procmux$1204.
+    dead port 2/2 on $mux $procmux$1201.
+    dead port 2/2 on $mux $procmux$1443.
+Removed 6 multiplexer ports.
+<suppressed ~1394 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_closed_formal.
+  Optimizing cells in module \fw_closed_formal.
+  Optimizing cells in module \fw_closed_loop_ctrl.
+  Optimizing cells in module \fw_closed_loop_ctrl.
+Performed a total of 3 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_closed_formal'.
+Computing hashes of 43 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+Computing hashes of 40 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+<suppressed ~9 debug messages>
+Finding identical cells in module `\fw_closed_loop_ctrl'.
+Computing hashes of 625 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 590 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 576 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 575 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 574 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+<suppressed ~153 debug messages>
+Removed a total of 54 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 0 unused cells and 201 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_closed_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_closed_loop_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1388 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_closed_formal.
+  Optimizing cells in module \fw_closed_loop_ctrl.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_closed_formal'.
+Computing hashes of 40 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+Finding identical cells in module `\fw_closed_loop_ctrl'.
+Computing hashes of 574 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+3.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 31 bits (of 32) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:82$27 ($add).
+Removed top 22 bits (of 32) from port B of cell fw_closed_loop_ctrl.$ge$fw_closed_loop_ctrl.v:108$33 ($ge).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$72 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$77 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$79 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$84 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$86 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$91 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$93 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$98 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$100 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$105 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$107 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$112 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$114 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$119 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$121 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$126 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$128 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$133 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$135 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$140 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$142 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$147 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$149 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$154 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$156 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$161 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$163 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$168 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$170 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$175 ($sub).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:129$177 ($gt).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:132$182 ($sub).
+Removed top 31 bits (of 32) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:137$183 ($add).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:150$239 ($add).
+Converting cell fw_closed_loop_ctrl.$neg$fw_closed_loop_ctrl.v:154$248 ($neg) from signed to unsigned.
+Removed top 1 bits (of 5) from port A of cell fw_closed_loop_ctrl.$neg$fw_closed_loop_ctrl.v:154$248 ($neg).
+Converting cell fw_closed_loop_ctrl.$neg$fw_closed_loop_ctrl.v:161$259 ($neg) from signed to unsigned.
+Removed top 1 bits (of 5) from port A of cell fw_closed_loop_ctrl.$neg$fw_closed_loop_ctrl.v:161$259 ($neg).
+Removed top 8 bits (of 32) from mux cell fw_closed_loop_ctrl.$ternary$fw_closed_loop_ctrl.v:241$271 ($mux).
+Removed top 31 bits (of 32) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:267$303 ($add).
+Removed top 7 bits (of 8) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:297$335 ($add).
+Removed top 1 bits (of 2) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:309$344 ($add).
+Removed top 2 bits (of 3) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:310$345 ($add).
+Removed top 1 bits (of 2) from port B of cell fw_closed_loop_ctrl.$add$fw_closed_loop_ctrl.v:316$346 ($add).
+Removed top 2 bits (of 3) from port B of cell fw_closed_loop_ctrl.$sub$fw_closed_loop_ctrl.v:317$347 ($sub).
+Removed top 2 bits (of 3) from port B of cell fw_closed_loop_ctrl.$gt$fw_closed_loop_ctrl.v:325$352 ($gt).
+Removed top 15 bits (of 16) from port A of cell fw_closed_loop_ctrl.$shl$fw_closed_loop_ctrl.v:360$403 ($shl).
+Removed top 1 bits (of 2) from port B of cell fw_closed_loop_ctrl.$procmux$540_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$565_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$566_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$567_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$568_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$569_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$570_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$571_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell fw_closed_loop_ctrl.$procmux$1052_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1334_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1335_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1856_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1900_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1924_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1946_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1971_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$1994_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2020_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2044_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2071_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2096_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2124_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell fw_closed_loop_ctrl.$procmux$2150_CMP0 ($eq).
+Removed top 8 bits (of 32) from wire fw_closed_loop_ctrl.push_event_meta.
+Removed top 8 bits (of 32) from wire fw_closed_loop_ctrl.current_event_meta.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_closed_formal'.
+Computing hashes of 40 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+Finding identical cells in module `\fw_closed_loop_ctrl'.
+Computing hashes of 574 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Executing SORT pass.
+
+3.13. Printing statistics.
+
+=== fw_closed_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       46 wires
+      195 wire bits
+       21 public wires
+      168 public wire bits
+       12 ports
+       50 port bits
+       39 cells
+        1   $add
+        2   $adff
+       10   $check
+        1   $dff
+        4   $eq
+        1   $logic_and
+        5   $logic_not
+        1   $logic_or
+        1   $lt
+       12   $mux
+        1   $not
+        1 submodules
+        1   fw_closed_loop_ctrl
+
+=== fw_closed_loop_ctrl ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      579 wires
+     4658 wire bits
+       93 public wires
+     1181 public wire bits
+       32 ports
+      381 port bits
+      574 cells
+        8   $add
+       44   $adff
+        4   $and
+       21   $check
+        7   $dff
+       61   $eq
+        1   $eqx
+        2   $ge
+       18   $gt
+       17   $le
+       44   $logic_and
+       25   $logic_not
+        4   $logic_or
+        2   $lt
+      278   $mux
+        1   $ne
+        2   $neg
+        3   $not
+        5   $or
+        5   $pmux
+        1   $reduce_or
+        3   $shift
+        1   $shl
+       17   $sub
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      613 fw_closed_formal
+      574 fw_closed_loop_ctrl
+
+        +----------Count including submodules.
+        | 
+      625 wires
+     4853 wire bits
+      114 public wires
+     1349 public wire bits
+       44 ports
+      431 port bits
+        - memories
+        - memory bits
+        - processes
+      613 cells
+        9   $add
+       46   $adff
+        4   $and
+       31   $check
+        8   $dff
+       65   $eq
+        1   $eqx
+        2   $ge
+       18   $gt
+       17   $le
+       45   $logic_and
+       30   $logic_not
+        5   $logic_or
+        3   $lt
+      290   $mux
+        1   $ne
+        2   $neg
+        4   $not
+        5   $or
+        5   $pmux
+        1   $reduce_or
+        3   $shift
+        1   $shl
+       17   $sub
+        1 submodules
+        1   fw_closed_loop_ctrl
+
+3.14. Executing CHECK pass (checking for obvious problems).
+Checking module fw_closed_formal...
+Checking module fw_closed_loop_ctrl...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_closed_formal'. Setting top module to fw_closed_formal.
+
+4.1. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+
+4.2. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+Removed 0 unused modules.
+Module fw_closed_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_closed_loop_ctrl directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 4 unique messages, 4 total
+End of script. Logfile hash: bd888902ec
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

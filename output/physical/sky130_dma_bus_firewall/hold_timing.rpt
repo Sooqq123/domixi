@@ -1,0 +1,74 @@
+[WARNING STA-0168] unknown field nets.
+Startpoint: test_mode (input port clocked by clk)
+Endpoint: u_hdc_sense/_8081_ (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 ^ input external delay
+     3    0.093    0.000    0.000    0.200 ^ test_mode (in)
+                   0.033    0.017    0.217 ^ _0479_/S (sky130_fd_sc_hd__mux2_8)
+   648    3.064    4.847    2.043    2.260 ^ _0479_/X (sky130_fd_sc_hd__mux2_8)
+                   5.123    0.896    3.155 ^ u_hdc_sense/_8081_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                     3.155   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            0.810    0.810   clock network delay (propagated)
+                            0.050    0.860   clock uncertainty
+                            0.000    0.860   clock reconvergence pessimism
+                                     0.860 ^ u_hdc_sense/_8081_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                            1.679    2.539   library removal time
+                                     2.539   data required time
+---------------------------------------------------------------------------------
+                                     2.539   data required time
+                                    -3.155   data arrival time
+---------------------------------------------------------------------------------
+                                     0.616   slack (MET)
+
+
+Startpoint: s_axi_arsize[2] (input port clocked by clk)
+Endpoint: u_address_slice/_1971_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 ^ input external delay
+     2    0.019    0.000    0.000    0.200 ^ s_axi_arsize[2] (in)
+                   0.003    0.001    0.201 ^ u_address_slice/_1103_/B1 (sky130_fd_sc_hd__o311ai_0)
+     1    0.004    0.098    0.117    0.319 v u_address_slice/_1103_/Y (sky130_fd_sc_hd__o311ai_0)
+                   0.098    0.000    0.319 v u_address_slice/_1104_/B1 (sky130_fd_sc_hd__o21ai_0)
+     2    0.007    0.128    0.133    0.451 ^ u_address_slice/_1104_/Y (sky130_fd_sc_hd__o21ai_0)
+                   0.128    0.000    0.452 ^ u_address_slice/_1106_/B (sky130_fd_sc_hd__xnor2_1)
+     2    0.007    0.068    0.105    0.557 v u_address_slice/_1106_/Y (sky130_fd_sc_hd__xnor2_1)
+                   0.068    0.000    0.557 v u_address_slice/_1107_/B (sky130_fd_sc_hd__nand2_1)
+     2    0.006    0.067    0.092    0.648 ^ u_address_slice/_1107_/Y (sky130_fd_sc_hd__nand2_1)
+                   0.067    0.000    0.649 ^ u_address_slice/_1125_/A (sky130_fd_sc_hd__nand3_1)
+     1    0.003    0.052    0.066    0.714 v u_address_slice/_1125_/Y (sky130_fd_sc_hd__nand3_1)
+                   0.052    0.000    0.714 v u_address_slice/_1127_/B (sky130_fd_sc_hd__nand3_1)
+     1    0.003    0.058    0.077    0.792 ^ u_address_slice/_1127_/Y (sky130_fd_sc_hd__nand3_1)
+                   0.058    0.000    0.792 ^ u_address_slice/_1128_/B (sky130_fd_sc_hd__nand2_1)
+     1    0.002    0.027    0.048    0.839 v u_address_slice/_1128_/Y (sky130_fd_sc_hd__nand2_1)
+                   0.027    0.000    0.839 v u_address_slice/_1971_/D (sky130_fd_sc_hd__dfrtp_1)
+                                     0.839   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            0.823    0.823   clock network delay (propagated)
+                            0.050    0.873   clock uncertainty
+                            0.000    0.873   clock reconvergence pessimism
+                                     0.873 ^ u_address_slice/_1971_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                           -0.034    0.839   library hold time
+                                     0.839   data required time
+---------------------------------------------------------------------------------
+                                     0.839   data required time
+                                    -0.839   data arrival time
+---------------------------------------------------------------------------------
+                                     0.000   slack (MET)
+
+

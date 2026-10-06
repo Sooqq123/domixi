@@ -1,0 +1,8 @@
+------------------------------------------------------------
+   STARTING TESTBENCH: tb_fw_write_drain
+------------------------------------------------------------
+VCD info: dumpfile waves.vcd opened for output.
+------------------------------------------------------------
+PASS: tb_fw_write_drain (All 8 test steps passed without error)
+------------------------------------------------------------
+D:\domixi\tb\tb_fw_write_drain.v:392: $finish called at 5596000 (1ps)

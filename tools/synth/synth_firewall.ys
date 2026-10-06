@@ -1,0 +1,27 @@
+# Yosys Synthesis script for Production DMA-Aware Bus Firewall IP
+read_verilog rtl/fw_axi_address_slice.v
+read_verilog rtl/fw_context_tracker.v
+read_verilog rtl/fw_apb_regs.v
+read_verilog rtl/fw_acl_matcher.v
+read_verilog rtl/fw_write_drain.v
+read_verilog rtl/fw_read_drain.v
+read_verilog rtl/fw_drain_fsm.v
+read_verilog rtl/fw_closed_loop_ctrl.v
+read_verilog rtl/fw_mtd_engine.v
+read_verilog rtl/fw_honeypot_sink.v
+read_verilog -Irtl rtl/fw_hdc_sense.v
+read_verilog rtl/fw_data_path_mux.v
+read_verilog rtl/dma_bus_firewall.v
+
+hierarchy -check -top dma_bus_firewall
+proc
+opt
+fsm
+opt
+memory
+opt
+
+synth -top dma_bus_firewall
+
+check
+stat

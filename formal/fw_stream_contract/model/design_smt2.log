@@ -1,0 +1,211 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_stream_contract_formal'. Setting top module to fw_stream_contract_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_stream_contract_formal
+Used module:     \fw_drain_fsm
+Used module:         \fw_read_drain
+Used module:         \fw_write_drain
+Used module:     \fw_honeypot_sink
+Removed 0 unused modules.
+Module fw_stream_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== fw_drain_fsm ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       26 wires
+       88 wire bits
+       25 public wires
+       87 public wire bits
+       25 ports
+       87 port bits
+        2 cells
+        1   $assume
+        1   $not
+        2 submodules
+        1   fw_read_drain
+        1   fw_write_drain
+
+=== fw_honeypot_sink ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      185 wires
+     1284 wire bits
+       73 public wires
+      558 public wire bits
+       35 ports
+      242 port bits
+      162 cells
+        3   $add
+       21   $anyinit
+        1   $assume
+        6   $eq
+        6   $logic_and
+        3   $logic_not
+        3   $logic_or
+       97   $mux
+        1   $not
+       12   $pmux
+        2   $reduce_bool
+        7   $xor
+
+=== fw_read_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       51 wires
+      219 wire bits
+       34 public wires
+      147 public wire bits
+       12 ports
+       57 port bits
+       41 cells
+        1   $add
+        5   $anyinit
+        5   $anyseq
+        1   $assume
+        1   $eq
+        1   $logic_and
+       20   $mux
+        2   $not
+        5   $pmux
+
+=== fw_stream_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      255 wires
+     1134 wire bits
+       87 public wires
+      590 public wire bits
+       32 ports
+      174 port bits
+      211 cells
+        5   $add
+       24   $anyinit
+       13   $assert
+        5   $assume
+       10   $eq
+       21   $ff
+       21   $logic_and
+       17   $logic_not
+        1   $logic_or
+        2   $lt
+       91   $mux
+        1   $not
+        2 submodules
+        1   fw_drain_fsm
+        1   fw_honeypot_sink
+
+=== fw_write_drain ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       86 wires
+      297 wire bits
+       43 public wires
+      141 public wire bits
+       15 ports
+       32 port bits
+       78 cells
+        2   $add
+        8   $anyinit
+        1   $assume
+        3   $eq
+        1   $ge
+        2   $logic_and
+        1   $logic_not
+        1   $logic_or
+       48   $mux
+        1   $ne
+        1   $not
+        7   $pmux
+        2   $reduce_or
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      494 fw_stream_contract_formal
+        2 fw_drain_fsm
+       41   fw_read_drain
+       78   fw_write_drain
+      162 fw_honeypot_sink
+
+        +----------Count including submodules.
+        | 
+      603 wires
+     3022 wire bits
+      262 public wires
+     1523 public wire bits
+      119 ports
+      592 port bits
+        - memories
+        - memory bits
+        - processes
+      494 cells
+       11   $add
+       58   $anyinit
+        5   $anyseq
+       13   $assert
+        9   $assume
+       20   $eq
+       21   $ff
+        1   $ge
+       30   $logic_and
+       21   $logic_not
+        5   $logic_or
+        2   $lt
+      256   $mux
+        1   $ne
+        6   $not
+       24   $pmux
+        2   $reduce_bool
+        2   $reduce_or
+        7   $xor
+        2 submodules
+        1   fw_drain_fsm
+        1   fw_honeypot_sink
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module fw_write_drain.
+Creating SMT-LIBv2 representation of module fw_read_drain.
+Creating SMT-LIBv2 representation of module fw_honeypot_sink.
+Creating SMT-LIBv2 representation of module fw_drain_fsm.
+Creating SMT-LIBv2 representation of module fw_stream_contract_formal.
+
+End of script. Logfile hash: 03f3e21040
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...

@@ -1,0 +1,488 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_mtd_engine.v
+Parsing formal Verilog input from `fw_mtd_engine.v' to AST representation.
+Generating RTLIL representation for module `\fw_mtd_engine'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_mtd_formal.v
+Parsing formal Verilog input from `fw_mtd_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_mtd_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     \fw_mtd_engine
+Parameter \HONEY_POT_BASE = 2130706432
+Parameter \HONEY_POT_MASK = 32'11111111111111111111000000000000
+Parameter \SCRAMBLER_SEED = 16'0001101011001110
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\fw_mtd_engine'.
+Parameter \HONEY_POT_BASE = 2130706432
+Parameter \HONEY_POT_MASK = 32'11111111111111111111000000000000
+Parameter \SCRAMBLER_SEED = 16'0001101011001110
+Generating RTLIL representation for module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+
+3.1.3. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+Removing unused module `\fw_mtd_engine'.
+Removed 1 unused modules.
+Module fw_mtd_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$fw_mtd_formal.v:88$72 in module fw_mtd_formal.
+Marked 1 switch rules as full_case in process $proc$fw_mtd_formal.v:73$66 in module fw_mtd_formal.
+Marked 1 switch rules as full_case in process $proc$fw_mtd_formal.v:60$59 in module fw_mtd_formal.
+Marked 1 switch rules as full_case in process $proc$fw_mtd_engine.v:189$128 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Removed 1 dead cases from process $proc$fw_mtd_engine.v:147$125 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Marked 3 switch rules as full_case in process $proc$fw_mtd_engine.v:147$125 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Marked 2 switch rules as full_case in process $proc$fw_mtd_engine.v:125$111 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Marked 3 switch rules as full_case in process $proc$fw_mtd_engine.v:90$95 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Marked 1 switch rules as full_case in process $proc$fw_mtd_engine.v:71$93 in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Removed a total of 1 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 10 redundant assignments.
+Promoted 5 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_mtd_formal.$proc$fw_mtd_formal.v:54$88'.
+  Set init value: \reset_counter = 2'00
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \resetn in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:189$128'.
+Found async reset \resetn in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:125$111'.
+Found async reset \resetn in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+Found async reset \resetn in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:71$93'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~16 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_mtd_formal.$proc$fw_mtd_formal.v:54$88'.
+Creating decoders for process `\fw_mtd_formal.$proc$fw_mtd_formal.v:88$72'.
+     1/3: $assert$fw_mtd_formal.v:102$86_EN
+     2/3: $assert$fw_mtd_formal.v:99$83_EN
+     3/3: $assert$fw_mtd_formal.v:97$81_EN
+Creating decoders for process `\fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+     1/4: $0\prev_threat_level[1:0]
+     2/4: $0\prev_orig_valid[0:0]
+     3/4: $0\prev_valid[0:0]
+     4/4: $assert$fw_mtd_formal.v:80$68_EN
+Creating decoders for process `\fw_mtd_formal.$proc$fw_mtd_formal.v:60$59'.
+     1/3: $assume$fw_mtd_formal.v:65$65_EN
+     2/3: $assume$fw_mtd_formal.v:63$63_EN
+     3/3: $assume$fw_mtd_formal.v:62$61_EN
+Creating decoders for process `\fw_mtd_formal.$proc$fw_mtd_formal.v:55$56'.
+     1/1: $0\reset_counter[1:0]
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:202$133'.
+     1/3: $assert$fw_mtd_engine.v:206$138_EN
+     2/3: $assert$fw_mtd_engine.v:205$136_EN
+     3/3: $assert$fw_mtd_engine.v:204$134_EN
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:189$128'.
+     1/1: $0\honey_pot_hit[0:0]
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:147$125'.
+     1/6: $3\morph_addr[31:0]
+     2/6: $3\trans_action[1:0]
+     3/6: $2\morph_addr[31:0]
+     4/6: $2\trans_action[1:0]
+     5/6: $1\morph_addr[31:0]
+     6/6: $1\trans_action[1:0]
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:125$111'.
+     1/1: $0\jitter_run[1:0]
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+     1/4: $0\refill_timer[3:0]
+     2/4: $0\prev_threat[1:0]
+     3/4: $0\shape_timer[2:0]
+     4/4: $0\token_count[3:0]
+Creating decoders for process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:71$93'.
+     1/1: $0\scrambler_state[15:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\trans_action' from process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:147$125'.
+No latch inferred for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\morph_addr' from process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:147$125'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_mtd_formal.\prev_valid' using process `\fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+  created $dff cell `$procdff$234' with positive edge clock.
+Creating register for signal `\fw_mtd_formal.\prev_orig_valid' using process `\fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+  created $dff cell `$procdff$235' with positive edge clock.
+Creating register for signal `\fw_mtd_formal.\prev_threat_level' using process `\fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+  created $dff cell `$procdff$236' with positive edge clock.
+Creating register for signal `\fw_mtd_formal.\reset_counter' using process `\fw_mtd_formal.$proc$fw_mtd_formal.v:55$56'.
+  created $dff cell `$procdff$237' with positive edge clock.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\honey_pot_hit' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:189$128'.
+  created $adff cell `$procdff$242' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\jitter_run' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:125$111'.
+  created $adff cell `$procdff$247' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\token_count' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+  created $adff cell `$procdff$252' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\refill_timer' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+  created $adff cell `$procdff$257' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\shape_timer' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+  created $adff cell `$procdff$262' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\prev_threat' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+  created $adff cell `$procdff$267' with positive edge clock and positive level reset.
+Creating register for signal `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.\scrambler_state' using process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:71$93'.
+  created $adff cell `$procdff$272' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_mtd_formal.$proc$fw_mtd_formal.v:54$88'.
+Found and cleaned up 2 empty switches in `\fw_mtd_formal.$proc$fw_mtd_formal.v:88$72'.
+Removing empty process `fw_mtd_formal.$proc$fw_mtd_formal.v:88$72'.
+Found and cleaned up 2 empty switches in `\fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+Removing empty process `fw_mtd_formal.$proc$fw_mtd_formal.v:73$66'.
+Found and cleaned up 1 empty switch in `\fw_mtd_formal.$proc$fw_mtd_formal.v:60$59'.
+Removing empty process `fw_mtd_formal.$proc$fw_mtd_formal.v:60$59'.
+Found and cleaned up 1 empty switch in `\fw_mtd_formal.$proc$fw_mtd_formal.v:55$56'.
+Removing empty process `fw_mtd_formal.$proc$fw_mtd_formal.v:55$56'.
+Found and cleaned up 1 empty switch in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:202$133'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:202$133'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:189$128'.
+Found and cleaned up 3 empty switches in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:147$125'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:147$125'.
+Found and cleaned up 1 empty switch in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:125$111'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:125$111'.
+Found and cleaned up 5 empty switches in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:90$95'.
+Removing empty process `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$proc$fw_mtd_engine.v:71$93'.
+Cleaned up 16 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+<suppressed ~9 debug messages>
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+<suppressed ~21 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_mtd_formal...
+Checking module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine...
+Found and reported 0 problems.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_mtd_formal..
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Removed 14 unused cells and 91 unused wires.
+<suppressed ~17 debug messages>
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_mtd_formal'.
+Computing hashes of 44 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+Computing hashes of 43 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 75 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 63 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+<suppressed ~36 debug messages>
+Removed a total of 13 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_mtd_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$204.
+    dead port 2/2 on $mux $procmux$196.
+    dead port 2/2 on $mux $procmux$189.
+    dead port 2/2 on $mux $procmux$183.
+Removed 4 multiplexer ports.
+<suppressed ~51 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_mtd_formal.
+  Optimizing cells in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+    New ctrl vector for $pmux cell $procmux$206: { $auto$opt_reduce.cc:137:opt_pmux$274 $procmux$213_CMP }
+  Optimizing cells in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Performed a total of 1 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_mtd_formal'.
+Computing hashes of 43 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+Computing hashes of 42 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 60 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 58 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+<suppressed ~6 debug messages>
+Removed a total of 3 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_mtd_formal..
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Removed 0 unused cells and 20 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_mtd_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~41 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_mtd_formal.
+  Optimizing cells in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_mtd_formal'.
+Computing hashes of 42 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+Finding identical cells in module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 58 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_mtd_formal..
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+
+3.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 20 bits (of 32) from port A of cell fw_mtd_formal.$xor$fw_mtd_formal.v:50$54 ($xor).
+Removed top 20 bits (of 32) from port B of cell fw_mtd_formal.$xor$fw_mtd_formal.v:50$54 ($xor).
+Removed top 20 bits (of 32) from port Y of cell fw_mtd_formal.$xor$fw_mtd_formal.v:50$54 ($xor).
+Removed top 1 bits (of 2) from port B of cell fw_mtd_formal.$eq$fw_mtd_formal.v:91$78 ($eq).
+Removed top 1 bits (of 32) from port B of cell fw_mtd_formal.$eq$fw_mtd_formal.v:97$82 ($eq).
+Removed top 3 bits (of 16) from port B of cell fw_mtd_formal.$eq$fw_mtd_formal.v:102$87 ($eq).
+Removed top 20 bits (of 32) from wire fw_mtd_formal.$xor$fw_mtd_formal.v:50$54_Y.
+Removed top 20 bits (of 32) from wire fw_mtd_formal.expected_honey_addr.
+Removed top 2 bits (of 4) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$eq$fw_mtd_engine.v:100$97 ($eq).
+Removed top 3 bits (of 4) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$add$fw_mtd_engine.v:103$99 ($add).
+Removed top 3 bits (of 4) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$add$fw_mtd_engine.v:106$100 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$eq$fw_mtd_engine.v:110$101 ($eq).
+Removed top 3 bits (of 4) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$gt$fw_mtd_engine.v:110$103 ($gt).
+Removed top 3 bits (of 4) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$sub$fw_mtd_engine.v:111$105 ($sub).
+Removed top 1 bits (of 2) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$ne$fw_mtd_engine.v:115$107 ($ne).
+Removed top 2 bits (of 3) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$gt$fw_mtd_engine.v:117$109 ($gt).
+Removed top 2 bits (of 3) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$sub$fw_mtd_engine.v:118$110 ($sub).
+Removed top 1 bits (of 2) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$add$fw_mtd_engine.v:129$116 ($add).
+Removed top 20 bits (of 32) from port A of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$xor$fw_mtd_engine.v:144$123 ($xor).
+Removed top 20 bits (of 32) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$xor$fw_mtd_engine.v:144$123 ($xor).
+Removed top 20 bits (of 32) from port Y of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$xor$fw_mtd_engine.v:144$123 ($xor).
+Removed top 1 bits (of 3) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$le$fw_mtd_engine.v:205$137 ($le).
+Removed top 1 bits (of 2) from mux cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procmux$187 ($mux).
+Removed top 1 bits (of 2) from mux cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procmux$202 ($mux).
+Removed top 1 bits (of 2) from port B of cell $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procmux$214_CMP0 ($eq).
+Removed top 1 bits (of 2) from wire $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$2\trans_action[1:0].
+Removed top 1 bits (of 2) from wire $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$3\trans_action[1:0].
+Removed top 20 bits (of 32) from wire $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$xor$fw_mtd_engine.v:144$123_Y.
+Removed top 20 bits (of 32) from wire $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.honey_target_addr.
+Removed top 20 bits (of 32) from wire $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.honey_decorr_offset.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_mtd_formal..
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~2 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_mtd_formal.
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_mtd_formal'.
+Computing hashes of 42 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+Finding identical cells in module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 58 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_mtd_formal..
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Executing SORT pass.
+
+3.13. Printing statistics.
+
+=== $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       70 wires
+      284 wire bits
+       29 public wires
+      183 public wire bits
+       19 ports
+      126 port bits
+       58 cells
+        3   $add
+        7   $adff
+        3   $check
+        7   $eq
+        2   $gt
+        3   $le
+        9   $logic_and
+        1   $logic_not
+        2   $lt
+       11   $mux
+        1   $ne
+        2   $pmux
+        1   $reduce_or
+        2   $sub
+        4   $xor
+
+=== fw_mtd_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       45 wires
+      149 wire bits
+       18 public wires
+      119 public wire bits
+        8 ports
+       50 port bits
+       41 cells
+        1   $add
+        9   $check
+        4   $dff
+        9   $eq
+        1   $logic_and
+        3   $logic_not
+        1   $logic_or
+        1   $lt
+       11   $mux
+        1   $xor
+        1 submodules
+        1   $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       99 fw_mtd_formal
+       58 $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+        +----------Count including submodules.
+        | 
+      115 wires
+      433 wire bits
+       47 public wires
+      302 public wire bits
+       27 ports
+      176 port bits
+        - memories
+        - memory bits
+        - processes
+       99 cells
+        4   $add
+        7   $adff
+       12   $check
+        4   $dff
+       16   $eq
+        2   $gt
+        3   $le
+       10   $logic_and
+        4   $logic_not
+        1   $logic_or
+        3   $lt
+       22   $mux
+        1   $ne
+        2   $pmux
+        1   $reduce_or
+        2   $sub
+        5   $xor
+        1 submodules
+        1   $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+3.14. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine...
+Checking module fw_mtd_formal...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_mtd_formal'. Setting top module to fw_mtd_formal.
+
+4.1. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+
+4.2. Analyzing design hierarchy..
+Top module:  \fw_mtd_formal
+Used module:     $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine
+Removed 0 unused modules.
+Module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_mtd_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: ea1a1ebc79
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

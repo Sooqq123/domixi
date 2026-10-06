@@ -1,0 +1,19 @@
+=== TEST 1: AW STALL, W-AFTER-AW, AND PAYLOAD STABILITY ===
+VCD info: dumpfile waves.vcd opened for output.
+[PASS] AW/W ordering and payload stability
+=== TEST 2: AR PAYLOAD STABILITY UNDER STALL ===
+[PASS] AR payload stability
+=== TEST 3: RRESP ERROR DRAINS ACCEPTED AR AND ABORTS ===
+[PASS] RRESP error abort, drain, flush, and terminal ERROR
+=== TEST 4: BRESP ERROR ABORTS WITHOUT A DONE EVENT ===
+[PASS] BRESP error abort, flush, and terminal ERROR
+=== TEST 5: RID OWNERSHIP MISMATCH ABORTS ===
+[PASS] RID ownership validation
+=== TEST 6: BID OWNERSHIP MISMATCH ABORTS ===
+[PASS] BID ownership validation
+=== TEST 7: EARLY RLAST ABORTS FINITELY ===
+[PASS] Early RLAST framing violation closes with terminal ERROR
+=== TEST 8: MISSING FINAL RLAST ABORTS FINITELY ===
+[PASS] Missing final RLAST closes with terminal ERROR
+[PASS] tb_dma_axi_master V2.4.1 negative regression
+D:\domixi\DMA-controller\tb\tb_dma_axi_master.v:556: $finish called at 4546000 (1ps)

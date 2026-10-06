@@ -1,0 +1,16 @@
+VCD info: dumpfile waves.vcd opened for output.
+[INFO] Reset da giai tru!
+[CHECK S1-02: AW 1-BEAT]  valid=1, addr=0x10000000, end=0x10000003 (Ky vong: 0x10000003)
+[CHECK S1-03: AW 16-BEAT] valid=1, addr=0x20000000, end=0x2000003f (Ky vong: 0x2000003f)
+[CHECK S1-04: 4KB ERR]    4kb_err=1 (Ky vong: 1), end=0x00001003
+[CHECK S1-05: OVERFLOW]   overflow_err=1 (Ky vong: 1), 4kb_err=1 (Ky vong: 1), end=0x00000003
+[CHECK S1-06: PROFILE ERR] profile_err=1 (Ky vong: 1)
+[CHECK S1-08: STALL] s_axi_awready=0 (Ky vong: 0)
+[CHECK S1-08: STABILITY] pipe_s1_awaddr=0x40000000 (Ky vong: 0x40000000 - Khong bi ghi de)
+[CHECK AR 4-BEAT] valid=1, addr=0x50000000, end=0x5000000f (Ky vong: 0x5000000f)
+
+========================================================
+PASS: tb_fw_axi_address_slice
+========================================================
+
+D:\domixi\tb\tb_fw_axi_address_slice.v:288: $finish called at 230000 (1ps)

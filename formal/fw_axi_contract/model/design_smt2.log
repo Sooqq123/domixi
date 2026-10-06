@@ -1,0 +1,159 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_axi_contract_formal'. Setting top module to fw_axi_contract_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+Removed 0 unused modules.
+Module fw_axi_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== fw_axi_address_slice ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      169 wires
+     1269 wire bits
+      104 public wires
+      832 public wire bits
+       42 ports
+      288 port bits
+      126 cells
+        4   $add
+       22   $anyinit
+        1   $assume
+        2   $gt
+        2   $logic_and
+        2   $logic_not
+       10   $logic_or
+       68   $mux
+        6   $ne
+        1   $not
+        2   $reduce_bool
+        2   $reduce_or
+        2   $shl
+        2   $sub
+
+=== fw_axi_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      232 wires
+     2048 wire bits
+      124 public wires
+     1268 public wire bits
+       54 ports
+      299 port bits
+      139 cells
+        1   $add
+       10   $anyinit
+        9   $assert
+       11   $assume
+       24   $eq
+        9   $ff
+        5   $logic_and
+       14   $logic_not
+        1   $logic_or
+        2   $lt
+       48   $mux
+        2   $ne
+        1   $not
+        2   $pmux
+        2 submodules
+        1   fw_axi_address_slice
+        1   fw_data_path_mux
+
+=== fw_data_path_mux ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       76 wires
+      370 wire bits
+       64 public wires
+      324 public wire bits
+       63 ports
+      323 port bits
+       37 cells
+        6   $eq
+       22   $mux
+        9   $pmux
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      302 fw_axi_contract_formal
+      126 fw_axi_address_slice
+       37 fw_data_path_mux
+
+        +----------Count including submodules.
+        | 
+      477 wires
+     3687 wire bits
+      292 public wires
+     2424 public wire bits
+      159 ports
+      910 port bits
+        - memories
+        - memory bits
+        - processes
+      302 cells
+        5   $add
+       32   $anyinit
+        9   $assert
+       12   $assume
+       30   $eq
+        9   $ff
+        2   $gt
+        7   $logic_and
+       16   $logic_not
+       11   $logic_or
+        2   $lt
+      138   $mux
+        8   $ne
+        2   $not
+       11   $pmux
+        2   $reduce_bool
+        2   $reduce_or
+        2   $shl
+        2   $sub
+        2 submodules
+        1   fw_axi_address_slice
+        1   fw_data_path_mux
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module fw_data_path_mux.
+Creating SMT-LIBv2 representation of module fw_axi_address_slice.
+Creating SMT-LIBv2 representation of module fw_axi_contract_formal.
+
+End of script. Logfile hash: 63f4c2e6a3
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...

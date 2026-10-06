@@ -1,0 +1,5 @@
+﻿`verilator_config
+// WAV-LINT-001: aegis_attack_fingerprint wire is retained from fw_hdc_sense
+// as a diagnostic probe / telemetry tap. Downstream fw_closed_loop_ctrl
+// consumes retimed aegis_closed_loop_fingerprint to avoid timing loops.
+lint_off -rule UNUSEDSIGNAL -file "*dma_bus_firewall.v" -match "*aegis_attack_fingerprint*"

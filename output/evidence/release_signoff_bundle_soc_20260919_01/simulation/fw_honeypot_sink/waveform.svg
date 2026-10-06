@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="609" viewBox="0 0 1400 609">
+<rect width="100%" height="100%" fill="#111827"/>
+<g font-family="monospace" font-size="12" fill="#e5e7eb">
+<text x="20" y="23">VCD preview — tick = 1ps; raw VCD is authoritative</text>
+<path d="M350.0,55 V589" stroke="#374151"/>
+<text x="350.0" y="65">0</text>
+<path d="M550.0,55 V589" stroke="#374151"/>
+<text x="550.0" y="65">102700</text>
+<path d="M750.0,55 V589" stroke="#374151"/>
+<text x="750.0" y="65">205400</text>
+<path d="M950.0,55 V589" stroke="#374151"/>
+<text x="950.0" y="65">308100</text>
+<path d="M1150.0,55 V589" stroke="#374151"/>
+<text x="1150.0" y="65">410800</text>
+<path d="M1350.0,55 V589" stroke="#374151"/>
+<text x="1350.0" y="65">513500</text>
+<text x="12" y="93">tb_fw_honeypot_sink.clk<title>tb_fw_honeypot_sink.clk</title></text>
+<path d="M350.00,98 H374.34" stroke="#34d399" fill="none"/>
+<path d="M374.34,80 H398.69" stroke="#34d399" fill="none"/>
+<path d="M374.34,80 V98" stroke="#34d399"/>
+<path d="M398.69,98 H423.03" stroke="#34d399" fill="none"/>
+<path d="M398.69,80 V98" stroke="#34d399"/>
+<path d="M423.03,80 H447.37" stroke="#34d399" fill="none"/>
+<path d="M423.03,80 V98" stroke="#34d399"/>
+<path d="M447.37,98 H471.71" stroke="#34d399" fill="none"/>
+<path d="M447.37,80 V98" stroke="#34d399"/>
+<path d="M471.71,80 H496.06" stroke="#34d399" fill="none"/>
+<path d="M471.71,80 V98" stroke="#34d399"/>
+<path d="M496.06,98 H520.40" stroke="#34d399" fill="none"/>
+<path d="M496.06,80 V98" stroke="#34d399"/>
+<path d="M520.40,80 H544.74" stroke="#34d399" fill="none"/>
+<path d="M520.40,80 V98" stroke="#34d399"/>
+<path d="M544.74,98 H569.08" stroke="#34d399" fill="none"/>
+<path d="M544.74,80 V98" stroke="#34d399"/>
+<path d="M569.08,80 H593.43" stroke="#34d399" fill="none"/>
+<path d="M569.08,80 V98" stroke="#34d399"/>
+<path d="M593.43,98 H617.77" stroke="#34d399" fill="none"/>
+<path d="M593.43,80 V98" stroke="#34d399"/>
+<path d="M617.77,80 H642.11" stroke="#34d399" fill="none"/>
+<path d="M617.77,80 V98" stroke="#34d399"/>
+<path d="M642.11,98 H666.46" stroke="#34d399" fill="none"/>
+<path d="M642.11,80 V98" stroke="#34d399"/>
+<path d="M666.46,80 H690.80" stroke="#34d399" fill="none"/>
+<path d="M666.46,80 V98" stroke="#34d399"/>
+<path d="M690.80,98 H715.14" stroke="#34d399" fill="none"/>
+<path d="M690.80,80 V98" stroke="#34d399"/>
+<path d="M715.14,80 H739.48" stroke="#34d399" fill="none"/>
+<path d="M715.14,80 V98" stroke="#34d399"/>
+<path d="M739.48,98 H763.83" stroke="#34d399" fill="none"/>
+<path d="M739.48,80 V98" stroke="#34d399"/>
+<path d="M763.83,80 H788.17" stroke="#34d399" fill="none"/>
+<path d="M763.83,80 V98" stroke="#34d399"/>
+<path d="M788.17,98 H812.51" stroke="#34d399" fill="none"/>
+<path d="M788.17,80 V98" stroke="#34d399"/>
+<path d="M812.51,80 H836.85" stroke="#34d399" fill="none"/>
+<path d="M812.51,80 V98" stroke="#34d399"/>
+<path d="M836.85,98 H861.20" stroke="#34d399" fill="none"/>
+<path d="M836.85,80 V98" stroke="#34d399"/>
+<path d="M861.20,80 H885.54" stroke="#34d399" fill="none"/>
+<path d="M861.20,80 V98" stroke="#34d399"/>
+<path d="M885.54,98 H909.88" stroke="#34d399" fill="none"/>
+<path d="M885.54,80 V98" stroke="#34d399"/>
+<path d="M909.88,80 H934.23" stroke="#34d399" fill="none"/>
+<path d="M909.88,80 V98" stroke="#34d399"/>
+<path d="M934.23,98 H958.57" stroke="#34d399" fill="none"/>
+<path d="M934.23,80 V98" stroke="#34d399"/>
+<path d="M958.57,80 H982.91" stroke="#34d399" fill="none"/>
+<path d="M958.57,80 V98" stroke="#34d399"/>
+<path d="M982.91,98 H1007.25" stroke="#34d399" fill="none"/>
+<path d="M982.91,80 V98" stroke="#34d399"/>
+<path d="M1007.25,80 H1031.60" stroke="#34d399" fill="none"/>
+<path d="M1007.25,80 V98" stroke="#34d399"/>
+<path d="M1031.60,98 H1055.94" stroke="#34d399" fill="none"/>
+<path d="M1031.60,80 V98" stroke="#34d399"/>
+<path d="M1055.94,80 H1080.28" stroke="#34d399" fill="none"/>
+<path d="M1055.94,80 V98" stroke="#34d399"/>
+<path d="M1080.28,98 H1104.63" stroke="#34d399" fill="none"/>
+<path d="M1080.28,80 V98" stroke="#34d399"/>
+<path d="M1104.63,80 H1128.97" stroke="#34d399" fill="none"/>
+<path d="M1104.63,80 V98" stroke="#34d399"/>
+<path d="M1128.97,98 H1153.31" stroke="#34d399" fill="none"/>
+<path d="M1128.97,80 V98" stroke="#34d399"/>
+<path d="M1153.31,80 H1177.65" stroke="#34d399" fill="none"/>
+<path d="M1153.31,80 V98" stroke="#34d399"/>
+<path d="M1177.65,98 H1202.00" stroke="#34d399" fill="none"/>
+<path d="M1177.65,80 V98" stroke="#34d399"/>
+<path d="M1202.00,80 H1226.34" stroke="#34d399" fill="none"/>
+<path d="M1202.00,80 V98" stroke="#34d399"/>
+<path d="M1226.34,98 H1250.68" stroke="#34d399" fill="none"/>
+<path d="M1226.34,80 V98" stroke="#34d399"/>
+<path d="M1250.68,80 H1275.02" stroke="#34d399" fill="none"/>
+<path d="M1250.68,80 V98" stroke="#34d399"/>
+<path d="M1275.02,98 H1299.37" stroke="#34d399" fill="none"/>
+<path d="M1275.02,80 V98" stroke="#34d399"/>
+<path d="M1299.37,80 H1323.71" stroke="#34d399" fill="none"/>
+<path d="M1299.37,80 V98" stroke="#34d399"/>
+<path d="M1323.71,98 H1348.05" stroke="#34d399" fill="none"/>
+<path d="M1323.71,80 V98" stroke="#34d399"/>
+<path d="M1348.05,80 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1348.05,80 V98" stroke="#34d399"/>
+<text x="12" y="135">tb_fw_honeypot_sink.u_dut.clk<title>tb_fw_honeypot_sink.u_dut.clk</title></text>
+<path d="M350.00,140 H374.34" stroke="#34d399" fill="none"/>
+<path d="M374.34,122 H398.69" stroke="#34d399" fill="none"/>
+<path d="M374.34,122 V140" stroke="#34d399"/>
+<path d="M398.69,140 H423.03" stroke="#34d399" fill="none"/>
+<path d="M398.69,122 V140" stroke="#34d399"/>
+<path d="M423.03,122 H447.37" stroke="#34d399" fill="none"/>
+<path d="M423.03,122 V140" stroke="#34d399"/>
+<path d="M447.37,140 H471.71" stroke="#34d399" fill="none"/>
+<path d="M447.37,122 V140" stroke="#34d399"/>
+<path d="M471.71,122 H496.06" stroke="#34d399" fill="none"/>
+<path d="M471.71,122 V140" stroke="#34d399"/>
+<path d="M496.06,140 H520.40" stroke="#34d399" fill="none"/>
+<path d="M496.06,122 V140" stroke="#34d399"/>
+<path d="M520.40,122 H544.74" stroke="#34d399" fill="none"/>
+<path d="M520.40,122 V140" stroke="#34d399"/>
+<path d="M544.74,140 H569.08" stroke="#34d399" fill="none"/>
+<path d="M544.74,122 V140" stroke="#34d399"/>
+<path d="M569.08,122 H593.43" stroke="#34d399" fill="none"/>
+<path d="M569.08,122 V140" stroke="#34d399"/>
+<path d="M593.43,140 H617.77" stroke="#34d399" fill="none"/>
+<path d="M593.43,122 V140" stroke="#34d399"/>
+<path d="M617.77,122 H642.11" stroke="#34d399" fill="none"/>
+<path d="M617.77,122 V140" stroke="#34d399"/>
+<path d="M642.11,140 H666.46" stroke="#34d399" fill="none"/>
+<path d="M642.11,122 V140" stroke="#34d399"/>
+<path d="M666.46,122 H690.80" stroke="#34d399" fill="none"/>
+<path d="M666.46,122 V140" stroke="#34d399"/>
+<path d="M690.80,140 H715.14" stroke="#34d399" fill="none"/>
+<path d="M690.80,122 V140" stroke="#34d399"/>
+<path d="M715.14,122 H739.48" stroke="#34d399" fill="none"/>
+<path d="M715.14,122 V140" stroke="#34d399"/>
+<path d="M739.48,140 H763.83" stroke="#34d399" fill="none"/>
+<path d="M739.48,122 V140" stroke="#34d399"/>
+<path d="M763.83,122 H788.17" stroke="#34d399" fill="none"/>
+<path d="M763.83,122 V140" stroke="#34d399"/>
+<path d="M788.17,140 H812.51" stroke="#34d399" fill="none"/>
+<path d="M788.17,122 V140" stroke="#34d399"/>
+<path d="M812.51,122 H836.85" stroke="#34d399" fill="none"/>
+<path d="M812.51,122 V140" stroke="#34d399"/>
+<path d="M836.85,140 H861.20" stroke="#34d399" fill="none"/>
+<path d="M836.85,122 V140" stroke="#34d399"/>
+<path d="M861.20,122 H885.54" stroke="#34d399" fill="none"/>
+<path d="M861.20,122 V140" stroke="#34d399"/>
+<path d="M885.54,140 H909.88" stroke="#34d399" fill="none"/>
+<path d="M885.54,122 V140" stroke="#34d399"/>
+<path d="M909.88,122 H934.23" stroke="#34d399" fill="none"/>
+<path d="M909.88,122 V140" stroke="#34d399"/>
+<path d="M934.23,140 H958.57" stroke="#34d399" fill="none"/>
+<path d="M934.23,122 V140" stroke="#34d399"/>
+<path d="M958.57,122 H982.91" stroke="#34d399" fill="none"/>
+<path d="M958.57,122 V140" stroke="#34d399"/>
+<path d="M982.91,140 H1007.25" stroke="#34d399" fill="none"/>
+<path d="M982.91,122 V140" stroke="#34d399"/>
+<path d="M1007.25,122 H1031.60" stroke="#34d399" fill="none"/>
+<path d="M1007.25,122 V140" stroke="#34d399"/>
+<path d="M1031.60,140 H1055.94" stroke="#34d399" fill="none"/>
+<path d="M1031.60,122 V140" stroke="#34d399"/>
+<path d="M1055.94,122 H1080.28" stroke="#34d399" fill="none"/>
+<path d="M1055.94,122 V140" stroke="#34d399"/>
+<path d="M1080.28,140 H1104.63" stroke="#34d399" fill="none"/>
+<path d="M1080.28,122 V140" stroke="#34d399"/>
+<path d="M1104.63,122 H1128.97" stroke="#34d399" fill="none"/>
+<path d="M1104.63,122 V140" stroke="#34d399"/>
+<path d="M1128.97,140 H1153.31" stroke="#34d399" fill="none"/>
+<path d="M1128.97,122 V140" stroke="#34d399"/>
+<path d="M1153.31,122 H1177.65" stroke="#34d399" fill="none"/>
+<path d="M1153.31,122 V140" stroke="#34d399"/>
+<path d="M1177.65,140 H1202.00" stroke="#34d399" fill="none"/>
+<path d="M1177.65,122 V140" stroke="#34d399"/>
+<path d="M1202.00,122 H1226.34" stroke="#34d399" fill="none"/>
+<path d="M1202.00,122 V140" stroke="#34d399"/>
+<path d="M1226.34,140 H1250.68" stroke="#34d399" fill="none"/>
+<path d="M1226.34,122 V140" stroke="#34d399"/>
+<path d="M1250.68,122 H1275.02" stroke="#34d399" fill="none"/>
+<path d="M1250.68,122 V140" stroke="#34d399"/>
+<path d="M1275.02,140 H1299.37" stroke="#34d399" fill="none"/>
+<path d="M1275.02,122 V140" stroke="#34d399"/>
+<path d="M1299.37,122 H1323.71" stroke="#34d399" fill="none"/>
+<path d="M1299.37,122 V140" stroke="#34d399"/>
+<path d="M1323.71,140 H1348.05" stroke="#34d399" fill="none"/>
+<path d="M1323.71,122 V140" stroke="#34d399"/>
+<path d="M1348.05,122 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1348.05,122 V140" stroke="#34d399"/>
+<text x="12" y="177">tb_fw_honeypot_sink.rst_n<title>tb_fw_honeypot_sink.rst_n</title></text>
+<path d="M350.00,182 H447.37" stroke="#34d399" fill="none"/>
+<path d="M447.37,164 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M447.37,164 V182" stroke="#34d399"/>
+<text x="12" y="219">tb_fw_honeypot_sink.u_dut.rst_n<title>tb_fw_honeypot_sink.u_dut.rst_n</title></text>
+<path d="M350.00,224 H447.37" stroke="#34d399" fill="none"/>
+<path d="M447.37,206 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M447.37,206 V224" stroke="#34d399"/>
+<text x="12" y="261">tb_fw_honeypot_sink.hp_awvalid<title>tb_fw_honeypot_sink.hp_awvalid</title></text>
+<path d="M350.00,266 H571.03" stroke="#34d399" fill="none"/>
+<path d="M571.03,248 H619.72" stroke="#34d399" fill="none"/>
+<path d="M571.03,248 V266" stroke="#34d399"/>
+<path d="M619.72,266 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M619.72,248 V266" stroke="#34d399"/>
+<text x="12" y="303">tb_fw_honeypot_sink.u_dut.hp_awvalid<title>tb_fw_honeypot_sink.u_dut.hp_awvalid</title></text>
+<path d="M350.00,308 H571.03" stroke="#34d399" fill="none"/>
+<path d="M571.03,290 H619.72" stroke="#34d399" fill="none"/>
+<path d="M571.03,290 V308" stroke="#34d399"/>
+<path d="M619.72,308 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M619.72,290 V308" stroke="#34d399"/>
+<text x="12" y="345">tb_fw_honeypot_sink.hp_awready<title>tb_fw_honeypot_sink.hp_awready</title></text>
+<path d="M350.00,332 H617.77" stroke="#34d399" fill="none"/>
+<path d="M617.77,350 H861.20" stroke="#34d399" fill="none"/>
+<path d="M617.77,332 V350" stroke="#34d399"/>
+<path d="M861.20,332 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M861.20,332 V350" stroke="#34d399"/>
+<text x="12" y="387">tb_fw_honeypot_sink.u_dut.hp_awready<title>tb_fw_honeypot_sink.u_dut.hp_awready</title></text>
+<path d="M350.00,374 H617.77" stroke="#34d399" fill="none"/>
+<path d="M617.77,392 H861.20" stroke="#34d399" fill="none"/>
+<path d="M617.77,374 V392" stroke="#34d399"/>
+<path d="M861.20,374 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M861.20,374 V392" stroke="#34d399"/>
+<text x="12" y="429">tb_fw_honeypot_sink.hp_wvalid<title>tb_fw_honeypot_sink.hp_wvalid</title></text>
+<path d="M350.00,434 H619.72" stroke="#34d399" fill="none"/>
+<path d="M619.72,416 H814.46" stroke="#34d399" fill="none"/>
+<path d="M619.72,416 V434" stroke="#34d399"/>
+<path d="M814.46,434 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M814.46,416 V434" stroke="#34d399"/>
+<text x="12" y="471">tb_fw_honeypot_sink.u_dut.hp_wvalid<title>tb_fw_honeypot_sink.u_dut.hp_wvalid</title></text>
+<path d="M350.00,476 H619.72" stroke="#34d399" fill="none"/>
+<path d="M619.72,458 H814.46" stroke="#34d399" fill="none"/>
+<path d="M619.72,458 V476" stroke="#34d399"/>
+<path d="M814.46,476 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M814.46,458 V476" stroke="#34d399"/>
+<text x="12" y="513">tb_fw_honeypot_sink.hp_wready<title>tb_fw_honeypot_sink.hp_wready</title></text>
+<path d="M350.00,518 H617.77" stroke="#34d399" fill="none"/>
+<path d="M617.77,500 H812.51" stroke="#34d399" fill="none"/>
+<path d="M617.77,500 V518" stroke="#34d399"/>
+<path d="M812.51,518 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M812.51,500 V518" stroke="#34d399"/>
+<text x="12" y="555">tb_fw_honeypot_sink.u_dut.hp_wready<title>tb_fw_honeypot_sink.u_dut.hp_wready</title></text>
+<path d="M350.00,560 H617.77" stroke="#34d399" fill="none"/>
+<path d="M617.77,542 H812.51" stroke="#34d399" fill="none"/>
+<path d="M617.77,542 V560" stroke="#34d399"/>
+<path d="M812.51,560 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M812.51,542 V560" stroke="#34d399"/>
+</g></svg>

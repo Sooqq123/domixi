@@ -1,0 +1,246 @@
+Codex Firewall integration preparation regression
+executed_local: 2026-09-18T20:51:02.2204217+07:00
+repo_root: D:\domixi
+scope: specification consistency, existing DMA regression, structural wrapper, and mock-backed boundary readiness
+limitation: mocks are simulation-only and do not establish Firewall G2/G3, formal, coverage, synthesis, STA, PPA, or SoC trust closure
+
+=== Contract checker ===
+cwd: D:\domixi
+command: python -B D:\domixi\DMA-controller\scripts\check_firewall_contract.py
+[PASS] ownership ledger contains 17 unique modules with canonical A/B/C/UNASSIGNED groups
+[PASS] fw_drain_fsm matches 25 canonical port directions and widths
+[PASS] fw_drain_fsm is a structural two-leaf wrapper
+[PASS] 3 labelled mocks are isolated under tb/integration/mocks
+[PASS] simulation Firewall stub matches 94 canonical port directions and widths
+[PASS] production dma_bus_firewall matches 94 canonical port directions and widths
+[PASS] dma_bus_firewall SDC references all 94 RTL ports with no phantom ports
+[PASS] aegis_soc_top SDC references all 58 RTL ports with no phantom ports
+[PASS] all 12 production Firewall dependencies are present
+CONTRACT CHECK PASSED: production Firewall sources and public interfaces are consistent
+exit_code: 0
+
+=== Canonical specification lint ===
+cwd: D:\domixi\DMA-controller
+command: python -B D:\domixi\DMA-controller\docs\architecture\tools\spec_lint.py
+Canonical Architecture Baseline V2.4.1 semantic specification lint
+Scope: document consistency/evidence only; RTL conformance and sign-off are separate
+[PASS] required files
+[PASS] strict CSV integrity
+[PASS] pinout and signal list
+[PASS] memory map
+[PASS] register map
+[PASS] traceability evidence
+[PASS] document and evidence manifests
+[PASS] benchmark artifact consistency
+[PASS] normative cross-document semantics
+LINT PASSED: specification consistency checks completed with no detected errors
+exit_code: 0
+
+=== Python model regression ===
+cwd: D:\domixi\DMA-controller
+command: python -B -m unittest discover -s model -p test*.py -v
+test_attack_vector_1_cross_bound (test_integration.TestSoCIntegration.test_attack_vector_1_cross_bound)
+TC_CROSS_BOUND: AXI Burst crossing 4KB page boundary must be trapped immediately. ... ok
+test_attack_vector_2_tamper_lock (test_integration.TestSoCIntegration.test_attack_vector_2_tamper_lock)
+TC_TAMPER_LOCK: Malicious APB write after Sticky Lock must be blocked with PSLVERR. ... ok
+test_attack_vector_3_toctou_forgery (test_integration.TestSoCIntegration.test_attack_vector_3_toctou_forgery)
+TC_TOCTOU_FORGERY: Accessing an old buffer after DMA completion must be blocked after synchronous revocation. ... ok
+test_attack_vector_4_deadlock_stress (test_integration.TestSoCIntegration.test_attack_vector_4_deadlock_stress)
+TC_DEADLOCK_STRESS: 1,000 back-to-back violation bursts must not deadlock the Sink Drain FSM. ... ok
+test_attack_vector_5_unaligned_and_profile_violations (test_integration.TestSoCIntegration.test_attack_vector_5_unaligned_and_profile_violations)
+TC_PROFILE_VIOLATION: Unaligned burst (ADDR[1:0]!=00) or size!=2 must be trapped as BOUND_ERR. ... ok
+test_dma_aborts_on_firewall_read_decerr_after_drain (test_integration.TestSoCIntegration.test_dma_aborts_on_firewall_read_decerr_after_drain)
+Connect DMA and firewall directly and verify denied R drains then aborts. ... ok
+test_end_to_end_fifo32_and_aw_before_w (test_integration.TestSoCIntegration.test_end_to_end_fifo32_and_aw_before_w)
+A complete transfer never forwards W before the matching AW handshake. ... ok
+test_normal_dma_transfer_golden_match (test_integration.TestSoCIntegration.test_normal_dma_transfer_golden_match)
+TC_NORMAL: Verify clean DMA transfer with 100% data integrity. ... ok
+test_active_region_descriptor_edit_rejected (test_unit.TestUnitComponents.test_active_region_descriptor_edit_rejected)
+Verify modifying descriptor (BASE/LIMIT/MID) while Region is ACTIVE returns PSLVERR. ... ok
+test_apb_read_only_dynamic_regions (test_unit.TestUnitComponents.test_apb_read_only_dynamic_regions)
+Verify APB writes to Region 4 & 5 return PSLVERR. ... ok
+test_apb_read_out_of_window_and_unaligned_pslverr (test_unit.TestUnitComponents.test_apb_read_out_of_window_and_unaligned_pslverr)
+Verify APB reads from out-of-window or unaligned addresses return PSLVERR. ... ok
+test_auto_context_disable_revokes_and_requires_valid_rearm (test_unit.TestUnitComponents.test_auto_context_disable_revokes_and_requires_valid_rearm) ... ok
+test_batch_fault_recording_ors_status_counts_and_prioritizes_metadata (test_unit.TestUnitComponents.test_batch_fault_recording_ors_status_counts_and_prioritizes_metadata) ... ok
+test_boundary_calculator_and_4kb_wrap (test_unit.TestUnitComponents.test_boundary_calculator_and_4kb_wrap) ... ok
+test_default_fifo_depth_matches_architecture (test_unit.TestUnitComponents.test_default_fifo_depth_matches_architecture) ... ok
+test_dma_bresp_error_aborts_after_committed_write (test_unit.TestUnitComponents.test_dma_bresp_error_aborts_after_committed_write) ... ok
+test_dma_constrained_profile_violations (test_unit.TestUnitComponents.test_dma_constrained_profile_violations)
+Verify unaligned address, non-word size, burst > 16 beats, and non-INCR are rejected. ... ok
+test_dma_early_rlast_aborts_and_closes_read (test_unit.TestUnitComponents.test_dma_early_rlast_aborts_and_closes_read) ... ok
+test_dma_missing_final_rlast_aborts_at_expected_beat (test_unit.TestUnitComponents.test_dma_missing_final_rlast_aborts_at_expected_beat) ... ok
+test_dma_rresp_error_drains_to_rlast_then_aborts (test_unit.TestUnitComponents.test_dma_rresp_error_drains_to_rlast_then_aborts) ... ok
+test_dma_sideband_v2_interface (test_unit.TestUnitComponents.test_dma_sideband_v2_interface) ... ok
+test_dma_start_busy_noop_and_sticky_status_w1c (test_unit.TestUnitComponents.test_dma_start_busy_noop_and_sticky_status_w1c) ... ok
+test_dma_waits_for_aw_handshake_before_w_and_fifo_pop (test_unit.TestUnitComponents.test_dma_waits_for_aw_handshake_before_w_and_fifo_pop) ... ok
+test_dynamic_context_tracker_synchronous_revocation (test_unit.TestUnitComponents.test_dynamic_context_tracker_synchronous_revocation) ... ok
+test_dynamic_context_valid_is_one_shot_until_low (test_unit.TestUnitComponents.test_dynamic_context_valid_is_one_shot_until_low) ... ok
+test_exact_base_address_no_overgrant (test_unit.TestUnitComponents.test_exact_base_address_no_overgrant)
+Verify dynamic buffer at 0x2000_0080 does NOT grant access to 0x2000_0000 (no 4KB round-down). ... ok
+test_fail_secure_reset_default_deny (test_unit.TestUnitComponents.test_fail_secure_reset_default_deny)
+Verify FW_EN=1 out of reset and unconfigured accesses are blocked by DEFAULT_DENY. ... ok
+test_fault_source_apb_reset_retention_and_recapture (test_unit.TestUnitComponents.test_fault_source_apb_reset_retention_and_recapture) ... ok
+test_fifo_push_pop_and_overflow (test_unit.TestUnitComponents.test_fifo_push_pop_and_overflow) ... ok
+test_firewall_allowed_response_ids_stable_under_backpressure (test_unit.TestUnitComponents.test_firewall_allowed_response_ids_stable_under_backpressure) ... ok
+test_firewall_blocks_w_before_aw_and_enforces_single_outstanding (test_unit.TestUnitComponents.test_firewall_blocks_w_before_aw_and_enforces_single_outstanding) ... ok
+test_firewall_denied_read_and_write_echo_ids (test_unit.TestUnitComponents.test_firewall_denied_read_and_write_echo_ids) ... ok
+test_firewall_permission_snapshot_survives_context_revoke (test_unit.TestUnitComponents.test_firewall_permission_snapshot_survives_context_revoke) ... ok
+test_firewall_profile_enforced_while_acl_disabled (test_unit.TestUnitComponents.test_firewall_profile_enforced_while_acl_disabled) ... ok
+test_first_fault_metadata_persists_until_irq_pending_cleared (test_unit.TestUnitComponents.test_first_fault_metadata_persists_until_irq_pending_cleared)
+Verify first-fault address and metadata are locked until BOTH fault bits AND IRQ_PENDING are cleared. ... ok
+test_fw_control_reset_default_value (test_unit.TestUnitComponents.test_fw_control_reset_default_value)
+Verify FW_CONTROL resets to 0x0000_000D (EN=1, IRQ_EN=0, AUTO_CTX_EN=1, ERR_MODE=1). ... ok
+test_irq_pending_sticky_w1c (test_unit.TestUnitComponents.test_irq_pending_sticky_w1c)
+Verify IRQ_PENDING is sticky and only deasserts when cleared via W1C. ... ok
+test_misaligned_context_rejected_by_firewall_model (test_unit.TestUnitComponents.test_misaligned_context_rejected_by_firewall_model)
+Verify Firewall Model rejects misaligned sideband context allocation. ... ok
+test_nonsecure_access_to_secure_region_blocked_with_prot_err (test_unit.TestUnitComponents.test_nonsecure_access_to_secure_region_blocked_with_prot_err)
+Verify Non-Secure transaction to SECURE_ONLY region is blocked and traps PROT_ERR. ... ok
+test_read_drain_exact_beats_stable_and_echoes_rid (test_unit.TestUnitComponents.test_read_drain_exact_beats_stable_and_echoes_rid) ... ok
+test_sideband_len_zero_and_overflow_protection (test_unit.TestUnitComponents.test_sideband_len_zero_and_overflow_protection)
+Verify len=0 or 32-bit overflow prevents dynamic context activation. ... ok
+test_simultaneous_context_write_read_faults_capture_context_source (test_unit.TestUnitComponents.test_simultaneous_context_write_read_faults_capture_context_source) ... ok
+test_static_region_activation_rejects_base_above_limit_atomically (test_unit.TestUnitComponents.test_static_region_activation_rejects_base_above_limit_atomically) ... ok
+test_sticky_lock_rw1s_immutability (test_unit.TestUnitComponents.test_sticky_lock_rw1s_immutability) ... ok
+test_write_drain_fsm_sink_and_resp (test_unit.TestUnitComponents.test_write_drain_fsm_sink_and_resp) ... ok
+test_write_drain_requires_awlen_plus_one_and_echoes_bid (test_unit.TestUnitComponents.test_write_drain_requires_awlen_plus_one_and_echoes_bid) ... ok
+----------------------------------------------------------------------
+Ran 46 tests in 0.114s
+OK
+exit_code: 0
+
+=== tb_dma_fifo_latch compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_fifo_latch -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_fifo_latch.vvp D:\domixi\DMA-controller\rtl\dma_fifo_latch.v D:\domixi\DMA-controller\tb\tb_dma_fifo_latch.v
+exit_code: 0
+
+=== tb_dma_fifo_latch run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_fifo_latch.vvp
+VCD info: dumpfile fifo_wave.vcd opened for output.
+=== [TEST] Starting FIFO Test ===
+[PASS] Reset state OK
+=== [TEST] Writing Data until FULL ===
+[PASS] FIFO is FULL at depth 32
+=== [TEST] Reading Data until EMPTY ===
+[PASS] FIFO ordered scoreboard and EMPTY state
+=== [TEST] Concurrent Read/Write ===
+[PASS] Simultaneous read/write ordering and occupancy
+[PASS] FIFO abort flush clears occupancy
+[PASS] tb_dma_fifo_latch completed with no check failures
+D:\domixi\DMA-controller\tb\tb_dma_fifo_latch.v:188: $finish called at 776000 (1ps)
+exit_code: 0
+
+=== tb_dma_apb_slave compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_apb_slave -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_apb_slave.vvp D:\domixi\DMA-controller\rtl\dma_apb_slave.v D:\domixi\DMA-controller\tb\tb_dma_apb_slave.v
+exit_code: 0
+
+=== tb_dma_apb_slave run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_apb_slave.vvp
+VCD info: dumpfile apb_slave_wave.vcd opened for output.
+
+=== TEST 1: GHI/ĐỌC CÁC THANH GHI CẤU HÌNH ===
+[PASS]     Read Source Addr - Val: aaaa0000
+[PASS]     Read Dest Addr   - Val: bbbb0000
+[PASS]     Read Byte Length - Val: 00000100
+
+=== TEST 2: ĐỌC THANH GHI TRẠNG THÁI (STATUS) ===
+[PASS] atus: Busy=1, Done=0 - Val: 00000001
+[PASS] atus: Busy=0, Done=1 - Val: 00000002
+[PASS] tus: Done=1, Error=1 - Val: 00000006
+[PASS]     Status: Done W1C - Val: 00000004
+[PASS]    Status: Error W1C - Val: 00000000
+
+=== TEST 3: START-WHILE-BUSY, STICKY STATUS, AND IRQ_EN ===
+[PASS] ART preserves sticky - Val: 00000007
+[PASS] START pulse and IRQ_EN generated correctly
+[PASS] START pulse auto-cleared
+[PASS] ART preserves sticky - Val: 00000006
+[PASS] re set wins over W1C - Val: 00000006
+
+=== TEST 4: APB 32-BIT ADDRESS WINDOW ===
+[PASS] ong APB base address
+[PASS] re invalid APB write
+[PASS] tb_dma_apb_slave completed with no check failures
+D:\domixi\DMA-controller\tb\tb_dma_apb_slave.v:268: $finish called at 755000 (1ps)
+exit_code: 0
+
+=== tb_dma_axi_master compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_axi_master -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_axi_master.vvp D:\domixi\DMA-controller\rtl\dma_axi_master.v D:\domixi\DMA-controller\tb\tb_dma_axi_master.v
+exit_code: 0
+
+=== tb_dma_axi_master run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_axi_master.vvp
+=== TEST 1: AW STALL, W-AFTER-AW, AND PAYLOAD STABILITY ===
+[PASS] AW/W ordering and payload stability
+=== TEST 2: AR PAYLOAD STABILITY UNDER STALL ===
+[PASS] AR payload stability
+=== TEST 3: RRESP ERROR DRAINS ACCEPTED AR AND ABORTS ===
+[PASS] RRESP error abort, drain, flush, and terminal ERROR
+=== TEST 4: BRESP ERROR ABORTS WITHOUT A DONE EVENT ===
+[PASS] BRESP error abort, flush, and terminal ERROR
+=== TEST 5: RID OWNERSHIP MISMATCH ABORTS ===
+[PASS] RID ownership validation
+=== TEST 6: BID OWNERSHIP MISMATCH ABORTS ===
+[PASS] BID ownership validation
+=== TEST 7: EARLY RLAST ABORTS FINITELY ===
+[PASS] Early RLAST framing violation closes with terminal ERROR
+=== TEST 8: MISSING FINAL RLAST ABORTS FINITELY ===
+[PASS] Missing final RLAST closes with terminal ERROR
+[PASS] tb_dma_axi_master V2.4.1 negative regression
+D:\domixi\DMA-controller\tb\tb_dma_axi_master.v:556: $finish called at 4546000 (1ps)
+exit_code: 0
+
+=== tb_dma_controller compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_controller -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_controller.vvp D:\domixi\DMA-controller\rtl\dma_apb_slave.v D:\domixi\DMA-controller\rtl\dma_fifo_latch.v D:\domixi\DMA-controller\rtl\dma_axi_master.v D:\domixi\DMA-controller\rtl\dma_controller.v D:\domixi\DMA-controller\tb\tb_dma_controller.v
+exit_code: 0
+
+=== tb_dma_controller run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_dma_controller.vvp
+[PASS] dma_controller regression: copy, IRQ/W1C, alignment, and BRESP error context closure.
+D:\domixi\DMA-controller\tb\tb_dma_controller.v:354: $finish called at 1935000 (1ps)
+exit_code: 0
+
+=== tb_fw_drain_fsm compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_fw_drain_fsm -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_fw_drain_fsm.vvp D:\domixi\DMA-controller\rtl\fw_drain_fsm.v D:\domixi\DMA-controller\tb\integration\mocks\fw_write_drain_mock.v D:\domixi\DMA-controller\tb\integration\mocks\fw_read_drain_mock.v D:\domixi\DMA-controller\tb\integration\tb_fw_drain_fsm.v
+exit_code: 0
+
+=== tb_fw_drain_fsm run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_fw_drain_fsm.vvp
+PASS: tb_fw_drain_fsm
+D:\domixi\DMA-controller\tb\integration\tb_fw_drain_fsm.v:154: $finish called at 90000 (1ps)
+exit_code: 0
+
+=== tb_soc_dma_firewall_contract compile ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: iverilog -g2012 -Wall -Wimplicit -s tb_soc_dma_firewall_contract -o C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_soc_dma_firewall_contract.vvp D:\domixi\DMA-controller\rtl\dma_apb_slave.v D:\domixi\DMA-controller\rtl\dma_fifo_latch.v D:\domixi\DMA-controller\rtl\dma_axi_master.v D:\domixi\DMA-controller\rtl\dma_controller.v D:\domixi\DMA-controller\tb\integration\mocks\dma_bus_firewall_stub.v D:\domixi\DMA-controller\tb\integration\tb_soc_dma_firewall_contract.v
+exit_code: 0
+
+=== tb_soc_dma_firewall_contract run ===
+cwd: C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep
+command: vvp C:\Users\HIWIND~1\AppData\Local\Temp\domixi-codex-integration-prep\tb_soc_dma_firewall_contract.vvp
+PASS: tb_soc_dma_firewall_contract (SIMULATION-ONLY FIREWALL STUB)
+D:\domixi\DMA-controller\tb\integration\tb_soc_dma_firewall_contract.v:274: $finish called at 420000 (1ps)
+exit_code: 0
+
+=== Changed-file whitespace check ===
+cwd: D:\domixi
+command: git -c core.autocrlf=false -c core.safecrlf=false diff --check -- DMA-controller/docs/architecture DMA-controller/docs/integration DMA-controller/rtl/fw_drain_fsm.v DMA-controller/scripts DMA-controller/tb/integration docs/superpowers/plans/2026-09-06-codex-integration-readiness.md
+exit_code: 0
+
+=== Source SHA256 ===
+584ABF87EDF141C822E05020D795D593E3F1F0A93463CD7A2A5D479E46C9CF87  D:\domixi\DMA-controller\rtl\fw_drain_fsm.v
+9C9915C91E415FC6488D84D58279CADA7C528C347E2276C57943A424584CD9DC  D:\domixi\DMA-controller\scripts\check_firewall_contract.py
+122D9271BB7C015523703DBB7004643A5E3749A0AB903E86B98B5F4EA35F9985  D:\domixi\DMA-controller\tb\integration\tb_fw_drain_fsm.v
+F108909FDF025CAC688A0C80107CB3F6DE50352AB90CAC7CD276588DC8ABC44F  D:\domixi\DMA-controller\tb\integration\tb_soc_dma_firewall_contract.v
+
+PASS: run_codex_integration_prep

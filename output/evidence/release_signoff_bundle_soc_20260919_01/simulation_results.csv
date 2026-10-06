@@ -1,0 +1,26 @@
+﻿id,scope,status,compile_warnings,reason,note,waveform
+dma_fifo,DMA_UNIT,PASS,0,,,simulation/dma_fifo/fifo_wave.vcd
+dma_apb,DMA_UNIT,PASS,0,,,simulation/dma_apb/apb_slave_wave.vcd
+dma_axi,DMA_UNIT,PASS,0,,,simulation/dma_axi/waves.vcd
+dma_controller,DMA_UNIT,PASS,0,,,simulation/dma_controller/waves.vcd
+picorv32_smoke,CPU_SMOKE,PASS,0,,Upstream increment-loop smoke: observes write of 5 to 0x3fc. Not ISA compliance or CPU-SoC integration verification.,simulation/picorv32_smoke/testbench.vcd
+drain_wrapper_mock,MOCK_INTEGRATION,PASS,0,,,simulation/drain_wrapper_mock/waves.vcd
+dma_firewall_boundary_mock,MOCK_INTEGRATION,PASS,0,,,simulation/dma_firewall_boundary_mock/waves.vcd
+address_slice_observation,FIREWALL_UNIT,PASS,0,,"Self-checking assertions for Stage 1 AW/AR latching, 4KB boundary, overflow, profile error and stall stability.",simulation/address_slice_observation/waves.vcd
+fw_apb_regs,STUDENT_UNIT,PASS,0,,,simulation/fw_apb_regs/waves.vcd
+fw_acl_matcher,STUDENT_UNIT,PASS,0,,,simulation/fw_acl_matcher/waves.vcd
+fw_write_drain,STUDENT_UNIT,PASS,0,,,simulation/fw_write_drain/waves.vcd
+fw_read_drain,STUDENT_UNIT,PASS,0,,,simulation/fw_read_drain/waves.vcd
+fw_context_tracker,FIREWALL_UNIT,PASS,0,,,simulation/fw_context_tracker/waves.vcd
+fw_data_path_mux,FIREWALL_UNIT,PASS,0,,,simulation/fw_data_path_mux/waves.vcd
+fw_drain_fsm,FIREWALL_UNIT,PASS,0,,,simulation/fw_drain_fsm/waves.vcd
+dma_bus_firewall,FIREWALL_TOP,PASS,0,,,simulation/dma_bus_firewall/waves.vcd
+soc_real_integration,SOC_REAL,PASS,0,,"Real PicoRV32 CPU + APB bridge + DMA controller + real firewall + AXI memory model. CPU firmware configures both APB targets, starts DMA, and raises a real trap for the AEGIS NMI path.",simulation/soc_real_integration/waves.vcd
+soc_reset_contract,SOC_REAL,PASS,0,,"Production AEGIS SoC top reset contract: asynchronous assertion, two-edge functional deassertion and explicit test_mode bypass alignment.",simulation/soc_reset_contract/waves.vcd
+aegis_rowhammer_5000,AEGIS_E2E,PASS,0,,"AEGIS end-to-end directed test with 5,000 alternating Rowhammer bursts, timing probe, normal DMA and CPU NMI scenarios.",simulation/aegis_rowhammer_5000/tb_aegis_soc.vcd
+fw_hdc_sense,AEGIS_HDC,PASS,0,,"AEGIS HDC 1024-bit hyperdimensional computing sensing engine: single-cycle classifier, telemetry tap, distance comparison, and fingerprinting.",simulation/fw_hdc_sense/waves.vcd
+fw_closed_loop_ctrl,AEGIS_REFLEX,PASS,0,,"AEGIS closed-loop reflex controller: 1-cycle NMI irq[3] dispatch, per-MID score tracker, decay epoch, forensic FIFO, and status registers.",simulation/fw_closed_loop_ctrl/waves.vcd
+fw_honeypot_sink,AEGIS_MTD,PASS,0,,AEGIS MTD Honey-Pot sink: absorbs malicious Rowhammer write bursts and returns dummy read data transparently with AXI OKAY.,simulation/fw_honeypot_sink/waves.vcd
+fw_hdc_sense_challenger2,AEGIS_CHALLENGER,PASS,0,,"Challenger 2 empirical verification: latency invariants, 0-cycle trap preemption, single-cycle evaluation, and avalanche distribution.",simulation/fw_hdc_sense_challenger2/waves.vcd
+adversarial_m1,AEGIS_STRESS,PASS,0,,"Adversarial stress suite: 5,000 random benign DMA bursts (0% FP), 4KB row boundary traversal, and evasion probe checks.",simulation/adversarial_m1/waves.vcd
+soc_dma_firewall_contract,SOC_CONTRACT,PASS,0,,Full DMA Controller + Production DMA Bus Firewall end-to-end contract testbench.,simulation/soc_dma_firewall_contract/waves.vcd

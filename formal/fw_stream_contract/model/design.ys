@@ -1,0 +1,8 @@
+# running in D:\domixi\formal\fw_stream_contract/src/
+read_verilog -formal fw_honeypot_sink.v fw_write_drain.v fw_read_drain.v fw_drain_fsm.v fw_stream_contract_formal.v
+prep -top fw_stream_contract_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

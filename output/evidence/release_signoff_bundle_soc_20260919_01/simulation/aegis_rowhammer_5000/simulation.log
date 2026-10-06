@@ -1,0 +1,36 @@
+VCD info: dumpfile tb_aegis_soc.vcd opened for output.
+==================================================================
+  AEGIS-RISC Bio-Inspired Closed-Loop Immune SoC: Full Verification
+==================================================================
+
+--- SCENARIO 1: Normal Sequential DMA Streaming ---
+[PASS] Scenario 1: Sequential DMA maintains Threat Level 0 (SAFE)
+[PASS] Scenario 1: 0% False Positive Guarantee - No Anomaly Alert
+[PASS] Scenario 1: Zero Honey-Pot redirection for normal traffic
+[PASS] Scenario 1: CPU NMI remains deasserted
+
+--- SCENARIO 2: Timing Side-Channel Probe Attack ---
+[PASS] Scenario 2: HDC detects periodic side-channel timing probe (Threat Level 1)
+[PASS] Scenario 2: MTD Timing Obfuscation activated
+[PASS] Scenario 2: MTD jitter creates an observable ingress interlock
+
+--- SCENARIO 3: DMA Rowhammer Attack & Honey-Pot Redirection ---
+[PASS] Scenario 3: HDC flags rapid Rowhammer alternating bursts (Threat Level 2)
+[PASS] Scenario 3: Anomaly alert raised
+[PASS] Scenario 3: Honey-pot hits recorded in hardware counter
+[PASS] Scenario 3: Honey-pot target uses dynamic keyed word scrambling
+[PASS] Scenario 3: APB Register 0xA8 correctly reports Honey-Pot redirection count
+
+--- SCENARIO 4: CPU Telemetry Fast-Path & NMI Reflex ---
+[PASS] Scenario 4: CPU trap fast-path instantaneously escalates to Threat Level 3 (BREACH)
+[PASS] Scenario 4: High-priority NMI pulse asserted to wake up PicoRV32
+[PASS] Scenario 4: APB Register 0xA0 latches Max Threat Level 3
+[PASS] Scenario 4: APB Register 0xA4 stores valid 32-bit Attack Forensic Fingerprint
+
+==================================================================
+  AEGIS-RISC VERIFICATION SUMMARY: 16 PASSED, 0 FAILED
+==================================================================
+
+>>> [SUCCESS] 100% OF AEGIS-RISC AEGIS REQUIREMENTS VERIFIED! <<<
+
+D:\domixi\tb\tb_aegis_soc.v:553: $finish called at 879537500 (1ps)

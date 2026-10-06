@@ -1,0 +1,104 @@
+Signal Name,Module/Interface,Direction,Type,Width,Clock Domain,Reset Domain,Active Level,Valid Condition,Protocol/Timing,Source Module,Dest Module,Default Reset Value,Functional Description
+clk,TOP_GLOBAL,Input,Clock,1,clk,N/A,Rising Edge,Always,Static,Clock Gen,All Modules,N/A,Xung nhịp hệ thống toàn cục; baseline AEGIS-RISC là 40 MHz với chu kỳ 25 ns
+rst_n,TOP_GLOBAL,Input,Reset,1,clk,rst_n,Active Low,Always,Asynchronous Assert / Synchronous Deassert,Reset Controller,All Modules,0,Tín hiệu Reset cứng toàn hệ thống tích cực mức thấp
+s_apb_paddr,APB_SLAVE,Input,Input,32,clk,rst_n,High,s_apb_psel & s_apb_penable,AMBA APB4 Phase 2,Secure CPU,fw_apb_regs,0x00000000,Địa chỉ APB hệ thống 32-bit; Base MMIO Firewall tại 0x10000000 với cửa sổ 256 byte (giải mã offset 0x000-0x0FF)
+s_apb_psel,APB_SLAVE,Input,Input,1,clk,rst_n,High,When selected,AMBA APB4 Phase 1,Secure CPU,fw_apb_regs,0,Tín hiệu chọn Slave APB Firewall
+s_apb_penable,APB_SLAVE,Input,Input,1,clk,rst_n,High,s_apb_psel active,AMBA APB4 Phase 2,Secure CPU,fw_apb_regs,0,Tín hiệu kích hoạt chu kỳ truy cập APB
+s_apb_pwrite,APB_SLAVE,Input,Input,1,clk,rst_n,High,s_apb_psel active,AMBA APB4,Secure CPU,fw_apb_regs,0,Hướng truy cập APB (1: Ghi / 0: Đọc)
+s_apb_pwdata,APB_SLAVE,Input,Input,32,clk,rst_n,High,s_apb_pwrite & s_apb_penable,AMBA APB4 full-word profile,Secure CPU,fw_apb_regs,0x00000000,Dữ liệu ghi APB 32-bit; PSTRB không expose và được tích hợp như 4'b1111
+s_apb_pprot,APB_SLAVE,Input,Input,3,clk,rst_n,High,s_apb_psel active,AMBA APB4 Protection,Secure CPU,fw_apb_regs,3'b001,Mức bảo vệ APB yêu cầu Secure Privileged Data với Bit1=0 và Bit0=1
+s_apb_prdata,APB_SLAVE,Output,Output,32,clk,rst_n,High,s_apb_psel & s_apb_penable & !s_apb_pwrite,AMBA APB4,fw_apb_regs,Secure CPU,0x00000000,Dữ liệu đọc APB 32-bit
+s_apb_pready,APB_SLAVE,Output,Output,1,clk,rst_n,High,s_apb_psel & s_apb_penable,AMBA APB4,fw_apb_regs,Secure CPU,1,Tín hiệu sẵn sàng đáp ứng giao dịch APB
+s_apb_pslverr,APB_SLAVE,Output,Output,1,clk,rst_n,High,Access violation,AMBA APB4 Error,fw_apb_regs,Secure CPU,0,Báo lỗi truy cập APB khi vi phạm quyền hoặc sau Sticky Lock
+dma_apb_paddr,APB_SLAVE,Input,Input,32,clk,rst_n,High,dma_apb_psel & dma_apb_penable,AMBA APB3 Phase 2,Secure-Privileged APB Aperture,dma_apb_slave,0x00000000,Địa chỉ APB cấu hình DMA 32-bit tại base 0x10001000; upstream enforce Secure Privileged vì không có PPROT/PSTRB
+dma_apb_psel,APB_SLAVE,Input,Input,1,clk,rst_n,High,When selected,AMBA APB3 Phase 1,Secure-Privileged APB Aperture,dma_apb_slave,0,Tín hiệu chọn Slave APB DMA Core
+dma_apb_penable,APB_SLAVE,Input,Input,1,clk,rst_n,High,dma_apb_psel active,AMBA APB3 Phase 2,Secure-Privileged APB Aperture,dma_apb_slave,0,Tín hiệu kích hoạt chu kỳ truy cập APB DMA
+dma_apb_pwrite,APB_SLAVE,Input,Input,1,clk,rst_n,High,dma_apb_psel active,AMBA APB3,Secure-Privileged APB Aperture,dma_apb_slave,0,Hướng truy cập APB DMA (1: Ghi / 0: Đọc)
+dma_apb_pwdata,APB_SLAVE,Input,Input,32,clk,rst_n,High,dma_apb_pwrite & dma_apb_penable,AMBA APB3 full-word profile,Secure-Privileged APB Aperture,dma_apb_slave,0x00000000,Dữ liệu ghi APB DMA 32-bit
+dma_apb_prdata,APB_SLAVE,Output,Output,32,clk,rst_n,High,dma_apb_psel & dma_apb_penable & !dma_apb_pwrite,AMBA APB3,dma_apb_slave,Secure-Privileged APB Aperture,0x00000000,Dữ liệu đọc APB DMA 32-bit
+dma_apb_pready,APB_SLAVE,Output,Output,1,clk,rst_n,High,dma_apb_psel & dma_apb_penable,AMBA APB3,dma_apb_slave,Secure-Privileged APB Aperture,1,Tín hiệu sẵn sàng đáp ứng giao dịch APB DMA
+dma_apb_pslverr,APB_SLAVE,Output,Output,1,clk,rst_n,High,Access violation,AMBA APB3 Error,dma_apb_slave,Secure-Privileged APB Aperture,0,Báo lỗi truy cập APB DMA ngoài cửa sổ 32 bytes hoặc không căn chỉnh 4B
+dma_irq,DMA_CORE_IRQ,Output,Interrupt,1,clk,rst_n,High,Transfer done or error,Level-Sensitive,dma_controller,CPU/Interrupt Controller,0,Tín hiệu ngắt hoàn thành truyền DMA hoặc báo lỗi AXI (Level-Sensitive)
+dma_ctx_valid,DMA_CONTROLLER_SIDEBAND,Output,Status,1,clk,rst_n,High,DMA running,Direct Point-to-Point,dma_controller,fw_context_tracker,0,Báo trạng thái DMA đang hoạt động để mở Region 4 và 5
+dma_ctx_src_addr,DMA_CONTROLLER_SIDEBAND,Output,Output,32,clk,rst_n,High,dma_ctx_valid,Direct Point-to-Point,dma_controller,fw_context_tracker,0x00000000,Địa chỉ nguồn DMA 32-bit nạp tự động vào Region 4 theo V2.4.1
+dma_ctx_dst_addr,DMA_CONTROLLER_SIDEBAND,Output,Output,32,clk,rst_n,High,dma_ctx_valid,Direct Point-to-Point,dma_controller,fw_context_tracker,0x00000000,Địa chỉ đích DMA 32-bit nạp tự động vào Region 5 theo V2.4.1
+dma_ctx_byte_len,DMA_CONTROLLER_SIDEBAND,Output,Output,32,clk,rst_n,High,dma_ctx_valid,Direct Point-to-Point,dma_controller,fw_context_tracker,0x00000000,Kích thước byte truyền DMA đã chốt tại START theo V2.4.1
+dma_ctx_done,DMA_CONTROLLER_SIDEBAND,Output,Status,1,clk,rst_n,High,DMA completion,1-Cycle Pulse,dma_controller,fw_context_tracker,0,Xung hoàn thành một chu kỳ; tracker thu hồi quyền sau cạnh clock lấy mẫu
+s_axi_awid,AXI_SLAVE,Input,Input,4,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,4'b0000,Master ID kênh ghi từ DMA
+s_axi_awaddr,AXI_SLAVE,Input,Input,32,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,0x00000000,Địa chỉ bắt đầu ghi từ DMA
+s_axi_awlen,AXI_SLAVE,Input,Input,8,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,8'h00,Mã AxLEN = beats-1; field biểu diễn 1-256 beats nhưng baseline chỉ chấp nhận 1-16 beats (AWLEN<=15)
+s_axi_awsize,AXI_SLAVE,Input,Input,3,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,3'b010,Kích thước mỗi beat ghi (3'b010 = 4 bytes)
+s_axi_awburst,AXI_SLAVE,Input,Input,2,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,2'b01,Kiểu burst ghi (2'b01 = INCR)
+s_axi_awprot,AXI_SLAVE,Input,Input,3,clk,rst_n,High,s_axi_awvalid,AMBA AXI4,dma_controller,dma_bus_firewall,3'b001,Thuộc tính DMA Secure Privileged Data cố định
+s_axi_awvalid,AXI_SLAVE,Input,Input,1,clk,rst_n,High,Valid AW handshake,AMBA AXI4,dma_controller,dma_bus_firewall,0,Báo hợp lệ địa chỉ ghi từ DMA
+s_axi_awready,AXI_SLAVE,Output,Output,1,clk,rst_n,High,Stage 1 free,AMBA AXI4,dma_bus_firewall,dma_controller,0,Sẵn sàng nhận địa chỉ ghi vào Stage 1 (sau Reset = 0; chỉ lên 1 khi Stage 1 sẵn sàng)
+s_axi_wdata,AXI_SLAVE,Input,Input,32,clk,rst_n,High,s_axi_wvalid,AMBA AXI4,dma_controller,dma_bus_firewall,0x00000000,Dữ liệu ghi 32-bit từ DMA
+s_axi_wstrb,AXI_SLAVE,Input,Input,4,clk,rst_n,High,s_axi_wvalid,AMBA AXI4,dma_controller,dma_bus_firewall,4'b1111,Byte strobe kênh ghi
+s_axi_wlast,AXI_SLAVE,Input,Input,1,clk,rst_n,High,s_axi_wvalid,AMBA AXI4,dma_controller,dma_bus_firewall,0,Báo beat dữ liệu ghi cuối cùng trong burst
+s_axi_wvalid,AXI_SLAVE,Input,Input,1,clk,rst_n,High,Valid W handshake,AMBA AXI4,dma_controller,dma_bus_firewall,0,Báo hợp lệ dữ liệu ghi từ DMA
+s_axi_wready,AXI_SLAVE,Output,Output,1,clk,rst_n,High,Matrix/Drain ready,AMBA AXI4,dma_bus_firewall,dma_controller,0,Sẵn sàng nhận dữ liệu ghi từ DMA (sau Reset = 0; lên 1 khi vào Drain SINK hoặc Cut-Through active)
+s_axi_bid,AXI_SLAVE,Output,Output,4,clk,rst_n,High,s_axi_bvalid,AMBA AXI4,dma_bus_firewall,dma_controller,4'b0000,ID phản hồi ghi trả về DMA
+s_axi_bresp,AXI_SLAVE,Output,Output,2,clk,rst_n,High,s_axi_bvalid,AMBA AXI4,dma_bus_firewall,dma_controller,2'b00,Trạng thái phản hồi ghi (OKAY/DECERR)
+s_axi_bvalid,AXI_SLAVE,Output,Output,1,clk,rst_n,High,Valid B handshake,AMBA AXI4,dma_bus_firewall,dma_controller,0,Báo hợp lệ phản hồi ghi trả về DMA
+s_axi_bready,AXI_SLAVE,Input,Input,1,clk,rst_n,High,DMA ready for B,AMBA AXI4,dma_controller,dma_bus_firewall,0,DMA sẵn sàng nhận phản hồi ghi; source hạ 0 khi reset
+s_axi_arid,AXI_SLAVE,Input,Input,4,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,4'b0000,Master ID kênh đọc từ DMA
+s_axi_araddr,AXI_SLAVE,Input,Input,32,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,0x00000000,Địa chỉ bắt đầu đọc từ DMA
+s_axi_arlen,AXI_SLAVE,Input,Input,8,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,8'h00,Mã AxLEN = beats-1; field biểu diễn 1-256 beats nhưng baseline chỉ chấp nhận 1-16 beats (ARLEN<=15)
+s_axi_arsize,AXI_SLAVE,Input,Input,3,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,3'b010,Kích thước mỗi beat đọc
+s_axi_arburst,AXI_SLAVE,Input,Input,2,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,2'b01,Kiểu burst đọc
+s_axi_arprot,AXI_SLAVE,Input,Input,3,clk,rst_n,High,s_axi_arvalid,AMBA AXI4,dma_controller,dma_bus_firewall,3'b001,Thuộc tính DMA Secure Privileged Data cố định
+s_axi_arvalid,AXI_SLAVE,Input,Input,1,clk,rst_n,High,Valid AR handshake,AMBA AXI4,dma_controller,dma_bus_firewall,0,Báo hợp lệ địa chỉ đọc từ DMA
+s_axi_arready,AXI_SLAVE,Output,Output,1,clk,rst_n,High,Stage 1 free,AMBA AXI4,dma_bus_firewall,dma_controller,0,Sẵn sàng nhận địa chỉ đọc vào Stage 1 (sau Reset = 0; chỉ lên 1 khi Stage 1 sẵn sàng)
+s_axi_rid,AXI_SLAVE,Output,Output,4,clk,rst_n,High,s_axi_rvalid,AMBA AXI4,dma_bus_firewall,dma_controller,4'b0000,ID dữ liệu đọc trả về DMA
+s_axi_rdata,AXI_SLAVE,Output,Output,32,clk,rst_n,High,s_axi_rvalid,AMBA AXI4,dma_bus_firewall,dma_controller,0x00000000,Dữ liệu đọc 32-bit trả về DMA
+s_axi_rresp,AXI_SLAVE,Output,Output,2,clk,rst_n,High,s_axi_rvalid,AMBA AXI4,dma_bus_firewall,dma_controller,2'b00,Trạng thái phản hồi đọc (OKAY/DECERR)
+s_axi_rlast,AXI_SLAVE,Output,Output,1,clk,rst_n,High,s_axi_rvalid,AMBA AXI4,dma_bus_firewall,dma_controller,0,Báo beat dữ liệu đọc cuối cùng trả về DMA
+s_axi_rvalid,AXI_SLAVE,Output,Output,1,clk,rst_n,High,Valid R handshake,AMBA AXI4,dma_bus_firewall,dma_controller,0,Báo hợp lệ dữ liệu đọc trả về DMA
+s_axi_rready,AXI_SLAVE,Input,Input,1,clk,rst_n,High,DMA ready for R,AMBA AXI4,dma_controller,dma_bus_firewall,0,DMA sẵn sàng nhận dữ liệu đọc; source hạ 0 khi reset
+m_axi_awid,AXI_MASTER,Output,Output,4,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,4'b0000,Master ID chuyển tiếp ra Interconnect
+m_axi_awaddr,AXI_MASTER,Output,Output,32,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0x00000000,Địa chỉ ghi chuyển tiếp ra Interconnect
+m_axi_awlen,AXI_MASTER,Output,Output,8,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,8'h00,AxLEN chuyển tiếp; baseline chỉ chuyển tiếp AWLEN<=15
+m_axi_awsize,AXI_MASTER,Output,Output,3,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,3'b010,Kích thước beat ghi chuyển tiếp
+m_axi_awburst,AXI_MASTER,Output,Output,2,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,2'b01,Kiểu burst ghi chuyển tiếp
+m_axi_awprot,AXI_MASTER,Output,Output,3,clk,rst_n,High,m_axi_awvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,3'b001,Thuộc tính Secure Privileged Data từ accepted AW snapshot
+m_axi_awcache,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,Device Non-bufferable attribute; không có slave-side input tương ứng
+m_axi_awlock,AXI_MASTER,Output,Tie-Off,1,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,1'b0,Normal access; exclusive access không thuộc baseline
+m_axi_awqos,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,Default QoS
+m_axi_awregion,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,AxREGION không dùng vì Firewall giải mã 8 region nội bộ
+m_axi_awvalid,AXI_MASTER,Output,Output,1,clk,rst_n,High,ACL Pass,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Báo hợp lệ địa chỉ ghi ra Matrix
+m_axi_awready,AXI_MASTER,Input,Input,1,clk,rst_n,High,Matrix ready,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,1,Matrix sẵn sàng nhận địa chỉ ghi
+m_axi_wdata,AXI_MASTER,Output,Output,32,clk,rst_n,High,m_axi_wvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0x00000000,Dữ liệu ghi chuyển tiếp (Cut-Through)
+m_axi_wstrb,AXI_MASTER,Output,Output,4,clk,rst_n,High,m_axi_wvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,4'b1111,Byte strobe ghi chuyển tiếp
+m_axi_wlast,AXI_MASTER,Output,Output,1,clk,rst_n,High,m_axi_wvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Beat ghi cuối cùng chuyển tiếp
+m_axi_wvalid,AXI_MASTER,Output,Output,1,clk,rst_n,High,Valid & Cut-Through,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Báo hợp lệ dữ liệu ghi ra Matrix
+m_axi_wready,AXI_MASTER,Input,Input,1,clk,rst_n,High,Matrix ready,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,1,Matrix sẵn sàng nhận dữ liệu ghi
+m_axi_bid,AXI_MASTER,Input,Input,4,clk,rst_n,High,m_axi_bvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,4'b0000,ID phản hồi ghi từ Matrix
+m_axi_bresp,AXI_MASTER,Input,Input,2,clk,rst_n,High,m_axi_bvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,2'b00,Phản hồi ghi từ Matrix
+m_axi_bvalid,AXI_MASTER,Input,Input,1,clk,rst_n,High,Valid B handshake,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,0,Báo hợp lệ phản hồi ghi từ Matrix
+m_axi_bready,AXI_MASTER,Output,Output,1,clk,rst_n,High,DMA ready & Cut-Through,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Firewall chuyển tiếp tín hiệu sẵn sàng nhận B (sau Reset = 0; lên 1 khi Cut-Through active)
+m_axi_arid,AXI_MASTER,Output,Output,4,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,4'b0000,Master ID đọc chuyển tiếp
+m_axi_araddr,AXI_MASTER,Output,Output,32,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0x00000000,Địa chỉ đọc chuyển tiếp ra Matrix
+m_axi_arlen,AXI_MASTER,Output,Output,8,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,8'h00,AxLEN chuyển tiếp; baseline chỉ chuyển tiếp ARLEN<=15
+m_axi_arsize,AXI_MASTER,Output,Output,3,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,3'b010,Kích thước beat đọc chuyển tiếp
+m_axi_arburst,AXI_MASTER,Output,Output,2,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,2'b01,Kiểu burst đọc chuyển tiếp
+m_axi_arprot,AXI_MASTER,Output,Output,3,clk,rst_n,High,m_axi_arvalid,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,3'b001,Thuộc tính Secure Privileged Data từ accepted AR snapshot
+m_axi_arcache,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,Device Non-bufferable attribute; không có slave-side input tương ứng
+m_axi_arlock,AXI_MASTER,Output,Tie-Off,1,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,1'b0,Normal access; exclusive access không thuộc baseline
+m_axi_arqos,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,Default QoS
+m_axi_arregion,AXI_MASTER,Output,Tie-Off,4,clk,rst_n,High,Always,AMBA AXI4 constant,dma_bus_firewall,Interconnect Matrix,4'b0000,AxREGION không dùng vì Firewall giải mã 8 region nội bộ
+m_axi_arvalid,AXI_MASTER,Output,Output,1,clk,rst_n,High,ACL Pass,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Báo hợp lệ địa chỉ đọc ra Matrix
+m_axi_arready,AXI_MASTER,Input,Input,1,clk,rst_n,High,Matrix ready,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,1,Matrix sẵn sàng nhận địa chỉ đọc
+m_axi_rid,AXI_MASTER,Input,Input,4,clk,rst_n,High,m_axi_rvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,4'b0000,ID dữ liệu đọc từ Matrix
+m_axi_rdata,AXI_MASTER,Input,Input,32,clk,rst_n,High,m_axi_rvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,0x00000000,Dữ liệu đọc từ Matrix
+m_axi_rresp,AXI_MASTER,Input,Input,2,clk,rst_n,High,m_axi_rvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,2'b00,Phản hồi đọc từ Matrix
+m_axi_rlast,AXI_MASTER,Input,Input,1,clk,rst_n,High,m_axi_rvalid,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,0,Beat đọc cuối cùng từ Matrix
+m_axi_rvalid,AXI_MASTER,Input,Input,1,clk,rst_n,High,Valid R handshake,AMBA AXI4,Interconnect Matrix,dma_bus_firewall,0,Báo hợp lệ dữ liệu đọc từ Matrix
+m_axi_rready,AXI_MASTER,Output,Output,1,clk,rst_n,High,DMA ready & Cut-Through,AMBA AXI4,dma_bus_firewall,Interconnect Matrix,0,Firewall chuyển tiếp tín hiệu sẵn sàng nhận R (sau Reset = 0; lên 1 khi Cut-Through active)
+sec_irq,INTERRUPT,Output,Interrupt,1,clk,rst_n,High,FW_CONTROL[1] & FAULT_STATUS[31],Level Sensitive,fw_apb_regs,Secure CPU,0,Ngắt mức: IRQ_EN và sticky IRQ_PENDING cùng bằng 1
+test_mode,TOP_GLOBAL,Input,Control,1,clk,rst_n,High,Scan or deterministic test mode,Static,SoC test controller,dma_bus_firewall,0,Bằng 0 trong functional mode; bằng 1 để reset theo đường điều khiển test
+cpu_telemetry_trap,CPU_TELEMETRY,Input,Event,1,clk,rst_n,High,CPU trap event,Synchronous,Secure CPU,dma_bus_firewall,0,Sự kiện trap đồng bộ đưa vào bộ phát hiện HDC
+cpu_telemetry_stall,CPU_TELEMETRY,Input,Status,1,clk,rst_n,High,CPU stall active,Synchronous,Secure CPU,dma_bus_firewall,0,Trạng thái CPU stall đồng bộ đưa vào bộ phát hiện HDC
+aegis_nmi_irq,INTERRUPT,Output,Interrupt,1,clk,rst_n,High,Closed-loop escalation,Level Sensitive,dma_bus_firewall,Secure CPU,0,Ngắt NMI khi chính sách closed-loop yêu cầu escalation
+aegis_anomaly_alert,AEGIS_STATUS,Output,Status,1,clk,rst_n,High,HDC anomaly detected,Synchronous,dma_bus_firewall,Secure monitor,0,Cảnh báo bất thường từ HDC engine
+aegis_threat_level,AEGIS_STATUS,Output,Status,2,clk,rst_n,High,Always valid,Synchronous,dma_bus_firewall,Secure monitor,2'b00,Mức đe dọa hiện tại của HDC engine
+aegis_honey_hit,AEGIS_STATUS,Output,Event,1,clk,rst_n,High,Honeypot event,Synchronous,dma_bus_firewall,Secure monitor,0,Xung báo giao dịch được honeypot sink ghi nhận

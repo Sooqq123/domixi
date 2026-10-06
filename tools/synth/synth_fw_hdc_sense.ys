@@ -1,0 +1,21 @@
+# Complete PPA Gate-Level Mapping for M1 HDC Sensing Module (fw_hdc_sense)
+read_liberty -lib tools/synth/cmos_cells.lib
+read_verilog rtl/fw_hdc_sense.v
+
+hierarchy -check -top fw_hdc_sense
+proc
+opt
+fsm
+opt
+memory
+opt
+
+synth -top fw_hdc_sense
+
+dfflibmap -liberty tools/synth/cmos_cells.lib
+abc -liberty tools/synth/cmos_cells.lib
+clean
+
+check
+stat -liberty tools/synth/cmos_cells.lib
+write_verilog -noattr output/synth_fw_hdc_sense_netlist.v

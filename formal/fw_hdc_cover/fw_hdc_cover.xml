@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-06T18:33:37" hostname="DESKTOP-6GBA1KF" package="fw_hdc_cover" id="0" name="default" tests="9" errors="0" failures="0" time="0" skipped="2">
+<properties>
+<property name="os" value="Windows"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:62.9-62.47" time="0" type="COVER" location="fw_hdc_cover.v:62.9-62.47" id="_witness_.check_cover_fw_hdc_cover_v_62_570" tracefile="engine_0\trace0.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:63.9-63.47" time="0" type="COVER" location="fw_hdc_cover.v:63.9-63.47" id="_witness_.check_cover_fw_hdc_cover_v_63_573" tracefile="engine_0\trace3.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:64.9-64.47" time="0" type="COVER" location="fw_hdc_cover.v:64.9-64.47" id="_witness_.check_cover_fw_hdc_cover_v_64_576" tracefile="engine_0\trace2.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:65.9-65.47" time="0" type="COVER" location="fw_hdc_cover.v:65.9-65.47" id="_witness_.check_cover_fw_hdc_cover_v_65_579" tracefile="engine_0\trace1.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:66.9-66.43" time="0" type="COVER" location="fw_hdc_cover.v:66.9-66.43" id="_witness_.check_cover_fw_hdc_cover_v_66_582" tracefile="engine_0\trace1.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:67.9-67.69" time="0" type="COVER" location="fw_hdc_cover.v:67.9-67.69" id="_witness_.check_cover_fw_hdc_cover_v_67_584" tracefile="engine_0\trace1.vcd">
+</testcase>
+<testcase classname="default" name="Property COVER in fw_hdc_cover at fw_hdc_cover.v:68.9-68.70" time="0" type="COVER" location="fw_hdc_cover.v:68.9-68.70" id="_witness_.check_cover_fw_hdc_cover_v_68_588" tracefile="engine_0\trace1.vcd">
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_hdc_cover/dut at fw_hdc_sense.v:513.17-513.48" time="0" type="ASSERT" location="fw_hdc_sense.v:513.17-513.48" id="_witness_.check_assert_fw_hdc_sense_v_513_837">
+<skipped />
+</testcase>
+<testcase classname="default" name="Property ASSERT in fw_hdc_cover/dut at fw_hdc_sense.v:519.17-519.48" time="0" type="ASSERT" location="fw_hdc_sense.v:519.17-519.48" id="_witness_.check_assert_fw_hdc_sense_v_519_843">
+<skipped />
+</testcase>
+<system-out>SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] Removing directory 'D:\domixi\formal\fw_hdc_cover'.
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] Copy 'D:\domixi\rtl\fw_hdc_sense.v' to 'D:\domixi\formal\fw_hdc_cover\src\fw_hdc_sense.v'.
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] Copy 'D:\domixi\formal\fw_hdc_cover.v' to 'D:\domixi\formal\fw_hdc_cover\src\fw_hdc_cover.v'.
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] Copy 'D:\domixi\rtl\generated\aegis_hdc_params.vh' to 'D:\domixi\formal\fw_hdc_cover\src\generated\aegis_hdc_params.vh'.
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] engine_0: smtbmc z3
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] base: starting process &quot;cd D:\domixi\formal\fw_hdc_cover/src&amp; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 18:33:25 [D:\domixi\formal\fw_hdc_cover] base: Warning: Replacing memory \queue_mem with list of registers. See fw_hdc_sense.v:228
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] base: finished (returncode=0)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] prep: starting process &quot;cd D:\domixi\formal\fw_hdc_cover/model&amp; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] prep: finished (returncode=0)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] smt2: starting process &quot;cd D:\domixi\formal\fw_hdc_cover/model&amp; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] smt2: finished (returncode=0)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: starting process &quot;cd D:\domixi\formal\fw_hdc_cover&amp; yosys-smtbmc -s z3 --presat -c --noprogress -t 24  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2&quot;
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Solver: z3
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at fw_hdc_cover: fw_hdc_cover.v:62.9-62.47 (_witness_.check_cover_fw_hdc_cover_v_62_570)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at fw_hdc_cover: fw_hdc_cover.v:65.9-65.47 (_witness_.check_cover_fw_hdc_cover_v_65_579)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at fw_hdc_cover: fw_hdc_cover.v:66.9-66.43 (_witness_.check_cover_fw_hdc_cover_v_66_582)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at fw_hdc_cover: fw_hdc_cover.v:67.9-67.69 (_witness_.check_cover_fw_hdc_cover_v_67_584)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Reached cover statement in step 3 at fw_hdc_cover: fw_hdc_cover.v:68.9-68.70 (_witness_.check_cover_fw_hdc_cover_v_68_588)
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 18:33:26 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 18:33:27 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 18:33:27 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 18:33:27 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 18:33:27 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 18:33:27 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:00  Checking cover reachability in step 8..
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Reached cover statement in step 8 at fw_hdc_cover: fw_hdc_cover.v:64.9-64.47 (_witness_.check_cover_fw_hdc_cover_v_64_576)
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:01  Checking cover reachability in step 9..
+SBY 18:33:28 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:02  Checking cover reachability in step 10..
+SBY 18:33:29 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:02  Checking cover reachability in step 11..
+SBY 18:33:30 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:03  Checking cover reachability in step 12..
+SBY 18:33:31 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:05  Checking cover reachability in step 13..
+SBY 18:33:36 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Reached cover statement in step 13 at fw_hdc_cover: fw_hdc_cover.v:63.9-63.47 (_witness_.check_cover_fw_hdc_cover_v_63_573)
+SBY 18:33:36 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 18:33:36 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 18:33:36 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] engine_0: ##   0:00:10  Status: passed
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] engine_0: finished (returncode=0)
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] engine_0: Status returned by engine: pass
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:11 (11)
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: Elapsed process time unvailable on Windows
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: engine_0 (smtbmc z3) returned pass
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: cover trace: D:\domixi\formal\fw_hdc_cover\engine_0\trace0.vcd
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_62_570 at fw_hdc_cover.v:62.9-62.47 step 3
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: cover trace: D:\domixi\formal\fw_hdc_cover\engine_0\trace1.vcd
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_65_579 at fw_hdc_cover.v:65.9-65.47 step 3
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_66_582 at fw_hdc_cover.v:66.9-66.43 step 3
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_67_584 at fw_hdc_cover.v:67.9-67.69 step 3
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_68_588 at fw_hdc_cover.v:68.9-68.70 step 3
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: cover trace: D:\domixi\formal\fw_hdc_cover\engine_0\trace2.vcd
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_64_576 at fw_hdc_cover.v:64.9-64.47 step 8
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary: cover trace: D:\domixi\formal\fw_hdc_cover\engine_0\trace3.vcd
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] summary:   reached cover statement fw_hdc_cover._witness_.check_cover_fw_hdc_cover_v_63_573 at fw_hdc_cover.v:63.9-63.47 step 13
+SBY 18:33:37 [D:\domixi\formal\fw_hdc_cover] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

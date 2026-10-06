@@ -1,0 +1,12 @@
+Region Name,Base Address,Limit Address,Size,Access Rights,Access Condition,Clock Domain,Target Peripheral / Memory,Description
+UNMAPPED_LOW,0x00000000,0x0FFFFFFF,256 MiB,None,Default Deny,clk,Unmapped / DECERR,Khoảng địa chỉ không thuộc baseline và mọi DMA access bị default deny
+DMA_FIREWALL_MMIO,0x10000000,0x100000FF,256 Bytes,RW,Secure Privileged (PPROT[1]=0 PPROT[0]=1),clk,fw_apb_regs,APB4 protection profile 32-bit full-word; giải mã s_apb_paddr[7:0]; offset 0x0A0-0x0FF hoặc misaligned trả PSLVERR=1 PRDATA=0
+UNMAPPED_MMIO_GAP0,0x10000100,0x10000FFF,0x00000F00 Bytes,None,Default Deny,clk,Unmapped / DECERR,Khoảng trống giữa hai cửa sổ MMIO canonical
+DMA_CONTROLLER_MMIO,0x10001000,0x1000101F,32 Bytes,RW,Secure Privileged (Upstream Enforced),clk,dma_apb_slave,APB3 profile 32-bit full-word không PPROT/PSTRB; upstream chặn Non-Secure và Unprivileged; offset ngoài 0x00-0x10 hoặc misaligned trả PSLVERR=1 PRDATA=0
+UNMAPPED_MMIO_GAP1,0x10001020,0x1FFFFFFF,0x0FFFEFE0 Bytes,None,Default Deny,clk,Unmapped / DECERR,Khoảng địa chỉ không thuộc baseline và mọi DMA access bị default deny
+ON_CHIP_SECURE_SRAM,0x20000000,0x2007FFFF,512 KiB,RW,Firewall ACL Checked (Secure Mode Only),clk,Secure SRAM Controller,Bộ nhớ SRAM nội bộ tốc độ cao lưu trữ dữ liệu nhạy cảm
+UNMAPPED_MEMORY_GAP,0x20080000,0x3FFFFFFF,0x1FF80000 Bytes,None,Default Deny,clk,Unmapped / DECERR,Khoảng địa chỉ không thuộc baseline và mọi DMA access bị default deny
+PERIPHERAL_SPACE,0x40000000,0x4000FFFF,64 KiB,RW,Firewall ACL Checked,clk,UART/SPI/Crypto Accelerators,Không gian ngoại vi hệ thống và bộ tăng tốc mã hóa
+UNMAPPED_HIGH_GAP,0x40010000,0x7FFFFFFF,0x3FFF0000 Bytes,None,Default Deny,clk,Unmapped / DECERR,Khoảng địa chỉ không thuộc baseline và mọi DMA access bị default deny
+SYSTEM_DDR_RAM,0x80000000,0x8FFFFFFF,256 MiB,RW,Firewall ACL Checked,clk,DDR Memory Controller,Bộ nhớ RAM hệ thống phục vụ truyền nhận dữ liệu khối lớn
+RESERVED_SPACE,0x90000000,0xFFFFFFFF,1.75 GiB,None,Default Deny,clk,Unmapped / DECERR,Vùng địa chỉ chưa phân bổ (mọi truy cập đều trả về DECERR)

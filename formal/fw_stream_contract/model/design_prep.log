@@ -1,0 +1,144 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module fw_drain_fsm.
+Found 0 SCCs in module fw_honeypot_sink.
+Found 0 SCCs in module fw_read_drain.
+Found 0 SCCs in module fw_stream_contract_formal.
+Found 0 SCCs in module fw_write_drain.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing fw_honeypot_sink.$procdff$1011 ($adff): ARST=\rst_n, D=$0\honey_trans_count[31:0], Q=\honey_trans_count
+Replacing fw_honeypot_sink.$procdff$1016 ($adff): ARST=\rst_n, D=$0\hp_arready[0:0], Q=\hp_arready
+Replacing fw_honeypot_sink.$procdff$1021 ($adff): ARST=\rst_n, D=$0\hp_rvalid[0:0], Q=\hp_rvalid
+Replacing fw_honeypot_sink.$procdff$1026 ($adff): ARST=\rst_n, D=$0\hp_rid[3:0], Q=\hp_rid
+Replacing fw_honeypot_sink.$procdff$1031 ($adff): ARST=\rst_n, D=$0\hp_rdata[31:0], Q=\hp_rdata
+Replacing fw_honeypot_sink.$procdff$1036 ($adff): ARST=\rst_n, D=$0\hp_rlast[0:0], Q=\hp_rlast
+Replacing fw_honeypot_sink.$procdff$1041 ($adff): ARST=\rst_n, D=$0\r_state[1:0], Q=\r_state
+Replacing fw_honeypot_sink.$procdff$1046 ($adff): ARST=\rst_n, D=$0\latched_arid[3:0], Q=\latched_arid
+Replacing fw_honeypot_sink.$procdff$1051 ($adff): ARST=\rst_n, D=$0\latched_araddr[31:0], Q=\latched_araddr
+Replacing fw_honeypot_sink.$procdff$1056 ($adff): ARST=\rst_n, D=$0\latched_arlen[7:0], Q=\latched_arlen
+Replacing fw_honeypot_sink.$procdff$1061 ($adff): ARST=\rst_n, D=$0\r_beat_count[7:0], Q=\r_beat_count
+Replacing fw_honeypot_sink.$procdff$1066 ($adff): ARST=\rst_n, D=$0\hp_awready[0:0], Q=\hp_awready
+Replacing fw_honeypot_sink.$procdff$1071 ($adff): ARST=\rst_n, D=$0\hp_wready[0:0], Q=\hp_wready
+Replacing fw_honeypot_sink.$procdff$1076 ($adff): ARST=\rst_n, D=$0\hp_bvalid[0:0], Q=\hp_bvalid
+Replacing fw_honeypot_sink.$procdff$1081 ($adff): ARST=\rst_n, D=$0\hp_bid[3:0], Q=\hp_bid
+Replacing fw_honeypot_sink.$procdff$1086 ($adff): ARST=\rst_n, D=$0\wlast_err[0:0], Q=\wlast_err
+Replacing fw_honeypot_sink.$procdff$1091 ($adff): ARST=\rst_n, D=$0\w_state[1:0], Q=\w_state
+Replacing fw_honeypot_sink.$procdff$1096 ($adff): ARST=\rst_n, D=$0\latched_awid[3:0], Q=\latched_awid
+Replacing fw_honeypot_sink.$procdff$1101 ($adff): ARST=\rst_n, D=$0\latched_awlen[7:0], Q=\latched_awlen
+Replacing fw_honeypot_sink.$procdff$1106 ($adff): ARST=\rst_n, D=$0\w_beat_count[7:0], Q=\w_beat_count
+Replacing fw_honeypot_sink.$procdff$1111 ($adff): ARST=\rst_n, D=$0\scrambler_state[15:0], Q=\scrambler_state
+Replacing fw_read_drain.$procdff$946 ($adff): ARST=\rst_n, D=\id_next, Q=\id_q
+Replacing fw_read_drain.$procdff$951 ($adff): ARST=\rst_n, D=\len_next, Q=\len_q
+Replacing fw_read_drain.$procdff$956 ($adff): ARST=\rst_n, D=\mode_next, Q=\mode_q
+Replacing fw_read_drain.$procdff$961 ($adff): ARST=\rst_n, D=\count_next, Q=\count_q
+Replacing fw_read_drain.$procdff$966 ($adff): ARST=\rst_n, D=\state_next, Q=\state_q
+Replacing fw_write_drain.$procdff$1001 ($adff): ARST=\rst_n, D=\timer_next, Q=\timer_q
+Replacing fw_write_drain.$procdff$1006 ($adff): ARST=\rst_n, D=\timeout_latched_next, Q=\timeout_latched_q
+Replacing fw_write_drain.$procdff$971 ($adff): ARST=\rst_n, D=\state_next, Q=\state
+Replacing fw_write_drain.$procdff$976 ($adff): ARST=\rst_n, D=\id_next, Q=\id_q
+Replacing fw_write_drain.$procdff$981 ($adff): ARST=\rst_n, D=\len_next, Q=\len_q
+Replacing fw_write_drain.$procdff$986 ($adff): ARST=\rst_n, D=\mode_next, Q=\mode_q
+Replacing fw_write_drain.$procdff$991 ($adff): ARST=\rst_n, D=\count_next, Q=\count_q
+Replacing fw_write_drain.$procdff$996 ($adff): ARST=\rst_n, D=\framing_fault_next, Q=\framing_fault_q
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 44 unused cells and 44 unused wires.
+<suppressed ~45 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 5 unused cells and 5 unused wires.
+<suppressed ~10 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module fw_drain_fsm...
+Checking module fw_honeypot_sink...
+Checking module fw_read_drain...
+Checking module fw_stream_contract_formal...
+Checking module fw_write_drain...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_drain_fsm.
+Optimizing module fw_honeypot_sink.
+Optimizing module fw_read_drain.
+Optimizing module fw_stream_contract_formal.
+Optimizing module fw_write_drain.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_drain_fsm'.
+Computing hashes of 2 cells of `\fw_drain_fsm'.
+Finding duplicate cells in `\fw_drain_fsm'.
+Finding identical cells in module `\fw_honeypot_sink'.
+Computing hashes of 160 cells of `\fw_honeypot_sink'.
+Finding duplicate cells in `\fw_honeypot_sink'.
+Finding identical cells in module `\fw_read_drain'.
+Computing hashes of 39 cells of `\fw_read_drain'.
+Finding duplicate cells in `\fw_read_drain'.
+Finding identical cells in module `\fw_stream_contract_formal'.
+Computing hashes of 211 cells of `\fw_stream_contract_formal'.
+Finding duplicate cells in `\fw_stream_contract_formal'.
+Finding identical cells in module `\fw_write_drain'.
+Computing hashes of 76 cells of `\fw_write_drain'.
+Finding duplicate cells in `\fw_write_drain'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_write_drain..
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_drain_fsm..
+Finding unused cells or wires in module \fw_honeypot_sink..
+Finding unused cells or wires in module \fw_read_drain..
+Finding unused cells or wires in module \fw_stream_contract_formal..
+Finding unused cells or wires in module \fw_write_drain..
+Removed 0 unused cells and 39 unused wires.
+<suppressed ~3 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 781e9acf4d
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

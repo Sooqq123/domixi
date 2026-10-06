@@ -1,0 +1,156 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_closed_formal'. Setting top module to fw_closed_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_closed_formal
+Used module:     \fw_closed_loop_ctrl
+Removed 0 unused modules.
+Module fw_closed_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_closed_loop_ctrl directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== fw_closed_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       62 wires
+      211 wire bits
+       23 public wires
+      170 public wire bits
+       12 ports
+       50 port bits
+       56 cells
+        1   $add
+        2   $anyinit
+        8   $assert
+        3   $assume
+        4   $eq
+       12   $ff
+        1   $logic_and
+        5   $logic_not
+        1   $logic_or
+        1   $lt
+       16   $mux
+        2   $not
+        1 submodules
+        1   fw_closed_loop_ctrl
+
+=== fw_closed_loop_ctrl ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      707 wires
+     6090 wire bits
+      151 public wires
+     1954 public wire bits
+       32 ports
+      381 port bits
+      703 cells
+        8   $add
+        4   $and
+       51   $anyinit
+       14   $anyseq
+       21   $assert
+        1   $assume
+       61   $eq
+        1   $eqx
+       25   $ff
+        2   $ge
+       18   $gt
+       17   $le
+       44   $logic_and
+       25   $logic_not
+        4   $logic_or
+        2   $lt
+      366   $mux
+        1   $ne
+        2   $neg
+        4   $not
+        5   $or
+        5   $pmux
+        1   $reduce_or
+        3   $shift
+        1   $shl
+       17   $sub
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      759 fw_closed_formal
+      703 fw_closed_loop_ctrl
+
+        +----------Count including submodules.
+        | 
+      769 wires
+     6301 wire bits
+      174 public wires
+     2124 public wire bits
+       44 ports
+      431 port bits
+        - memories
+        - memory bits
+        - processes
+      759 cells
+        9   $add
+        4   $and
+       53   $anyinit
+       14   $anyseq
+       29   $assert
+        4   $assume
+       65   $eq
+        1   $eqx
+       37   $ff
+        2   $ge
+       18   $gt
+       17   $le
+       45   $logic_and
+       30   $logic_not
+        5   $logic_or
+        3   $lt
+      382   $mux
+        1   $ne
+        2   $neg
+        6   $not
+        5   $or
+        5   $pmux
+        1   $reduce_or
+        3   $shift
+        1   $shl
+       17   $sub
+        1 submodules
+        1   fw_closed_loop_ctrl
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module fw_closed_loop_ctrl.
+Creating SMT-LIBv2 representation of module fw_closed_formal.
+
+End of script. Logfile hash: 8543f22cd0
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...

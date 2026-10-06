@@ -1,0 +1,134 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module fw_closed_formal.
+Found 0 SCCs in module fw_closed_loop_ctrl.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing fw_closed_formal.$procdff$2213 ($adff): ARST=\resetn, D=$0\exp_pending[0:0], Q=\exp_pending
+Replacing fw_closed_formal.$procdff$2218 ($adff): ARST=\resetn, D=$0\exp_nmi[0:0], Q=\exp_nmi
+Replacing fw_closed_loop_ctrl.$procdff$2236 ($adff): ARST=\resetn, D=$0\reg_aegis_fingerprint[31:0], Q=\reg_aegis_fingerprint
+Replacing fw_closed_loop_ctrl.$procdff$2241 ($adff): ARST=\resetn, D=$0\reg_aegis_honey_count[31:0], Q=\reg_aegis_honey_count
+Replacing fw_closed_loop_ctrl.$procdff$2246 ($adff): ARST=\resetn, D=$0\attack_event_count[7:0], Q=\attack_event_count
+Replacing fw_closed_loop_ctrl.$procdff$2251 ($adff): ARST=\resetn, D=$0\max_threat_latched[1:0], Q=\max_threat_latched
+Replacing fw_closed_loop_ctrl.$procdff$2256 ($adff): ARST=\resetn, D=$0\last_attacking_mid[3:0], Q=\last_attacking_mid
+Replacing fw_closed_loop_ctrl.$procdff$2266 ($adff): ARST=\resetn, D=$0\fifo_wr_ptr[1:0], Q=\fifo_wr_ptr
+Replacing fw_closed_loop_ctrl.$procdff$2271 ($adff): ARST=\resetn, D=$0\fifo_rd_ptr[1:0], Q=\fifo_rd_ptr
+Replacing fw_closed_loop_ctrl.$procdff$2276 ($adff): ARST=\resetn, D=$0\fifo_count[2:0], Q=\fifo_count
+Replacing fw_closed_loop_ctrl.$procdff$2281 ($adff): ARST=\resetn, D=$0\fifo_overflow[0:0], Q=\fifo_overflow
+Replacing fw_closed_loop_ctrl.$procdff$2286 ($adff): ARST=\resetn, D=$0\fifo_meta[0][31:0], Q=\fifo_meta[0]
+Replacing fw_closed_loop_ctrl.$procdff$2291 ($adff): ARST=\resetn, D=$0\fifo_meta[1][31:0], Q=\fifo_meta[1]
+Replacing fw_closed_loop_ctrl.$procdff$2296 ($adff): ARST=\resetn, D=$0\fifo_meta[2][31:0], Q=\fifo_meta[2]
+Replacing fw_closed_loop_ctrl.$procdff$2301 ($adff): ARST=\resetn, D=$0\fifo_meta[3][31:0], Q=\fifo_meta[3]
+Replacing fw_closed_loop_ctrl.$procdff$2306 ($adff): ARST=\resetn, D=$0\fifo_addr[0][31:0], Q=\fifo_addr[0]
+Replacing fw_closed_loop_ctrl.$procdff$2311 ($adff): ARST=\resetn, D=$0\fifo_addr[1][31:0], Q=\fifo_addr[1]
+Replacing fw_closed_loop_ctrl.$procdff$2316 ($adff): ARST=\resetn, D=$0\fifo_addr[2][31:0], Q=\fifo_addr[2]
+Replacing fw_closed_loop_ctrl.$procdff$2321 ($adff): ARST=\resetn, D=$0\fifo_addr[3][31:0], Q=\fifo_addr[3]
+Replacing fw_closed_loop_ctrl.$procdff$2326 ($adff): ARST=\resetn, D=$0\fifo_time[0][31:0], Q=\fifo_time[0]
+Replacing fw_closed_loop_ctrl.$procdff$2331 ($adff): ARST=\resetn, D=$0\fifo_time[1][31:0], Q=\fifo_time[1]
+Replacing fw_closed_loop_ctrl.$procdff$2336 ($adff): ARST=\resetn, D=$0\fifo_time[2][31:0], Q=\fifo_time[2]
+Replacing fw_closed_loop_ctrl.$procdff$2341 ($adff): ARST=\resetn, D=$0\fifo_time[3][31:0], Q=\fifo_time[3]
+Replacing fw_closed_loop_ctrl.$procdff$2406 ($adff): ARST=\resetn, D=\safe_telemetry_overrun, Q=\telemetry_overrun_d
+Replacing fw_closed_loop_ctrl.$procdff$2411 ($adff): ARST=\resetn, D=$0\aegis_nmi_irq[0:0], Q=\aegis_nmi_irq
+Replacing fw_closed_loop_ctrl.$procdff$2416 ($adff): ARST=\resetn, D=$0\interrupt_pending[0:0], Q=\interrupt_pending
+Replacing fw_closed_loop_ctrl.$procdff$2421 ($adff): ARST=\resetn, D=$0$lookahead\quarantine_mask$35[15:0]$52, Q=\quarantine_mask
+Replacing fw_closed_loop_ctrl.$procdff$2426 ($adff): ARST=\resetn, D=$0$lookahead\mid_active_epoch$34[15:0]$51, Q=\mid_active_epoch
+Replacing fw_closed_loop_ctrl.$procdff$2431 ($adff): ARST=\resetn, D=$0\epoch_counter[31:0], Q=\epoch_counter
+Replacing fw_closed_loop_ctrl.$procdff$2461 ($adff): ARST=\resetn, D=$0\mid_score[0][3:0], Q=\mid_score[0]
+Replacing fw_closed_loop_ctrl.$procdff$2466 ($adff): ARST=\resetn, D=$0\mid_score[1][3:0], Q=\mid_score[1]
+Replacing fw_closed_loop_ctrl.$procdff$2471 ($adff): ARST=\resetn, D=$0\mid_score[2][3:0], Q=\mid_score[2]
+Replacing fw_closed_loop_ctrl.$procdff$2476 ($adff): ARST=\resetn, D=$0\mid_score[3][3:0], Q=\mid_score[3]
+Replacing fw_closed_loop_ctrl.$procdff$2481 ($adff): ARST=\resetn, D=$0\mid_score[4][3:0], Q=\mid_score[4]
+Replacing fw_closed_loop_ctrl.$procdff$2486 ($adff): ARST=\resetn, D=$0\mid_score[5][3:0], Q=\mid_score[5]
+Replacing fw_closed_loop_ctrl.$procdff$2491 ($adff): ARST=\resetn, D=$0\mid_score[6][3:0], Q=\mid_score[6]
+Replacing fw_closed_loop_ctrl.$procdff$2496 ($adff): ARST=\resetn, D=$0\mid_score[7][3:0], Q=\mid_score[7]
+Replacing fw_closed_loop_ctrl.$procdff$2501 ($adff): ARST=\resetn, D=$0\mid_score[8][3:0], Q=\mid_score[8]
+Replacing fw_closed_loop_ctrl.$procdff$2506 ($adff): ARST=\resetn, D=$0\mid_score[9][3:0], Q=\mid_score[9]
+Replacing fw_closed_loop_ctrl.$procdff$2511 ($adff): ARST=\resetn, D=$0\mid_score[10][3:0], Q=\mid_score[10]
+Replacing fw_closed_loop_ctrl.$procdff$2516 ($adff): ARST=\resetn, D=$0\mid_score[11][3:0], Q=\mid_score[11]
+Replacing fw_closed_loop_ctrl.$procdff$2521 ($adff): ARST=\resetn, D=$0\mid_score[12][3:0], Q=\mid_score[12]
+Replacing fw_closed_loop_ctrl.$procdff$2526 ($adff): ARST=\resetn, D=$0\mid_score[13][3:0], Q=\mid_score[13]
+Replacing fw_closed_loop_ctrl.$procdff$2531 ($adff): ARST=\resetn, D=$0\mid_score[14][3:0], Q=\mid_score[14]
+Replacing fw_closed_loop_ctrl.$procdff$2536 ($adff): ARST=\resetn, D=$0\mid_score[15][3:0], Q=\mid_score[15]
+Replacing fw_closed_loop_ctrl.$procdff$2601 ($adff): ARST=\resetn, D=$0\cycle_timestamp[31:0], Q=\cycle_timestamp
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 91 unused cells and 91 unused wires.
+<suppressed ~93 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module fw_closed_formal...
+Checking module fw_closed_loop_ctrl...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_closed_formal.
+Optimizing module fw_closed_loop_ctrl.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_closed_formal'.
+Computing hashes of 60 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+Computing hashes of 55 cells of `\fw_closed_formal'.
+Finding duplicate cells in `\fw_closed_formal'.
+<suppressed ~15 debug messages>
+Finding identical cells in module `\fw_closed_loop_ctrl'.
+Computing hashes of 718 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+Computing hashes of 701 cells of `\fw_closed_loop_ctrl'.
+Finding duplicate cells in `\fw_closed_loop_ctrl'.
+<suppressed ~51 debug messages>
+Removed a total of 22 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~2 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_closed_formal..
+Finding unused cells or wires in module \fw_closed_loop_ctrl..
+Removed 0 unused cells and 60 unused wires.
+<suppressed ~2 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 54b69a8ba6
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

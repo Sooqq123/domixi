@@ -1,0 +1,6 @@
+VCD info: dumpfile waves.vcd opened for output.
+[TEST 1] Testing Normal Write Burst (LEN=3 -> 4 beats)
+[PASS] Write burst completed successfully. Count=         1
+[TEST 2] Testing Read Burst with Backpressure (LEN=2 -> 3 beats)
+[PASS] Read burst with backpressure passed. Count=         2
+[ALL TESTS PASSED] fw_honeypot_sink verified successfully!

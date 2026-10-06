@@ -1,0 +1,22 @@
+<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Bài 10 — SVA và formal</title><style>body{max-width:900px;margin:auto;padding:32px;font:17px/1.6 system-ui;background:#f7f9fb;color:#17202a}h1,h2{line-height:1.25}section{background:#fff;border:1px solid #dce3ea;border-radius:12px;padding:18px 22px;margin:18px 0}pre{background:#111923;color:#ecf5ff;padding:15px;border-radius:9px;overflow:auto}.gate{border-left:5px solid #087f8c}.warn{border-left:5px solid #c76b00}code{font-family:Consolas,monospace}</style></head><body>
+<h1>Bài 10 — Assertions và formal security properties</h1><p><strong>Mục tiêu:</strong> chuyển invariant thành property kiểm tra được, phân biệt assumption/assertion/cover và báo đúng trạng thái khi thiếu formal tool.</p>
+<section><h2>Đọc bắt buộc</h2><ul><li><code>verification_test_plan.md</code>: mọi property ID.</li><li><code>firewall_rtl_integration_contract.md</code>: 10 invariant.</li><li><code>requirements_traceability.csv</code>: requirement–assertion mapping.</li></ul></section>
+<section><h2>Ba loại property</h2><ul><li><strong>assume:</strong> giới hạn môi trường theo hợp đồng hợp lệ; không dùng để giả định chính điều cần chứng minh.</li><li><strong>assert:</strong> behavior DUT bắt buộc.</li><li><strong>cover:</strong> chứng minh scenario có thể đạt tới và chống vacuous proof.</li></ul></section>
+<section><h2>Mẫu property cốt lõi</h2><pre><code>property p_aw_stable;
+  @(posedge clk) disable iff (!rst_n)
+  m_axi_awvalid &amp;&amp; !m_axi_awready
+    |=&gt; m_axi_awvalid &amp;&amp; $stable({m_axi_awid,m_axi_awaddr,
+                                  m_axi_awlen,m_axi_awsize,
+                                  m_axi_awburst,m_axi_awprot});
+endproperty
+
+property p_denied_address_isolated;
+  @(posedge clk) disable iff (!rst_n)
+  (acl_w_fault || acl_r_fault)
+    |-&gt; !(m_axi_awvalid || m_axi_arvalid);
+endproperty</code></pre></section>
+<section class="warn"><h2>Tránh proof rỗng</h2><p>Nếu assumption làm AWVALID luôn 0 thì stability property “PASS” vô nghĩa. Thêm cover cho address acceptance, denied LEN 0/15, stalls và terminal response. Review reachable states và bound đủ dài cho 16-beat drain.</p></section>
+<section><h2>Lab</h2><ol><li>Bind stable-under-stall assertions cho AW/AR/B/R.</li><li>Viết denied address/data isolation.</li><li>Viết exact write/read beat và no-early-B.</li><li>Viết ID stability, sticky lock, same-cycle revoke.</li><li>Chạy assertions trong simulation trước.</li><li>Nếu formal engine có, chạy bounded proof với cover; lưu report.</li><li>Nếu không có tool, giữ source property và ghi G4 <code>BLOCKED_TOOLING</code>.</li></ol></section>
+<section class="gate"><h2>Exit gate</h2><ul><li>Mọi property ID có source và requirement mapping.</li><li>Simulation assertion regression PASS.</li><li>Formal report PASS hoặc trạng thái BLOCKED_TOOLING chính xác.</li><li>Assumption/vacuity review được ghi lại.</li></ul></section>
+<section><h2>Câu hỏi kiểm tra</h2><ol><li>Directed test PASS có thay formal proof được không?</li><li>Vì sao cần cover bên cạnh assert?</li><li>Bound tối thiểu phải xét behavior 16-beat nào?</li></ol></section>
+</body></html>

@@ -1,0 +1,24 @@
+# Complete PPA Gate-Level Mapping for DMA Controller Core
+read_liberty -lib tools/synth/cmos_cells.lib
+read_verilog DMA-controller/rtl/dma_fifo_latch.v
+read_verilog DMA-controller/rtl/dma_apb_slave.v
+read_verilog DMA-controller/rtl/dma_axi_master.v
+read_verilog DMA-controller/rtl/dma_controller.v
+
+hierarchy -check -top dma_controller
+proc
+opt
+fsm
+opt
+memory
+opt
+
+synth -top dma_controller
+
+dfflibmap -liberty tools/synth/cmos_cells.lib
+abc -liberty tools/synth/cmos_cells.lib
+clean
+
+check
+stat -liberty tools/synth/cmos_cells.lib
+write_verilog -noattr output/synth_dma_controller_netlist.v

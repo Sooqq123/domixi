@@ -1,0 +1,14 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal -D FORMAL fw_closed_loop_ctrl.v fw_closed_formal.v
+prep -top fw_closed_formal
+
+[files]
+rtl/fw_closed_loop_ctrl.v
+formal/fw_closed_formal.v

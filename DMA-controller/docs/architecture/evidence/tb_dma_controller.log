@@ -1,0 +1,15 @@
+Executed UTC: 2026-08-24T02:22:43Z
+Tool: Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Runtime: Icarus Verilog runtime version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_controller -o D:\domixi\tmp\verification_v241\tb_dma_controller.vvp rtl\dma_fifo_latch.v rtl\dma_apb_slave.v rtl\dma_axi_master.v rtl\dma_controller.v tb\tb_dma_controller.v
+Compile exit: 0
+Simulation command: cd D:\domixi\tmp\verification_v241; vvp .\tb_dma_controller.vvp
+Simulation exit: 0
+[PASS] dma_controller regression: copy, IRQ/W1C, alignment, and BRESP error context closure.
+tb\tb_dma_controller.v:354: $finish called at 1935000 (1ps)
+Source SHA256:
+9C274E7C71BD81FD7163BF7AB18226307DF8C9D0A7749C166613B02D0724ABAD  D:\domixi\DMA-controller\rtl\dma_fifo_latch.v
+F2E224B6C313A77944CAD82F505EFC4E422AE7958D67D8C63AD9B46CC4187030  D:\domixi\DMA-controller\rtl\dma_apb_slave.v
+2E6BBCFD5F5B35FE35187E71CBBE23D9BA8A708E8781B915B643D246B84DB210  D:\domixi\DMA-controller\rtl\dma_axi_master.v
+CFF5B90C61B23E47191AC4C55F95358586FCAD9F7B5A3E9191E531444EF91701  D:\domixi\DMA-controller\rtl\dma_controller.v
+9C2B9F2AD3C802249488DA7CAF50E339641BC4C6EE692A4ECB0CAD27EF032C1C  D:\domixi\DMA-controller\tb\tb_dma_controller.v

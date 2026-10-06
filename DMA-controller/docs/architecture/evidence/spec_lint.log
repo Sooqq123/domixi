@@ -1,0 +1,12 @@
+Canonical Architecture Baseline V2.4.1 semantic specification lint
+Scope: document consistency/evidence only; RTL conformance and sign-off are separate
+[PASS] required files
+[PASS] strict CSV integrity
+[PASS] pinout and signal list
+[PASS] memory map
+[PASS] register map
+[PASS] traceability evidence
+[PASS] document and evidence manifests
+[PASS] benchmark artifact consistency
+[PASS] normative cross-document semantics
+LINT PASSED: specification consistency checks completed with no detected errors

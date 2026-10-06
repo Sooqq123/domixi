@@ -1,0 +1,8 @@
+------------------------------------------------------------
+   STARTING TESTBENCH: tb_fw_context_tracker
+------------------------------------------------------------
+VCD info: dumpfile waves.vcd opened for output.
+------------------------------------------------------------
+PASS: tb_fw_context_tracker (All 16 test steps passed without error)
+------------------------------------------------------------
+D:\domixi\tb\tb_fw_context_tracker.v:404: $finish called at 436000 (1ps)

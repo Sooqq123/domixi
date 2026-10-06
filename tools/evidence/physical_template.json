@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "top": null,
+  "source_revision": null,
+  "pdk": null,
+  "pdk_version": null,
+  "gds_sha256": null,
+  "artifacts": {
+    "gds": null,
+    "layout_image": null,
+    "netlist": null,
+    "sdc": null,
+    "spef": null,
+    "liberty": null,
+    "drc_deck": null,
+    "lvs_deck": null
+  },
+  "drc": {"tool": "KLayout or Magic", "version": null, "command": null, "exit_code": null, "report": null, "format": "normalized", "violations": null},
+  "lvs": {"tool": "Netgen", "version": null, "command": null, "exit_code": null, "report": null, "matched": null},
+  "required_timing_views": [],
+  "timing": [
+    {"corner": null, "mode": "functional", "stage": "post_route", "check": "setup", "unit": "ns", "tool": "OpenSTA", "version": null, "command": null, "exit_code": null, "report": null, "wns": null, "tns": null, "unconstrained_endpoints": null},
+    {"corner": null, "mode": "functional", "stage": "post_route", "check": "hold", "unit": "ns", "tool": "OpenSTA", "version": null, "command": null, "exit_code": null, "report": null, "wns": null, "tns": null, "unconstrained_endpoints": null}
+  ]
+}

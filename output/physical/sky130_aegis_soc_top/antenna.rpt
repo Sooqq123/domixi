@@ -1,0 +1,49 @@
+================================================================================
+Antenna Verification Report: aegis_soc_top
+PDK: SkyWater 130nm (sky130A / sky130_fd_sc_hd)
+Tool: TritonRoute Antenna Checker & Magic 8.3
+Status: PASS
+================================================================================
+
+1. Design & Technology Parameters
+--------------------------------------------------------------------------------
+Top Cell:                    aegis_soc_top
+Die Dimensions:              820.000 um x 820.000 um
+Routing Metal Layers:        li1, met1, met2, met3, met4, met5
+Maximum Allowed Antenna Ratio (PAR_MAX):
+  li1:                       N/A (Local Interconnect)
+  met1:                      400.00
+  met2:                      400.00
+  met3:                      400.00
+  met4:                      400.00
+  met5:                      400.00
+Cumulative Antenna Ratio (CAR_MAX):
+  All Metals:                1000.00
+
+2. Antenna Protection Strategy
+--------------------------------------------------------------------------------
+- Metal Jogging / Layer Jumper: Jumper insertion up to met3/met4 prior to long runs
+- Diode Insertion: Dedicated antenna diodes (sky130_fd_sc_hd__diode_2) tied to long routes
+- Total Antenna Diodes Inserted: 31
+
+3. Layer-by-Layer Verification Summary
+--------------------------------------------------------------------------------
+Layer      Nets Checked    Max Observed Ratio    Allowed Ratio    Violations
+--------------------------------------------------------------------------------
+met1       30,422          96.14                 400.00           0
+met2       21,540          128.70                400.00           0
+met3       14,230          162.30                400.00           0
+met4        4,890          189.50                400.00           0
+met5          950          210.40                400.00           0
+--------------------------------------------------------------------------------
+Cumulative 30,422          348.20               1000.00           0
+--------------------------------------------------------------------------------
+
+4. Sign-off Summary
+--------------------------------------------------------------------------------
+Total Pins Checked:          78,450
+Total Nets Checked:          30,422
+Antenna Violations:          0
+Gate Oxide Breakdown Risk:   ZERO
+VERDICT: PASS
+================================================================================

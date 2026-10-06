@@ -1,0 +1,61 @@
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] Removing directory 'D:\domixi\formal\fw_axi_contract'.
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] Copy 'D:\domixi\rtl\fw_axi_address_slice.v' to 'D:\domixi\formal\fw_axi_contract\src\fw_axi_address_slice.v'.
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] Copy 'D:\domixi\rtl\fw_data_path_mux.v' to 'D:\domixi\formal\fw_axi_contract\src\fw_data_path_mux.v'.
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] Copy 'D:\domixi\formal\fw_axi_contract_formal.v' to 'D:\domixi\formal\fw_axi_contract\src\fw_axi_contract_formal.v'.
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] engine_0: smtbmc z3
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] base: starting process "cd D:\domixi\formal\fw_axi_contract/src& yosys -ql ../model/design.log ../model/design.ys"
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] base: finished (returncode=0)
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] prep: starting process "cd D:\domixi\formal\fw_axi_contract/model& yosys -ql design_prep.log design_prep.ys"
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] prep: finished (returncode=0)
+SBY 18:33:37 [D:\domixi\formal\fw_axi_contract] smt2: starting process "cd D:\domixi\formal\fw_axi_contract/model& yosys -ql design_smt2.log design_smt2.ys"
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] smt2: finished (returncode=0)
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: starting process "cd D:\domixi\formal\fw_axi_contract& yosys-smtbmc -s z3 --presat --noprogress -t 20  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Solver: z3
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 1..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 1..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 2..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 2..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 3..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 3..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 4..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 4..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assumptions in step 5..
+SBY 18:33:38 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:00  Checking assertions in step 5..
+SBY 18:33:39 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:01  Checking assumptions in step 6..
+SBY 18:33:39 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:01  Checking assertions in step 6..
+SBY 18:33:39 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:01  Checking assumptions in step 7..
+SBY 18:33:40 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:01  Checking assertions in step 7..
+SBY 18:33:40 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:02  Checking assumptions in step 8..
+SBY 18:33:40 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:02  Checking assertions in step 8..
+SBY 18:33:41 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:03  Checking assumptions in step 9..
+SBY 18:33:41 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:03  Checking assertions in step 9..
+SBY 18:33:42 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:04  Checking assumptions in step 10..
+SBY 18:33:43 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:05  Checking assertions in step 10..
+SBY 18:33:44 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:06  Checking assumptions in step 11..
+SBY 18:33:45 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:07  Checking assertions in step 11..
+SBY 18:33:47 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:09  Checking assumptions in step 12..
+SBY 18:33:48 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:10  Checking assertions in step 12..
+SBY 18:33:49 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:11  Checking assumptions in step 13..
+SBY 18:33:51 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:13  Checking assertions in step 13..
+SBY 18:33:54 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:16  Checking assumptions in step 14..
+SBY 18:33:57 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:19  Checking assertions in step 14..
+SBY 18:33:59 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:20  Checking assumptions in step 15..
+SBY 18:34:00 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:22  Checking assertions in step 15..
+SBY 18:34:01 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:23  Checking assumptions in step 16..
+SBY 18:34:03 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:25  Checking assertions in step 16..
+SBY 18:34:06 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:27  Checking assumptions in step 17..
+SBY 18:34:08 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:29  Checking assertions in step 17..
+SBY 18:34:09 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:31  Checking assumptions in step 18..
+SBY 18:34:11 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:33  Checking assertions in step 18..
+SBY 18:34:13 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:35  Checking assumptions in step 19..
+SBY 18:34:16 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:38  Checking assertions in step 19..
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] engine_0: ##   0:00:40  Status: passed
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] engine_0: finished (returncode=0)
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] engine_0: Status returned by engine: pass
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:41 (41)
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] summary: Elapsed process time unvailable on Windows
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] summary: engine_0 (smtbmc z3) returned pass
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] summary: engine_0 did not produce any traces
+SBY 18:34:18 [D:\domixi\formal\fw_axi_contract] DONE (PASS, rc=0)

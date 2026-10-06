@@ -1,0 +1,8 @@
+# running in D:\domixi\formal\fw_mtd_prove/src/
+read_verilog -formal -D FORMAL fw_mtd_engine.v fw_mtd_formal.v
+prep -top fw_mtd_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

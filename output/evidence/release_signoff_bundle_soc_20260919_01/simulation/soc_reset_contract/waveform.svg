@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="609" viewBox="0 0 1400 609">
+<rect width="100%" height="100%" fill="#111827"/>
+<g font-family="monospace" font-size="12" fill="#e5e7eb">
+<text x="20" y="23">VCD preview — tick = 1ps; raw VCD is authoritative</text>
+<path d="M350.0,55 V589" stroke="#374151"/>
+<text x="350.0" y="65">0</text>
+<path d="M550.0,55 V589" stroke="#374151"/>
+<text x="550.0" y="65">4200</text>
+<path d="M750.0,55 V589" stroke="#374151"/>
+<text x="750.0" y="65">8400</text>
+<path d="M950.0,55 V589" stroke="#374151"/>
+<text x="950.0" y="65">12600</text>
+<path d="M1150.0,55 V589" stroke="#374151"/>
+<text x="1150.0" y="65">16800</text>
+<path d="M1350.0,55 V589" stroke="#374151"/>
+<text x="1350.0" y="65">21000</text>
+<text x="12" y="93">tb_aegis_soc_reset.clk<title>tb_aegis_soc_reset.clk</title></text>
+<path d="M350.00,98 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,80 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,80 V98" stroke="#34d399"/>
+<path d="M826.19,98 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,80 V98" stroke="#34d399"/>
+<path d="M1064.29,80 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,80 V98" stroke="#34d399"/>
+<path d="M1302.38,98 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,80 V98" stroke="#34d399"/>
+<text x="12" y="135">tb_aegis_soc_reset.dut.clk<title>tb_aegis_soc_reset.dut.clk</title></text>
+<path d="M350.00,140 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,122 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,122 V140" stroke="#34d399"/>
+<path d="M826.19,140 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,122 V140" stroke="#34d399"/>
+<path d="M1064.29,122 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,122 V140" stroke="#34d399"/>
+<path d="M1302.38,140 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,122 V140" stroke="#34d399"/>
+<text x="12" y="177">tb_aegis_soc_reset.dut.u_cpu_bridge.clk<title>tb_aegis_soc_reset.dut.u_cpu_bridge.clk</title></text>
+<path d="M350.00,182 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,164 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,164 V182" stroke="#34d399"/>
+<path d="M826.19,182 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,164 V182" stroke="#34d399"/>
+<path d="M1064.29,164 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,164 V182" stroke="#34d399"/>
+<path d="M1302.38,182 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,164 V182" stroke="#34d399"/>
+<text x="12" y="219">tb_aegis_soc_reset.dut.u_dma.clk<title>tb_aegis_soc_reset.dut.u_dma.clk</title></text>
+<path d="M350.00,224 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,206 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,206 V224" stroke="#34d399"/>
+<path d="M826.19,224 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,206 V224" stroke="#34d399"/>
+<path d="M1064.29,206 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,206 V224" stroke="#34d399"/>
+<path d="M1302.38,224 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,206 V224" stroke="#34d399"/>
+<text x="12" y="261">tb_aegis_soc_reset.dut.u_firewall.clk<title>tb_aegis_soc_reset.dut.u_firewall.clk</title></text>
+<path d="M350.00,266 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,248 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,248 V266" stroke="#34d399"/>
+<path d="M826.19,266 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,248 V266" stroke="#34d399"/>
+<path d="M1064.29,248 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,248 V266" stroke="#34d399"/>
+<path d="M1302.38,266 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,248 V266" stroke="#34d399"/>
+<text x="12" y="303">gis_soc_reset.dut.u_cpu_bridge.u_picorv32.clk<title>tb_aegis_soc_reset.dut.u_cpu_bridge.u_picorv32.clk</title></text>
+<path d="M350.00,308 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,290 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,290 V308" stroke="#34d399"/>
+<path d="M826.19,308 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,290 V308" stroke="#34d399"/>
+<path d="M1064.29,290 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,290 V308" stroke="#34d399"/>
+<path d="M1302.38,308 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,290 V308" stroke="#34d399"/>
+<text x="12" y="345">tb_aegis_soc_reset.dut.u_dma.u_fifo.clk<title>tb_aegis_soc_reset.dut.u_dma.u_fifo.clk</title></text>
+<path d="M350.00,350 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,332 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,332 V350" stroke="#34d399"/>
+<path d="M826.19,350 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,332 V350" stroke="#34d399"/>
+<path d="M1064.29,332 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,332 V350" stroke="#34d399"/>
+<path d="M1302.38,350 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,332 V350" stroke="#34d399"/>
+<text x="12" y="387">tb_aegis_soc_reset.dut.u_dma.u_master.aclk<title>tb_aegis_soc_reset.dut.u_dma.u_master.aclk</title></text>
+<path d="M350.00,392 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,374 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,374 V392" stroke="#34d399"/>
+<path d="M826.19,392 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,374 V392" stroke="#34d399"/>
+<path d="M1064.29,374 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,374 V392" stroke="#34d399"/>
+<path d="M1302.38,392 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,374 V392" stroke="#34d399"/>
+<text x="12" y="429">tb_aegis_soc_reset.dut.u_dma.u_slave.pclk<title>tb_aegis_soc_reset.dut.u_dma.u_slave.pclk</title></text>
+<path d="M350.00,434 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,416 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,416 V434" stroke="#34d399"/>
+<path d="M826.19,434 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,416 V434" stroke="#34d399"/>
+<path d="M1064.29,416 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,416 V434" stroke="#34d399"/>
+<path d="M1302.38,434 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,416 V434" stroke="#34d399"/>
+<text x="12" y="471">is_soc_reset.dut.u_firewall.u_acl_matcher.clk<title>tb_aegis_soc_reset.dut.u_firewall.u_acl_matcher.clk</title></text>
+<path d="M350.00,476 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,458 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,458 V476" stroke="#34d399"/>
+<path d="M826.19,476 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,458 V476" stroke="#34d399"/>
+<path d="M1064.29,458 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,458 V476" stroke="#34d399"/>
+<path d="M1302.38,476 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,458 V476" stroke="#34d399"/>
+<text x="12" y="513">_soc_reset.dut.u_firewall.u_address_slice.clk<title>tb_aegis_soc_reset.dut.u_firewall.u_address_slice.clk</title></text>
+<path d="M350.00,518 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,500 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,500 V518" stroke="#34d399"/>
+<path d="M826.19,518 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,500 V518" stroke="#34d399"/>
+<path d="M1064.29,500 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,500 V518" stroke="#34d399"/>
+<path d="M1302.38,518 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,500 V518" stroke="#34d399"/>
+<text x="12" y="555">aegis_soc_reset.dut.u_firewall.u_apb_regs.clk<title>tb_aegis_soc_reset.dut.u_firewall.u_apb_regs.clk</title></text>
+<path d="M350.00,560 H588.10" stroke="#34d399" fill="none"/>
+<path d="M588.10,542 H826.19" stroke="#34d399" fill="none"/>
+<path d="M588.10,542 V560" stroke="#34d399"/>
+<path d="M826.19,560 H1064.29" stroke="#34d399" fill="none"/>
+<path d="M826.19,542 V560" stroke="#34d399"/>
+<path d="M1064.29,542 H1302.38" stroke="#34d399" fill="none"/>
+<path d="M1064.29,542 V560" stroke="#34d399"/>
+<path d="M1302.38,560 H1350.00" stroke="#34d399" fill="none"/>
+<path d="M1302.38,542 V560" stroke="#34d399"/>
+</g></svg>

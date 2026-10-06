@@ -1,0 +1,3 @@
+VCD info: dumpfile waves.vcd opened for output.
+[PASS] dma_controller regression: copy, IRQ/W1C, alignment, and BRESP error context closure.
+D:\domixi\DMA-controller\tb\tb_dma_controller.v:354: $finish called at 1935000 (1ps)

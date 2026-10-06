@@ -1,0 +1,65 @@
+[WARNING STA-0168] unknown field nets.
+Startpoint: test_mode (input port clocked by clk)
+Endpoint: u_firewall/u_apb_regs/_4225_
+          (removal check against rising-edge clock clk)
+Path Group: asynchronous
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 ^ input external delay
+     4    0.093    0.000    0.000    0.200 ^ test_mode (in)
+                   0.005    0.002    0.202 ^ u_firewall/_0459_/S (sky130_fd_sc_hd__mux2_8)
+   649    3.021    4.441    1.124    1.326 ^ u_firewall/_0459_/X (sky130_fd_sc_hd__mux2_8)
+                   6.048    2.184    3.510 ^ u_firewall/u_apb_regs/_4225_/RESET_B (sky130_fd_sc_hd__dfrtp_1)
+                                     3.510   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            0.914    0.914   clock network delay (propagated)
+                            0.050    0.964   clock uncertainty
+                            0.000    0.964   clock reconvergence pessimism
+                                     0.964 ^ u_firewall/u_apb_regs/_4225_/CLK (sky130_fd_sc_hd__dfrtp_1)
+                            1.929    2.893   library removal time
+                                     2.893   data required time
+---------------------------------------------------------------------------------
+                                     2.893   data required time
+                                    -3.510   data arrival time
+---------------------------------------------------------------------------------
+                                     0.618   slack (MET)
+
+
+Startpoint: ext_mem_rdata[18] (input port clocked by clk)
+Endpoint: u_cpu_bridge/u_picorv32/_11178_
+          (rising edge-triggered flip-flop clocked by clk)
+Path Group: clk
+Path Type: min
+
+Fanout      Cap     Slew    Delay     Time   Description
+---------------------------------------------------------------------------------
+                            0.000    0.000   clock clk (rise edge)
+                            0.000    0.000   clock network delay (propagated)
+                            0.200    0.200 v input external delay
+     1    0.034    0.000    0.000    0.200 v ext_mem_rdata[18] (in)
+                   0.009    0.005    0.205 v u_cpu_bridge/_412_/A0 (sky130_fd_sc_hd__mux2i_1)
+     1    0.002    0.104    0.101    0.306 ^ u_cpu_bridge/_412_/Y (sky130_fd_sc_hd__mux2i_1)
+                   0.104    0.000    0.306 ^ u_cpu_bridge/_414_/A2 (sky130_fd_sc_hd__o21ai_0)
+     4    0.032    0.387    0.336    0.642 v u_cpu_bridge/_414_/Y (sky130_fd_sc_hd__o21ai_0)
+                   0.387    0.005    0.647 v u_cpu_bridge/u_picorv32/_11178_/D (sky130_fd_sc_hd__edfxtp_1)
+                                     0.647   data arrival time
+
+                            0.000    0.000   clock clk (rise edge)
+                            0.893    0.893   clock network delay (propagated)
+                            0.050    0.943   clock uncertainty
+                            0.000    0.943   clock reconvergence pessimism
+                                     0.943 ^ u_cpu_bridge/u_picorv32/_11178_/CLK (sky130_fd_sc_hd__edfxtp_1)
+                           -0.306    0.637   library hold time
+                                     0.637   data required time
+---------------------------------------------------------------------------------
+                                     0.637   data required time
+                                    -0.647   data arrival time
+---------------------------------------------------------------------------------
+                                     0.010   slack (MET)
+
+

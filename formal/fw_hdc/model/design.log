@@ -1,0 +1,788 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_hdc_sense.v
+Parsing formal Verilog input from `fw_hdc_sense.v' to AST representation.
+Generating RTLIL representation for module `\fw_hdc_sense'.
+Warning: Replacing memory \queue_mem with list of registers. See fw_hdc_sense.v:228
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_hdc_formal.v
+Parsing formal Verilog input from `fw_hdc_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_hdc_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     \fw_hdc_sense
+Parameter \RAPID_THRESH = 7'0000100
+
+3.1.2. Executing AST frontend in derive mode using pre-parsed AST for module `\fw_hdc_sense'.
+Parameter \RAPID_THRESH = 7'0000100
+Generating RTLIL representation for module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Warning: Replacing memory \queue_mem with list of registers. See fw_hdc_sense.v:228
+
+3.1.3. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+3.1.4. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+Removing unused module `\fw_hdc_sense'.
+Removed 1 unused modules.
+Module fw_hdc_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$fw_hdc_formal.v:57$564 in module fw_hdc_formal.
+Removed 1 dead cases from process $proc$fw_hdc_sense.v:333$866 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 1 switch rules as full_case in process $proc$fw_hdc_sense.v:333$866 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Removed 1 dead cases from process $proc$fw_hdc_sense.v:332$861 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 1 switch rules as full_case in process $proc$fw_hdc_sense.v:332$861 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Removed 1 dead cases from process $proc$fw_hdc_sense.v:331$856 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 1 switch rules as full_case in process $proc$fw_hdc_sense.v:331$856 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 3 switch rules as full_case in process $proc$fw_hdc_sense.v:507$831 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Removed 1 dead cases from process $proc$fw_hdc_sense.v:403$799 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 10 switch rules as full_case in process $proc$fw_hdc_sense.v:403$799 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 14 switch rules as full_case in process $proc$fw_hdc_sense.v:221$686 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Marked 6 switch rules as full_case in process $proc$fw_hdc_sense.v:125$667 in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Removed a total of 4 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 31 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_hdc_formal.$proc$fw_hdc_formal.v:51$588'.
+  Set init value: \reset_counter = 3'000
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \resetn in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+Found async reset \resetn in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+Found async reset \resetn in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 3 switches.
+<suppressed ~51 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_hdc_formal.$proc$fw_hdc_formal.v:51$588'.
+Creating decoders for process `\fw_hdc_formal.$proc$fw_hdc_formal.v:65$569'.
+     1/5: $assert$fw_hdc_formal.v:86$586_EN
+     2/5: $assert$fw_hdc_formal.v:81$583_EN
+     3/5: $assert$fw_hdc_formal.v:80$581_EN
+     4/5: $assert$fw_hdc_formal.v:75$578_EN
+     5/5: $assert$fw_hdc_formal.v:74$576_EN
+Creating decoders for process `\fw_hdc_formal.$proc$fw_hdc_formal.v:57$564'.
+     1/2: $assume$fw_hdc_formal.v:61$568_EN
+     2/2: $assume$fw_hdc_formal.v:59$566_EN
+Creating decoders for process `\fw_hdc_formal.$proc$fw_hdc_formal.v:52$561'.
+     1/1: $0\reset_counter[2:0]
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:335$871'.
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:333$866'.
+     1/1: $1\get_proto_breach$func$fw_hdc_sense.v:333$597.$result[63:0]$870
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:332$861'.
+     1/1: $1\get_proto_attack$func$fw_hdc_sense.v:332$596.$result[63:0]$865
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:331$856'.
+     1/1: $1\get_proto_probe$func$fw_hdc_sense.v:331$595.$result[63:0]$860
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:330$842'.
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:507$831'.
+     1/4: $assert$fw_hdc_sense.v:519$839_EN
+     2/4: $assert$fw_hdc_sense.v:513$833_EN
+     3/4: $0\formal_hdc_age[5:0]
+     4/4: $0\formal_hdc_track[0:0]
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+     1/20: $4$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_DATA[63:0]$813
+     2/20: $3$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_DATA[63:0]$812
+     3/20: $3$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_ADDR[0:0]$811
+     4/20: $2$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_DATA[63:0]$809
+     5/20: $2$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_ADDR[0:0]$808
+     6/20: $1$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_DATA[63:0]$804
+     7/20: $1$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_ADDR[0:0]$803
+     8/20: $0\closed_loop_hash_stage1[31:0]
+     9/20: $0\closed_loop_hash_stage0[31:0]
+    10/20: $0\hdc_fingerprint[31:0]
+    11/20: $0\hdc_threat_level[1:0]
+    12/20: $0\dist_breach[10:0]
+    13/20: $0\dist_attack[10:0]
+    14/20: $0\dist_probe[10:0]
+    15/20: $0\acc_dist[10:0]
+    16/20: $0\chunk_count[3:0]
+    17/20: $0\proto_stage[1:0]
+    18/20: $0\hdc_state[1:0]
+    19/20: $0\active_snapshot_valid[0:0]
+    20/20: $0\active_snapshot[63:0]
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+     1/43: $5$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR[0:0]$750
+     2/43: $5$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA[63:0]$751
+     3/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA[63:0]$748
+     4/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR[0:0]$747
+     5/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_ADDR[0:0]$741
+     6/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_DATA[63:0]$742
+     7/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_DATA[63:0]$737
+     8/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_ADDR[0:0]$736
+     9/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA[63:0]$739
+    10/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR[0:0]$738
+    11/43: $5$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR[0:0]$728
+    12/43: $5$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA[63:0]$729
+    13/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA[63:0]$726
+    14/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR[0:0]$725
+    15/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_ADDR[0:0]$719
+    16/43: $4$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_DATA[63:0]$720
+    17/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_DATA[63:0]$715
+    18/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_ADDR[0:0]$714
+    19/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA[63:0]$717
+    20/43: $3$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR[0:0]$716
+    21/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA[63:0]$708
+    22/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR[0:0]$707
+    23/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_DATA[63:0]$706
+    24/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_ADDR[0:0]$705
+    25/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA[63:0]$712
+    26/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR[0:0]$711
+    27/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_DATA[63:0]$710
+    28/43: $2$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_ADDR[0:0]$709
+    29/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA[63:0]$703
+    30/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR[0:0]$702
+    31/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_DATA[63:0]$701
+    32/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_ADDR[0:0]$700
+    33/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA[63:0]$699
+    34/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR[0:0]$698
+    35/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_DATA[63:0]$697
+    36/43: $1$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_ADDR[0:0]$696
+    37/43: $0\queue_mem[1][63:0]
+    38/43: $0\queue_mem[0][63:0]
+    39/43: $0\q_count[1:0]
+    40/43: $0\q_rd_ptr[0:0]
+    41/43: $0\q_wr_ptr[0:0]
+    42/43: $0\overrun_mid[3:0]
+    43/43: $0\telemetry_overrun[0:0]
+Creating decoders for process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+     1/7: $0\last_hammer_row[3:0]
+     2/7: $0\stall_streak[7:0]
+     3/7: $0\probe_streak[3:0]
+     4/7: $0\hammer_streak[3:0]
+     5/7: $0\delta_t[7:0]
+     6/7: $0\cycle_timer[7:0]
+     7/7: $0\prev_addr[11:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\popcount64$func$fw_hdc_sense.v:335$593.$result' from process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:335$871'.
+No latch inferred for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\get_proto_breach$func$fw_hdc_sense.v:333$592.$result' from process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:333$866'.
+No latch inferred for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\get_proto_attack$func$fw_hdc_sense.v:332$591.$result' from process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:332$861'.
+No latch inferred for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\get_proto_probe$func$fw_hdc_sense.v:331$590.$result' from process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:331$856'.
+No latch inferred for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\project_query_chunk$func$fw_hdc_sense.v:330$589.$result' from process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:330$842'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_hdc_formal.\reset_counter' using process `\fw_hdc_formal.$proc$fw_hdc_formal.v:52$561'.
+  created $dff cell `$procdff$1835' with positive edge clock.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\formal_hdc_track' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:507$831'.
+  created $dff cell `$procdff$1836' with positive edge clock.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\formal_hdc_age' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:507$831'.
+  created $dff cell `$procdff$1837' with positive edge clock.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\active_snapshot' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1842' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\active_snapshot_valid' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1847' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\hdc_state' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1852' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\proto_stage' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1857' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\chunk_count' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1862' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\acc_dist' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1867' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\dist_probe' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1872' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\dist_attack' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1877' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\dist_breach' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1882' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\hdc_threat_level' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1887' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\hdc_fingerprint' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1892' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\closed_loop_hash_stage0' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1897' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\closed_loop_hash_stage1' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1902' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_ADDR' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1907' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_rd$\queue_mem$fw_hdc_sense.v:430$603_DATA' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+  created $adff cell `$procdff$1912' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\telemetry_overrun' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1917' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\overrun_mid' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1922' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\q_wr_ptr' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1927' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\q_rd_ptr' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1932' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\q_count' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1937' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\queue_mem[0]' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1942' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\queue_mem[1]' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1947' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_ADDR' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1952' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:235$599_DATA' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1957' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_ADDR' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1962' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:244$600_DATA' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1967' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_ADDR' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1972' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:258$601_DATA' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1977' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_ADDR' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1982' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$mem2reg_wr$\queue_mem$fw_hdc_sense.v:269$602_DATA' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+  created $adff cell `$procdff$1987' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\prev_addr' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$1992' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\cycle_timer' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$1997' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\delta_t' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$2002' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\hammer_streak' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$2007' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\probe_streak' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$2012' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\stall_streak' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$2017' with positive edge clock and positive level reset.
+Creating register for signal `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.\last_hammer_row' using process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+  created $adff cell `$procdff$2022' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_hdc_formal.$proc$fw_hdc_formal.v:51$588'.
+Found and cleaned up 3 empty switches in `\fw_hdc_formal.$proc$fw_hdc_formal.v:65$569'.
+Removing empty process `fw_hdc_formal.$proc$fw_hdc_formal.v:65$569'.
+Found and cleaned up 1 empty switch in `\fw_hdc_formal.$proc$fw_hdc_formal.v:57$564'.
+Removing empty process `fw_hdc_formal.$proc$fw_hdc_formal.v:57$564'.
+Found and cleaned up 1 empty switch in `\fw_hdc_formal.$proc$fw_hdc_formal.v:52$561'.
+Removing empty process `fw_hdc_formal.$proc$fw_hdc_formal.v:52$561'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:335$871'.
+Found and cleaned up 1 empty switch in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:333$866'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:333$866'.
+Found and cleaned up 1 empty switch in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:332$861'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:332$861'.
+Found and cleaned up 1 empty switch in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:331$856'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:331$856'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:330$842'.
+Found and cleaned up 5 empty switches in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:507$831'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:507$831'.
+Found and cleaned up 10 empty switches in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:403$799'.
+Found and cleaned up 17 empty switches in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:221$686'.
+Found and cleaned up 14 empty switches in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+Removing empty process `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$proc$fw_hdc_sense.v:125$667'.
+Cleaned up 54 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+<suppressed ~6 debug messages>
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+<suppressed ~258 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+
+3.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_hdc_formal...
+Checking module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100...
+Found and reported 0 problems.
+
+3.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Removed 130 unused cells and 698 unused wires.
+<suppressed ~132 debug messages>
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 32 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Computing hashes of 31 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+<suppressed ~3 debug messages>
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 521 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 450 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 440 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 435 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 430 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 425 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+<suppressed ~288 debug messages>
+Removed a total of 97 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_hdc_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$1224.
+    dead port 2/2 on $mux $procmux$1222.
+Removed 2 multiplexer ports.
+<suppressed ~266 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_hdc_formal.
+  Optimizing cells in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+    New ctrl vector for $pmux cell $procmux$1347: { $procmux$1277_CMP $auto$opt_reduce.cc:137:opt_pmux$2036 }
+  Optimizing cells in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Performed a total of 3 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 31 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Computing hashes of 29 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 422 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 407 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 398 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 393 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 389 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+<suppressed ~99 debug messages>
+Removed a total of 35 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Removed 0 unused cells and 131 unused wires.
+<suppressed ~2 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+<suppressed ~5 debug messages>
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_hdc_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~231 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_hdc_formal.
+  Optimizing cells in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 29 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 384 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Removed 0 unused cells and 5 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+
+3.7.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_hdc_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~231 debug messages>
+
+3.7.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_hdc_formal.
+  Optimizing cells in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Performed a total of 0 changes.
+
+3.7.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 29 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 384 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Removed a total of 0 cells.
+
+3.7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+
+3.7.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+
+3.7.20. Finished fast OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell fw_hdc_formal.$lt$fw_hdc_formal.v:53$562 ($lt).
+Removed top 31 bits (of 32) from port B of cell fw_hdc_formal.$add$fw_hdc_formal.v:54$563 ($add).
+Removed top 29 bits (of 32) from port Y of cell fw_hdc_formal.$add$fw_hdc_formal.v:54$563 ($add).
+Removed top 30 bits (of 32) from port B of cell fw_hdc_formal.$lt$fw_hdc_formal.v:58$565 ($lt).
+Removed top 29 bits (of 32) from wire fw_hdc_formal.$add$fw_hdc_formal.v:54$563_Y.
+Removed top 28 address bits (of 32) from memory init port $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$auto$mem.cc:351:emit$1159 ($auto$proc_rom.cc:155:do_switch$1157).
+Removed top 28 address bits (of 32) from memory init port $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$auto$mem.cc:351:emit$1155 ($auto$proc_rom.cc:155:do_switch$1153).
+Removed top 28 address bits (of 32) from memory init port $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$auto$mem.cc:351:emit$1151 ($auto$proc_rom.cc:155:do_switch$1149).
+Removed top 5 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$le$fw_hdc_sense.v:85$611 ($le).
+Removed top 7 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:87$612 ($add).
+Removed top 1 bits (of 9) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:92$624 ($add).
+Removed top 8 bits (of 9) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:92$624 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$eq$fw_hdc_sense.v:94$626 ($eq).
+Removed top 1 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ge$fw_hdc_sense.v:101$638 ($ge).
+Removed top 2 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$eq$fw_hdc_sense.v:102$639 ($eq).
+Removed top 7 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$le$fw_hdc_sense.v:104$642 ($le).
+Removed top 3 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$eq$fw_hdc_sense.v:106$648 ($eq).
+Removed top 5 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ge$fw_hdc_sense.v:106$649 ($ge).
+Removed top 2 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ge$fw_hdc_sense.v:107$653 ($ge).
+Removed top 2 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$eq$fw_hdc_sense.v:108$654 ($eq).
+Removed top 1 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ge$fw_hdc_sense.v:112$659 ($ge).
+Removed top 3 bits (of 5) from mux cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:119$660 ($mux).
+Removed top 2 bits (of 5) from mux cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:118$661 ($mux).
+Removed top 1 bits (of 5) from mux cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:117$662 ($mux).
+Removed top 7 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:136$670 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$gt$fw_hdc_sense.v:142$671 ($gt).
+Removed top 3 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$gt$fw_hdc_sense.v:152$674 ($gt).
+Removed top 3 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:154$678 ($add).
+Removed top 3 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:164$680 ($add).
+Removed top 7 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:173$683 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:271$753 ($add).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$sub$fw_hdc_sense.v:279$756 ($sub).
+Removed top 1 bits (of 2) from mux cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:343$768 ($mux).
+Removed top 5 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:365$773 ($xor).
+Removed top 16 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:367$774 ($xor).
+Removed top 15 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:369$777 ($xor).
+Removed top 13 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:371$780 ($xor).
+Removed top 16 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:373$783 ($xor).
+Removed top 13 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:388$786 ($xor).
+Removed top 16 bits (of 32) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$xor$fw_hdc_sense.v:393$789 ($xor).
+Removed top 1 bits (of 8) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ge$fw_hdc_sense.v:423$806 ($ge).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$gt$fw_hdc_sense.v:429$810 ($gt).
+Removed top 3 bits (of 4) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:462$818 ($add).
+Removed top 4 bits (of 11) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:463$819 ($add).
+Removed top 2 bits (of 11) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$le$fw_hdc_sense.v:475$820 ($le).
+Removed top 2 bits (of 11) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$le$fw_hdc_sense.v:478$825 ($le).
+Removed top 2 bits (of 11) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$le$fw_hdc_sense.v:481$828 ($le).
+Removed top 3 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$sub$fw_hdc_sense.v:305$849 ($sub).
+Removed top 6 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$876 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$876 ($add).
+Removed top 5 bits (of 7) from port Y of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$876 ($add).
+Removed top 5 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$877 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$877 ($add).
+Removed top 4 bits (of 7) from port Y of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$877 ($add).
+Removed top 4 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$878 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$878 ($add).
+Removed top 3 bits (of 7) from port Y of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$878 ($add).
+Removed top 3 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$879 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$879 ($add).
+Removed top 2 bits (of 7) from port Y of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$879 ($add).
+Removed top 2 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$880 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$880 ($add).
+Removed top 1 bits (of 7) from port Y of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$880 ($add).
+Removed top 1 bits (of 7) from port A of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$881 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$881 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$882 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$883 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$884 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$885 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$886 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$887 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$888 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$889 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$890 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$891 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$892 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$893 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$894 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$895 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$896 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$897 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$898 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$899 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$900 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$901 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$902 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$903 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$904 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$905 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$906 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$907 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$908 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$909 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$910 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$911 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$912 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$913 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$914 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$915 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$916 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$917 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$918 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$919 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$920 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$921 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$922 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$923 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$924 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$925 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$926 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$927 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$928 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$929 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$930 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$931 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$932 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$933 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$934 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$935 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$936 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$937 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$938 ($add).
+Removed top 6 bits (of 7) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$939 ($add).
+Removed top 1 bits (of 2) from mux cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procmux$1259 ($mux).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procmux$1288_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procmux$1311_CMP0 ($eq).
+Removed top 1 bits (of 2) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:343$768_Y.
+Removed top 1 bits (of 5) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:117$662_Y.
+Removed top 2 bits (of 5) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:118$661_Y.
+Removed top 3 bits (of 5) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$ternary$fw_hdc_sense.v:119$660_Y.
+Removed top 1 bits (of 7) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$880_Y.
+Removed top 2 bits (of 7) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$879_Y.
+Removed top 3 bits (of 7) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$878_Y.
+Removed top 4 bits (of 7) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$877_Y.
+Removed top 1 bits (of 2) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$procmux$1259_Y.
+Removed top 5 bits (of 7) from wire $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.$add$fw_hdc_sense.v:294$876_Y.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+Removed 0 unused cells and 11 unused wires.
+<suppressed ~2 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_hdc_formal.
+Optimizing module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_hdc_formal'.
+Computing hashes of 29 cells of `\fw_hdc_formal'.
+Finding duplicate cells in `\fw_hdc_formal'.
+Finding identical cells in module `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Computing hashes of 381 cells of `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Finding duplicate cells in `$paramod\fw_hdc_sense\RAPID_THRESH=7'0000100'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_hdc_formal..
+Finding unused cells or wires in module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Executing SORT pass.
+
+3.13. Printing statistics.
+
+=== $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      414 wires
+     4259 wire bits
+      114 public wires
+     1852 public wire bits
+       22 ports
+      174 port bits
+      381 cells
+       80   $add
+       27   $adff
+        2   $check
+        2   $dff
+       15   $eq
+        6   $ge
+        4   $gt
+        9   $le
+       25   $logic_and
+        8   $logic_not
+       10   $logic_or
+        3   $lt
+        3   $mem_v2
+      122   $mux
+        4   $ne
+        8   $not
+        2   $or
+        8   $pmux
+        2   $reduce_bool
+        1   $reduce_or
+        1   $shl
+        2   $shr
+        2   $sub
+       35   $xor
+
+=== fw_hdc_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       36 wires
+      160 wire bits
+       18 public wires
+      138 public wire bits
+       14 ports
+      100 port bits
+       28 cells
+        1   $add
+        9   $check
+        1   $dff
+        2   $eq
+        1   $ge
+        1   $le
+        1   $logic_and
+        2   $logic_not
+        3   $lt
+        6   $mux
+        1   $not
+        1 submodules
+        1   $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      409 fw_hdc_formal
+      381 $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+        +----------Count including submodules.
+        | 
+      450 wires
+     4419 wire bits
+      132 public wires
+     1990 public wire bits
+       36 ports
+      274 port bits
+        - memories
+        - memory bits
+        - processes
+      409 cells
+       81   $add
+       27   $adff
+       11   $check
+        3   $dff
+       17   $eq
+        7   $ge
+        4   $gt
+       10   $le
+       26   $logic_and
+       10   $logic_not
+       10   $logic_or
+        6   $lt
+        3   $mem_v2
+      128   $mux
+        4   $ne
+        9   $not
+        2   $or
+        8   $pmux
+        2   $reduce_bool
+        1   $reduce_or
+        1   $shl
+        2   $shr
+        2   $sub
+       35   $xor
+        1 submodules
+        1   $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+3.14. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100...
+Checking module fw_hdc_formal...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_hdc_formal'. Setting top module to fw_hdc_formal.
+
+4.1. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+4.2. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+Removed 0 unused modules.
+Module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100 directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_hdc_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 1 unique messages, 2 total
+End of script. Logfile hash: 30f81892fb
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 7x opt_expr (0 sec), 3% 6x opt_clean (0 sec), ...

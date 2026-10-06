@@ -1,0 +1,22 @@
+Executed UTC: 2026-08-24T02:22:43Z
+Tool: Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Runtime: Icarus Verilog runtime version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_fifo_latch -o D:\domixi\tmp\verification_v241\tb_dma_fifo_latch.vvp rtl\dma_fifo_latch.v tb\tb_dma_fifo_latch.v
+Compile exit: 0
+Simulation command: cd D:\domixi\tmp\verification_v241; vvp .\tb_dma_fifo_latch.vvp
+Simulation exit: 0
+VCD info: dumpfile fifo_wave.vcd opened for output.
+=== [TEST] Starting FIFO Test ===
+[PASS] Reset state OK
+=== [TEST] Writing Data until FULL ===
+[PASS] FIFO is FULL at depth 32
+=== [TEST] Reading Data until EMPTY ===
+[PASS] FIFO ordered scoreboard and EMPTY state
+=== [TEST] Concurrent Read/Write ===
+[PASS] Simultaneous read/write ordering and occupancy
+[PASS] FIFO abort flush clears occupancy
+[PASS] tb_dma_fifo_latch completed with no check failures
+tb\tb_dma_fifo_latch.v:188: $finish called at 776000 (1ps)
+Source SHA256:
+9C274E7C71BD81FD7163BF7AB18226307DF8C9D0A7749C166613B02D0724ABAD  D:\domixi\DMA-controller\rtl\dma_fifo_latch.v
+3D9E17E12429500F6101730EDAC05A733287BA2718D0B232244B0716577F3F9A  D:\domixi\DMA-controller\tb\tb_dma_fifo_latch.v

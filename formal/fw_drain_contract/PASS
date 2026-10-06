@@ -1,0 +1,4 @@
+Elapsed clock time [H:MM:SS (secs)]: 0:01:26 (86)
+Elapsed process time unvailable on Windows
+engine_0 (smtbmc z3) returned pass
+engine_0 did not produce any traces

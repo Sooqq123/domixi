@@ -1,0 +1,112 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module fw_axi_address_slice.
+Found 0 SCCs in module fw_axi_contract_formal.
+Found 0 SCCs in module fw_data_path_mux.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing fw_axi_address_slice.$procdff$526 ($adff): ARST=\rst_n, D=$0\araddr_reg[31:0], Q=\araddr_reg
+Replacing fw_axi_address_slice.$procdff$531 ($adff): ARST=\rst_n, D=$0\arid_reg[3:0], Q=\arid_reg
+Replacing fw_axi_address_slice.$procdff$536 ($adff): ARST=\rst_n, D=$0\arlen_reg[7:0], Q=\arlen_reg
+Replacing fw_axi_address_slice.$procdff$541 ($adff): ARST=\rst_n, D=$0\arsize_reg[2:0], Q=\arsize_reg
+Replacing fw_axi_address_slice.$procdff$546 ($adff): ARST=\rst_n, D=$0\arburst_reg[1:0], Q=\arburst_reg
+Replacing fw_axi_address_slice.$procdff$551 ($adff): ARST=\rst_n, D=$0\arprot_reg[2:0], Q=\arprot_reg
+Replacing fw_axi_address_slice.$procdff$556 ($adff): ARST=\rst_n, D=$0\arend_reg[31:0], Q=\arend_reg
+Replacing fw_axi_address_slice.$procdff$561 ($adff): ARST=\rst_n, D=$0\ar_valid_reg[0:0], Q=\ar_valid_reg
+Replacing fw_axi_address_slice.$procdff$566 ($adff): ARST=\rst_n, D=$0\ar_profile_err_reg[0:0], Q=\ar_profile_err_reg
+Replacing fw_axi_address_slice.$procdff$571 ($adff): ARST=\rst_n, D=$0\ar_overflow_err_reg[0:0], Q=\ar_overflow_err_reg
+Replacing fw_axi_address_slice.$procdff$576 ($adff): ARST=\rst_n, D=$0\ar_4kb_err_reg[0:0], Q=\ar_4kb_err_reg
+Replacing fw_axi_address_slice.$procdff$581 ($adff): ARST=\rst_n, D=$0\awaddr_reg[31:0], Q=\awaddr_reg
+Replacing fw_axi_address_slice.$procdff$586 ($adff): ARST=\rst_n, D=$0\awid_reg[3:0], Q=\awid_reg
+Replacing fw_axi_address_slice.$procdff$591 ($adff): ARST=\rst_n, D=$0\awlen_reg[7:0], Q=\awlen_reg
+Replacing fw_axi_address_slice.$procdff$596 ($adff): ARST=\rst_n, D=$0\awsize_reg[2:0], Q=\awsize_reg
+Replacing fw_axi_address_slice.$procdff$601 ($adff): ARST=\rst_n, D=$0\awburst_reg[1:0], Q=\awburst_reg
+Replacing fw_axi_address_slice.$procdff$606 ($adff): ARST=\rst_n, D=$0\awprot_reg[2:0], Q=\awprot_reg
+Replacing fw_axi_address_slice.$procdff$611 ($adff): ARST=\rst_n, D=$0\awend_reg[31:0], Q=\awend_reg
+Replacing fw_axi_address_slice.$procdff$616 ($adff): ARST=\rst_n, D=$0\aw_valid_reg[0:0], Q=\aw_valid_reg
+Replacing fw_axi_address_slice.$procdff$621 ($adff): ARST=\rst_n, D=$0\aw_profile_err_reg[0:0], Q=\aw_profile_err_reg
+Replacing fw_axi_address_slice.$procdff$626 ($adff): ARST=\rst_n, D=$0\aw_overflow_err_reg[0:0], Q=\aw_overflow_err_reg
+Replacing fw_axi_address_slice.$procdff$631 ($adff): ARST=\rst_n, D=$0\aw_4kb_err_reg[0:0], Q=\aw_4kb_err_reg
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_address_slice..
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Removed 66 unused cells and 66 unused wires.
+<suppressed ~67 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_address_slice..
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module fw_axi_address_slice...
+Checking module fw_axi_contract_formal...
+Checking module fw_data_path_mux...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_address_slice.
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_axi_address_slice'.
+Computing hashes of 124 cells of `\fw_axi_address_slice'.
+Finding duplicate cells in `\fw_axi_address_slice'.
+Finding identical cells in module `\fw_axi_contract_formal'.
+Computing hashes of 139 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Finding identical cells in module `\fw_data_path_mux'.
+Computing hashes of 37 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_address_slice..
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_address_slice..
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Removed 0 unused cells and 22 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: c785186d01
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

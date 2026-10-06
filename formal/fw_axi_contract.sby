@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 20
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal fw_axi_address_slice.v fw_data_path_mux.v fw_axi_contract_formal.v
+prep -top fw_axi_contract_formal
+
+[files]
+rtl/fw_axi_address_slice.v
+rtl/fw_data_path_mux.v
+formal/fw_axi_contract_formal.v

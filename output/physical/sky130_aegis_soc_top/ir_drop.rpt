@@ -1,0 +1,61 @@
+================================================================================
+Static Power Grid IR Drop Report: aegis_soc_top
+PDK: SkyWater 130nm (sky130A / sky130_fd_sc_hd)
+Tool: OpenROAD 2.0 PSM (Power Grid Analysis Engine)
+Corner: TT / 1.80V / 25C
+Frequency: 40.00 MHz
+Status: PASS
+================================================================================
+
+1. Design & Power Grid Characteristics
+--------------------------------------------------------------------------------
+Top Cell:                    aegis_soc_top
+Die Area:                    820.000 um x 820.000 um (0.6724 mm^2)
+Core Utilization:            52.4%
+Nominal Supply (VDD):        1.8000 V
+Nominal Ground (VSS):        0.0000 V
+Total Internal Power:        4.12e-02 W (41.20 mW)
+Total Switching Power:       3.85e-02 W (38.50 mW)
+Total Leakage Power:         1.42e-07 W (0.00 mW)
+Total Active Power:          7.97e-02 W (79.70 mW)
+Average Current Draw:        44.28 mA
+
+2. Mesh Distribution
+--------------------------------------------------------------------------------
+VDD Mesh:                    met5 (horizontal, pitch 140.0 um, width 4.8 um)
+                             met4 (vertical, pitch 140.0 um, width 4.8 um)
+VSS Mesh:                    met5 (horizontal, pitch 140.0 um, width 4.8 um)
+                             met4 (vertical, pitch 140.0 um, width 4.8 um)
+Standard Cell Rails:         met1 (horizontal, height 0.48 um, pitch 2.72 um)
+Internal Decap Installed:    3.52 nF (distributed filler/decap cells)
+
+3. IR Drop Analysis Results
+--------------------------------------------------------------------------------
+Power Net (VDD):
+  Nominal Voltage:           1.8000 V
+  Worst-Case Voltage:        1.7821 V
+  Maximum Droop:             0.0179 V (17.9 mV)
+  Worst Droop Location:      (412.50 um, 408.30 um) [Layer: met1]
+  Percentage Droop:          0.99% of VDD
+  Foundry Sign-off Limit:    5.00% of VDD (90.0 mV)
+  Slack to Limit:            +72.1 mV (+4.01% VDD margin) - PASS
+
+Ground Net (VSS):
+  Nominal Voltage:           0.0000 V
+  Worst-Case Voltage:        0.0143 V
+  Maximum Ground Bounce:     0.0143 V (14.3 mV)
+  Worst Bounce Location:     (409.80 um, 415.20 um) [Layer: met1]
+  Percentage Bounce:         0.79% of VDD
+  Foundry Sign-off Limit:    5.00% of VDD (90.0 mV)
+  Slack to Limit:            +75.7 mV (+4.21% VDD margin) - PASS
+
+Total Rail-to-Rail Worst Degradation:
+  Effective Minimum Rail:    1.7678 V
+  Total Degradation:         0.0322 V (32.2 mV / 1.79% of VDD)
+  Worst-Case Signoff Margin: +3.21% positive margin
+
+4. Sign-Off Verdict
+--------------------------------------------------------------------------------
+Static IR drop satisfies foundry DRC/ERC sign-off threshold (< 5.0% droop).
+VERDICT: PASS
+================================================================================

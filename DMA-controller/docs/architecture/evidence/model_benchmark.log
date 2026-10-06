@@ -1,0 +1,37 @@
+================================================================================
+           STARTING SYSTEM-LEVEL ARCHITECTURAL BENCHMARK SWEEP                  
+================================================================================
+
+>>> SWEEP 1: FIFO Depth vs Memory Latency (Size = 1024 Bytes @ 800 MHz)
+Depth= 4 | Lat=0 | Cycles= 964 | TP=  849.8 MB/s | BusUtil= 26.6% | PeakFIFO= 4 | StallFull=315
+Depth= 4 | Lat=1 | Cycles=1028 | TP=  796.9 MB/s | BusUtil= 24.9% | PeakFIFO= 4 | StallFull=315
+Depth= 4 | Lat=2 | Cycles=1092 | TP=  750.2 MB/s | BusUtil= 23.4% | PeakFIFO= 4 | StallFull=315
+Depth= 4 | Lat=3 | Cycles=1156 | TP=  708.7 MB/s | BusUtil= 22.1% | PeakFIFO= 4 | StallFull=315
+Depth= 4 | Lat=5 | Cycles=1284 | TP=  638.0 MB/s | BusUtil= 19.9% | PeakFIFO= 4 | StallFull=315
+Depth= 8 | Lat=0 | Cycles= 868 | TP=  943.8 MB/s | BusUtil= 29.5% | PeakFIFO= 8 | StallFull=279
+Depth= 8 | Lat=1 | Cycles= 900 | TP=  910.2 MB/s | BusUtil= 28.4% | PeakFIFO= 8 | StallFull=279
+Depth= 8 | Lat=2 | Cycles= 932 | TP=  879.0 MB/s | BusUtil= 27.5% | PeakFIFO= 8 | StallFull=279
+Depth= 8 | Lat=3 | Cycles= 964 | TP=  849.8 MB/s | BusUtil= 26.6% | PeakFIFO= 8 | StallFull=279
+Depth= 8 | Lat=5 | Cycles=1028 | TP=  796.9 MB/s | BusUtil= 24.9% | PeakFIFO= 8 | StallFull=279
+Depth=16 | Lat=0 | Cycles= 820 | TP=  999.0 MB/s | BusUtil= 31.2% | PeakFIFO=16 | StallFull=255
+Depth=16 | Lat=1 | Cycles= 836 | TP=  979.9 MB/s | BusUtil= 30.6% | PeakFIFO=16 | StallFull=255
+Depth=16 | Lat=2 | Cycles= 852 | TP=  961.5 MB/s | BusUtil= 30.0% | PeakFIFO=16 | StallFull=255
+Depth=16 | Lat=3 | Cycles= 868 | TP=  943.8 MB/s | BusUtil= 29.5% | PeakFIFO=16 | StallFull=255
+Depth=16 | Lat=5 | Cycles= 900 | TP=  910.2 MB/s | BusUtil= 28.4% | PeakFIFO=16 | StallFull=255
+Depth=32 | Lat=0 | Cycles= 565 | TP= 1449.9 MB/s | BusUtil= 45.3% | PeakFIFO=16 | StallFull=  0
+Depth=32 | Lat=1 | Cycles= 581 | TP= 1410.0 MB/s | BusUtil= 44.1% | PeakFIFO=16 | StallFull=  0
+Depth=32 | Lat=2 | Cycles= 597 | TP= 1372.2 MB/s | BusUtil= 42.9% | PeakFIFO=16 | StallFull=  0
+Depth=32 | Lat=3 | Cycles= 613 | TP= 1336.4 MB/s | BusUtil= 41.8% | PeakFIFO=16 | StallFull=  0
+Depth=32 | Lat=5 | Cycles= 645 | TP= 1270.1 MB/s | BusUtil= 39.7% | PeakFIFO=16 | StallFull=  0
+Depth=64 | Lat=0 | Cycles= 565 | TP= 1449.9 MB/s | BusUtil= 45.3% | PeakFIFO=16 | StallFull=  0
+Depth=64 | Lat=1 | Cycles= 581 | TP= 1410.0 MB/s | BusUtil= 44.1% | PeakFIFO=16 | StallFull=  0
+Depth=64 | Lat=2 | Cycles= 597 | TP= 1372.2 MB/s | BusUtil= 42.9% | PeakFIFO=16 | StallFull=  0
+Depth=64 | Lat=3 | Cycles= 613 | TP= 1336.4 MB/s | BusUtil= 41.8% | PeakFIFO=16 | StallFull=  0
+Depth=64 | Lat=5 | Cycles= 645 | TP= 1270.1 MB/s | BusUtil= 39.7% | PeakFIFO=16 | StallFull=  0
+
+>>> SWEEP 2: Payload Transfer Size Scaling (FIFO=32, Lat=1)
+
+[OK] Benchmark Results saved successfully:
+  - JSON: D:\domixi\DMA-controller\model\..\benchmark_data\benchmark_results.json
+  - CSV:  D:\domixi\DMA-controller\model\..\benchmark_data\benchmark_results.csv
+  - Metadata: D:\domixi\DMA-controller\model\..\benchmark_data\benchmark_metadata.json

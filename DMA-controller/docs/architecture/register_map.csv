@@ -1,0 +1,122 @@
+Register Name,Offset Address,Size,Bit Range,Field Name,Access Type,Reset Value,Lock Protection,Side Effects,Description
+FW_CONTROL,0x000,4 Bytes,[0],FW_EN,RW,1'b1,FW_LOCK Protected,None,"Bật ACL Default-Deny khi bằng 1. Giá trị 0 chỉ bypass ACL permission cho quản trị Secure-Privileged; profile alignment overflow 4KB framing và logging vẫn hoạt động. Toàn bộ thanh ghi reset 4'hD với EN=1 IRQ_EN=0 AUTO_CTX_EN=1 ERR_MODE=1"
+FW_CONTROL,0x000,4 Bytes,[1],IRQ_EN,RW,1'b0,FW_LOCK Protected,None,Bật ngắt an ninh phần cứng sec_irq khi phát hiện vi phạm
+FW_CONTROL,0x000,4 Bytes,[2],AUTO_CTX_EN,RW,1'b1,FW_LOCK Protected,1-to-0 clears Regions 4 and 5,Bật tự động cấu hình động; accepted write chuyển 1 sang 0 chặn allocation mới và xóa đồng bộ Region 4/5
+FW_CONTROL,0x000,4 Bytes,[3],ERR_MODE,RW,1'b1,FW_LOCK Protected,None,Chế độ phản hồi lỗi (1: Fail-Secure DECERR / 0: Honeypot OKAY)
+FW_CONTROL,0x000,4 Bytes,[31:4],RESERVED,RO,28'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored (các bit dự phòng)
+FW_LOCK,0x004,4 Bytes,[0],STICKY_LOCK,RW1S,1'b0,Hardware Sticky (RW1S),Khóa cấu hình static,Khóa FW_CONTROL và Regions 0-3/6-7 theo hướng dẫn hardening của NIST SP 800-193; fault status/metadata và dynamic Regions 4/5 không bị khóa; chỉ mở lại khi reset
+FW_LOCK,0x004,4 Bytes,[31:1],RESERVED,RO,31'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+FAULT_STATUS,0x008,4 Bytes,[0],READ_ERR,W1C,1'b0,Unlocked,Ghi 1 để xóa,Cờ báo vi phạm quyền đọc bộ nhớ
+FAULT_STATUS,0x008,4 Bytes,[1],WRITE_ERR,W1C,1'b0,Unlocked,Ghi 1 để xóa,Cờ báo vi phạm quyền ghi bộ nhớ
+FAULT_STATUS,0x008,4 Bytes,[2],PROT_ERR,W1C,1'b0,Unlocked,Ghi 1 để xóa,Cờ báo vi phạm thuộc tính bảo vệ PROT (Secure/Privileged)
+FAULT_STATUS,0x008,4 Bytes,[3],BOUND_ERR,W1C,1'b0,Unlocked,Ghi 1 để xóa,Cờ phạm vi/profile gồm non-INCR narrow/unaligned burst trên 16 beat address overflow crossing 4KB no full-region containment hoặc context len zero/overflow
+FAULT_STATUS,0x008,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+FAULT_STATUS,0x008,4 Bytes,[31],IRQ_PENDING,W1C,1'b0,Unlocked,Ghi 1 để hạ ngắt,Cờ ngắt an ninh độc lập (Sticky W1C); sec_irq = FW_CONTROL[1] && FAULT_STATUS[31]. Deasserts chỉ khi ghi 1 xóa IRQ_PENDING qua W1C hoặc IRQ_EN=0.
+FAULT_ADDR,0x00C,4 Bytes,[31:0],FIRST_FAULT_ADDR,RO,32'h00000000,None,Giữ đến lỗi kế tiếp hoặc reset,Lưu địa chỉ first-fault; clear status/IRQ chỉ mở khóa capture chứ không xóa metadata hiện tại
+FAULT_INFO,0x010,4 Bytes,[3:0],FAULT_MID,RO,4'h0,None,None,Master ID của giao dịch vi phạm đầu tiên
+FAULT_INFO,0x010,4 Bytes,[11:4],FAULT_LEN,RO,8'h00,None,None,Độ dài burst AxLEN của giao dịch vi phạm đầu tiên
+FAULT_INFO,0x010,4 Bytes,[14:12],FAULT_SIZE,RO,3'b000,None,None,Kích thước beat AxSIZE của giao dịch vi phạm đầu tiên
+FAULT_INFO,0x010,4 Bytes,[15],FAULT_TYPE,RO,1'b0,None,None,Chỉ báo tương thích 0 Read hoặc Context và 1 Write; FAULT_SOURCE tại 0x018 là nguồn phân loại authoritative
+FAULT_INFO,0x010,4 Bytes,[31:16],FAULT_COUNT,RO,16'h0000,None,Tự tăng khi có lỗi,Bộ đếm vi phạm an ninh tích lũy; bão hòa tại 16'hFFFF (65535) không quay vòng (Saturate-No-Wrap)
+FAULT_TIMESTAMP,0x014,4 Bytes,[31:0],FAULT_CYCLE,RO,32'h00000000,None,Giữ đến lỗi kế tiếp hoặc reset,Giá trị bộ đếm chu kỳ clock tại first-fault
+FAULT_SOURCE,0x018,4 Bytes,[1:0],FIRST_FAULT_SOURCE,RO,2'b00,None,Giữ đến lỗi kế tiếp hoặc reset,Nguồn first-fault: 2'b00 Read 2'b01 Write 2'b10 Context; 2'b11 reserved
+FAULT_SOURCE,0x018,4 Bytes,[5:2],FIRST_FAULT_CODE,RO,4'b0000,None,Giữ đến lỗi kế tiếp hoặc reset,Bitmask lỗi của record được chọn: [0]Read [1]Write [2]PROT [3]BOUND
+FAULT_SOURCE,0x018,4 Bytes,[31:6],RESERVED,RO,26'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_0,0x020,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 0; chỉ sửa khi inactive
+RGN_LIMIT_0,0x024,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 0; chỉ sửa khi inactive
+RGN_PERM_0,0x028,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 0
+RGN_PERM_0,0x028,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 0
+RGN_PERM_0,0x028,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_0,0x028,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_0,0x028,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_0,0x028,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_0,0x02C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 0
+RGN_MID_0,0x02C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID (1: Bỏ qua bit / 0: So khớp chính xác)
+RGN_MID_0,0x02C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_1,0x030,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 1; chỉ sửa khi inactive
+RGN_LIMIT_1,0x034,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 1; chỉ sửa khi inactive
+RGN_PERM_1,0x038,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 1
+RGN_PERM_1,0x038,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 1
+RGN_PERM_1,0x038,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_1,0x038,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_1,0x038,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_1,0x038,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_1,0x03C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 1
+RGN_MID_1,0x03C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID (1: Bỏ qua bit / 0: So khớp chính xác)
+RGN_MID_1,0x03C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_2,0x040,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 2; chỉ sửa khi inactive
+RGN_LIMIT_2,0x044,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 2; chỉ sửa khi inactive
+RGN_PERM_2,0x048,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 2
+RGN_PERM_2,0x048,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 2
+RGN_PERM_2,0x048,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_2,0x048,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_2,0x048,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_2,0x048,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_2,0x04C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 2
+RGN_MID_2,0x04C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID (1: Bỏ qua bit / 0: So khớp chính xác)
+RGN_MID_2,0x04C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_3,0x050,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 3; chỉ sửa khi inactive
+RGN_LIMIT_3,0x054,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 3; chỉ sửa khi inactive
+RGN_PERM_3,0x058,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 3
+RGN_PERM_3,0x058,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 3
+RGN_PERM_3,0x058,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_3,0x058,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_3,0x058,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_3,0x058,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_3,0x05C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 3
+RGN_MID_3,0x05C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID (1: Bỏ qua bit / 0: So khớp chính xác)
+RGN_MID_3,0x05C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_4,0x060,4 Bytes,[31:0],BASE_ADDR,RO,32'h00000000,Dynamic Sideband (RO via APB),None,Vùng động 4: tự động nạp đầy đủ Source Addr 32-bit (Read-Only) khi DMA chạy
+RGN_LIMIT_4,0x064,4 Bytes,[31:0],LIMIT_ADDR,RO,32'h00000000,Dynamic Sideband (RO via APB),None,Vùng động 4: Giới hạn kết thúc Source Addr + Len - 1
+RGN_PERM_4,0x068,4 Bytes,[0],READ_EN,RO,1'b1,Dynamic Sideband,None,Cho phép quyền đọc nguồn (Read-Only)
+RGN_PERM_4,0x068,4 Bytes,[1],WRITE_EN,RO,1'b0,Dynamic Sideband,None,Cấm quyền ghi vào vùng nguồn
+RGN_PERM_4,0x068,4 Bytes,[2],SECURE_ONLY,RO,1'b1,Dynamic Sideband,None,Thuộc tính Secure bắt buộc của dedicated DMA context
+RGN_PERM_4,0x068,4 Bytes,[3],PRIV_ONLY,RO,1'b1,Dynamic Sideband,None,Thuộc tính Privileged bắt buộc của dedicated DMA context
+RGN_PERM_4,0x068,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_4,0x068,4 Bytes,[31],ACTIVE,RO,1'b0,Dynamic Sideband,None,Cờ kích hoạt Region 4 (sau reset = 0; tự động bật khi DMA chạy; xóa ngay khi dma_ctx_done)
+RGN_MID_4,0x06C,4 Bytes,[3:0],WHITELIST_MID,RO,4'h0,Dynamic Sideband,None,Whitelist Master ID của DMA Core
+RGN_MID_4,0x06C,4 Bytes,[7:4],MID_MASK,RO,4'h0,Dynamic Sideband,None,Mặt nạ lọc Master ID
+RGN_MID_4,0x06C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_5,0x070,4 Bytes,[31:0],BASE_ADDR,RO,32'h00000000,Dynamic Sideband (RO via APB),None,Vùng động 5: tự động nạp đầy đủ Dest Addr 32-bit (Write-Only) khi DMA chạy
+RGN_LIMIT_5,0x074,4 Bytes,[31:0],LIMIT_ADDR,RO,32'h00000000,Dynamic Sideband (RO via APB),None,Vùng động 5: Giới hạn kết thúc Dest Addr + Len - 1
+RGN_PERM_5,0x078,4 Bytes,[0],READ_EN,RO,1'b0,Dynamic Sideband,None,Cấm quyền đọc từ vùng đích
+RGN_PERM_5,0x078,4 Bytes,[1],WRITE_EN,RO,1'b1,Dynamic Sideband,None,Cho phép quyền ghi đích (Write-Only)
+RGN_PERM_5,0x078,4 Bytes,[2],SECURE_ONLY,RO,1'b1,Dynamic Sideband,None,Thuộc tính Secure bắt buộc của dedicated DMA context
+RGN_PERM_5,0x078,4 Bytes,[3],PRIV_ONLY,RO,1'b1,Dynamic Sideband,None,Thuộc tính Privileged bắt buộc của dedicated DMA context
+RGN_PERM_5,0x078,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_5,0x078,4 Bytes,[31],ACTIVE,RO,1'b0,Dynamic Sideband,None,Cờ kích hoạt Region 5 (sau reset = 0; tự động bật khi DMA chạy; xóa ngay khi dma_ctx_done)
+RGN_MID_5,0x07C,4 Bytes,[3:0],WHITELIST_MID,RO,4'h0,Dynamic Sideband,None,Whitelist Master ID của DMA Core
+RGN_MID_5,0x07C,4 Bytes,[7:4],MID_MASK,RO,4'h0,Dynamic Sideband,None,Mặt nạ lọc Master ID
+RGN_MID_5,0x07C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_6,0x080,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 6; chỉ sửa khi inactive
+RGN_LIMIT_6,0x084,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 6; chỉ sửa khi inactive
+RGN_PERM_6,0x088,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 6 (Static/Expansion)
+RGN_PERM_6,0x088,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 6
+RGN_PERM_6,0x088,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_6,0x088,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_6,0x088,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_6,0x088,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_6,0x08C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 6
+RGN_MID_6,0x08C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID
+RGN_MID_6,0x08C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_BASE_7,0x090,4 Bytes,[31:0],BASE_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ cơ sở đầy đủ 32-bit của Region 7; chỉ sửa khi inactive
+RGN_LIMIT_7,0x094,4 Bytes,[31:0],LIMIT_ADDR,RW,32'h00000000,FW_LOCK Protected,Write while ACTIVE returns PSLVERR,Địa chỉ giới hạn inclusive của Region 7; chỉ sửa khi inactive
+RGN_PERM_7,0x098,4 Bytes,[0],READ_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền đọc trong Region 7 (Static/Expansion)
+RGN_PERM_7,0x098,4 Bytes,[1],WRITE_EN,RW,1'b0,FW_LOCK Protected,None,Cho phép quyền ghi trong Region 7
+RGN_PERM_7,0x098,4 Bytes,[2],SECURE_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Secure Only (AxPROT[1]=0)
+RGN_PERM_7,0x098,4 Bytes,[3],PRIV_ONLY,RW,1'b0,FW_LOCK Protected,None,Yêu cầu truy cập Privileged Only (AxPROT[0]=1)
+RGN_PERM_7,0x098,4 Bytes,[30:4],RESERVED,RO,27'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+RGN_PERM_7,0x098,4 Bytes,[31],ACTIVE,RW,1'b0,FW_LOCK Protected,Activation validates BASE <= LIMIT,Ghi 1 chỉ active khi BASE nhỏ hơn hoặc bằng LIMIT; nếu sai trả PSLVERR và giữ inactive
+RGN_MID_7,0x09C,4 Bytes,[3:0],WHITELIST_MID,RW,4'h0,FW_LOCK Protected,None,Master ID được phép truy cập Region 7
+RGN_MID_7,0x09C,4 Bytes,[7:4],MID_MASK,RW,4'h0,FW_LOCK Protected,None,Mặt nạ lọc Master ID
+RGN_MID_7,0x09C,4 Bytes,[31:8],RESERVED,RO,24'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+DMA_CTRL,0x10001000,4 Bytes,[0],START,WO,1'b0,None,None,Xung lệnh kích hoạt DMA (ghi 1 khi BUSY=0 để bắt đầu; ghi khi BUSY=1 bị bỏ qua; đọc bit trả về 0; không tự động xóa DONE/ERROR)
+DMA_CTRL,0x10001000,4 Bytes,[1],IRQ_EN,RW,1'b0,None,None,Bật ngắt DMA dma_irq khi DONE=1 hoặc ERROR=1; dma_irq = IRQ_EN & (DONE | ERROR)
+DMA_CTRL,0x10001000,4 Bytes,[31:2],RESERVED,RO,30'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored
+DMA_SRC,0x10001004,4 Bytes,[31:0],SRC_ADDR,RW,32'h00000000,None,Latched on accepted START,Địa chỉ nguồn DMA 32-bit căn chỉnh 4B; ghi khi BUSY chỉ đổi cấu hình lần chạy kế tiếp và không đổi descriptor active
+DMA_DST,0x10001008,4 Bytes,[31:0],DST_ADDR,RW,32'h00000000,None,Latched on accepted START,Địa chỉ đích DMA 32-bit căn chỉnh 4B; ghi khi BUSY chỉ đổi cấu hình lần chạy kế tiếp và không đổi descriptor active
+DMA_LEN,0x1000100C,4 Bytes,[31:0],BYTE_LEN,RW,32'h00000000,None,Latched on accepted START,Độ dài byte khác 0 và chia hết cho 4; ghi khi BUSY chỉ đổi cấu hình lần chạy kế tiếp và không đổi descriptor active
+DMA_STATUS,0x10001010,4 Bytes,[0],BUSY,RO,1'b0,None,None,Chỉ báo DMA đang thực hiện truyền dữ liệu (1: Bận / 0: Rảnh)
+DMA_STATUS,0x10001010,4 Bytes,[1],DONE,W1C,1'b0,None,Ghi 1 để xóa; hardware-set thắng W1C,Cờ sticky của terminal success event; giao dịch lỗi không set DONE nhưng lỗi mới không xóa DONE còn lưu từ giao dịch trước
+DMA_STATUS,0x10001010,4 Bytes,[2],ERROR,W1C,1'b0,None,Ghi 1 để xóa; hardware-set thắng W1C,Cờ sticky của invalid descriptor/alignment/overflow; AXI RRESP/BRESP non-OKAY; RID/BID mismatch; hoặc RLAST không đúng beat ARLEN+1; có thể cùng 1 với DONE lịch sử cho đến W1C
+DMA_STATUS,0x10001010,4 Bytes,[31:3],RESERVED,RO,29'h0,None,None,RAZ/WI — Read-As-Zero Write-Ignored

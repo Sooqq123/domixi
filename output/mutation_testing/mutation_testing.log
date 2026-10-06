@@ -1,0 +1,23 @@
+======================================================================
+AEGIS-RISC MUTATION TESTING: VERIFYING ASSERTION SENSITIVITY
+======================================================================
+
+[*] Evaluating Mutant: MUT-01-ACL-BYPASS
+    Description: Bypass ACL: force acl_allowed always true
+    [+] MUTANT KILLED (Detected: [ERROR] Test 2 at 65000: Allow mismatch! DUT=1010, Exp=0101)
+
+[*] Evaluating Mutant: MUT-02-WRITE-DRAIN-RESP
+    Description: Corrupt Write Drain: return OKAY instead of DECERR on write violation
+    [+] MUTANT KILLED (Detected: [ERROR] Step 2 at 50000 ps: TC02: bresp must be 2'b11 (DECERR))
+
+[*] Evaluating Mutant: MUT-03-READ-DRAIN-RESP
+    Description: Corrupt Read Drain: return OKAY instead of DECERR on read violation
+    [+] MUTANT KILLED (Detected: FATAL: D:\domixi\tb\tb_fw_read_drain.v:86: SAI RESP: 0 != 11)
+
+[*] Evaluating Mutant: MUT-04-NMI-PULSE-SUPPRESS
+    Description: Suppress NMI: disable NMI alert pulse generation
+    [+] MUTANT KILLED (Detected: [FAIL] aegis_nmi_irq failed to pulse high on first cycle)
+
+======================================================================
+MUTATION TESTING SUMMARY: 4/4 MUTANTS KILLED (100.0%), 0 SURVIVED
+======================================================================

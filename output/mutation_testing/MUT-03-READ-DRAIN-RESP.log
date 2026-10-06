@@ -1,0 +1,11 @@
+MUTANT: MUT-03-READ-DRAIN-RESP
+TARGET FILE: D:\domixi\rtl\fw_read_drain.v
+MUTATION: assign r_drain_rresp  = mode_q ? 2'b11 : 2'b00; // 2'b11=DECERR, 2'b00=OKAY -> assign r_drain_rresp  = 2'b00; // MUTANT: corrupt response
+SIMULATION RETURN CODE: 1
+--------------------------------------------------
+========================================
+FW READ DRAIN TESTBENCH
+========================================
+RUN RD-LEN-00
+FATAL: D:\domixi\tb\tb_fw_read_drain.v:86: SAI RESP: 0 != 11
+       Time: 45000  Scope: tb_fw_read_drain

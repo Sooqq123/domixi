@@ -1,0 +1,15 @@
+[options]
+mode cover
+depth 24
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal -D FORMAL -I. fw_hdc_sense.v fw_hdc_cover.v
+prep -top fw_hdc_cover
+
+[files]
+rtl/fw_hdc_sense.v
+formal/fw_hdc_cover.v
+generated/aegis_hdc_params.vh rtl/generated/aegis_hdc_params.vh

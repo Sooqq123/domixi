@@ -1,0 +1,156 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_hdc_formal'. Setting top module to fw_hdc_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_hdc_formal
+Used module:     $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+Removed 0 unused modules.
+Module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100 directly or indirectly contains formal properties -> setting "keep" attribute.
+Module fw_hdc_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100 ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      464 wires
+     4885 wire bits
+      134 public wires
+     2076 public wire bits
+       22 ports
+      174 port bits
+      440 cells
+       79   $add
+       29   $anyinit
+        1   $anyseq
+        2   $assert
+        1   $assume
+       15   $eq
+        3   $ff
+        6   $ge
+        4   $gt
+        9   $le
+       25   $logic_and
+        8   $logic_not
+       10   $logic_or
+        3   $lt
+        3   $mem_v2
+      176   $mux
+        4   $ne
+        9   $not
+        2   $or
+        8   $pmux
+        2   $reduce_bool
+        1   $reduce_or
+        1   $shl
+        2   $shr
+        2   $sub
+       35   $xor
+
+=== fw_hdc_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       47 wires
+      171 wire bits
+       18 public wires
+      138 public wire bits
+       14 ports
+      100 port bits
+       40 cells
+        1   $add
+        7   $assert
+        3   $assume
+        2   $eq
+       11   $ff
+        1   $ge
+        1   $le
+        1   $logic_and
+        2   $logic_not
+        3   $lt
+        6   $mux
+        2   $not
+        1 submodules
+        1   $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      480 fw_hdc_formal
+      440 $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+        +----------Count including submodules.
+        | 
+      511 wires
+     5056 wire bits
+      152 public wires
+     2214 public wire bits
+       36 ports
+      274 port bits
+        - memories
+        - memory bits
+        - processes
+      480 cells
+       80   $add
+       29   $anyinit
+        1   $anyseq
+        9   $assert
+        4   $assume
+       17   $eq
+       14   $ff
+        7   $ge
+        4   $gt
+       10   $le
+       26   $logic_and
+       10   $logic_not
+       10   $logic_or
+        6   $lt
+        3   $mem_v2
+      182   $mux
+        4   $ne
+       11   $not
+        2   $or
+        8   $pmux
+        2   $reduce_bool
+        1   $reduce_or
+        1   $shl
+        2   $shr
+        2   $sub
+       35   $xor
+        1 submodules
+        1   $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module $paramod\fw_hdc_sense\RAPID_THRESH=7'0000100.
+Creating SMT-LIBv2 representation of module fw_hdc_formal.
+
+End of script. Logfile hash: 270f23db6f
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...

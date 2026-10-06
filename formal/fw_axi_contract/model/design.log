@@ -1,0 +1,691 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: fw_axi_address_slice.v
+Parsing formal Verilog input from `fw_axi_address_slice.v' to AST representation.
+Generating RTLIL representation for module `\fw_axi_address_slice'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: fw_data_path_mux.v
+Parsing formal Verilog input from `fw_data_path_mux.v' to AST representation.
+Generating RTLIL representation for module `\fw_data_path_mux'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: fw_axi_contract_formal.v
+Parsing formal Verilog input from `fw_axi_contract_formal.v' to AST representation.
+Generating RTLIL representation for module `\fw_axi_contract_formal'.
+Successfully finished Verilog frontend.
+
+4. Executing PREP pass.
+
+4.1. Executing HIERARCHY pass (managing design hierarchy).
+
+4.1.1. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+
+4.1.2. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+Removed 0 unused modules.
+Module fw_axi_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4.2. Executing PROC pass (convert processes to netlists).
+
+4.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$fw_axi_contract_formal.v:307$87 in module fw_axi_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_axi_contract_formal.v:256$53 in module fw_axi_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_axi_contract_formal.v:234$48 in module fw_axi_contract_formal.
+Marked 1 switch rules as full_case in process $proc$fw_data_path_mux.v:195$44 in module fw_data_path_mux.
+Marked 1 switch rules as full_case in process $proc$fw_data_path_mux.v:161$43 in module fw_data_path_mux.
+Marked 3 switch rules as full_case in process $proc$fw_data_path_mux.v:113$40 in module fw_data_path_mux.
+Marked 2 switch rules as full_case in process $proc$fw_axi_address_slice.v:179$37 in module fw_axi_address_slice.
+Marked 2 switch rules as full_case in process $proc$fw_axi_address_slice.v:116$21 in module fw_axi_address_slice.
+Removed a total of 0 dead cases.
+
+4.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 6 redundant assignments.
+Promoted 26 assignments to connections.
+
+4.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:228$117'.
+  Set init value: \reset_counter = 3'000
+
+4.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst_n in `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+Found async reset \rst_n in `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+
+4.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~30 debug messages>
+
+4.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:228$117'.
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+     1/16: $0\r_owner_q[1:0]
+     2/16: $0\r_hold_q[0:0]
+     3/16: $0\b_owner_q[1:0]
+     4/16: $0\b_hold_q[0:0]
+     5/16: $assert$fw_axi_contract_formal.v:334$107_EN
+     6/16: $assume$fw_axi_contract_formal.v:331$105_EN
+     7/16: $assume$fw_axi_contract_formal.v:330$103_EN
+     8/16: $assume$fw_axi_contract_formal.v:329$101_EN
+     9/16: $assume$fw_axi_contract_formal.v:327$99_EN
+    10/16: $assert$fw_axi_contract_formal.v:324$97_EN
+    11/16: $assume$fw_axi_contract_formal.v:321$95_EN
+    12/16: $assume$fw_axi_contract_formal.v:320$93_EN
+    13/16: $assume$fw_axi_contract_formal.v:319$91_EN
+    14/16: $assume$fw_axi_contract_formal.v:317$89_EN
+    15/16: $0\r_bundle_q[69:0]
+    16/16: $0\b_bundle_q[37:0]
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:278$67'.
+     1/5: $assert$fw_axi_contract_formal.v:288$85_EN
+     2/5: $assert$fw_axi_contract_formal.v:286$80_EN
+     3/5: $assert$fw_axi_contract_formal.v:284$77_EN
+     4/5: $assert$fw_axi_contract_formal.v:282$74_EN
+     5/5: $assert$fw_axi_contract_formal.v:280$71_EN
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+     1/6: $0\ar_hold_q[0:0]
+     2/6: $0\aw_hold_q[0:0]
+     3/6: $assert$fw_axi_contract_formal.v:266$57_EN
+     4/6: $assert$fw_axi_contract_formal.v:264$55_EN
+     5/6: $0\ar_bundle_q[87:0]
+     6/6: $0\aw_bundle_q[87:0]
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:234$48'.
+     1/2: $assume$fw_axi_contract_formal.v:238$52_EN
+     2/2: $assume$fw_axi_contract_formal.v:236$50_EN
+Creating decoders for process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:229$45'.
+     1/1: $0\reset_counter[2:0]
+Creating decoders for process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+     1/8: $1\s_axi_rlast[0:0]
+     2/8: $1\s_axi_rresp[1:0]
+     3/8: $1\s_axi_rdata[31:0]
+     4/8: $1\s_axi_rid[3:0]
+     5/8: $1\s_axi_rvalid[0:0]
+     6/8: $1\m_axi_rready[0:0]
+     7/8: $1\hp_rready[0:0]
+     8/8: $1\r_drain_rready[0:0]
+Creating decoders for process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+     1/6: $1\s_axi_bresp[1:0]
+     2/6: $1\s_axi_bid[3:0]
+     3/6: $1\s_axi_bvalid[0:0]
+     4/6: $1\m_axi_bready[0:0]
+     5/6: $1\hp_bready[0:0]
+     6/6: $1\w_drain_bready[0:0]
+Creating decoders for process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+     1/21: $2\hp_wlast[0:0]
+     2/21: $2\hp_wvalid[0:0]
+     3/21: $3\s_axi_wready[0:0]
+     4/21: $2\hp_wstrb[3:0]
+     5/21: $2\hp_wdata[31:0]
+     6/21: $2\s_axi_wready[0:0]
+     7/21: $2\m_axi_wvalid[0:0]
+     8/21: $2\m_axi_wlast[0:0]
+     9/21: $2\m_axi_wstrb[3:0]
+    10/21: $2\m_axi_wdata[31:0]
+    11/21: $1\m_axi_wlast[0:0]
+    12/21: $1\m_axi_wstrb[3:0]
+    13/21: $1\m_axi_wdata[31:0]
+    14/21: $1\m_axi_wvalid[0:0]
+    15/21: $1\s_axi_wready[0:0]
+    16/21: $1\hp_wlast[0:0]
+    17/21: $1\hp_wstrb[3:0]
+    18/21: $1\hp_wdata[31:0]
+    19/21: $1\hp_wvalid[0:0]
+    20/21: $1\w_drain_wlast[0:0]
+    21/21: $1\w_drain_wvalid[0:0]
+Creating decoders for process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+     1/11: $0\ar_4kb_err_reg[0:0]
+     2/11: $0\ar_overflow_err_reg[0:0]
+     3/11: $0\ar_profile_err_reg[0:0]
+     4/11: $0\ar_valid_reg[0:0]
+     5/11: $0\arend_reg[31:0]
+     6/11: $0\arprot_reg[2:0]
+     7/11: $0\arburst_reg[1:0]
+     8/11: $0\arsize_reg[2:0]
+     9/11: $0\arlen_reg[7:0]
+    10/11: $0\arid_reg[3:0]
+    11/11: $0\araddr_reg[31:0]
+Creating decoders for process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+     1/11: $0\aw_4kb_err_reg[0:0]
+     2/11: $0\aw_overflow_err_reg[0:0]
+     3/11: $0\aw_profile_err_reg[0:0]
+     4/11: $0\aw_valid_reg[0:0]
+     5/11: $0\awend_reg[31:0]
+     6/11: $0\awprot_reg[2:0]
+     7/11: $0\awburst_reg[1:0]
+     8/11: $0\awsize_reg[2:0]
+     9/11: $0\awlen_reg[7:0]
+    10/11: $0\awid_reg[3:0]
+    11/11: $0\awaddr_reg[31:0]
+
+4.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\fw_data_path_mux.\s_axi_rid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_rdata' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_rresp' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_rlast' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_rvalid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_rready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\r_drain_rready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\hp_rready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_bid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_bresp' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_bvalid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_bready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\w_drain_bready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\hp_bready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+No latch inferred for signal `\fw_data_path_mux.\s_axi_wready' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_wvalid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_wdata' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_wstrb' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\m_axi_wlast' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\w_drain_wvalid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\w_drain_wlast' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\hp_wvalid' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\hp_wdata' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\hp_wstrb' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+No latch inferred for signal `\fw_data_path_mux.\hp_wlast' from process `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+
+4.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\fw_axi_contract_formal.\b_hold_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$511' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\b_owner_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$512' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\b_bundle_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$513' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\r_hold_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$514' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\r_owner_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$515' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\r_bundle_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+  created $dff cell `$procdff$516' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\aw_hold_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+  created $dff cell `$procdff$517' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\aw_bundle_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+  created $dff cell `$procdff$518' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\ar_hold_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+  created $dff cell `$procdff$519' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\ar_bundle_q' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+  created $dff cell `$procdff$520' with positive edge clock.
+Creating register for signal `\fw_axi_contract_formal.\reset_counter' using process `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:229$45'.
+  created $dff cell `$procdff$521' with positive edge clock.
+Creating register for signal `\fw_axi_address_slice.\araddr_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$526' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arid_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$531' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arlen_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$536' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arsize_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$541' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arburst_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$546' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arprot_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$551' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\arend_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$556' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\ar_valid_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$561' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\ar_profile_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$566' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\ar_overflow_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$571' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\ar_4kb_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+  created $adff cell `$procdff$576' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awaddr_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$581' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awid_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$586' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awlen_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$591' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awsize_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$596' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awburst_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$601' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awprot_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$606' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\awend_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$611' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\aw_valid_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$616' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\aw_profile_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$621' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\aw_overflow_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$626' with positive edge clock and positive level reset.
+Creating register for signal `\fw_axi_address_slice.\aw_4kb_err_reg' using process `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+  created $adff cell `$procdff$631' with positive edge clock and positive level reset.
+
+4.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:228$117'.
+Found and cleaned up 9 empty switches in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:307$87'.
+Found and cleaned up 5 empty switches in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:278$67'.
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:278$67'.
+Found and cleaned up 5 empty switches in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:256$53'.
+Found and cleaned up 1 empty switch in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:234$48'.
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:234$48'.
+Found and cleaned up 1 empty switch in `\fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:229$45'.
+Removing empty process `fw_axi_contract_formal.$proc$fw_axi_contract_formal.v:229$45'.
+Found and cleaned up 1 empty switch in `\fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+Removing empty process `fw_data_path_mux.$proc$fw_data_path_mux.v:195$44'.
+Found and cleaned up 1 empty switch in `\fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+Removing empty process `fw_data_path_mux.$proc$fw_data_path_mux.v:161$43'.
+Found and cleaned up 3 empty switches in `\fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+Removing empty process `fw_data_path_mux.$proc$fw_data_path_mux.v:113$40'.
+Found and cleaned up 2 empty switches in `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+Removing empty process `fw_axi_address_slice.$proc$fw_axi_address_slice.v:179$37'.
+Found and cleaned up 2 empty switches in `\fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+Removing empty process `fw_axi_address_slice.$proc$fw_axi_address_slice.v:116$21'.
+Cleaned up 30 empty switches.
+
+4.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+<suppressed ~24 debug messages>
+Optimizing module fw_data_path_mux.
+<suppressed ~13 debug messages>
+Optimizing module fw_axi_address_slice.
+<suppressed ~46 debug messages>
+
+4.3. Executing FUTURE pass.
+
+4.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+Optimizing module fw_axi_address_slice.
+
+4.5. Executing CHECK pass (checking for obvious problems).
+Checking module fw_axi_contract_formal...
+Checking module fw_data_path_mux...
+Checking module fw_axi_address_slice...
+Found and reported 0 problems.
+
+4.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Finding unused cells or wires in module \fw_axi_address_slice..
+Removed 28 unused cells and 285 unused wires.
+<suppressed ~31 debug messages>
+
+4.7. Executing OPT pass (performing simple optimizations).
+
+4.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+Optimizing module fw_axi_address_slice.
+
+4.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_axi_contract_formal'.
+Computing hashes of 144 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Computing hashes of 139 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Computing hashes of 135 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+<suppressed ~27 debug messages>
+Finding identical cells in module `\fw_data_path_mux'.
+Computing hashes of 98 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+Computing hashes of 51 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+<suppressed ~141 debug messages>
+Finding identical cells in module `\fw_axi_address_slice'.
+Computing hashes of 80 cells of `\fw_axi_address_slice'.
+Finding duplicate cells in `\fw_axi_address_slice'.
+Removed a total of 56 cells.
+
+4.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_axi_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_data_path_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$330.
+    dead port 2/2 on $mux $procmux$394.
+    dead port 2/2 on $mux $procmux$386.
+    dead port 2/2 on $mux $procmux$378.
+    dead port 2/2 on $mux $procmux$370.
+    dead port 2/2 on $mux $procmux$362.
+    dead port 2/2 on $mux $procmux$354.
+    dead port 2/2 on $mux $procmux$348.
+    dead port 2/2 on $mux $procmux$342.
+    dead port 2/2 on $mux $procmux$336.
+Running muxtree optimizer on module \fw_axi_address_slice..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 10 multiplexer ports.
+<suppressed ~200 debug messages>
+
+4.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_axi_contract_formal.
+  Optimizing cells in module \fw_data_path_mux.
+  Optimizing cells in module \fw_axi_address_slice.
+Performed a total of 0 changes.
+
+4.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_axi_contract_formal'.
+Computing hashes of 135 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Computing hashes of 133 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Computing hashes of 131 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\fw_data_path_mux'.
+Computing hashes of 41 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+Computing hashes of 37 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+<suppressed ~12 debug messages>
+Finding identical cells in module `\fw_axi_address_slice'.
+Computing hashes of 80 cells of `\fw_axi_address_slice'.
+Finding duplicate cells in `\fw_axi_address_slice'.
+Removed a total of 8 cells.
+
+4.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Finding unused cells or wires in module \fw_axi_address_slice..
+Removed 0 unused cells and 74 unused wires.
+<suppressed ~2 debug messages>
+
+4.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+Optimizing module fw_axi_address_slice.
+
+4.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \fw_axi_contract_formal..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_data_path_mux..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Running muxtree optimizer on module \fw_axi_address_slice..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~192 debug messages>
+
+4.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \fw_axi_contract_formal.
+  Optimizing cells in module \fw_data_path_mux.
+  Optimizing cells in module \fw_axi_address_slice.
+Performed a total of 0 changes.
+
+4.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_axi_contract_formal'.
+Computing hashes of 131 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Finding identical cells in module `\fw_data_path_mux'.
+Computing hashes of 37 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+Finding identical cells in module `\fw_axi_address_slice'.
+Computing hashes of 80 cells of `\fw_axi_address_slice'.
+Finding duplicate cells in `\fw_axi_address_slice'.
+Removed a total of 0 cells.
+
+4.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Finding unused cells or wires in module \fw_axi_address_slice..
+
+4.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+Optimizing module fw_axi_address_slice.
+
+4.7.14. Finished fast OPT passes. (There is nothing left to do.)
+
+4.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 3) from port B of cell fw_axi_contract_formal.$lt$fw_axi_contract_formal.v:230$46 ($lt).
+Removed top 1 bits (of 3) from port B of cell fw_axi_contract_formal.$lt$fw_axi_contract_formal.v:235$49 ($lt).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$ne$fw_axi_contract_formal.v:281$73 ($ne).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$ne$fw_axi_contract_formal.v:283$76 ($ne).
+Removed top 31 bits (of 38) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:319$92 ($eq).
+Removed top 31 bits (of 38) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:320$94 ($eq).
+Removed top 31 bits (of 38) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:321$96 ($eq).
+Removed top 31 bits (of 38) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:324$98 ($eq).
+Removed top 30 bits (of 70) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:329$102 ($eq).
+Removed top 30 bits (of 70) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:330$104 ($eq).
+Removed top 30 bits (of 70) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:331$106 ($eq).
+Removed top 30 bits (of 70) from port A of cell fw_axi_contract_formal.$eq$fw_axi_contract_formal.v:334$108 ($eq).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$procmux$153_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$procmux$187_CMP0 ($eq).
+Removed top 30 bits (of 70) from mux cell fw_axi_contract_formal.$procmux$199 ($pmux).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$procmux$202_CMP0 ($eq).
+Removed top 31 bits (of 38) from mux cell fw_axi_contract_formal.$procmux$209 ($pmux).
+Removed top 1 bits (of 2) from port B of cell fw_axi_contract_formal.$procmux$212_CMP0 ($eq).
+Removed top 30 bits (of 70) from wire fw_axi_contract_formal.$procmux$199_Y.
+Removed top 31 bits (of 38) from wire fw_axi_contract_formal.$procmux$209_Y.
+Removed top 30 bits (of 70) from wire fw_axi_contract_formal.s_r_bundle.
+Removed top 31 bits (of 38) from wire fw_axi_contract_formal.s_b_bundle.
+Removed top 30 bits (of 70) from wire fw_axi_contract_formal.h_r_bundle.
+Removed top 30 bits (of 70) from wire fw_axi_contract_formal.d_r_bundle.
+Removed top 30 bits (of 70) from wire fw_axi_contract_formal.m_r_bundle.
+Removed top 31 bits (of 38) from wire fw_axi_contract_formal.h_b_bundle.
+Removed top 31 bits (of 38) from wire fw_axi_contract_formal.d_b_bundle.
+Removed top 31 bits (of 38) from wire fw_axi_contract_formal.m_b_bundle.
+Removed top 1 bits (of 2) from port B of cell fw_data_path_mux.$procmux$291_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell fw_data_path_mux.$procmux$420_CMP0 ($eq).
+Removed top 1 bits (of 9) from port A of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:106$7 ($add).
+Removed top 8 bits (of 9) from port B of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:106$7 ($add).
+Removed top 7 bits (of 16) from port A of cell fw_axi_address_slice.$shl$fw_axi_address_slice.v:107$8 ($shl).
+Removed top 2 bits (of 34) from port A of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:109$9 ($add).
+Removed top 18 bits (of 34) from port B of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:109$9 ($add).
+Removed top 1 bits (of 34) from port Y of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:109$9 ($add).
+Removed top 1 bits (of 34) from port A of cell fw_axi_address_slice.$sub$fw_axi_address_slice.v:109$10 ($sub).
+Removed top 33 bits (of 34) from port B of cell fw_axi_address_slice.$sub$fw_axi_address_slice.v:109$10 ($sub).
+Removed top 1 bits (of 2) from port B of cell fw_axi_address_slice.$ne$fw_axi_address_slice.v:114$14 ($ne).
+Removed top 1 bits (of 3) from port B of cell fw_axi_address_slice.$ne$fw_axi_address_slice.v:114$15 ($ne).
+Removed top 4 bits (of 8) from port B of cell fw_axi_address_slice.$gt$fw_axi_address_slice.v:114$19 ($gt).
+Removed top 1 bits (of 9) from port A of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:171$23 ($add).
+Removed top 8 bits (of 9) from port B of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:171$23 ($add).
+Removed top 7 bits (of 16) from port A of cell fw_axi_address_slice.$shl$fw_axi_address_slice.v:172$24 ($shl).
+Removed top 2 bits (of 34) from port A of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:173$25 ($add).
+Removed top 18 bits (of 34) from port B of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:173$25 ($add).
+Removed top 1 bits (of 34) from port Y of cell fw_axi_address_slice.$add$fw_axi_address_slice.v:173$25 ($add).
+Removed top 1 bits (of 34) from port A of cell fw_axi_address_slice.$sub$fw_axi_address_slice.v:173$26 ($sub).
+Removed top 33 bits (of 34) from port B of cell fw_axi_address_slice.$sub$fw_axi_address_slice.v:173$26 ($sub).
+Removed top 1 bits (of 2) from port B of cell fw_axi_address_slice.$ne$fw_axi_address_slice.v:177$30 ($ne).
+Removed top 1 bits (of 3) from port B of cell fw_axi_address_slice.$ne$fw_axi_address_slice.v:177$31 ($ne).
+Removed top 4 bits (of 8) from port B of cell fw_axi_address_slice.$gt$fw_axi_address_slice.v:177$35 ($gt).
+Removed top 1 bits (of 34) from wire fw_axi_address_slice.$add$fw_axi_address_slice.v:173$25_Y.
+Removed top 1 bits (of 34) from wire fw_axi_address_slice.$add$fw_axi_address_slice.v:109$9_Y.
+
+4.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Finding unused cells or wires in module \fw_axi_address_slice..
+Removed 0 unused cells and 12 unused wires.
+<suppressed ~2 debug messages>
+
+4.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+4.11. Executing OPT pass (performing simple optimizations).
+
+4.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module fw_axi_contract_formal.
+Optimizing module fw_data_path_mux.
+Optimizing module fw_axi_address_slice.
+
+4.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\fw_axi_contract_formal'.
+Computing hashes of 131 cells of `\fw_axi_contract_formal'.
+Finding duplicate cells in `\fw_axi_contract_formal'.
+Finding identical cells in module `\fw_data_path_mux'.
+Computing hashes of 37 cells of `\fw_data_path_mux'.
+Finding duplicate cells in `\fw_data_path_mux'.
+Finding identical cells in module `\fw_axi_address_slice'.
+Computing hashes of 80 cells of `\fw_axi_address_slice'.
+Finding duplicate cells in `\fw_axi_address_slice'.
+Removed a total of 0 cells.
+
+4.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \fw_axi_contract_formal..
+Finding unused cells or wires in module \fw_data_path_mux..
+Finding unused cells or wires in module \fw_axi_address_slice..
+
+4.11.4. Finished fast OPT passes.
+
+4.12. Executing SORT pass.
+
+4.13. Printing statistics.
+
+=== fw_axi_address_slice ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      124 wires
+      916 wire bits
+       82 public wires
+      656 public wire bits
+       42 ports
+      288 port bits
+       80 cells
+        4   $add
+       22   $adff
+        2   $gt
+        2   $logic_and
+        2   $logic_not
+       10   $logic_or
+       24   $mux
+        6   $ne
+        2   $reduce_bool
+        2   $reduce_or
+        2   $shl
+        2   $sub
+
+=== fw_axi_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      223 wires
+     2039 wire bits
+      124 public wires
+     1268 public wire bits
+       54 ports
+      299 port bits
+      129 cells
+        1   $add
+       19   $check
+       11   $dff
+       24   $eq
+        5   $logic_and
+       14   $logic_not
+        1   $logic_or
+        2   $lt
+       48   $mux
+        2   $ne
+        2   $pmux
+        2 submodules
+        1   fw_axi_address_slice
+        1   fw_data_path_mux
+
+=== fw_data_path_mux ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       76 wires
+      370 wire bits
+       64 public wires
+      324 public wire bits
+       63 ports
+      323 port bits
+       37 cells
+        6   $eq
+       22   $mux
+        9   $pmux
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      246 fw_axi_contract_formal
+       80 fw_axi_address_slice
+       37 fw_data_path_mux
+
+        +----------Count including submodules.
+        | 
+      423 wires
+     3325 wire bits
+      270 public wires
+     2248 public wire bits
+      159 ports
+      910 port bits
+        - memories
+        - memory bits
+        - processes
+      246 cells
+        5   $add
+       22   $adff
+       19   $check
+       11   $dff
+       30   $eq
+        2   $gt
+        7   $logic_and
+       16   $logic_not
+       11   $logic_or
+        2   $lt
+       94   $mux
+        8   $ne
+       11   $pmux
+        2   $reduce_bool
+        2   $reduce_or
+        2   $shl
+        2   $sub
+        2 submodules
+        1   fw_axi_address_slice
+        1   fw_data_path_mux
+
+4.14. Executing CHECK pass (checking for obvious problems).
+Checking module fw_axi_address_slice...
+Checking module fw_axi_contract_formal...
+Checking module fw_data_path_mux...
+Found and reported 0 problems.
+
+5. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_axi_contract_formal'. Setting top module to fw_axi_contract_formal.
+
+5.1. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+
+5.2. Analyzing design hierarchy..
+Top module:  \fw_axi_contract_formal
+Used module:     \fw_data_path_mux
+Used module:     \fw_axi_address_slice
+Removed 0 unused modules.
+Module fw_axi_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+6. Executing jny backend.
+
+7. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: b953b1ad49
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 3% 6x opt_expr (0 sec), 3% 5x opt_clean (0 sec), ...

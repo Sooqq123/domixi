@@ -1,0 +1,16 @@
+=== STARTING ADVERSARIAL STRESS TESTS FOR fw_hdc_sense ===
+VCD info: dumpfile waves.vcd opened for output.
+
+--- Stress Test 1: 5,000 Random Benign DMA Bursts ---
+Stress Test 1 Result: Total FP on 5,000 random bursts = 0
+
+--- Stress Test 2: Contiguous DMA with Varying Burst Lengths ---
+Stress Test 2 Result: False Positives on Contiguous Varying-Length DMA = 0
+
+--- Stress Test 3: Rapid Contiguous DMA Across 4KB Row Boundaries ---
+Stress Test 3 Result: False Positives on Rapid Boundary Crossing = 0
+
+--- Stress Test 4: Rowhammer Evasion with Interleaved Read ---
+Stress Test 4 Result: After 10 interleaved read-write pairs, threat_level=00 alert=0
+
+=== ADVERSARIAL STRESS TESTS COMPLETE ===

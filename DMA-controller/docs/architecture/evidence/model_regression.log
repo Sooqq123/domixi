@@ -1,0 +1,71 @@
+test_attack_vector_1_cross_bound (test_integration.TestSoCIntegration.test_attack_vector_1_cross_bound)
+TC_CROSS_BOUND: AXI Burst crossing 4KB page boundary must be trapped immediately. ... ok
+test_attack_vector_2_tamper_lock (test_integration.TestSoCIntegration.test_attack_vector_2_tamper_lock)
+TC_TAMPER_LOCK: Malicious APB write after Sticky Lock must be blocked with PSLVERR. ... ok
+test_attack_vector_3_toctou_forgery (test_integration.TestSoCIntegration.test_attack_vector_3_toctou_forgery)
+TC_TOCTOU_FORGERY: Accessing an old buffer after DMA completion must be blocked after synchronous revocation. ... ok
+test_attack_vector_4_deadlock_stress (test_integration.TestSoCIntegration.test_attack_vector_4_deadlock_stress)
+TC_DEADLOCK_STRESS: 1,000 back-to-back violation bursts must not deadlock the Sink Drain FSM. ... ok
+test_attack_vector_5_unaligned_and_profile_violations (test_integration.TestSoCIntegration.test_attack_vector_5_unaligned_and_profile_violations)
+TC_PROFILE_VIOLATION: Unaligned burst (ADDR[1:0]!=00) or size!=2 must be trapped as BOUND_ERR. ... ok
+test_dma_aborts_on_firewall_read_decerr_after_drain (test_integration.TestSoCIntegration.test_dma_aborts_on_firewall_read_decerr_after_drain)
+Connect DMA and firewall directly and verify denied R drains then aborts. ... ok
+test_end_to_end_fifo32_and_aw_before_w (test_integration.TestSoCIntegration.test_end_to_end_fifo32_and_aw_before_w)
+A complete transfer never forwards W before the matching AW handshake. ... ok
+test_normal_dma_transfer_golden_match (test_integration.TestSoCIntegration.test_normal_dma_transfer_golden_match)
+TC_NORMAL: Verify clean DMA transfer with 100% data integrity. ... ok
+test_active_region_descriptor_edit_rejected (test_unit.TestUnitComponents.test_active_region_descriptor_edit_rejected)
+Verify modifying descriptor (BASE/LIMIT/MID) while Region is ACTIVE returns PSLVERR. ... ok
+test_apb_read_only_dynamic_regions (test_unit.TestUnitComponents.test_apb_read_only_dynamic_regions)
+Verify APB writes to Region 4 & 5 return PSLVERR. ... ok
+test_apb_read_out_of_window_and_unaligned_pslverr (test_unit.TestUnitComponents.test_apb_read_out_of_window_and_unaligned_pslverr)
+Verify APB reads from out-of-window or unaligned addresses return PSLVERR. ... ok
+test_auto_context_disable_revokes_and_requires_valid_rearm (test_unit.TestUnitComponents.test_auto_context_disable_revokes_and_requires_valid_rearm) ... ok
+test_batch_fault_recording_ors_status_counts_and_prioritizes_metadata (test_unit.TestUnitComponents.test_batch_fault_recording_ors_status_counts_and_prioritizes_metadata) ... ok
+test_boundary_calculator_and_4kb_wrap (test_unit.TestUnitComponents.test_boundary_calculator_and_4kb_wrap) ... ok
+test_default_fifo_depth_matches_architecture (test_unit.TestUnitComponents.test_default_fifo_depth_matches_architecture) ... ok
+test_dma_bresp_error_aborts_after_committed_write (test_unit.TestUnitComponents.test_dma_bresp_error_aborts_after_committed_write) ... ok
+test_dma_constrained_profile_violations (test_unit.TestUnitComponents.test_dma_constrained_profile_violations)
+Verify unaligned address, non-word size, burst > 16 beats, and non-INCR are rejected. ... ok
+test_dma_early_rlast_aborts_and_closes_read (test_unit.TestUnitComponents.test_dma_early_rlast_aborts_and_closes_read) ... ok
+test_dma_missing_final_rlast_aborts_at_expected_beat (test_unit.TestUnitComponents.test_dma_missing_final_rlast_aborts_at_expected_beat) ... ok
+test_dma_rresp_error_drains_to_rlast_then_aborts (test_unit.TestUnitComponents.test_dma_rresp_error_drains_to_rlast_then_aborts) ... ok
+test_dma_sideband_v2_interface (test_unit.TestUnitComponents.test_dma_sideband_v2_interface) ... ok
+test_dma_start_busy_noop_and_sticky_status_w1c (test_unit.TestUnitComponents.test_dma_start_busy_noop_and_sticky_status_w1c) ... ok
+test_dma_waits_for_aw_handshake_before_w_and_fifo_pop (test_unit.TestUnitComponents.test_dma_waits_for_aw_handshake_before_w_and_fifo_pop) ... ok
+test_dynamic_context_tracker_synchronous_revocation (test_unit.TestUnitComponents.test_dynamic_context_tracker_synchronous_revocation) ... ok
+test_dynamic_context_valid_is_one_shot_until_low (test_unit.TestUnitComponents.test_dynamic_context_valid_is_one_shot_until_low) ... ok
+test_exact_base_address_no_overgrant (test_unit.TestUnitComponents.test_exact_base_address_no_overgrant)
+Verify dynamic buffer at 0x2000_0080 does NOT grant access to 0x2000_0000 (no 4KB round-down). ... ok
+test_fail_secure_reset_default_deny (test_unit.TestUnitComponents.test_fail_secure_reset_default_deny)
+Verify FW_EN=1 out of reset and unconfigured accesses are blocked by DEFAULT_DENY. ... ok
+test_fault_source_apb_reset_retention_and_recapture (test_unit.TestUnitComponents.test_fault_source_apb_reset_retention_and_recapture) ... ok
+test_fifo_push_pop_and_overflow (test_unit.TestUnitComponents.test_fifo_push_pop_and_overflow) ... ok
+test_firewall_allowed_response_ids_stable_under_backpressure (test_unit.TestUnitComponents.test_firewall_allowed_response_ids_stable_under_backpressure) ... ok
+test_firewall_blocks_w_before_aw_and_enforces_single_outstanding (test_unit.TestUnitComponents.test_firewall_blocks_w_before_aw_and_enforces_single_outstanding) ... ok
+test_firewall_denied_read_and_write_echo_ids (test_unit.TestUnitComponents.test_firewall_denied_read_and_write_echo_ids) ... ok
+test_firewall_permission_snapshot_survives_context_revoke (test_unit.TestUnitComponents.test_firewall_permission_snapshot_survives_context_revoke) ... ok
+test_firewall_profile_enforced_while_acl_disabled (test_unit.TestUnitComponents.test_firewall_profile_enforced_while_acl_disabled) ... ok
+test_first_fault_metadata_persists_until_irq_pending_cleared (test_unit.TestUnitComponents.test_first_fault_metadata_persists_until_irq_pending_cleared)
+Verify first-fault address and metadata are locked until BOTH fault bits AND IRQ_PENDING are cleared. ... ok
+test_fw_control_reset_default_value (test_unit.TestUnitComponents.test_fw_control_reset_default_value)
+Verify FW_CONTROL resets to 0x0000_000D (EN=1, IRQ_EN=0, AUTO_CTX_EN=1, ERR_MODE=1). ... ok
+test_irq_pending_sticky_w1c (test_unit.TestUnitComponents.test_irq_pending_sticky_w1c)
+Verify IRQ_PENDING is sticky and only deasserts when cleared via W1C. ... ok
+test_misaligned_context_rejected_by_firewall_model (test_unit.TestUnitComponents.test_misaligned_context_rejected_by_firewall_model)
+Verify Firewall Model rejects misaligned sideband context allocation. ... ok
+test_nonsecure_access_to_secure_region_blocked_with_prot_err (test_unit.TestUnitComponents.test_nonsecure_access_to_secure_region_blocked_with_prot_err)
+Verify Non-Secure transaction to SECURE_ONLY region is blocked and traps PROT_ERR. ... ok
+test_read_drain_exact_beats_stable_and_echoes_rid (test_unit.TestUnitComponents.test_read_drain_exact_beats_stable_and_echoes_rid) ... ok
+test_sideband_len_zero_and_overflow_protection (test_unit.TestUnitComponents.test_sideband_len_zero_and_overflow_protection)
+Verify len=0 or 32-bit overflow prevents dynamic context activation. ... ok
+test_simultaneous_context_write_read_faults_capture_context_source (test_unit.TestUnitComponents.test_simultaneous_context_write_read_faults_capture_context_source) ... ok
+test_static_region_activation_rejects_base_above_limit_atomically (test_unit.TestUnitComponents.test_static_region_activation_rejects_base_above_limit_atomically) ... ok
+test_sticky_lock_rw1s_immutability (test_unit.TestUnitComponents.test_sticky_lock_rw1s_immutability) ... ok
+test_write_drain_fsm_sink_and_resp (test_unit.TestUnitComponents.test_write_drain_fsm_sink_and_resp) ... ok
+test_write_drain_requires_awlen_plus_one_and_echoes_bid (test_unit.TestUnitComponents.test_write_drain_requires_awlen_plus_one_and_echoes_bid) ... ok
+
+----------------------------------------------------------------------
+Ran 46 tests in 0.069s
+
+OK

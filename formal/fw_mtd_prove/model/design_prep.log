@@ -1,0 +1,95 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Found 0 SCCs in module fw_mtd_formal.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$242 ($adff): ARST=\resetn, D=$0\honey_pot_hit[0:0], Q=\honey_pot_hit
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$247 ($adff): ARST=\resetn, D=$0\jitter_run[1:0], Q=\jitter_run
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$252 ($adff): ARST=\resetn, D=$0\token_count[3:0], Q=\token_count
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$257 ($adff): ARST=\resetn, D=$0\refill_timer[3:0], Q=\refill_timer
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$262 ($adff): ARST=\resetn, D=$0\shape_timer[2:0], Q=\shape_timer
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$267 ($adff): ARST=\resetn, D=\threat_level, Q=\prev_threat
+Replacing $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.$procdff$272 ($adff): ARST=\resetn, D={ \scrambler_state [14:0] \scrambler_fb }, Q=\scrambler_state
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Finding unused cells or wires in module \fw_mtd_formal..
+Removed 33 unused cells and 33 unused wires.
+<suppressed ~35 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Finding unused cells or wires in module \fw_mtd_formal..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~4 debug messages>
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine...
+Checking module fw_mtd_formal...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine.
+Optimizing module fw_mtd_formal.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 80 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Computing hashes of 78 cells of `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+Finding duplicate cells in `$paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine'.
+<suppressed ~6 debug messages>
+Finding identical cells in module `\fw_mtd_formal'.
+Computing hashes of 54 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+Computing hashes of 53 cells of `\fw_mtd_formal'.
+Finding duplicate cells in `\fw_mtd_formal'.
+<suppressed ~3 debug messages>
+Removed a total of 3 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Finding unused cells or wires in module \fw_mtd_formal..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~2 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module $paramod$db56d444d0af534a22de6986a245098f4fd19815\fw_mtd_engine..
+Finding unused cells or wires in module \fw_mtd_formal..
+Removed 0 unused cells and 9 unused wires.
+<suppressed ~1 debug messages>
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: fa28669fa9
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 5% 4x opt_clean (0 sec), 5% 4x id_gc (0 sec), ...

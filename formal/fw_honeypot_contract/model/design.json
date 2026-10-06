@@ -1,0 +1,2467 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "fw_honeypot_contract_formal",
+        "cell_sorts": [
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$101",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:95.13-95.19|fw_honeypot_contract_formal.v:95.9-104.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$103",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:102.17-102.40|fw_honeypot_contract_formal.v:102.13-103.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$106",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:95.13-95.19|fw_honeypot_contract_formal.v:95.9-104.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procmux$109",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:84.13-84.33|fw_honeypot_contract_formal.v:84.9-87.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$112",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:84.13-84.33|fw_honeypot_contract_formal.v:84.9-87.27"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$114",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:80.13-80.33|fw_honeypot_contract_formal.v:80.9-81.51"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                },
+                {
+                  "name": "$procmux$78",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:129.13-129.22|fw_honeypot_contract_formal.v:129.9-130.33"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$80",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:127.13-127.22|fw_honeypot_contract_formal.v:127.9-128.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$83",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:111.13-111.19|fw_honeypot_contract_formal.v:111.9-120.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$85",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:115.17-115.25|fw_honeypot_contract_formal.v:115.13-116.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$88",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:111.13-111.19|fw_honeypot_contract_formal.v:111.9-120.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$90",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:118.17-118.40|fw_honeypot_contract_formal.v:118.13-119.40"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procmux$93",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:111.13-111.19|fw_honeypot_contract_formal.v:111.9-120.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procmux$96",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:95.13-95.19|fw_honeypot_contract_formal.v:95.9-104.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$98",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:99.17-99.25|fw_honeypot_contract_formal.v:99.13-100.48"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_honeypot_contract_formal.v:126$72",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:126.16-126.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$dff",
+            "ports": [
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$323",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:110.5-121.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$324",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:110.5-121.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000101000"
+                  }
+                },
+                {
+                  "name": "$procdff$325",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:94.5-105.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$326",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:94.5-105.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000110"
+                  }
+                },
+                {
+                  "name": "$procdff$327",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:79.5-82.8"
+                  },
+                  "parameters": {
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$lt",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$lt$fw_honeypot_contract_formal.v:80$43",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:80.13-80.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$lt$fw_honeypot_contract_formal.v:84$46",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:84.13-84.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_100_52",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_100_52",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:100.17-100.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_116_60",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_116_60",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:116.17-116.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000001",
+                    "TRG_POLARITY": "1",
+                    "TRG_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_124_67",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_124_67",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:124.9-124.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_125_69",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_125_69",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:125.9-125.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_126_71",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_126_71",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:126.9-126.47"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111101",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_128_73",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_128_73",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:128.13-128.31"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111100",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_fw_honeypot_contract_formal_v_130_75",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_fw_honeypot_contract_formal_v_130_75",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:130.13-130.32"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111011",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_honeypot_contract_formal_v_85_47",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_honeypot_contract_formal_v_85_47",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:85.13-85.27"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assume_fw_honeypot_contract_formal_v_87_49",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assume_fw_honeypot_contract_formal_v_87_49",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:87.13-87.26"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assume",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_honeypot_contract_formal.v:102$57",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:102.17-102.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_contract_formal.v:118$65",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:118.17-118.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_honeypot_contract_formal.v:124$68",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:124.16-124.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_honeypot_contract_formal.v:125$70",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:125.16-125.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_honeypot_contract_formal.v:102$56",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:102.30-102.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_honeypot_contract_formal.v:118$64",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:118.30-118.40"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_honeypot_contract_formal.v:128$74",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:128.20-128.30"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_honeypot_contract_formal.v:130$76",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:130.20-130.31"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_not$fw_honeypot_contract_formal.v:85$48",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:85.20-85.26"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "fw_honeypot_sink",
+            "ports": [
+                {
+                  "name": "clk",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "honey_trans_count",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_araddr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_arburst",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_arid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_arlen",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "hp_arready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_arsize",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "hp_arvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_awaddr",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_awburst",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_awid",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_awlen",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "hp_awready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_awsize",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "hp_awvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_bid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_bready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_bresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_bvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rdata",
+                  "direction": "",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_rid",
+                  "direction": "",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_rlast",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rready",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_rresp",
+                  "direction": "",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "hp_rvalid",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wdata",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "hp_wlast",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wready",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "hp_wstrb",
+                  "direction": "io",
+                  "range": [4, 0]
+                },
+                {
+                  "name": "hp_wvalid",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "rst_n",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "scrambler_state_out",
+                  "direction": "",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "sink_busy",
+                  "direction": "",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "wlast_err",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "u_dut",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_contract_formal.v:40.22-76.6"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [6, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_honeypot_contract_formal.v:100$53",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:100.24-100.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000110",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000110",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_honeypot_contract_formal.v:116$61",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:116.24-116.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000101000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000101000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [3, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [3, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_honeypot_contract_formal.v:81$44",
+                  "attributes": {
+                    "src": "fw_honeypot_contract_formal.v:81.30-81.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000011",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000011"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "top": "00000000000000000000000000000001",
+            "src": "fw_honeypot_contract_formal.v:1.1-133.10"
+        }
+      },
+      {
+        "name": "fw_honeypot_sink",
+        "cell_sorts": [
+          {
+            "type": "$adff",
+            "ports": [
+                {
+                  "name": "ARST",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "CLK",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "D",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Q",
+                  "direction": "",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procdff$332",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:270.5-278.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$337",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "1",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$342",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$347",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$352",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$357",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$362",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$367",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$372",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000000000000000000000000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procdff$377",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$382",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:202.5-264.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$387",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "1",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$392",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$397",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$402",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$407",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procdff$412",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procdff$417",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procdff$422",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$427",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:121.5-182.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "00000000",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procdff$432",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:98.5-104.8"
+                  },
+                  "parameters": {
+                    "ARST_POLARITY": "00000000000000000000000000000000",
+                    "ARST_VALUE": "0001101011001110",
+                    "CLK_POLARITY": "1",
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$mux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$116",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:274.17-274.57|fw_honeypot_sink.v:274.13-276.16"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$120",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$122",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$127",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$133",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$135",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:215.27-215.27|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$140",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$142",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:215.27-215.27|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$147",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$149",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:215.27-215.27|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$153",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$155",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$160",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$165",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$167",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$172",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$177",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$179",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$184",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$189",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$191",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$196",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$201",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$203",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$208",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$213",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:239.29-239.58|fw_honeypot_sink.v:239.25-252.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$215",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:238.25-238.36|fw_honeypot_sink.v:238.21-253.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$220",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:217.25-217.49|fw_honeypot_sink.v:217.21-234.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$226",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$228",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$233",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$240",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$242",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:133.27-133.27|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$248",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$250",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:133.27-133.27|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$253",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:167.25-167.36|fw_honeypot_sink.v:167.21-171.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$258",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$260",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$264",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$270",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:153.33-153.42|fw_honeypot_sink.v:153.29-155.32"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$272",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$274",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$276",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:147.20-147.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$281",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$283",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$285",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:147.20-147.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$288",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:167.25-167.36|fw_honeypot_sink.v:167.21-171.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$293",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$295",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$302",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:151.29-151.58|fw_honeypot_sink.v:151.25-162.28"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$304",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:150.25-150.36|fw_honeypot_sink.v:150.21-163.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$308",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$312",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:167.25-167.36|fw_honeypot_sink.v:167.21-171.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$318",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:136.25-136.49|fw_honeypot_sink.v:136.21-146.24"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$321",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:101.22-101.36|fw_honeypot_sink.v:101.18-103.12"
+                  },
+                  "parameters": {
+                    "WIDTH": "00000000000000000000000000010000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$reduce_bool",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$ne$fw_honeypot_sink.v:280$39",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:280.25-280.42"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$ne$fw_honeypot_sink.v:280$40",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:280.48-280.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$xor",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [32, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [32, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$xor$fw_honeypot_sink.v:199$22",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:199.35-200.115"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:200$21",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:200.36-200.80"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:227$26",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:227.80-227.114"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000010000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000010000",
+                    "Y_WIDTH": "00000000000000000000000000010000"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:227$27",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:227.43-227.137"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000100000",
+                    "Y_WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:87$7",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:87.31-88.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:87$8",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:87.31-89.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$xor$fw_honeypot_sink.v:87$9",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:87.31-90.50"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_or",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_or$fw_honeypot_sink.v:267$33",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:267.29-267.59"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_honeypot_sink.v:274$37",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:274.17-274.57"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_or$fw_honeypot_sink.v:280$41",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:280.24-280.66"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_and",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:118$12",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:118.24-118.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:119$13",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:119.24-119.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:136$16",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:136.25-136.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:196$20",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:196.24-196.46"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:217$25",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:217.25-217.49"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$logic_and$fw_honeypot_sink.v:274$36",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:274.33-274.56"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000001",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$logic_not",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_honeypot_sink.v:228$28",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:228.44-228.60"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$222_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:215.27-215.27|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$320_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:133.27-133.27|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$fw_honeypot_sink.v:151$17",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:151.29-151.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_honeypot_sink.v:239$29",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:239.29-239.58"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$fw_honeypot_sink.v:251$32",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:251.46-251.82"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000001000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$218_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$315_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:164.20-164.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000010",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$316_CMP0",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:147.20-147.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000000010",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$pmux",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [16, 0]
+                },
+                {
+                  "name": "S",
+                  "direction": "io",
+                  "range": [2, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$procmux$124",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$157",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$169",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$181",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000100000"
+                  }
+                },
+                {
+                  "name": "$procmux$193",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000100"
+                  }
+                },
+                {
+                  "name": "$procmux$205",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$217",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:235.20-235.20|fw_honeypot_sink.v:215.13-262.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$230",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:147.20-147.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$procmux$255",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:164.20-164.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000010"
+                  }
+                },
+                {
+                  "name": "$procmux$290",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:164.20-164.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000010",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$299",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:164.20-164.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$procmux$314",
+                  "attributes": {
+                    "full_case": "00000000000000000000000000000001",
+                    "src": "fw_honeypot_sink.v:164.20-164.20|fw_honeypot_sink.v:133.13-180.20"
+                  },
+                  "parameters": {
+                    "S_WIDTH": "00000000000000000000000000000011",
+                    "WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$add",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [8, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [8, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$add$fw_honeypot_sink.v:161$19",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:161.45-161.64"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$add$fw_honeypot_sink.v:251$31",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:251.46-251.65"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000001000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000001000"
+                  }
+                },
+                {
+                  "name": "$add$fw_honeypot_sink.v:275$38",
+                  "attributes": {
+                    "src": "fw_honeypot_sink.v:275.38-275.63"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000000100000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000000000001",
+                    "Y_WIDTH": "00000000000000000000000000100000"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "src": "fw_honeypot_sink.v:23.1-282.10"
+        }
+      }
+  ]
+}

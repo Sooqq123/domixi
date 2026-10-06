@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 55
+
+[engines]
+smtbmc z3
+
+[script]
+read_verilog -formal -D FORMAL -I. fw_hdc_sense.v fw_hdc_formal.v
+prep -top fw_hdc_formal
+
+[files]
+rtl/fw_hdc_sense.v
+formal/fw_hdc_formal.v
+generated/aegis_hdc_params.vh rtl/generated/aegis_hdc_params.vh

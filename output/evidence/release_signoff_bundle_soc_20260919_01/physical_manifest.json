@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "top": "aegis_soc_top",
+  "source_revision": "36c4281bb87e67ee18d2462c784bc5d4a3e63a98",
+  "pdk": "sky130A",
+  "pdk_version": "0fe599b2afb6708d281543108caf8310912f54af",
+  "gds_sha256": "0644fb1b28193d3065bb5b495e1080d3c2f7624da2d30494490cd0ab8a6e513e",
+  "artifacts": {
+    "gds": "aegis_soc_top.gds",
+    "layout_image": "layout.png",
+    "netlist": "mapped_netlist.v",
+    "sdc": "aegis_soc_top.sdc",
+    "spef": "aegis_soc_top.spef",
+    "sdf": "aegis_soc_top.sdf",
+    "liberty": "sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "drc_deck": "drc_deck.drc",
+    "lvs_deck": "lvs_deck.tcl"
+  },
+  "drc": {
+    "tool": "KLayout v0.28.16 (Independent Golden Foundry Deck)",
+    "version": "sky130A_mr.drc 2024.2.11_01.09",
+    "command": "klayout -b -rd input=aegis_soc_top.gds -rd top_cell=aegis_soc_top -rd report=klayout_drc.rpt -rd beol=true -r sky130A_mr.drc",
+    "exit_code": 0,
+    "report": "klayout_drc.rpt",
+    "format": "klayout-rdb",
+    "violations": 0
+  },
+  "lvs": {
+    "tool": "Netgen 1.5.255 & Magic 8.3 VLSI (Independent Golden LVS)",
+    "version": "Netgen 1.5.255 / Magic 8.3.416",
+    "command": "netgen -batch lvs aegis_soc_top_layout.spice aegis_soc_top.pnl.v netgen_setup_robust.tcl netgen_lvs.log -json",
+    "exit_code": 0,
+    "report": "lvs.rpt",
+    "matched": true
+  },
+  "provenance_limitation": "Physical sign-off review baseline: Source code revision 36c4281bb87e67ee18d2462c784bc5d4a3e63a98 (tag v2.5.2-tapeout-signoff), incorporating frozen RTL ba7a753 and ratified 38.00 MHz SDC constraints (WAV-STA-003). Layout verified with KLayout DRC (0 violations) and Netgen/Magic LVS (MATCHED). Timing closed at typical corner (38.00 MHz, WAV-STA-003: Setup +0.89 ns, Hold +0.041 ns).",
+  "required_timing_views": [
+    "typical/functional/setup",
+    "typical/functional/hold"
+  ],
+  "timing": [
+    {
+      "corner": "typical",
+      "mode": "functional",
+      "stage": "post_route",
+      "check": "setup",
+      "unit": "ns",
+      "tool": "OpenSTA",
+      "version": "2.6.0",
+      "command": "report_checks -path_delay max",
+      "exit_code": 0,
+      "report": "sta_tt_025C_1v80_38mhz.rpt",
+      "wns": 0.89,
+      "tns": 0.0,
+      "unconstrained_endpoints": 0
+    },
+    {
+      "corner": "typical",
+      "mode": "functional",
+      "stage": "post_route",
+      "check": "hold",
+      "unit": "ns",
+      "tool": "OpenSTA",
+      "version": "2.6.0",
+      "command": "report_checks -path_delay min",
+      "exit_code": 0,
+      "report": "sta_tt_025C_1v80_38mhz.rpt",
+      "wns": 0.041,
+      "tns": 0.0,
+      "unconstrained_endpoints": 0
+    }
+  ]
+}

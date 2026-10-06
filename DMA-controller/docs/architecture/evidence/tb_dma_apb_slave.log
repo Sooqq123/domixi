@@ -1,0 +1,36 @@
+Executed UTC: 2026-08-24T02:22:43Z
+Tool: Icarus Verilog version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Runtime: Icarus Verilog runtime version 12.0 (devel) (s20150603-1539-g2693dd32b)
+Command: iverilog -g2012 -Wall -Wimplicit -s tb_dma_apb_slave -o D:\domixi\tmp\verification_v241\tb_dma_apb_slave.vvp rtl\dma_apb_slave.v tb\tb_dma_apb_slave.v
+Compile exit: 0
+Simulation command: cd D:\domixi\tmp\verification_v241; vvp .\tb_dma_apb_slave.vvp
+Simulation exit: 0
+VCD info: dumpfile apb_slave_wave.vcd opened for output.
+
+=== TEST 1: GHI/ĐỌC CÁC THANH GHI CẤU HÌNH ===
+[PASS]     Read Source Addr - Val: aaaa0000
+[PASS]     Read Dest Addr   - Val: bbbb0000
+[PASS]     Read Byte Length - Val: 00000100
+
+=== TEST 2: ĐỌC THANH GHI TRẠNG THÁI (STATUS) ===
+[PASS] atus: Busy=1, Done=0 - Val: 00000001
+[PASS] atus: Busy=0, Done=1 - Val: 00000002
+[PASS] tus: Done=1, Error=1 - Val: 00000006
+[PASS]     Status: Done W1C - Val: 00000004
+[PASS]    Status: Error W1C - Val: 00000000
+
+=== TEST 3: START-WHILE-BUSY, STICKY STATUS, AND IRQ_EN ===
+[PASS] ART preserves sticky - Val: 00000007
+[PASS] START pulse and IRQ_EN generated correctly
+[PASS] START pulse auto-cleared
+[PASS] ART preserves sticky - Val: 00000006
+[PASS] re set wins over W1C - Val: 00000006
+
+=== TEST 4: APB 32-BIT ADDRESS WINDOW ===
+[PASS] ong APB base address
+[PASS] re invalid APB write
+[PASS] tb_dma_apb_slave completed with no check failures
+tb\tb_dma_apb_slave.v:268: $finish called at 755000 (1ps)
+Source SHA256:
+F2E224B6C313A77944CAD82F505EFC4E422AE7958D67D8C63AD9B46CC4187030  D:\domixi\DMA-controller\rtl\dma_apb_slave.v
+26258DF5F1B08D0C33C91D57B7E9BF1A363C773215619E333ACD9B0ED5E443EE  D:\domixi\DMA-controller\tb\tb_dma_apb_slave.v

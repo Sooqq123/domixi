@@ -1,0 +1,130 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `fw_honeypot_contract_formal'. Setting top module to fw_honeypot_contract_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \fw_honeypot_contract_formal
+Used module:     \fw_honeypot_sink
+
+2.2. Analyzing design hierarchy..
+Top module:  \fw_honeypot_contract_formal
+Used module:     \fw_honeypot_sink
+Removed 0 unused modules.
+Module fw_honeypot_contract_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== fw_honeypot_contract_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       77 wires
+      466 wire bits
+       42 public wires
+      339 public wire bits
+       20 ports
+      142 port bits
+       50 cells
+        1   $add
+        4   $anyinit
+        7   $assert
+        3   $assume
+        2   $eq
+        5   $ff
+        2   $logic_and
+        7   $logic_not
+        2   $lt
+       15   $mux
+        1   $not
+        1   $reduce_bool
+        1 submodules
+        1   fw_honeypot_sink
+
+=== fw_honeypot_sink ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      185 wires
+     1284 wire bits
+       73 public wires
+      558 public wire bits
+       35 ports
+      242 port bits
+      162 cells
+        3   $add
+       21   $anyinit
+        1   $assume
+        6   $eq
+        6   $logic_and
+        3   $logic_not
+        3   $logic_or
+       97   $mux
+        1   $not
+       12   $pmux
+        2   $reduce_bool
+        7   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      212 fw_honeypot_contract_formal
+      162 fw_honeypot_sink
+
+        +----------Count including submodules.
+        | 
+      262 wires
+     1750 wire bits
+      115 public wires
+      897 public wire bits
+       55 ports
+      384 port bits
+        - memories
+        - memory bits
+        - processes
+      212 cells
+        4   $add
+       25   $anyinit
+        7   $assert
+        4   $assume
+        8   $eq
+        5   $ff
+        8   $logic_and
+       10   $logic_not
+        3   $logic_or
+        2   $lt
+      112   $mux
+        2   $not
+       12   $pmux
+        3   $reduce_bool
+        7   $xor
+        1 submodules
+        1   fw_honeypot_sink
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module fw_honeypot_sink.
+Creating SMT-LIBv2 representation of module fw_honeypot_contract_formal.
+
+End of script. Logfile hash: fa04561b63
+Yosys 0.69+24 (git sha1 d0e71cfb7-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)
+Time spent: 10% 2x write_smt2 (0 sec), 10% 2x read_rtlil (0 sec), ...
